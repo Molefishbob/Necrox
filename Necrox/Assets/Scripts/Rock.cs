@@ -29,7 +29,8 @@ public class Rock : MonoBehaviour {
 
     }
 
-	public void Initialize(int[] pos) {
+	public void Initialize(int x, int y) {
+        int[] pos = new int[] {x,y};
 		this.pos = pos;
 	}
 }
