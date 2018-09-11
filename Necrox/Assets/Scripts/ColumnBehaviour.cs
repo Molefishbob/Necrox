@@ -11,18 +11,18 @@ public class ColumnBehaviour : MonoBehaviour {
 
 	void OnDrawGizmosSelected() {
 			Gizmos.color = new Color(1,0,0,0.5f);
-			Gizmos.DrawCube(transform.parent.position + transform.localPosition + new Vector3(0,-2.5f,0),
-							new Vector3(0.8f,6.8f,0));
+			Gizmos.DrawCube(transform.parent.position + transform.localPosition + new Vector3(0,0.5f,0)
+							,new Vector3(6,0.7f,0));
 		}
 
 	public void FillColumn() {
-		for (int a = 0 ; GameField.GetArrayColumns() > a ; a++) {
+		for (int a = 0 ; GameField.GetArrayRows() > a ; a++) {
 			var newRock = Instantiate(GameField.GetRockPrefab(),
-									  new Vector3(transform.position.x,1,0),
+									  new Vector3(a,0,0),
 									  Quaternion.identity);
 									  
 			newRock.transform.parent = gameObject.transform;
-			newRock.Init((int) transform.position.x,GameField.GetArrayRows() -a);
+			newRock.Init(GameField.GetArrayColumns(), (int) transform.position.y -a);
 		}
 	}
 }

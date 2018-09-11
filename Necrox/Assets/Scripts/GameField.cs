@@ -8,7 +8,7 @@ public class GameField : MonoBehaviour {
 	public Rock rockPrefab;
 	public int arrayRows;
 	public int arrayColumns;
-	public static char[,] gameField;
+	public static GameObject[,] gameField;
 	private Randomizer rand = new Randomizer();
 	private static int rows;
 	private static int column;
@@ -26,7 +26,7 @@ public class GameField : MonoBehaviour {
 			child.GetComponent<ColumnBehaviour>().FillColumn();
          }
 
-		gameField = new char[arrayColumns, arrayRows];
+		gameField = new GameObject[arrayColumns, arrayRows];
 		Time.timeScale = 1;
 	}
 	
@@ -37,7 +37,7 @@ public class GameField : MonoBehaviour {
 	public static Rock GetRockPrefab() {
 		return rock;
 	}
-	public static char[,] GetGameField() {
+	public static GameObject[,] GetGameField() {
 		return gameField;
 	}
 	
@@ -47,23 +47,8 @@ public class GameField : MonoBehaviour {
 	public static int GetArrayRows() {
 		return rows;
 	}
-		void OnDrawGizmosSelected() {
-			Gizmos.color = new Color(1,0,0,0.5f);
-			Gizmos.DrawCube(center,size);
-		}
-/*
-		private void FillArea() {
-			for (int a = 0; a < gameField.Length;a++) {
-				for (int b =0; b < gameField.Length; b++) {
-					if (gameField[a,b] == 0) {
-						FillSpot(a, b);
-					}
-				}
-			}
-		}
-		private void FillSpot(int a , int b) {
-			gameField[a,b] = rand.RandomRock();
-			SpawnRocks(a, b);
-		}
-		*/
+	void OnDrawGizmosSelected() {
+		Gizmos.color = new Color(1,0,0,0.5f);
+		Gizmos.DrawCube(center,size);
+	}
 }
