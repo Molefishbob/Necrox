@@ -305,7 +305,6 @@ MonoBehaviour:
     type: 2}
   arrayRows: 6
   arrayColumns: 6
-  timer: 0.5
 --- !u!4 &607664519
 Transform:
   m_ObjectHideFlags: 0
