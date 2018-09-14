@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour {
 	
     private BoxCollider2D coll;
+    private float speed = 0.018f;
 
 	// Use this for initialization
 	void Start () {

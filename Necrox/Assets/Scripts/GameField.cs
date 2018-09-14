@@ -8,11 +8,16 @@ public class GameField : MonoBehaviour {
 	public Rock rockPrefab;
 	public int arrayRows;
 	public int arrayColumns;
+	public float timer;
 	public static GameObject[,] gameField;
+
 	private Randomizer rand = new Randomizer();
+	private bool startGame = true;
 	private static int rows;
 	private static int column;
 	private static Rock rock;
+	private float count;
+	private int rowsDone;
 	private List<GameObject> Children = new List<GameObject>();
 
 
@@ -20,18 +25,31 @@ public class GameField : MonoBehaviour {
 		rows = arrayRows;
 		rock = rockPrefab;
 		column = arrayColumns;
+		count = timer;
+		rowsDone = 0;
 		
         foreach (Transform child in transform) {
 			Children.Add(child.gameObject);
-			child.GetComponent<ColumnBehaviour>().FillColumn();
-         }
+    	}
 
 		gameField = new GameObject[arrayColumns, arrayRows];
 		Time.timeScale = 1;
 	}
 	
 	void Update () {
-
+		if (startGame) {
+			if (timer <= count) {
+				foreach (GameObject child in Children) {
+						child.GetComponent<ColumnBehaviour>().CreateRock();
+				}
+				rowsDone++;
+				if (rowsDone == arrayRows) {
+					startGame = false;
+				}
+				count = 0;
+			}
+			count = count + Time.deltaTime;
+		}
 	}
 
 	public static Rock GetRockPrefab() {

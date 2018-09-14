@@ -5,7 +5,6 @@ using UnityEngine;
 public class Rock : MonoBehaviour {
 
 	public int[] pos = new int[2];
-    private float speed = 0.018f;
     private bool onMove;
     private float yValue;
 
@@ -15,7 +14,9 @@ public class Rock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if (onMove) {
+            transform.localPosition = new Vector3(0,transform.localPosition.y - 0.1f,0);
+        }
     }
 
 	public void Init(int x, int y) {
@@ -23,4 +24,11 @@ public class Rock : MonoBehaviour {
 		this.pos = pos;
         onMove = true;
 	}
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Rock" || other.gameObject.tag == "GameField") {
+            Debug.Log("TRIGGER");
+            onMove = false;
+        }
+    }
 }
