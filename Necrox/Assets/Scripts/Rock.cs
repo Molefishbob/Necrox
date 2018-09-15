@@ -14,9 +14,9 @@ public class Rock : MonoBehaviour {
         }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (onMove) {
-            transform.localPosition = new Vector3(0,transform.localPosition.y - 0.08f,0);
+            transform.localPosition = new Vector3(0,transform.localPosition.y - 0.04f,0);
         }
     }
 /*
