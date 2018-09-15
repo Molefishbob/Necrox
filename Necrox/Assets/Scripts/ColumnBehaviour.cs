@@ -12,7 +12,7 @@ public class ColumnBehaviour : MonoBehaviour {
 	void OnDrawGizmosSelected() {
 			Gizmos.color = new Color(1,0,0,0.5f);
 			Gizmos.DrawCube(transform.parent.position + transform.localPosition + new Vector3(0,0.5f,0)
-							,new Vector3(1.25f,9f,0));
+							,new Vector3(1f,6f,0));
 		}
 
 	public void CreateRock() {
