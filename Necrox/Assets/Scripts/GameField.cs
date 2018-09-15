@@ -13,7 +13,7 @@ public class GameField : MonoBehaviour {
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
-	private float timer = 0.2f;
+	private float timer = 1f;
 	private static int column;
 	private static Rock rock;
 	private float count;
@@ -38,7 +38,7 @@ public class GameField : MonoBehaviour {
 	
 	void Update () {
 		if (startGame) {
-			if (timer + Random.Range(0.2f,0.5f) <= count) {
+			if (timer <= count) {
 				foreach (GameObject child in Children) {
 						child.GetComponent<ColumnBehaviour>().CreateRock();
 				}
