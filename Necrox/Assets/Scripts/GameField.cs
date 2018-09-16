@@ -13,7 +13,7 @@ public class GameField : MonoBehaviour {
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
-	private float timer = 1f;
+	private float timer = 0.55f;
 	private static int column;
 	private static Rock rock;
 	private float count;
