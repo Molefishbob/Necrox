@@ -17,13 +17,14 @@ public class ColumnBehaviour : MonoBehaviour {
 
 		}
 
-	public void CreateRock() {
+	public void CreateRock(int a, int b) {
 
 		var newRock = Instantiate(GameField.GetRockPrefab(),
 								  new Vector3(transform.position.x,1,-1),
 								  Quaternion.identity);
 		
 		newRock.transform.parent = gameObject.transform;
+		GameField.setObject(a,b,newRock.gameObject);
 		newRock.Init((int) transform.localPosition.x, GameField.GetArrayRows());
 		
 	}

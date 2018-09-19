@@ -29,6 +29,7 @@ public class GameField : MonoBehaviour {
 		rowsDone = 0;
 		
         foreach (Transform child in transform) {
+
 			Children.Add(child.gameObject);
     	}
 
@@ -39,8 +40,10 @@ public class GameField : MonoBehaviour {
 	void Update () {
 		if (startGame) {
 			if (timer <= count) {
+				int a = 0;
 				foreach (GameObject child in Children) {
-						child.GetComponent<ColumnBehaviour>().CreateRock();
+					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone);
+					a++;
 				}
 				rowsDone++;
 				if (rowsDone == arrayRows) {
@@ -49,6 +52,15 @@ public class GameField : MonoBehaviour {
 				count = 0;
 			}
 			count = count + Time.deltaTime;
+		}
+		if (Input.GetKeyDown("space")) {
+			for (int a = 0; a < gameField.GetLength(0);a++) {
+				Debug.Log("Column " + a);
+				for (int b = 0; b < gameField.GetLength(1);b++) {
+					Debug.Log(gameField[a,b]);
+				}
+				Debug.Log(" ");
+			}
 		}
 	}
 
@@ -64,6 +76,9 @@ public class GameField : MonoBehaviour {
 	}
 	public static int GetArrayRows() {
 		return rows;
+	}
+	public static void setObject(int a, int b, GameObject rock) {
+		gameField[a,b] = rock;
 	}
 	void OnDrawGizmosSelected() {
 		Gizmos.color = new Color(1,0,0,0.5f);
