@@ -237,11 +237,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template1: fwfecw
-  template2: ffewef
-  template3: efwfef
-  template4: wwefee
-  template5: feffew
-  template6: wecwff
+  template2: wecfwf
+  template3: fwfece
+  template4: fwcfef
+  template5: ecfwew
+  template6: fwewcf
 --- !u!4 &335085324
 Transform:
   m_ObjectHideFlags: 0
