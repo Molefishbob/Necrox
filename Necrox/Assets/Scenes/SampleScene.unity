@@ -195,6 +195,100 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowNumber: 4
+--- !u!1 &335085321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335085324}
+  - component: {fileID: 335085323}
+  - component: {fileID: 335085322}
+  m_Layer: 0
+  m_Name: GameLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &335085322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 335085321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaaa91603149cbc4498d6b56935f26df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &335085323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 335085321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d31d92556f986468e02170806ce20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  template1:
+  - fire
+  - water
+  - fire
+  - earth
+  - chaos
+  - water
+  template2:
+  - fire
+  - fire
+  - earth
+  - water
+  - earth
+  - fire
+  template3:
+  - earth
+  - fire
+  - water
+  - fire
+  - earth
+  - fire
+  template4:
+  - water
+  - water
+  - earth
+  - fire
+  - earth
+  - earth
+  template5:
+  - fire
+  - earth
+  - fire
+  - fire
+  - earth
+  - water
+  template6:
+  - water
+  - earth
+  - chaos
+  - water
+  - fire
+  - fire
+--- !u!4 &335085324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 335085321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &607664517
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,10 +320,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {x: 0, y: -2.65}
   size: {x: 6, y: 6}
-  rockPrefab: {fileID: 114150937130124660, guid: 7b4658279b3a8a44a88af6ca4f03c300,
-    type: 2}
   arrayRows: 6
   arrayColumns: 6
+  waterRock: {fileID: 114113264240395260, guid: c4bd75e4cbba6374ead45320d1d14101,
+    type: 2}
+  fireRock: {fileID: 114150937130124660, guid: 7b4658279b3a8a44a88af6ca4f03c300, type: 2}
+  earthRock: {fileID: 114577378535168426, guid: 4b6c1721797f7fb4892c7a246250cd35,
+    type: 2}
+  chaosRock: {fileID: 114041066925245102, guid: 725196f574ff4e6469e10ec9ef72d108,
+    type: 2}
+  corruptionRock: {fileID: 114310365767154334, guid: 1b28c2dc606b2ed469131a90020caca5,
+    type: 2}
 --- !u!4 &607664519
 Transform:
   m_ObjectHideFlags: 0
@@ -246,6 +347,7 @@ Transform:
   - {fileID: 632236051}
   - {fileID: 294740636}
   - {fileID: 952545152}
+  - {fileID: 1274338541}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -521,12 +623,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1274338538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 607664519}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393478385
 GameObject:

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ColumnBehaviour : MonoBehaviour {
 
 	public int rowNumber;
+	private GameField gameField;
 
 	ColumnBehaviour() {
 	}
@@ -17,9 +18,11 @@ public class ColumnBehaviour : MonoBehaviour {
 
 		}
 
-	public void CreateRock(int a, int b) {
+	public void CreateRock(int a, int b, string element) {
 
-		var newRock = Instantiate(GameField.GetRockPrefab(),
+
+
+		var newRock = Instantiate(gameField.GetRockPrefab(element),
 								  new Vector3(transform.position.x,1,-1),
 								  Quaternion.identity);
 		

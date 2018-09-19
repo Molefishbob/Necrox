@@ -5,25 +5,27 @@ public class GameField : MonoBehaviour {
 
 	public Vector2 center;
 	public Vector2 size;
-	public Rock rockPrefab;
 	public int arrayRows;
 	public int arrayColumns;
 	public static GameObject[,] gameField;
-
+	public Rock waterRock;
+	public Rock fireRock;
+	public Rock earthRock;
+	public Rock chaosRock;
+	public Rock corruptionRock;
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
 	private float timer = 0.55f;
 	private static int column;
-	private static Rock rock;
 	private float count;
 	private int rowsDone;
+	private string element;
 	private List<GameObject> Children = new List<GameObject>();
 
 
 	void Start () {
 		rows = arrayRows;
-		rock = rockPrefab;
 		column = arrayColumns;
 		count = timer;
 		rowsDone = 0;
@@ -42,7 +44,7 @@ public class GameField : MonoBehaviour {
 			if (timer <= count) {
 				int a = 0;
 				foreach (GameObject child in Children) {
-					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone);
+					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone,element);
 					a++;
 				}
 				rowsDone++;
@@ -59,14 +61,11 @@ public class GameField : MonoBehaviour {
 				for (int b = 0; b < gameField.GetLength(1);b++) {
 					Debug.Log(gameField[a,b]);
 				}
-				Debug.Log(" ");
+				Debug.Log("");
 			}
 		}
 	}
-
-	public static Rock GetRockPrefab() {
-		return rock;
-	}
+	
 	public static GameObject[,] GetGameField() {
 		return gameField;
 	}
@@ -76,6 +75,22 @@ public class GameField : MonoBehaviour {
 	}
 	public static int GetArrayRows() {
 		return rows;
+	}
+	public Rock GetRockPrefab(string element) {
+		switch(element.ToLower()) {
+			case "water": 
+				return waterRock;
+			case "fire":
+				return fireRock;
+			case "earth":
+				return earthRock;
+			case "chaos":
+				return chaosRock;
+			case "corruption":
+				return corruptionRock;
+			default:
+				return fireRock;
+		}
 	}
 	public static void setObject(int a, int b, GameObject rock) {
 		gameField[a,b] = rock;
