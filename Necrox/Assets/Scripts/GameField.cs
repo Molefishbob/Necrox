@@ -46,7 +46,6 @@ public class GameField : MonoBehaviour {
 			if (timer <= count) {
 				int a = 0;
 				CreateRandomRow(template.GetRandomRowTemplate());
-				Debug.Log(row[a]);
 				foreach (GameObject child in Children) {
 					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone,row[a]);
 					a++;
@@ -69,9 +68,10 @@ public class GameField : MonoBehaviour {
 			}
 		}
 	}
+	
 	public void CreateRandomRow(string str) {
 		for (int a = 0; a < arrayRows;a++) {
-			Debug.Log(str.Substring(a));
+
 			switch (str[a]) {
 
 				case 'f':
