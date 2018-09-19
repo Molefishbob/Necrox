@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 61869575264045656}
   - component: {fileID: 50330314801134826}
   - component: {fileID: 114577378535168426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Earth
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

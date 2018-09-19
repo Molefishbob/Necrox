@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Templates : MonoBehaviour {
 
-	public string[] template1;
-	public string[] template2;
-	public string[] template3;
-	public string[] template4;
-	public string[] template5;
-	public string[] template6;
+	public string template1;
+	public string template2;
+	public string template3;
+	public string template4;
+	public string template5;
+	public string template6;
 
-	public string[] GetRandomRowTemplate() {
+	public string GetRandomRowTemplate() {
 		switch ((int) Random.Range(1,6)) {
 			case 1:
 				return template1;

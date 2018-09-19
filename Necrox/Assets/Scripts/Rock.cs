@@ -8,6 +8,7 @@ public class Rock : MonoBehaviour {
     private bool onMove;
     private float yValue;
     private float PPU = 32;
+    private string element;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +21,10 @@ public class Rock : MonoBehaviour {
         }
     }
 
-	public void Init(int x, int y) {
+	public void Init(int x, int y, string element) {
         int[] pos = new int[] {x,y};
 		this.pos = pos;
-        Debug.Log(string.Format("X: {0} Y: {1} Z: {2}",transform.localPosition.x,transform.localPosition.y,transform.localPosition.z));
+        this.element = element;
         onMove = true;
 	}
 

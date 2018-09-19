@@ -5,8 +5,7 @@ using UnityEngine;
 public class ColumnBehaviour : MonoBehaviour {
 
 	public int rowNumber;
-	private GameField gameField;
-
+	public GameField gameField;
 	ColumnBehaviour() {
 	}
 
@@ -28,7 +27,7 @@ public class ColumnBehaviour : MonoBehaviour {
 		
 		newRock.transform.parent = gameObject.transform;
 		GameField.setObject(a,b,newRock.gameObject);
-		newRock.Init((int) transform.localPosition.x, GameField.GetArrayRows());
+		newRock.Init((int) transform.localPosition.x, GameField.GetArrayRows(), element);
 		
 	}
 }

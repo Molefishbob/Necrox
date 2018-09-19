@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 61184404898264616}
   - component: {fileID: 50690812050467020}
   - component: {fileID: 114113264240395260}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

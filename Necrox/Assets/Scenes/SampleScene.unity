@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowNumber: 0
+  gameField: {fileID: 607664518}
 --- !u!1 &294740635
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowNumber: 4
+  gameField: {fileID: 607664518}
 --- !u!1 &335085321
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,48 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d31d92556f986468e02170806ce20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template1:
-  - fire
-  - water
-  - fire
-  - earth
-  - chaos
-  - water
-  template2:
-  - fire
-  - fire
-  - earth
-  - water
-  - earth
-  - fire
-  template3:
-  - earth
-  - fire
-  - water
-  - fire
-  - earth
-  - fire
-  template4:
-  - water
-  - water
-  - earth
-  - fire
-  - earth
-  - earth
-  template5:
-  - fire
-  - earth
-  - fire
-  - fire
-  - earth
-  - water
-  template6:
-  - water
-  - earth
-  - chaos
-  - water
-  - fire
-  - fire
+  template1: fwfecw
+  template2: ffewef
+  template3: efwfef
+  template4: wwefee
+  template5: feffew
+  template6: wecwff
 --- !u!4 &335085324
 Transform:
   m_ObjectHideFlags: 0
@@ -331,6 +297,7 @@ MonoBehaviour:
     type: 2}
   corruptionRock: {fileID: 114310365767154334, guid: 1b28c2dc606b2ed469131a90020caca5,
     type: 2}
+  template: {fileID: 335085323}
 --- !u!4 &607664519
 Transform:
   m_ObjectHideFlags: 0
@@ -347,7 +314,6 @@ Transform:
   - {fileID: 632236051}
   - {fileID: 294740636}
   - {fileID: 952545152}
-  - {fileID: 1274338541}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -437,6 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowNumber: 3
+  gameField: {fileID: 607664518}
 --- !u!1 &952545151
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowNumber: 5
+  gameField: {fileID: 607664518}
 --- !u!1 &1142851544
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,8 +595,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 607664519}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1393478385
 GameObject:
@@ -671,6 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowNumber: 2
+  gameField: {fileID: 607664518}
 --- !u!1 &1589521080
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,3 +681,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowNumber: 1
+  gameField: {fileID: 607664518}

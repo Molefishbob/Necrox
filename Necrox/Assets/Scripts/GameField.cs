@@ -13,6 +13,7 @@ public class GameField : MonoBehaviour {
 	public Rock earthRock;
 	public Rock chaosRock;
 	public Rock corruptionRock;
+	public Templates template;
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
@@ -20,11 +21,12 @@ public class GameField : MonoBehaviour {
 	private static int column;
 	private float count;
 	private int rowsDone;
-	private string element;
+	private string[] row;
 	private List<GameObject> Children = new List<GameObject>();
 
 
 	void Start () {
+		row = new string[6];
 		rows = arrayRows;
 		column = arrayColumns;
 		count = timer;
@@ -43,8 +45,10 @@ public class GameField : MonoBehaviour {
 		if (startGame) {
 			if (timer <= count) {
 				int a = 0;
+				CreateRandomRow(template.GetRandomRowTemplate());
+				Debug.Log(row[a]);
 				foreach (GameObject child in Children) {
-					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone,element);
+					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone,row[a]);
 					a++;
 				}
 				rowsDone++;
@@ -65,7 +69,31 @@ public class GameField : MonoBehaviour {
 			}
 		}
 	}
-	
+	public void CreateRandomRow(string str) {
+		for (int a = 0; a < arrayRows;a++) {
+			Debug.Log(str.Substring(a));
+			switch (str[a]) {
+
+				case 'f':
+					row[a] = "fire";
+					break;
+				case 'w':
+					row[a] = "water";
+					break;
+				case 'e':
+					row[a] = "earth";
+					break;
+				case 'c':
+					row[a] = "chaos";
+					break;
+				default:
+					row[a] = "fire";
+					break;
+
+			}
+		}
+	}
+
 	public static GameObject[,] GetGameField() {
 		return gameField;
 	}
@@ -77,8 +105,8 @@ public class GameField : MonoBehaviour {
 		return rows;
 	}
 	public Rock GetRockPrefab(string element) {
-		switch(element.ToLower()) {
-			case "water": 
+		switch(element) {
+			case "water":
 				return waterRock;
 			case "fire":
 				return fireRock;
