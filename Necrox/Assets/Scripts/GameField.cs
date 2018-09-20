@@ -17,16 +17,16 @@ public class GameField : MonoBehaviour {
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
-	private float timer = 0.55f;
+	private float timer = 0.25f;
 	private static int column;
 	private float count;
 	private int rowsDone;
-	private string[] row;
+	private string[,] row;
 	private List<GameObject> Children = new List<GameObject>();
 
 
 	void Start () {
-		row = new string[6];
+		row = new string[6,6];
 		rows = arrayRows;
 		column = arrayColumns;
 		count = timer;
@@ -36,6 +36,7 @@ public class GameField : MonoBehaviour {
 
 			Children.Add(child.gameObject);
     	}
+		CreateRandomRow(template.GetRandomRowTemplate());
 
 		gameField = new GameObject[arrayColumns, arrayRows];
 		Time.timeScale = 1;
@@ -45,9 +46,8 @@ public class GameField : MonoBehaviour {
 		if (startGame) {
 			if (timer <= count) {
 				int a = 0;
-				CreateRandomRow(template.GetRandomRowTemplate());
 				foreach (GameObject child in Children) {
-					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone,row[a]);
+					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone,row[rowsDone,a]);
 					a++;
 				}
 				rowsDone++;
@@ -59,10 +59,10 @@ public class GameField : MonoBehaviour {
 			count = count + Time.deltaTime;
 		}
 		if (Input.GetKeyDown("space")) {
-			for (int a = 0; a < gameField.GetLength(0);a++) {
+			for (int a = 0; a < row.GetLength(0);a++) {
 				Debug.Log("Column " + a);
-				for (int b = 0; b < gameField.GetLength(1);b++) {
-					Debug.Log(gameField[a,b]);
+				for (int b = 0; b < row.GetLength(1);b++) {
+					Debug.Log(row[a,b]);
 				}
 				Debug.Log("");
 			}
@@ -70,27 +70,31 @@ public class GameField : MonoBehaviour {
 	}
 	
 	public void CreateRandomRow(string str) {
-		for (int a = 0; a < arrayRows;a++) {
+		int count = 0;
+		for (int a = 0; count < arrayColumns; a = a+6) {
+			for (int b = 0; b < arrayRows;b++) {
 
-			switch (str[a]) {
+				switch (str[a+b]) {
 
-				case 'f':
-					row[a] = "fire";
-					break;
-				case 'w':
-					row[a] = "water";
-					break;
-				case 'e':
-					row[a] = "earth";
-					break;
-				case 'c':
-					row[a] = "chaos";
-					break;
-				default:
-					row[a] = "fire";
-					break;
+					case 'f':
+						row[count,b] = "fire";
+						break;
+					case 'w':
+						row[count,b] = "water";
+						break;
+					case 'e':
+						row[count,b] = "earth";
+						break;
+					case 'c':
+						row[count,b] = "chaos";
+						break;
+					default:
+						row[count,b] = "fire";
+						break;
 
+				}
 			}
+			count++;
 		}
 	}
 
