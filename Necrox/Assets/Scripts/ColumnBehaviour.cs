@@ -22,12 +22,12 @@ public class ColumnBehaviour : MonoBehaviour {
 
 
 		var newRock = Instantiate(gameField.GetRockPrefab(element),
-								  new Vector3(transform.position.x,1,-1),
+								  new Vector3(transform.position.x,0.85f,-1),
 								  Quaternion.identity);
 		
 		newRock.transform.parent = gameObject.transform;
 		GameField.setObject(a,b,newRock.gameObject);
-		newRock.Init((int) transform.localPosition.x, GameField.GetArrayRows(), element);
+		newRock.Init((int) transform.localPosition.x, b, element);
 		
 	}
 }
