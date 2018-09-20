@@ -288,13 +288,10 @@ MonoBehaviour:
   size: {x: 6, y: 6}
   arrayRows: 6
   arrayColumns: 6
-  waterRock: {fileID: 114113264240395260, guid: a94b4835f2a5ee64095cafe88bd7d0b1,
-    type: 2}
-  fireRock: {fileID: 114150937130124660, guid: 70a65980a2ed0ae4bb9c26ed27ec609a, type: 2}
-  earthRock: {fileID: 114577378535168426, guid: 5f6efc5e8e6cf784b826ebfe5e9b9dec,
-    type: 2}
-  chaosRock: {fileID: 114041066925245102, guid: bbdacb9a4fceaad42b401eb5dd0d31e5,
-    type: 2}
+  waterRock: {fileID: 0}
+  fireRock: {fileID: 0}
+  earthRock: {fileID: 0}
+  chaosRock: {fileID: 0}
   corruptionRock: {fileID: 114310365767154334, guid: 1b28c2dc606b2ed469131a90020caca5,
     type: 2}
   template: {fileID: 335085323}
