@@ -27,7 +27,7 @@ public class ColumnBehaviour : MonoBehaviour {
 		
 		newRock.transform.parent = gameObject.transform;
 		GameField.setObject(a,b,newRock.gameObject);
-		newRock.Init((int) transform.localPosition.x, b, element);
+		newRock.Init( transform.position.x, b, element);
 		
 	}
 }

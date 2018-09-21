@@ -6,8 +6,6 @@ public class Rock : MonoBehaviour {
 
 	public int[] pos = new int[2];
     private bool onMove;
-    private float yValue;
-    private float PPU = 32;
     private string element;
     private int yPosition;
 
@@ -25,9 +23,36 @@ public class Rock : MonoBehaviour {
         }
     }
 
-	public void Init(int x, int y, string element) {
-        int[] pos = new int[] {x,y};
-        
+	public void Init(float x, int y, string element) {
+        int intX = Mathf.CeilToInt(x);
+
+        Debug.Log(intX);
+        switch (intX) {
+            case 3:
+                intX = 5;
+                break;
+            case 2:
+                intX = 4;
+                break;
+            case 1:
+                intX = 3;
+                break;
+            case 0:
+                intX = 2;
+                break;
+            case -1:
+                intX = 1;
+                break;
+            case -2:
+                intX = 0;
+                break;
+            default:
+                Debug.Log("Mistakes: X-pos of tile");
+                break;
+
+        }
+        pos = new int[] {intX,y};
+        Debug.Log(string.Format("X: {0} Y: {1}",pos[0],pos[1]));
         switch (y) {
             case 0:
                 y = 3;
@@ -52,8 +77,6 @@ public class Rock : MonoBehaviour {
                 break;
 
         }
-
-		this.pos = pos;
         yPosition = y;
         this.element = element;
         onMove = true;
