@@ -7,6 +7,7 @@ public class GameLogic : MonoBehaviour {
     private BoxCollider2D coll;
     private float speed = 0.018f;
 
+
 	// Use this for initialization
 	void Start () {
 		coll = GetComponent<BoxCollider2D>();
@@ -30,4 +31,9 @@ public class GameLogic : MonoBehaviour {
             }
         }
 	}
+    /*
+     * Use the information from the rock for array posstion and which direction
+     * depending on the direction add or minus the array position for the new location
+     * use a lerp to swap the two tiles
+     */
 }
