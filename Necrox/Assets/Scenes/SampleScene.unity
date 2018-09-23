@@ -304,6 +304,13 @@ MonoBehaviour:
   touchInputMask:
     serializedVersion: 2
     m_Bits: 512
+  startPos: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  directionChosen: 0
+  recipient: {fileID: 0}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 1, b: 0, a: 1}
+  onMoveColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!114 &335085323
 MonoBehaviour:
   m_ObjectHideFlags: 0
