@@ -9,9 +9,12 @@ public class Rock : MonoBehaviour {
     private string element;
     private int yPosition;
 
+    
+
 	// Use this for initialization
 	void Start () {
-        }
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,9 +35,7 @@ public class Rock : MonoBehaviour {
          * then the different also tells the direction(up down left right)
          * pass the information to the game logic class with the array posstion and which direction
          */
-        Touch myTouch = Input.GetTouch(0);
-        Vector2 startPosition = myTouch.deltaPosition;
-        Debug.Log("DeltaPostion: " + startPosition);
+        
 
     }
 
@@ -96,4 +97,25 @@ public class Rock : MonoBehaviour {
         this.element = element;
         onMove = true;
 	}
+
+    /*movement
+    void OnTouchDown() {
+        this.GetComponent<Renderer>().material.color = selectedColor;
+    }
+
+    void OnTouchUp() {
+        this.GetComponent<Renderer>().material.color = defaultColor;
+    }
+
+    void OnTouchStay() {
+        this.GetComponent<Renderer>().material.color = selectedColor;
+    }
+
+    void OnTouchMove() {
+        this.GetComponent<Renderer>().material.color = onMoveColor;
+    }
+
+    void OnTouchExit() {
+        this.GetComponent<Renderer>().material.color = defaultColor;
+    }*/
 }
