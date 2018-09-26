@@ -101,18 +101,4 @@ public class GameLogic : MonoBehaviour {
         }
 
     }
-    private void ShittyMovement() {
-		
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            Vector2 touchPos = new Vector2(wp.x, wp.y);
-
-            if (coll == Physics2D.OverlapPoint(touchPos)) {
-                Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-
-                
-            }
-        }
-	}
-    
 }
