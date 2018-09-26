@@ -24,17 +24,6 @@ public class Rock : MonoBehaviour {
         if (transform.localPosition.y <= yPosition) {
             onMove = false;
         }
-
-        //Movement
-        /*
-         * get the touch input
-         * get the position in the array
-         * use deltaposition to see which direction it went
-         * to see which direction find the different detween the start and stop of both x and y
-         * see which number is larger(check if neg or pos)
-         * then the different also tells the direction(up down left right)
-         * pass the information to the game logic class with the array posstion and which direction
-         */
         
 
     }

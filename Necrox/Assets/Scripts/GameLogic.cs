@@ -17,6 +17,7 @@ public class GameLogic : MonoBehaviour {
     public Color defaultColor = Color.white;
     public Color selectedColor = Color.green;
     public Color onMoveColor = Color.cyan;
+    private int[] rockPos;
 
 
     // Use this for initialization
@@ -56,6 +57,19 @@ public class GameLogic : MonoBehaviour {
         }
 	}*/
 
+
+
+    //Movement
+    /*
+     * get the touch input
+     * get the position in the array
+     * use deltaposition to see which direction it went
+     * to see which direction find the different detween the start and stop of both x and y
+     * see which number is larger(check if neg or pos)
+     * then the different also tells the direction(up down left right)
+     * pass the information to the game logic class with the array posstion and which direction
+     */
+
     void Update() {
         // Track a single touch as a direction control.
         if (Input.touchCount > 0) {
@@ -69,33 +83,32 @@ public class GameLogic : MonoBehaviour {
 
                 recipient = hit.collider.gameObject;
                 recipient.GetComponent<Renderer>().material.color = selectedColor;
+                rockPos = recipient.GetComponent<Rock>().pos;
+                Debug.Log(rockPos);
             }
 
             // Handle finger movements based on touch phase.
             switch (touch.phase) {
                 // Record initial touch position.
                 case TouchPhase.Began:
-                    //this.GetComponent<Renderer>().material.color = selectedColor;
-                    
                     startPos = touch.position;
                     Debug.Log("The start pos is: " + startPos + " and the recipient is: " + recipient);
                     directionChosen = false;
                     break;
 
-                // Determine direction by comparing the current touch position with the initial one.
-                case TouchPhase.Moved:
-                    direction = touch.position - startPos;
-                    Debug.Log("The direction is: " + direction);
-                    break;
-
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
+                    direction = touch.position - startPos;
+                    Debug.Log("The direction is: " + direction);
                     directionChosen = true;
                     break;
             }
         }
         if (directionChosen) {
-            // Something that uses the chosen direction...
+            // if statements to know which direction
+            //if
+            
+            
             Debug.Log("YOU GOT HERE!!");
             //coll.GetComponent<Renderer>().material.color = onMoveColor;
         }
