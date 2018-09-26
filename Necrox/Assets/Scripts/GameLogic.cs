@@ -9,11 +9,15 @@ public class GameLogic : MonoBehaviour {
     public Camera mainCamera;
     public LayerMask touchInputMask;
     private RaycastHit2D hit;
+    private RaycastHit2D directionHit;
+    public GameObject gameField;
 
     public Vector2 startPos;
-    public Vector2 direction;
+    public Vector2 endPos;
     public bool directionChosen;
-    public GameObject recipient;
+    private string direction;
+    public GameObject firstRock;
+    public GameObject secondRock;
     public Color defaultColor = Color.white;
     public Color selectedColor = Color.green;
     public Color onMoveColor = Color.cyan;
@@ -22,42 +26,10 @@ public class GameLogic : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
+
 		coll = GetComponent<BoxCollider2D>();
 	}
-
-    /* doesn't work from a tutorial 
-     * Use the information from the rock for array posstion and which direction
-     * depending on the direction add or minus the array position for the new location
-     * use a lerp to swap the two tiles
-     
-    void Update () {
-        //Movement attempt
-		foreach (Touch touch in Input.touches) {
-            Ray ray = mainCamera.ScreenPointToRay(touch.position);
-
-            if (Physics.Raycast(ray, out hit, touchInputMask)) {
-                GameObject recipient = hit.transform.gameObject;
-
-                if (touch.phase == TouchPhase.Began) {
-                    recipient.SendMessage("OnTouchDown", SendMessageOptions.DontRequireReceiver);
-                }
-                if (touch.phase == TouchPhase.Ended) {
-                    recipient.SendMessage("OnTouchUp", SendMessageOptions.DontRequireReceiver);
-                }
-                if (touch.phase == TouchPhase.Stationary) {
-                    recipient.SendMessage("OnTouchStay", SendMessageOptions.DontRequireReceiver);
-                }
-                if (touch.phase == TouchPhase.Moved) {
-                    recipient.SendMessage("OnTouchMove", SendMessageOptions.DontRequireReceiver);
-                }
-                if (touch.phase == TouchPhase.Canceled) {
-                    recipient.SendMessage("OnTouchExit", SendMessageOptions.DontRequireReceiver);
-                }
-            }
-        }
-	}*/
-
-
 
     //Movement
     /*
@@ -81,9 +53,9 @@ public class GameLogic : MonoBehaviour {
                 
                 Debug.Log("The hit is: " + hit.collider.name);
 
-                recipient = hit.collider.gameObject;
-                recipient.GetComponent<Renderer>().material.color = selectedColor;
-                rockPos = recipient.GetComponent<Rock>().pos;
+                firstRock = hit.collider.gameObject;
+                firstRock.GetComponent<Renderer>().material.color = selectedColor;
+                rockPos = firstRock.GetComponent<Rock>().pos;
                 Debug.Log(rockPos);
             }
 
@@ -92,25 +64,69 @@ public class GameLogic : MonoBehaviour {
                 // Record initial touch position.
                 case TouchPhase.Began:
                     startPos = touch.position;
-                    Debug.Log("The start pos is: " + startPos + " and the recipient is: " + recipient);
+                    Debug.Log("The start pos is: " + startPos + " and the firstRock is: " + firstRock);
                     directionChosen = false;
                     break;
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
-                    direction = touch.position - startPos;
-                    Debug.Log("The direction is: " + direction);
+                    endPos = touch.position;
+                    Debug.Log("The direction is: " + endPos);
                     directionChosen = true;
                     break;
             }
         }
         if (directionChosen) {
             // if statements to know which direction
-            //if
-            
-            
+            float xDiff = startPos[0] - endPos[0];
+            if (xDiff < 0) {
+                xDiff *= -1;
+            }
+            float yDiff = startPos[0] - endPos[0];
+            if (yDiff < 0) {
+                yDiff *= -1;
+            }
+            if (xDiff > yDiff) {
+                float xResult = startPos[0] - endPos[0];
+                if (xResult < 0) {
+                    direction = "right";
+                    Debug.Log("direction");
+                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
+                    if (directionHit.collider != null) {
+                        secondRock = directionHit.collider.gameObject;
+                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    }
+                } else {
+                    direction = "left";
+                    Debug.Log("direction");
+                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
+                    if (directionHit.collider != null) {
+                        secondRock = directionHit.collider.gameObject;
+                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    }
+                }
+            } else {
+                float yResult = startPos[1] - startPos[1];
+                if (yResult < 0) {
+                    direction = "up";
+                    Debug.Log("direction");
+                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
+                    if (directionHit.collider != null) {
+                        secondRock = directionHit.collider.gameObject;
+                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    }
+                } else {
+                    direction = "down";
+                    Debug.Log("direction");
+                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
+                    if (directionHit.collider != null) {
+                        secondRock = directionHit.collider.gameObject;
+                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    }
+                }
+            }
             Debug.Log("YOU GOT HERE!!");
-            //coll.GetComponent<Renderer>().material.color = onMoveColor;
+            gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock);
         }
 
     }
