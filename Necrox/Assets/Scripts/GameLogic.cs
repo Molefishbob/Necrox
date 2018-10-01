@@ -21,8 +21,9 @@ public class GameLogic : MonoBehaviour {
     public GameObject secondRock;
     public Color defaultColor = Color.white;
     public Color selectedColor = Color.green;
-    public Color onMoveColor = Color.cyan;
-    private int[] rockPos;
+    public Color onMoveColor = Color.red;
+    public int[] rockPos;
+    public RaycastHit2D[] raycast2DHits;
 
 
     // Use this for initialization
@@ -100,16 +101,21 @@ public class GameLogic : MonoBehaviour {
                 float xResult = startPos[0] - endPos[0];
                 if (xResult < 0) {
                     direction = "right";
-                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
-                    if (directionHit.collider != null) {
-                        secondRock = directionHit.collider.gameObject;
+                    //directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, touchInputMask);
+                    Vector2 endingPos = new Vector2(firstRock.transform.position.x + 50, firstRock.transform.position.y);
+                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                    Debug.Log("array is: " + raycast2DHits);
+                    if (raycast2DHits[1].collider != null) {
+                        secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 } else {
                     direction = "left";
-                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
-                    if (directionHit.collider != null) {
-                        secondRock = directionHit.collider.gameObject;
+                    Vector2 endingPos = new Vector2(firstRock.transform.position.x - 50, firstRock.transform.position.y);
+                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                    Debug.Log("array is: " + raycast2DHits);
+                    if (raycast2DHits[1].collider != null) {
+                        secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 }
@@ -117,16 +123,20 @@ public class GameLogic : MonoBehaviour {
                 float yResult = startPos[1] - endPos[1];
                 if (yResult < 0) {
                     direction = "up";
-                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
-                    if (directionHit.collider != null) {
-                        secondRock = directionHit.collider.gameObject;
+                    Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + 50);
+                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                    Debug.Log("array is: " + raycast2DHits);
+                    if (raycast2DHits[1].collider != null) {
+                        secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 } else {
                     direction = "down";
-                    directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
-                    if (directionHit.collider != null) {
-                        secondRock = directionHit.collider.gameObject;
+                    Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y - 50);
+                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                    Debug.Log("array is: " + raycast2DHits);
+                    if (raycast2DHits[1].collider != null) {
+                        secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 }
