@@ -114,8 +114,8 @@ public class GameLogic : MonoBehaviour {
                     }
                 }
             } else if (xDiff < yDiff) {
-                float yResult = startPos[1] - startPos[1];
-                if (yResult > 0) {
+                float yResult = startPos[1] - endPos[1];
+                if (yResult < 0) {
                     direction = "up";
                     directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, 50.0f, touchInputMask);
                     if (directionHit.collider != null) {
