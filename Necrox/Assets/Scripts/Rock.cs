@@ -86,25 +86,7 @@ public class Rock : MonoBehaviour {
         this.element = element;
         onMove = true;
 	}
-
-    /*movement
-    void OnTouchDown() {
-        this.GetComponent<Renderer>().material.color = selectedColor;
+    public string GetElement() {
+        return element;
     }
-
-    void OnTouchUp() {
-        this.GetComponent<Renderer>().material.color = defaultColor;
-    }
-
-    void OnTouchStay() {
-        this.GetComponent<Renderer>().material.color = selectedColor;
-    }
-
-    void OnTouchMove() {
-        this.GetComponent<Renderer>().material.color = onMoveColor;
-    }
-
-    void OnTouchExit() {
-        this.GetComponent<Renderer>().material.color = defaultColor;
-    }*/
 }
