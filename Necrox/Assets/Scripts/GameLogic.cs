@@ -54,12 +54,12 @@ public class GameLogic : MonoBehaviour {
 
             if (hit.collider != null) {
                 if (!gotFirstTouch) {
-                    Debug.Log("The hit is: " + hit.collider.name);
+                    //Debug.Log("The hit is: " + hit.collider.name);
 
                     firstRock = hit.collider.gameObject;
                     firstRock.GetComponent<Renderer>().material.color = selectedColor;
                     rockPos = firstRock.GetComponent<Rock>().pos;
-                    Debug.Log(rockPos);
+                    //Debug.Log(rockPos);
                     gotFirstTouch = true;
                 }
                 
@@ -70,14 +70,14 @@ public class GameLogic : MonoBehaviour {
                 // Record initial touch position.
                 case TouchPhase.Began:
                     startPos = touch.position;
-                    Debug.Log("The start pos is: " + startPos + " and the firstRock is: " + firstRock);
+                    //Debug.Log("The start pos is: " + startPos + " and the firstRock is: " + firstRock);
                     directionChosen = false;
                     break;
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
                     endPos = touch.position;
-                    Debug.Log("The direction is: " + endPos);
+                    //Debug.Log("The direction is: " + endPos);
                     directionChosen = true;
                     break;
             }
@@ -85,18 +85,18 @@ public class GameLogic : MonoBehaviour {
         if (directionChosen) {
             // if statements to know which direction
             float xDiff = startPos[0] - endPos[0];
-            Debug.Log("xDiff is: " + xDiff);
+            //Debug.Log("xDiff is: " + xDiff);
             if (xDiff < 0) {
-                Debug.Log(xDiff + " xDiff was less than 0");
+                //Debug.Log(xDiff + " xDiff was less than 0");
                 xDiff *= -1;
             }
             float yDiff = startPos[1] - endPos[1];
-            Debug.Log("yDiff is: " + yDiff);
+            //Debug.Log("yDiff is: " + yDiff);
             if (yDiff < 0) {
-                Debug.Log(yDiff + " yDiff was less than 0");
+                //Debug.Log(yDiff + " yDiff was less than 0");
                 yDiff *= -1;
             }
-            Debug.Log("xDiff is now: " + xDiff + " and the yDiff is: " + yDiff);
+            //Debug.Log("xDiff is now: " + xDiff + " and the yDiff is: " + yDiff);
             if (xDiff > yDiff) {
                 float xResult = startPos[0] - endPos[0];
                 if (xResult < 0) {
@@ -104,7 +104,7 @@ public class GameLogic : MonoBehaviour {
                     //directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, touchInputMask);
                     Vector2 endingPos = new Vector2(firstRock.transform.position.x + 50, firstRock.transform.position.y);
                     raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    Debug.Log("array is: " + raycast2DHits);
+                    //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
@@ -113,7 +113,7 @@ public class GameLogic : MonoBehaviour {
                     direction = "left";
                     Vector2 endingPos = new Vector2(firstRock.transform.position.x - 50, firstRock.transform.position.y);
                     raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    Debug.Log("array is: " + raycast2DHits);
+                    //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
@@ -125,7 +125,7 @@ public class GameLogic : MonoBehaviour {
                     direction = "up";
                     Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + 50);
                     raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    Debug.Log("array is: " + raycast2DHits);
+                    //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
@@ -134,15 +134,15 @@ public class GameLogic : MonoBehaviour {
                     direction = "down";
                     Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y - 50);
                     raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    Debug.Log("array is: " + raycast2DHits);
+                    //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
                         secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 }
             }
-            Debug.Log(direction);
-            //gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock);
+            //Debug.Log(direction);
+            gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock);
         }
 
     }

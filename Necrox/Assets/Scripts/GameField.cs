@@ -14,6 +14,12 @@ public class GameField : MonoBehaviour {
 	public Rock chaosRock;
 	public Rock corruptionRock;
 	public Templates template;
+	public GameObject column0;
+	public GameObject column1;
+	public GameObject column2;
+	public GameObject column3;
+	public GameObject column4;
+	public GameObject column5;
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
@@ -95,6 +101,39 @@ public class GameField : MonoBehaviour {
 				}
 			}
 			count++;
+		}
+	}
+
+	public void MoveTiles(GameObject rock1, GameObject rock2) {
+
+		Rock rocker1 = rock1.GetComponent<Rock>();
+		Rock rocker2 = rock2.GetComponent<Rock>();
+		int[] posRock1 = rocker1.GetPos();
+
+		rocker1.SetPos(rocker2.GetPos());
+		rocker2.SetPos(posRock1);
+
+		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
+		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
+	}
+	
+	public GameObject FindParent(int y) {
+		switch(y) {
+			case 0:
+				return column0;
+			case 1:
+				return column1;
+			case 2:
+				return column2;
+			case 3:
+				return column3;
+			case 4:
+				return column4;
+			case 5:
+				return column5;
+			default:
+				Debug.Log("GameField/FindParent: Mistake in Y-value");
+				return column0;
 		}
 	}
 

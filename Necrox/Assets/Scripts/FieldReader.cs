@@ -5,7 +5,7 @@ using UnityEngine;
 public class FieldReader : GameField {
 
 	public bool ReadField () {
-		
+		/*
 		int countHorizontal = 0;
 		int countVertical = 0;
 		string currentElementH = GameObject[0,0]; // What is in the row [0,0], char,string,object? What i'm going to compare?
@@ -43,6 +43,7 @@ public class FieldReader : GameField {
 			countHorizontal = 0;
 			countVertical = 0;
 		}
+		*/
 		return false; //no match found
 
 	}
