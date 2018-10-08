@@ -9626,6 +9626,12 @@ MonoBehaviour:
   corruptionRock: {fileID: 114310365767154334, guid: 1b28c2dc606b2ed469131a90020caca5,
     type: 2}
   template: {fileID: 335085323}
+  column0: {fileID: 270053721}
+  column1: {fileID: 1589521080}
+  column2: {fileID: 1393478385}
+  column3: {fileID: 632236050}
+  column4: {fileID: 294740635}
+  column5: {fileID: 952545151}
 --- !u!4 &607664519
 Transform:
   m_ObjectHideFlags: 0

@@ -7,13 +7,16 @@ public class Rock : MonoBehaviour {
 
 	public int[] pos = new int[2];
     private bool _fallingToPlace;
+    private bool _moved;
     private string _element;
     private int _yPosition;
+    private int _xPosition = 0;
+    private bool _xValueChanged;
+    private bool _yValueChanged;
 
-    
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
     }
 	
@@ -21,15 +24,66 @@ public class Rock : MonoBehaviour {
 	void Update () {
         if (_fallingToPlace) {
             transform.localPosition = new Vector3(0,transform.localPosition.y - 0.125f,0);
-        }
-        if (transform.localPosition.y <= _yPosition) {
+            if (transform.localPosition.y <= _yPosition) {
             _fallingToPlace = false;
+            }
         }
-        
+        if (_moved) {
+            TileMovement();
+        }
 
     }
 
-	public void Init(float x, int y, string element) {
+    private void TileMovement()
+    {
+        if (_xValueChanged)
+        {
+            //Debug.Log(string.Format("DX:{0} DY:{1} RealX:{2} RealY:{3}",_xPosition,_yPosition,transform.localPosition.x,transform.localPosition.y));
+            if (_xPosition < transform.localPosition.x) {
+                transform.localPosition = new Vector3(transform.localPosition.x - 0.125f, 0, 0);
+                if (_xPosition >= transform.localPosition.x) {
+                    _xValueChanged = false;
+                    //Debug.Log("XValue correct");
+                }
+            }
+
+            if (_xPosition > transform.localPosition.x)
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x + 0.125f, 0, 0);
+                if (_xPosition <= transform.localPosition.x)
+                {
+                    _xValueChanged = false;
+                    //Debug.Log("XValue correct");
+                }
+            }
+        }
+
+        if (_yValueChanged)
+        {
+            if (_yPosition < transform.localPosition.y) {
+                transform.localPosition = new Vector3(0, transform.localPosition.y - 0.125f, 0);
+                if (_yPosition >= transform.localPosition.y) {
+                    _yValueChanged = false;
+                    //Debug.Log("YValue correct");
+                }
+            }
+            if (_yPosition > transform.localPosition.y) {
+                transform.localPosition = new Vector3(0, transform.localPosition.y + 0.125f, 0);
+                if (_yPosition <= transform.localPosition.y) {
+                    _yValueChanged = false;
+                    //Debug.Log("YValue correct");
+                }
+            }
+            
+        }
+
+        if (!_xValueChanged && !_yValueChanged)
+        {
+            _moved = false;
+        }
+    }
+
+    public void Init(float x, int y, string element) {
         int intX = Mathf.CeilToInt(x);
 
         //Debug.Log(intX);
@@ -91,15 +145,25 @@ public class Rock : MonoBehaviour {
 
     public void ChangeParent(GameObject column) {
 
-        Debug.Log("Old Parent: " + transform.parent.GetComponent<ColumnBehaviour>().rowNumber +
-                  " New Parent: " + column.GetComponent<ColumnBehaviour>().rowNumber);
-        Debug.Log("X:"+ pos[0] + " Y:" + pos[1]);
+        //Debug.Log("Old Parent: " + transform.parent.GetComponent<ColumnBehaviour>().rowNumber +
+                  //" New Parent: " + column.GetComponent<ColumnBehaviour>().rowNumber);
+        //Debug.Log("X:"+ pos[0] + " Y:" + pos[1]);
 
         transform.parent = column.transform;
+        _moved = true;
     }
 
     public void SetPos(int[] pos) {
+        //Debug.Log("OldX:"+this.pos[0] + " newX:"+pos[0]);
+        if (this.pos[0] != pos[0]) {
+            _xValueChanged = true;
+        }
+        if (this.pos[1] != pos[1]) {
+            _yValueChanged = true;
+        }
         this.pos = pos;
+        _yPosition = ToPosValues(pos[1]);
+        //Debug.Log("X:"+ pos[0] + " Y:" + pos[1]);
     }
 
     public int[] GetPos() {
