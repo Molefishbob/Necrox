@@ -113,6 +113,17 @@ public class GameField : MonoBehaviour {
 		rocker1.SetPos(rocker2.GetPos());
 		rocker2.SetPos(posRock1);
 
+		gameField[rocker1.pos[0],rocker1.pos[1]] = rock1;
+		gameField[rocker2.pos[0],rocker2.pos[1]] = rock2;
+		
+		// for (int a = 0; a < row.GetLength(0);a++) {
+		// 		Debug.Log("Column " + a);
+		// 		for (int b = 0; b < row.GetLength(1);b++) {
+		// 			Debug.Log(row[a,b]);
+		// 		}
+		// 		Debug.Log("");
+		// 	}
+
 		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
 		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
 	}
