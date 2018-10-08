@@ -14,7 +14,7 @@ public class GameLogic : MonoBehaviour {
 
     public Vector2 startPos;
     public Vector2 endPos;
-    public bool directionChosen;
+    public bool directionChosen = false;
     public string direction;
     private bool gotFirstTouch = false;
     public GameObject firstRock;
