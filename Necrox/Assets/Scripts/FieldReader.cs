@@ -5,10 +5,10 @@ using UnityEngine;
 public class FieldReader : GameField {
 
 	public bool ReadField () {
-		/*
+		/* fuck this
 		int countHorizontal = 0;
 		int countVertical = 0;
-		string currentElementH = GameObject[0,0]; // What is in the row [0,0], char,string,object? What i'm going to compare?
+		string currentElementH = GetGameField()[0,0].GetRockPrefab().element; // What is in the row [0,0], char,string,object? What i'm going to compare?
 		string currentElementV = currentElementH;
 
 		// no idea how to call/get 2darray from gamefield "GameObject[,]" properly
