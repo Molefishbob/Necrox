@@ -106,7 +106,7 @@ public class Rock : MonoBehaviour
             case 5:
                 return -2;
             default:
-                Debug.Log("Mistakes: Y-pos of tile");
+                Debug.LogError("Mistakes: Y-pos of tile");
                 return 3;
         }
     }
@@ -128,7 +128,7 @@ public class Rock : MonoBehaviour
             case -2:
                 return 0;
             default:
-                Debug.Log("Mistakes: X-pos of tile");
+                Debug.LogError("Mistakes: X-pos of tile");
                 return 5;
 
         }

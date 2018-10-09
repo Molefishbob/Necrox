@@ -143,7 +143,7 @@ public class GameField : MonoBehaviour {
 			case 5:
 				return column5;
 			default:
-				Debug.Log("GameField/FindParent: Mistake in Y-value");
+				Debug.LogError("GameField/FindParent: Mistake in Y-value");
 				return column0;
 		}
 	}
@@ -172,6 +172,7 @@ public class GameField : MonoBehaviour {
 				return corruptionRock;
 			default:
 				return fireRock;
+				Debug.LogError("Element (string) is not valid in tile");
 		}
 	}
 	public static void setObject(int a, int b, GameObject rock) {
