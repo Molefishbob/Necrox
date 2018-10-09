@@ -171,8 +171,8 @@ public class GameField : MonoBehaviour {
 			case "corruption":
 				return corruptionRock;
 			default:
-				return fireRock;
 				Debug.LogError("Element (string) is not valid in tile");
+				return fireRock;
 		}
 	}
 	public static void setObject(int a, int b, GameObject rock) {
