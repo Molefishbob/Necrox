@@ -9688,6 +9688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607664519}
   - component: {fileID: 607664518}
+  - component: {fileID: 607664520}
   m_Layer: 8
   m_Name: GameField
   m_TagString: GameField
@@ -9710,6 +9711,7 @@ MonoBehaviour:
   size: {x: 6, y: 6}
   arrayRows: 6
   arrayColumns: 6
+  _fieldReader: {fileID: 0}
   waterRock: {fileID: 114113264240395260, guid: c4bd75e4cbba6374ead45320d1d14101,
     type: 2}
   fireRock: {fileID: 114150937130124660, guid: 7b4658279b3a8a44a88af6ca4f03c300, type: 2}
@@ -9745,6 +9747,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &607664520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607664517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16f96c6c92df3f4d95c5e11955d7567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &632236050
 GameObject:
   m_ObjectHideFlags: 0

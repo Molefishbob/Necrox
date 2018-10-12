@@ -8,6 +8,7 @@ public class GameField : MonoBehaviour {
 	public int arrayRows;
 	public int arrayColumns;
 	public static GameObject[,] gameField;
+	public FieldReader _fieldReader;
 	public Rock waterRock;
 	public Rock fireRock;
 	public Rock earthRock;
@@ -29,6 +30,7 @@ public class GameField : MonoBehaviour {
 	private int rowsDone;
 	private string[,] row;
 	private List<GameObject> Children = new List<GameObject>();
+	
 
 
 	void Start () {
@@ -37,6 +39,7 @@ public class GameField : MonoBehaviour {
 		column = arrayColumns;
 		count = timer;
 		rowsDone = 0;
+		_fieldReader = GetComponent<FieldReader>();
 		
         foreach (Transform child in transform) {
 
@@ -126,6 +129,7 @@ public class GameField : MonoBehaviour {
 
 		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
 		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
+		_fieldReader.ReadField();
 	}
 	
 	public GameObject FindParent(int y) {
