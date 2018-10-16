@@ -9,7 +9,7 @@ public class Rock : MonoBehaviour
     public int[] pos = new int[2];
     private bool _fallingToPlace;
     private bool _moved;
-    private string _element;
+    public string _element;
     private int _yPosition;
     private int _xPosition = 0;
     private bool _xValueChanged;
