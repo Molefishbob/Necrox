@@ -129,7 +129,6 @@ public class GameField : MonoBehaviour {
 
 		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
 		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
-		_fieldReader.ReadField();
 	}
 	
 	public GameObject FindParent(int y) {
@@ -150,6 +149,10 @@ public class GameField : MonoBehaviour {
 				Debug.LogError("GameField/FindParent: Mistake in Y-value");
 				return column0;
 		}
+	}
+
+	public void ClearTileFromField(int a, int b) {
+		gameField[a,b] = null;
 	}
 
 	public static GameObject[,] GetGameField() {

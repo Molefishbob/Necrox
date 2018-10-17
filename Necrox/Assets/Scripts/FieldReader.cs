@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class FieldReader : MonoBehaviour {
 
-	private GameField gameField;
-    private GameObject currentHorTile;
-    private GameObject currentVerTile;
+	// private GameField gameField;
+    // private GameObject currentHorTile;
+    // private GameObject currentVerTile;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
     /// </summary>
     void Start() {
-		gameField = GetComponent<GameField>();
+		//gameField = GetComponent<GameField>();
 	}
 
+	/*
 	public bool ReadField () {
+		
 		int countHorizontal = 0;
 		int countVertical = 0;
 		GameObject[,] suicidalMan =  GameField.GetGameField();
@@ -68,6 +70,7 @@ public class FieldReader : MonoBehaviour {
 			countVertical = 0;
 		}
 		return false; //no match found
-
+		
 	}
+	*/
 }

@@ -14,12 +14,14 @@ public class Rock : MonoBehaviour
     private int _xPosition = 0;
     private bool _xValueChanged;
     private bool _yValueChanged;
+    private bool _toBeDestroyed;
+    private GameField _gameField;
 
 
     // Use this for initialization
     void Start()
     {
-
+        _gameField = transform.parent.parent.GetComponent<GameField>();
     }
 
     // Update is called once per frame
@@ -200,6 +202,12 @@ public class Rock : MonoBehaviour
             }
         }
     }
+    public void DestroyTile() {
+        if (_toBeDestroyed) {
+            _gameField.ClearTileFromField(pos[0],pos[1]);
+            Destroy(gameObject);
+        }
+    }
 
     public void SetPos(int[] pos)
     {
@@ -213,6 +221,12 @@ public class Rock : MonoBehaviour
         }
         this.pos = pos;
         _yPosition = ToPosValues(pos[1]);
+    }
+    public void SetToBeDestroyed(bool value) {
+        _toBeDestroyed = value;
+    }
+    public bool GetToBeDestroyed() {
+        return _toBeDestroyed;
     }
 
     public int[] GetPos()
