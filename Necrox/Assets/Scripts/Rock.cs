@@ -168,11 +168,11 @@ public class Rock : MonoBehaviour
 
     private void XMovement()
     {
-        Debug.Log(string.Format("DX:{0} DY:{1} RealX:{2} RealY:{3}",
-                                            _xPosition,
-                                            _yPosition,
-                                            transform.localPosition.x,
-                                            transform.localPosition.y));
+        // Debug.Log(string.Format("DX:{0} DY:{1} RealX:{2} RealY:{3}",
+        //                                     _xPosition,
+        //                                     _yPosition,
+        //                                     transform.localPosition.x,
+        //                                     transform.localPosition.y));
 
         if (_xPosition < transform.localPosition.x)
         {
