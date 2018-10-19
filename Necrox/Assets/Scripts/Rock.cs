@@ -33,13 +33,23 @@ public class Rock : MonoBehaviour
             if (transform.localPosition.y <= _yPosition)
             {
                 _fallingToPlace = false;
+                //Debug.Log(pos[0] + " " + pos[1]);
             }
         }
         if (_moved)
         {
             TileMovement();
         }
-
+        if (pos[1] < 11) {
+            if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetStartGame()) {
+                _gameField.ClearTileFromField(pos[0],pos[1]);
+                pos[1] = pos[1]+ 1;
+                GameField.setObject(pos[0],pos[1],gameObject);
+                _yPosition = ToPosValues(pos[1]);
+                _yValueChanged = true;
+                _moved = true;
+            }
+        }
     }
 
     private void TileMovement()
@@ -64,8 +74,6 @@ public class Rock : MonoBehaviour
     {
         int intX = Mathf.CeilToInt(x);
 
-        //Debug.Log(intX);
-
         intX = ToArrayValues(intX);
 
         pos = new int[] { intX, y };
@@ -88,31 +96,41 @@ public class Rock : MonoBehaviour
         //Debug.Log("X:"+ pos[0] + " Y:" + pos[1]);
 
         transform.parent = column.transform;
-        _moved = true;
     }
 
     private int ToPosValues(int value)
     {
         switch (value)
         {
-            case 0:
-                return 3;
-            case 1:
-                return 2;
-            case 2:
-                return 1;
-            case 3:
-                return 0;
-            case 4:
-                return -1;
-            case 5:
+            case 11:
                 return -2;
+            case 10:
+                return -1;
+            case 9:
+                return 0;
+            case 8:
+                return 1;
+            case 7:
+                return 2;
+            case 6:
+                return 3;
+            case 5:
+                return 4;
+            case 4:
+                return 5;
+            case 3:
+                return 6;
+            case 2:
+                return 7;
+            case 1:
+                return 8;
+            case 0:
+                return 9;
             default:
                 Debug.LogError("Mistakes: Y-pos of tile");
                 return 3;
         }
     }
-
     private int ToArrayValues(int value)
     {
         switch (value)
@@ -214,10 +232,12 @@ public class Rock : MonoBehaviour
         if (this.pos[0] != pos[0])
         {
             _xValueChanged = true;
+            _moved = true;
         }
         if (this.pos[1] != pos[1])
         {
             _yValueChanged = true;
+            _moved = true;
         }
         this.pos = pos;
         _yPosition = ToPosValues(pos[1]);

@@ -28,13 +28,16 @@ public class GameField : MonoBehaviour {
 	private static int column;
 	private float count;
 	private int rowsDone;
-	private string[,] row;
+	private string[,] _firstField;
+	private string[,] _extraTiles;
+
 	private List<GameObject> Children = new List<GameObject>();
-	
+    private bool emptyAreas;
+    private bool firstTable = true;
 
-
-	void Start () {
-		row = new string[6,6];
+    void Start () {
+		_firstField = new string[6,6];
+		_extraTiles = new string[6,6];
 		rows = arrayRows;
 		column = arrayColumns;
 		count = timer;
@@ -45,18 +48,40 @@ public class GameField : MonoBehaviour {
 
 			Children.Add(child.gameObject);
     	}
-		CreateRandomRow(template.GetRandomRowTemplate());
+		CreateRandomRow(template.GetRandomRowTemplate(),1);
+		CreateRandomRow(template.GetRandomRowTemplate(),2);
 
-		gameField = new GameObject[arrayColumns, arrayRows];
+		gameField = new GameObject[arrayColumns, arrayRows*2];
 		Time.timeScale = 1;
 	}
 	
 	void Update () {
 		if (startGame) {
-			if (timer <= count) {
+			if (firstTable) {
+				if (timer <= count) {
+					int a = 0;
+					foreach (GameObject child in Children) {
+						child.GetComponent<ColumnBehaviour>().CreateRock(
+																		a,(arrayRows+5) - rowsDone,
+																		_firstField[rowsDone,a]);
+						a++;
+					}
+					rowsDone++;
+					if (rowsDone == arrayRows) {
+						firstTable = false;
+						rowsDone = 0;
+					}
+					count = 0;
+				}
+			}
+			count = count + Time.deltaTime;
+			if (!firstTable) {
+				if (timer <= count) {
 				int a = 0;
 				foreach (GameObject child in Children) {
-					child.GetComponent<ColumnBehaviour>().CreateRock(a,(arrayRows-1) - rowsDone,row[rowsDone,a]);
+					child.GetComponent<ColumnBehaviour>().CreateExtraRock(
+																	a,(arrayRows -1) - rowsDone,
+																	_extraTiles[rowsDone,a]);
 					a++;
 				}
 				rowsDone++;
@@ -66,39 +91,56 @@ public class GameField : MonoBehaviour {
 				count = 0;
 			}
 			count = count + Time.deltaTime;
-		}
-		if (Input.GetKeyDown("space")) {
-			for (int a = 0; a < row.GetLength(0);a++) {
-				Debug.Log("Column " + a);
-				for (int b = 0; b < row.GetLength(1);b++) {
-					Debug.Log(row[a,b]);
-				}
-				Debug.Log("");
 			}
+		}
+
+		if (Input.GetKeyDown("space")) {
+			Destroy(gameField[0,11]);
+			gameField[0,11] = null;
 		}
 	}
 	
-	public void CreateRandomRow(string str) {
+	public void CreateRandomRow(string str,int number) {
 		int count = 0;
+		// It is disgusting, I know.
 		for (int a = 0; count < arrayColumns; a = a+6) {
 			for (int b = 0; b < arrayRows;b++) {
 
 				switch (str[a+b]) {
 
 					case 'f':
-						row[count,b] = "fire";
+						if (number == 1) {
+							_firstField[count,b] = "fire";
+						}else if (number == 2) {
+							_extraTiles[count,b] = "fire";
+						}
 						break;
 					case 'w':
-						row[count,b] = "water";
+						if (number == 1) {
+							_firstField[count,b] = "water";
+						}else if (number == 2) {
+							_extraTiles[count,b] = "water";
+						}
 						break;
 					case 'e':
-						row[count,b] = "earth";
+						if (number == 1) {
+							_firstField[count,b] = "earth";
+						}else if (number == 2) {
+							_extraTiles[count,b] = "earth";
+						}
 						break;
 					case 'c':
-						row[count,b] = "chaos";
+						if (number == 1) {
+							_firstField[count,b] = "chaos";
+						}else if (number == 2) {
+							_extraTiles[count,b] = "chaos";
+						}
 						break;
 					default:
-						row[count,b] = "fire";
+						if (number == 1) {
+							_firstField[count,b] = "fire";
+						} else if (number == 2) {
+							_extraTiles[count,b] = "fire";					}
 						break;
 
 				}
@@ -118,14 +160,6 @@ public class GameField : MonoBehaviour {
 
 		gameField[rocker1.pos[0],rocker1.pos[1]] = rock1;
 		gameField[rocker2.pos[0],rocker2.pos[1]] = rock2;
-		
-		// for (int a = 0; a < row.GetLength(0);a++) {
-		// 		Debug.Log("Column " + a);
-		// 		for (int b = 0; b < row.GetLength(1);b++) {
-		// 			Debug.Log(row[a,b]);
-		// 		}
-		// 		Debug.Log("");
-		// 	}
 
 		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
 		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
@@ -164,6 +198,9 @@ public class GameField : MonoBehaviour {
 	}
 	public static int GetArrayRows() {
 		return rows;
+	}
+	public bool GetStartGame() {
+		return startGame;
 	}
 	public Rock GetRockPrefab(string element) {
 		switch(element) {

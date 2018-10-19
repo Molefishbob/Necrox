@@ -54,7 +54,7 @@ public class GameLogic : MonoBehaviour {
 
             if (hit.collider != null) {
                 if (!gotFirstTouch) {
-                    //Debug.Log("The hit is: " + hit.collider.name);
+                    Debug.Log("The hit is: " + hit.collider.name);
 
                     firstRock = hit.collider.gameObject;
                     firstRock.GetComponent<Renderer>().material.color = selectedColor;

@@ -15,11 +15,21 @@ public class ColumnBehaviour : MonoBehaviour {
 			Gizmos.DrawCube(transform.parent.position + transform.localPosition + new Vector3(0,0.5f,0)
 							,new Vector3(1f,6f,0));
 
-		}
+	}
+
+	public void CreateExtraRock(int a, int b, string element) {
+		
+		var newRock = Instantiate(gameField.GetRockPrefab(element),
+								  new Vector3(transform.position.x,6.85f,-1),
+								  Quaternion.identity);
+		
+		newRock.transform.parent = gameObject.transform;
+		GameField.setObject(a,b,newRock.gameObject);
+		newRock.Init( transform.position.x, b, element);
+
+	}
 
 	public void CreateRock(int a, int b, string element) {
-
-
 
 		var newRock = Instantiate(gameField.GetRockPrefab(element),
 								  new Vector3(transform.position.x,0.85f,-1),
