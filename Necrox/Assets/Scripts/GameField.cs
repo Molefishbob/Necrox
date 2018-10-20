@@ -30,6 +30,7 @@ public class GameField : MonoBehaviour {
 	private int rowsDone;
 	private string[,] _firstField;
 	private string[,] _extraTiles;
+	private bool newExtraTable;
 
 	private List<GameObject> Children = new List<GameObject>();
     private bool emptyAreas;
@@ -56,51 +57,89 @@ public class GameField : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (startGame) {
-			if (firstTable) {
-				if (timer <= count) {
-					int a = 0;
-					foreach (GameObject child in Children) {
-						child.GetComponent<ColumnBehaviour>().CreateRock(
-																		a,(arrayRows+5) - rowsDone,
-																		_firstField[rowsDone,a]);
-						a++;
+		if (startGame)
+        {
+            ConfigureGame();
+        }
+
+		for(int a = 0; a < arrayColumns && !newExtraTable && !startGame;a++) {
+			int count = 0;
+			for(int b = 0; b < arrayRows; b++) {
+				if (gameField[a,b] == null) {
+					count++;
+				}
+				if (count >= arrayRows) {
+					for(int c = 0; c < arrayColumns;c++) {
+						for(int d = 0; d < arrayRows; d++) {
+							Destroy(gameField[c,d]);
+							gameField[c,d] = null;
+						}
 					}
-					rowsDone++;
-					if (rowsDone == arrayRows) {
-						firstTable = false;
-						rowsDone = 0;
-					}
-					count = 0;
+					Debug.Log("I am HERE");
+					CreateRandomRow(template.GetRandomRowTemplate(),2);
+					startGame = true;
+					newExtraTable = true;
 				}
-			}
-			count = count + Time.deltaTime;
-			if (!firstTable) {
-				if (timer <= count) {
-				int a = 0;
-				foreach (GameObject child in Children) {
-					child.GetComponent<ColumnBehaviour>().CreateExtraRock(
-																	a,(arrayRows -1) - rowsDone,
-																	_extraTiles[rowsDone,a]);
-					a++;
-				}
-				rowsDone++;
-				if (rowsDone == arrayRows) {
-					startGame = false;
-				}
-				count = 0;
-			}
-			count = count + Time.deltaTime;
 			}
 		}
 
-		if (Input.GetKeyDown("space")) {
+
+        if (Input.GetKeyDown("space")) {
 			Destroy(gameField[0,11]);
 			gameField[0,11] = null;
 		}
 	}
-	
-	public void CreateRandomRow(string str,int number) {
+
+    private void ConfigureGame()
+    {
+        if (firstTable)
+        {
+            if (timer <= count)
+            {
+                int a = 0;
+                foreach (GameObject child in Children)
+                {
+                    child.GetComponent<ColumnBehaviour>().CreateRock(
+                                                                    a, (arrayRows + 5) - rowsDone,
+                                                                    _firstField[rowsDone, a]);
+                    a++;
+                }
+                rowsDone++;
+                if (rowsDone == arrayRows)
+                {
+                    firstTable = false;
+                    rowsDone = 0;
+                }
+                count = 0;
+            }
+        }
+        count = count + Time.deltaTime;
+        if (!firstTable)
+        {
+            if (timer <= count)
+            {
+                int a = 0;
+                foreach (GameObject child in Children)
+                {
+                    child.GetComponent<ColumnBehaviour>().CreateExtraRock(
+                                                                    a, (arrayRows - 1) - rowsDone,
+                                                                    _extraTiles[rowsDone, a]);
+                    a++;
+                }
+                rowsDone++;
+                if (rowsDone == arrayRows)
+                {
+                    startGame = false;
+					newExtraTable = false;
+					rowsDone = 0;
+                }
+                count = 0;
+            }
+            count = count + Time.deltaTime;
+        }
+    }
+
+    public void CreateRandomRow(string str,int number) {
 		int count = 0;
 		// It is disgusting, I know.
 		for (int a = 0; count < arrayColumns; a = a+6) {

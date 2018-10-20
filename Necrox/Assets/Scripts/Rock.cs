@@ -50,6 +50,15 @@ public class Rock : MonoBehaviour
                 _moved = true;
             }
         }
+        IsDestroyable();
+    }
+
+    private void IsDestroyable() {
+        if (pos[1] < GameField.GetArrayRows()) {
+            gameObject.GetComponent<Collider2D>().enabled = false;
+        } else {
+            gameObject.GetComponent<Collider2D>().enabled = true;
+        }
     }
 
     private void TileMovement()
