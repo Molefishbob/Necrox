@@ -21,7 +21,6 @@ public class GameField : MonoBehaviour {
 	public GameObject column3;
 	public GameObject column4;
 	public GameObject column5;
-    public GameObject GameFieldGO;
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
@@ -203,7 +202,7 @@ public class GameField : MonoBehaviour {
 
 		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
 		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
-        GameFieldGO.GetComponent<MatchChecker>().MatchCheck(rock1);
+        gameObject.GetComponent<MatchChecker>().MatchCheck(rock1);
 
 
     }
