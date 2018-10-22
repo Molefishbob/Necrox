@@ -5019,6 +5019,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   gameField: {fileID: 607664517}
+  MatchChecker: {fileID: 0}
   startPos: {x: 0, y: 0}
   endPos: {x: 0, y: 0}
   directionChosen: 0
@@ -9729,6 +9730,7 @@ MonoBehaviour:
   column3: {fileID: 632236050}
   column4: {fileID: 294740635}
   column5: {fileID: 952545151}
+  GameFieldGO: {fileID: 607664517}
 --- !u!4 &607664519
 Transform:
   m_ObjectHideFlags: 0

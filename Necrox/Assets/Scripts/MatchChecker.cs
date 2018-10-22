@@ -32,6 +32,7 @@ public class MatchChecker : MonoBehaviour {
      * ïf the array is greater than or equal to 3 destroy the game objects in the array
      */
 	void Update () {
+        /*
 		if (Input.GetMouseButtonDown(0)) {
             
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -50,15 +51,28 @@ public class MatchChecker : MonoBehaviour {
                 //checkVerticleUp();
                 //checkVerticleDown();
             }
+        }*/
+        if (firstRock != null) {
+            if (!firstRock.GetComponent<Rock>()._moved) {
+                checkHorizontalRight();
+            }
         }
 	}
+
+    public void MatchCheck(GameObject tile) {
+        //Debug.Log("match check called and tile is: " + tile);
+        firstRock = tile;
+        horizontalMatchList.Add(firstRock);
+        verticalMatchList.Add(firstRock);
+    }
 
     void checkHorizontalRight () {
         //check going right
         endingPos = new Vector2(firstRock.transform.position.x + POSITIONCHANGE, firstRock.transform.position.y);
         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+
         for (int i = 1; i < raycast2DHits.Length; i++) {
-            Debug.Log("Going through right loop");
+            //Debug.Log("Going through right loop hits length is " + raycast2DHits.Length);
             //Debug.Log("current i value is: " + i + " and the length is " + raycast2DHits.Length);
             if (raycast2DHits.Length >= 2 || i <= raycast2DHits.Length) {
                 if (raycast2DHits[i].collider != null) {
@@ -106,7 +120,7 @@ public class MatchChecker : MonoBehaviour {
         endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + POSITIONCHANGE);
         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
         for (int i = 1; i < raycast2DHits.Length; i++) {
-            Debug.Log("arraylength is: " + raycast2DHits.Length + " and i is: " + i);
+            //Debug.Log("arraylength is: " + raycast2DHits.Length + " and i is: " + i);
             if (raycast2DHits.Length >= 2) {
                 if (raycast2DHits[i].collider != null) {
 

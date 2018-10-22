@@ -11,6 +11,7 @@ public class GameLogic : MonoBehaviour {
     private RaycastHit2D hit;
     private RaycastHit2D directionHit;
     public GameObject gameField;
+    public GameObject MatchChecker;
 
     public Vector2 startPos;
     public Vector2 endPos;
@@ -38,9 +39,9 @@ public class GameLogic : MonoBehaviour {
      * get the touch input
      * get the position in the array
      * use deltaposition to see which direction it went
-     * to see which direction find the different detween the start and stop of both x and y
+     * to see which direction find the difference detween the start and stop of both x and y
      * see which number is larger(check if neg or pos)
-     * then the different also tells the direction(up down left right)
+     * then the difference also tells the direction(up down left right)
      * pass the information to the game logic class with the array posstion and which direction
      */
 
@@ -54,10 +55,10 @@ public class GameLogic : MonoBehaviour {
 
             if (hit.collider != null) {
                 if (!gotFirstTouch) {
-                    Debug.Log("The hit is: " + hit.collider.name);
+                    //Debug.Log("The hit is: " + hit.collider.name);
 
                     firstRock = hit.collider.gameObject;
-                    firstRock.GetComponent<Renderer>().material.color = selectedColor;
+                    //firstRock.GetComponent<Renderer>().material.color = selectedColor;
                     rockPos = firstRock.GetComponent<Rock>().pos;
                     //Debug.Log(rockPos);
                     gotFirstTouch = true;
@@ -107,7 +108,7 @@ public class GameLogic : MonoBehaviour {
                     //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
-                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 } else {
                     direction = "left";
@@ -116,7 +117,7 @@ public class GameLogic : MonoBehaviour {
                     //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
-                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 }
             } else if (xDiff < yDiff) {
@@ -128,7 +129,7 @@ public class GameLogic : MonoBehaviour {
                     //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
-                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 } else {
                     direction = "down";
@@ -137,7 +138,7 @@ public class GameLogic : MonoBehaviour {
                     //Debug.Log("array is: " + raycast2DHits);
                     if (raycast2DHits[1].collider != null) {
                         secondRock = raycast2DHits[1].collider.gameObject;
-                        secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
                     }
                 }
             }
