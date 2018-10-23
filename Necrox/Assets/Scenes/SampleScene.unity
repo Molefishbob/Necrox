@@ -5019,6 +5019,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   gameField: {fileID: 607664517}
+  MatchChecker: {fileID: 0}
   startPos: {x: 0, y: 0}
   endPos: {x: 0, y: 0}
   directionChosen: 0
@@ -9728,6 +9729,7 @@ MonoBehaviour:
   column3: {fileID: 632236050}
   column4: {fileID: 294740635}
   column5: {fileID: 952545151}
+  GameFieldGO: {fileID: 0}
 --- !u!4 &607664519
 Transform:
   m_ObjectHideFlags: 0
@@ -9755,9 +9757,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 607664517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16f96c6c92df3f4d95c5e11955d7567, type: 3}
+  m_Script: {fileID: 11500000, guid: 1349be556322c674293fed104837faa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1413901556}
+  touchInputMask:
+    serializedVersion: 2
+    m_Bits: 512
+  firstRock: {fileID: 0}
+  secondRock: {fileID: 0}
+  horizontalMatchList: []
+  verticalMatchList: []
 --- !u!1 &632236050
 GameObject:
   m_ObjectHideFlags: 0
