@@ -36,7 +36,7 @@ public class Rock : MonoBehaviour
                 //Debug.Log(pos[0] + " " + pos[1]);
             }
         }
-        if (_moved)
+        if (_moved && !_fallingToPlace)
         {
             TileMovement();
         }
