@@ -19,6 +19,7 @@ public class MatchChecker : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
     }
 	
 	// Update is called once per frame
@@ -31,8 +32,8 @@ public class MatchChecker : MonoBehaviour {
      * ïf the array is greater than or equal to 3 destroy the game objects in the array
      */
 	void Update () {
-        
-		/*if (Input.GetMouseButtonDown(0)) {
+        /*
+		if (Input.GetMouseButtonDown(0)) {
             
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -163,6 +164,19 @@ public class MatchChecker : MonoBehaviour {
         //detroy the gameobjects if match is 3+
         if (horizontalMatchList.Count >= 3) {
             for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++) {
+                Destroy(horizontalMatchList[mCnt]);
+            }
+
+        }
+        if (verticalMatchList.Count >= 3) {
+            for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++) {
+                Destroy(verticalMatchList[mCnt]);
+            }
+
+        }
+        /*
+         *  if (horizontalMatchList.Count >= 3) {
+            for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++) {
                 horizontalMatchList[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy:true);
             }
 
@@ -176,6 +190,7 @@ public class MatchChecker : MonoBehaviour {
         foreach (GameObject tile in GameField.GetGameField()) {
             tile.GetComponent<Rock>().DestroyTile();
         }
+         */
         //reset the lists
         horizontalMatchList.Clear();
         verticalMatchList.Clear();
