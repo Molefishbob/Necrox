@@ -32,7 +32,7 @@ public class MatchChecker : MonoBehaviour {
      */
 	void Update () {
         
-		if (Input.GetMouseButtonDown(0)) {
+		/*if (Input.GetMouseButtonDown(0)) {
             
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -50,7 +50,7 @@ public class MatchChecker : MonoBehaviour {
                 //checkVerticleUp();
                 //checkVerticleDown();
             }
-        }
+        }*/
         if (firstRock != null) {
             if (!firstRock.GetComponent<Rock>().GetMoved()) {
                 checkHorizontalRight();
@@ -163,15 +163,18 @@ public class MatchChecker : MonoBehaviour {
         //detroy the gameobjects if match is 3+
         if (horizontalMatchList.Count >= 3) {
             for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++) {
-                Destroy(horizontalMatchList[mCnt]);
+                horizontalMatchList[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy:true);
             }
 
         }
         if (verticalMatchList.Count >= 3) {
             for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++) {
-                Destroy(verticalMatchList[mCnt]);
+                verticalMatchList[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
             }
 
+        }
+        foreach (GameObject tile in GameField.GetGameField()) {
+            tile.GetComponent<Rock>().DestroyTile();
         }
         //reset the lists
         horizontalMatchList.Clear();

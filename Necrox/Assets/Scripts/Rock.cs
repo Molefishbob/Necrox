@@ -252,8 +252,8 @@ public class Rock : MonoBehaviour
         this.pos = pos;
         _yPosition = ToPosValues(pos[1]);
     }
-    public void SetToBeDestroyed(bool value) {
-        _toBeDestroyed = value;
+    public void SetToBeDestroyed(bool destroy) {
+        _toBeDestroyed = destroy;
     }
     public bool GetToBeDestroyed() {
         return _toBeDestroyed;
