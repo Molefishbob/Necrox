@@ -143,7 +143,7 @@ public class GameLogic : MonoBehaviour {
                 }
             }
             //Debug.Log(direction);
-            gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock);
+            gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock,newMove: true);
             directionChosen = false;
             gotFirstTouch = false;
         }

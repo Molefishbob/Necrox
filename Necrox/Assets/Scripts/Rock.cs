@@ -16,6 +16,7 @@ public class Rock : MonoBehaviour
     private bool _yValueChanged;
     private bool _toBeDestroyed;
     private GameField _gameField;
+    private float speed = 0.125f;
 
 
     // Use this for initialization
@@ -29,7 +30,7 @@ public class Rock : MonoBehaviour
     {
         if (_fallingToPlace)
         {
-            transform.localPosition = new Vector3(0, transform.localPosition.y - 0.125f, 0);
+            transform.localPosition = new Vector3(0, transform.localPosition.y - speed, 0);
             if (transform.localPosition.y <= _yPosition)
             {
                 _fallingToPlace = false;
@@ -169,7 +170,7 @@ public class Rock : MonoBehaviour
         {
 
             transform.localPosition = new Vector3(0,
-                                                  transform.localPosition.y - 0.125f,
+                                                  transform.localPosition.y - speed,
                                                   0);
 
             if (_yPosition >= transform.localPosition.y)
@@ -182,7 +183,7 @@ public class Rock : MonoBehaviour
         {
 
             transform.localPosition = new Vector3(0,
-                                                  transform.localPosition.y + 0.125f,
+                                                  transform.localPosition.y + speed,
                                                   0);
 
             if (_yPosition <= transform.localPosition.y)

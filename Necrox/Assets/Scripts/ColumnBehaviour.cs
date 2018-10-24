@@ -18,9 +18,9 @@ public class ColumnBehaviour : MonoBehaviour {
 	}
 
 	public void CreateExtraRock(int a, int b, string element) {
-		
+
 		var newRock = Instantiate(gameField.GetRockPrefab(element),
-								  new Vector3(transform.position.x,6.85f,-1),
+								  new Vector3(transform.position.x,6.85f - b,-1),
 								  Quaternion.identity);
 		
 		newRock.transform.parent = gameObject.transform;
