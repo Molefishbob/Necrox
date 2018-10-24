@@ -165,7 +165,8 @@ public class MatchChecker : MonoBehaviour {
         destroyMatches();
     }
     void destroyMatches() {
-        bool noMatches = false;
+        bool noMatchesHor = false;
+        bool noMatchesVer = false;
         //detroy the gameobjects if match is 3+
         if (horizontalMatchList.Count >= 3) {
             for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++) {
@@ -173,7 +174,7 @@ public class MatchChecker : MonoBehaviour {
             }
 
         } else {
-            noMatches = true;
+            noMatchesHor = true;
         }
         if (verticalMatchList.Count >= 3) {
             for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++) {
@@ -181,9 +182,9 @@ public class MatchChecker : MonoBehaviour {
             }
 
         } else {
-            noMatches = true;
+            noMatchesVer = true;
         }
-        if (noMatches) {
+        if (noMatchesHor && noMatchesVer) {
             RevertPositions();
         }
 
