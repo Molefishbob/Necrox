@@ -19,7 +19,6 @@ public class MatchChecker : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
     }
 	
 	// Update is called once per frame
@@ -32,7 +31,7 @@ public class MatchChecker : MonoBehaviour {
      * ïf the array is greater than or equal to 3 destroy the game objects in the array
      */
 	void Update () {
-        /*
+        
 		if (Input.GetMouseButtonDown(0)) {
             
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -51,9 +50,9 @@ public class MatchChecker : MonoBehaviour {
                 //checkVerticleUp();
                 //checkVerticleDown();
             }
-        }*/
+        }
         if (firstRock != null) {
-            if (!firstRock.GetComponent<Rock>()._moved) {
+            if (!firstRock.GetComponent<Rock>().GetMoved()) {
                 checkHorizontalRight();
             }
         }

@@ -8,7 +8,7 @@ public class Rock : MonoBehaviour
 
     public int[] pos = new int[2];
     private bool _fallingToPlace;
-    public bool _moved;
+    private bool _moved;
     public string _element;
     private int _yPosition;
     private int _xPosition = 0;
@@ -41,7 +41,7 @@ public class Rock : MonoBehaviour
             TileMovement();
         }
         if (pos[1] < 11) {
-            if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetStartGame()) {
+            if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
                 _gameField.ClearTileFromField(pos[0],pos[1]);
                 pos[1] = pos[1]+ 1;
                 GameField.setObject(pos[0],pos[1],gameObject);
@@ -256,6 +256,9 @@ public class Rock : MonoBehaviour
     }
     public bool GetToBeDestroyed() {
         return _toBeDestroyed;
+    }
+    public bool GetMoved() {
+        return _moved;
     }
 
     public int[] GetPos()

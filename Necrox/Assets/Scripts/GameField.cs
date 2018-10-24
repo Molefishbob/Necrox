@@ -188,7 +188,7 @@ public class GameField : MonoBehaviour {
 		}
 	}
 
-	public void MoveTiles(GameObject rock1, GameObject rock2) {
+	public void MoveTiles(GameObject rock1, GameObject rock2, bool newMove) {
 
 		Rock rocker1 = rock1.GetComponent<Rock>();
 		Rock rocker2 = rock2.GetComponent<Rock>();
@@ -202,7 +202,9 @@ public class GameField : MonoBehaviour {
 
 		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
 		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
-        gameObject.GetComponent<MatchChecker>().MatchCheck(rock1);
+		if(newMove) {
+        	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1);
+		}
 
 
     }
@@ -243,6 +245,9 @@ public class GameField : MonoBehaviour {
 	}
 	public bool GetStartGame() {
 		return startGame;
+	}
+	public bool GetFirstTable() {
+		return firstTable;
 	}
 	public Rock GetRockPrefab(string element) {
 		switch(element) {
