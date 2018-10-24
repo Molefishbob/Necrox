@@ -176,7 +176,7 @@ public class Rock : MonoBehaviour
             if (_yPosition >= transform.localPosition.y)
             {
                 _yValueChanged = false;
-                //Debug.Log("YValue correct");
+                Debug.Log("YValue correct");
             }
         }
         if (_yPosition > transform.localPosition.y)
@@ -189,7 +189,7 @@ public class Rock : MonoBehaviour
             if (_yPosition <= transform.localPosition.y)
             {
                 _yValueChanged = false;
-                //Debug.Log("YValue correct");
+                Debug.Log("YValue correct");
             }
         }
     }
@@ -239,6 +239,7 @@ public class Rock : MonoBehaviour
 
     public void SetPos(int[] pos)
     {
+        Debug.Log(pos[0] + " " + pos[1]);
         if (this.pos[0] != pos[0])
         {
             _xValueChanged = true;

@@ -54,6 +54,10 @@ public class GameField : MonoBehaviour {
 
 		gameField = new GameObject[arrayColumns, arrayRows*2];
 		Time.timeScale = 1;
+		Debug.Log(gameField.GetLength(1));
+		for(int c = 0 ; c > gameField.GetLength(1);c++) {
+				Debug.Log("count:" + c);
+		}
 	}
 	
 	void Update () {
@@ -75,7 +79,6 @@ public class GameField : MonoBehaviour {
 							gameField[c,d] = null;
 						}
 					}
-					Debug.Log("I am HERE");
 					CreateRandomRow(template.GetRandomRowTemplate(),2);
 					startGame = true;
 					newExtraTable = true;
@@ -85,8 +88,11 @@ public class GameField : MonoBehaviour {
 
 
         if (Input.GetKeyDown("space")) {
-			Destroy(gameField[0,11]);
-			gameField[0,11] = null;
+			System.Random random = new System.Random();
+			int a = random.Next(0,6);
+			int b = random.Next(6,12);
+			Destroy(gameField[a,b]);
+			gameField[a,b] = null;
 		}
 	}
 
@@ -192,18 +198,22 @@ public class GameField : MonoBehaviour {
 
 		Rock rocker1 = rock1.GetComponent<Rock>();
 		Rock rocker2 = rock2.GetComponent<Rock>();
-		int[] posRock1 = rocker1.GetPos();
+		//Debug.Log(posRock1[0] + " " + posRock1[1]);
 
+		int[] posRock1 = rocker1.GetPos();
 		rocker1.SetPos(rocker2.GetPos());
 		rocker2.SetPos(posRock1);
+
+		
+		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
+		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
 
 		gameField[rocker1.pos[0],rocker1.pos[1]] = rock1;
 		gameField[rocker2.pos[0],rocker2.pos[1]] = rock2;
 
-		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
-		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
 		if(newMove) {
-        	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1);
+			Debug.Log("I AM MOVE");
+        	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
 		}
 
 
