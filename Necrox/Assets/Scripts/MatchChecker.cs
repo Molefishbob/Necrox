@@ -11,12 +11,14 @@ public class MatchChecker : MonoBehaviour {
     private RaycastHit2D hit;
     public GameObject firstRock;
     public GameObject secondRock;
-    private GameObject NotAnotherSecondRock;
+    private GameObject rockFromHits;
     public RaycastHit2D[] raycast2DHits;
     private Vector2 endingPos;
 
     public List<GameObject> horizontalMatchList = new List<GameObject>();
     public List<GameObject> verticalMatchList = new List<GameObject>();
+    public List<GameObject> horizontalMatchList2 = new List<GameObject>();
+    public List<GameObject> verticalMatchList2 = new List<GameObject>();
 
     // Use this for initialization
     void Start () {
@@ -68,10 +70,12 @@ public class MatchChecker : MonoBehaviour {
         Debug.Log(secondRock.GetComponent<Rock>().GetPos()[0]);
         horizontalMatchList.Add(firstRock);
         verticalMatchList.Add(firstRock);
+        horizontalMatchList2.Add(secondRock);
+        verticalMatchList2.Add(secondRock);
     }
 
     void checkHorizontalRight () {
-        //check going right
+        //check going right on first rock
         endingPos = new Vector2(firstRock.transform.position.x + POSITIONCHANGE, firstRock.transform.position.y);
         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
 
@@ -81,11 +85,11 @@ public class MatchChecker : MonoBehaviour {
             if (raycast2DHits.Length >= 2 || i <= raycast2DHits.Length) {
                 if (raycast2DHits[i].collider != null) {
 
-                    NotAnotherSecondRock = raycast2DHits[i].collider.gameObject;
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
                     //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
                     //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
-                    if (firstRock.GetComponent<Rock>()._element == NotAnotherSecondRock.GetComponent<Rock>()._element) {
-                        horizontalMatchList.Add(NotAnotherSecondRock);
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        horizontalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
                         i = MAXAMOUNT;
@@ -94,11 +98,36 @@ public class MatchChecker : MonoBehaviour {
             }
             
         }
-        
-        checkHorizontalLeft();
+        //Check right on second rock
+        endingPos = new Vector2(secondRock.transform.position.x + POSITIONCHANGE, secondRock.transform.position.y);
+        raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+
+        for (int i = 1; i < raycast2DHits.Length; i++) {
+            //Debug.Log("Going through right loop hits length is " + raycast2DHits.Length);
+            //Debug.Log("current i value is: " + i + " and the length is " + raycast2DHits.Length);
+            if (raycast2DHits.Length >= 2 || i <= raycast2DHits.Length) {
+                if (raycast2DHits[i].collider != null) {
+
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
+                    //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
+                    //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
+                    if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        horizontalMatchList2.Add(rockFromHits);
+                        //Debug.Log("Counting matches " + i + " : " + secondRock);
+                    }
+                    else {
+                        i = MAXAMOUNT;
+                    }
+                }
+            }
+
+        }
+
+        CheckHorizontalLeft();
     }
 
-    void checkHorizontalLeft() {
+    void CheckHorizontalLeft() {
+        //first rock left check
         endingPos = new Vector2(firstRock.transform.position.x - POSITIONCHANGE, firstRock.transform.position.y);
         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
         for (int i = 1; i < raycast2DHits.Length; i++) {
@@ -106,11 +135,11 @@ public class MatchChecker : MonoBehaviour {
             if (raycast2DHits.Length >= 2) {
                 if (raycast2DHits[i].collider != null) {
 
-                    NotAnotherSecondRock = raycast2DHits[i].collider.gameObject;
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
                     //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
                     //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
-                    if (firstRock.GetComponent<Rock>()._element == NotAnotherSecondRock.GetComponent<Rock>()._element) {
-                        horizontalMatchList.Add(NotAnotherSecondRock);
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        horizontalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
                         i = MAXAMOUNT;
@@ -118,9 +147,31 @@ public class MatchChecker : MonoBehaviour {
                 }
             }
         }
-        checkVerticleUp();
+        //second rock left check
+        endingPos = new Vector2(secondRock.transform.position.x - POSITIONCHANGE, secondRock.transform.position.y);
+        raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+        for (int i = 1; i < raycast2DHits.Length; i++) {
+            //Debug.Log("array is: " + raycast2DHits);
+            if (raycast2DHits.Length >= 2) {
+                if (raycast2DHits[i].collider != null) {
+
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
+                    //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
+                    //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
+                    if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        horizontalMatchList2.Add(rockFromHits);
+                        //Debug.Log("Counting matches " + i + " : " + secondRock);
+                    }
+                    else {
+                        i = MAXAMOUNT;
+                    }
+                }
+            }
+        }
+        CheckVerticleUp();
     }
-    void checkVerticleUp() {
+    void CheckVerticleUp() {
+        //first rock up check
         endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + POSITIONCHANGE);
         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
         for (int i = 1; i < raycast2DHits.Length; i++) {
@@ -128,11 +179,11 @@ public class MatchChecker : MonoBehaviour {
             if (raycast2DHits.Length >= 2) {
                 if (raycast2DHits[i].collider != null) {
 
-                    NotAnotherSecondRock = raycast2DHits[i].collider.gameObject;
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
                     //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
                     //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
-                    if (firstRock.GetComponent<Rock>()._element == NotAnotherSecondRock.GetComponent<Rock>()._element) {
-                        verticalMatchList.Add(NotAnotherSecondRock);
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        verticalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
                         i = MAXAMOUNT;
@@ -140,9 +191,31 @@ public class MatchChecker : MonoBehaviour {
                 }
             }
         }
-        checkVerticleDown();
+        // second rock up check
+        endingPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y + POSITIONCHANGE);
+        raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+        for (int i = 1; i < raycast2DHits.Length; i++) {
+            //Debug.Log("arraylength is: " + raycast2DHits.Length + " and i is: " + i);
+            if (raycast2DHits.Length >= 2) {
+                if (raycast2DHits[i].collider != null) {
+
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
+                    //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
+                    //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
+                    if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        verticalMatchList2.Add(rockFromHits);
+                        //Debug.Log("Counting matches " + i + " : " + secondRock);
+                    }
+                    else {
+                        i = MAXAMOUNT;
+                    }
+                }
+            }
+        }
+        CheckVerticleDown();
     }
-    void checkVerticleDown() {
+    void CheckVerticleDown() {
+        //firs rock down check
         endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y - POSITIONCHANGE);
         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
         for (int i = 1; i < raycast2DHits.Length; i++) {
@@ -150,11 +223,11 @@ public class MatchChecker : MonoBehaviour {
             if (raycast2DHits.Length >= 2) {
                 if (raycast2DHits[i].collider != null) {
 
-                    NotAnotherSecondRock = raycast2DHits[i].collider.gameObject;
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
                     //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
                     //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
-                    if (firstRock.GetComponent<Rock>()._element == NotAnotherSecondRock.GetComponent<Rock>()._element) {
-                        verticalMatchList.Add(NotAnotherSecondRock);
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        verticalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
                         i = MAXAMOUNT;
@@ -162,12 +235,36 @@ public class MatchChecker : MonoBehaviour {
                 }
             }
         }
-        destroyMatches();
+        //second rock down check
+        endingPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y - POSITIONCHANGE);
+        raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+        for (int i = 1; i < raycast2DHits.Length; i++) {
+            //Debug.Log("array is: " + raycast2DHits);
+            if (raycast2DHits.Length >= 2) {
+                if (raycast2DHits[i].collider != null) {
+
+                    rockFromHits = raycast2DHits[i].collider.gameObject;
+                    //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
+                    //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
+                    if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
+                        verticalMatchList2.Add(rockFromHits);
+                        //Debug.Log("Counting matches " + i + " : " + secondRock);
+                    }
+                    else {
+                        i = MAXAMOUNT;
+                    }
+                }
+            }
+        }
+        DestroyMatchesChecker();
     }
-    void destroyMatches() {
+    void DestroyMatchesChecker() {
         bool noMatchesHor = false;
         bool noMatchesVer = false;
+        bool noMatchesHor2 = false;
+        bool noMatchesVer2 = false;
         //detroy the gameobjects if match is 3+
+        //First rock check
         if (horizontalMatchList.Count >= 3) {
             for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++) {
                 Destroy(horizontalMatchList[mCnt]);
@@ -182,6 +279,25 @@ public class MatchChecker : MonoBehaviour {
             }
 
         } else {
+            noMatchesVer = true;
+        }
+        //seocnd rock check
+        if (horizontalMatchList2.Count >= 3) {
+            for (int mCnt = 0; mCnt < horizontalMatchList2.Count; mCnt++) {
+                Destroy(horizontalMatchList2[mCnt]);
+            }
+
+        }
+        else {
+            noMatchesHor = true;
+        }
+        if (verticalMatchList2.Count >= 3) {
+            for (int mCnt = 0; mCnt < verticalMatchList2.Count; mCnt++) {
+                Destroy(verticalMatchList2[mCnt]);
+            }
+
+        }
+        else {
             noMatchesVer = true;
         }
         if (noMatchesHor && noMatchesVer) {
