@@ -287,20 +287,18 @@ public class MatchChecker : MonoBehaviour {
                 Destroy(horizontalMatchList2[mCnt]);
             }
 
-        }
-        else {
-            noMatchesHor = true;
+        } else {
+            noMatchesHor2 = true;
         }
         if (verticalMatchList2.Count >= 3) {
             for (int mCnt = 0; mCnt < verticalMatchList2.Count; mCnt++) {
                 Destroy(verticalMatchList2[mCnt]);
             }
 
+        } else {
+            noMatchesVer2 = true;
         }
-        else {
-            noMatchesVer = true;
-        }
-        if (noMatchesHor && noMatchesVer) {
+        if (noMatchesHor && noMatchesVer && noMatchesHor2 && noMatchesVer2) {
             RevertPositions();
         }
 
