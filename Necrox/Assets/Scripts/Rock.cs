@@ -16,7 +16,7 @@ public class Rock : MonoBehaviour
     private bool _yValueChanged;
     private bool _toBeDestroyed;
     private GameField _gameField;
-    private float speed = 0.125f;
+    private float speed = 0.25f;
 
 
     // Use this for initialization

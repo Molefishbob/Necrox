@@ -24,7 +24,7 @@ public class GameField : MonoBehaviour {
 	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
-	private float timer = 0.25f;
+	private float timer = 0.1f;
 	private static int column;
 	private float count;
 	private int rowsDone;
