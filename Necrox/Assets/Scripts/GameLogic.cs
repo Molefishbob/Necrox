@@ -49,12 +49,16 @@ public class GameLogic : MonoBehaviour {
 
     void Update() {
         if (!canTouch) {
-            CheckBoard();
+            
         }
         if (Input.GetKeyDown("p")) {
+            CheckBoard();
             canTouch = false;
         }
-        
+        if (Input.GetKeyDown("l")) {
+            canTouch = true;
+        }
+
 
         if (canTouch) {
             TrackMovement();

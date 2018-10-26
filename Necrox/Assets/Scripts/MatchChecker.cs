@@ -26,8 +26,7 @@ public class MatchChecker : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameFieldArray = GameField.GetGameField();
-        Debug.Log(gameFieldArray);
+        
     }
 	
 	// Update is called once per frame
@@ -347,7 +346,9 @@ public class MatchChecker : MonoBehaviour {
     }
     //do the same check but iterate through the array
     public void BoardCheck() {
-        
+        gameFieldArray = GameField.GetGameField();
+        Debug.Log(gameFieldArray);
+
         for (int x = 0; x < gameFieldArray.GetLength(0); x++) {
             for (int c = 6; c < gameFieldArray.GetLength(1); c++) {
                 Debug.Log("This is " + gameFieldArray[x, c] + " in the array");
@@ -409,7 +410,7 @@ public class MatchChecker : MonoBehaviour {
                                 //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
                                 //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
                                 if (checkRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
-                                    horizontalMatchList.Add(rockFromHits);
+                                    verticalMatchList.Add(rockFromHits);
                                     //Debug.Log("Counting matches " + i + " : " + secondRock);
                                 }
                                 else {
@@ -430,7 +431,7 @@ public class MatchChecker : MonoBehaviour {
                                 //Debug.Log("First rock is: " + firstRock + " and the rock to the right is: " + secondRock);
                                 //Debug.Log("The first rock element is " + firstRock.GetComponent<Rock>()._element);
                                 if (checkRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
-                                    horizontalMatchList.Add(rockFromHits);
+                                    verticalMatchList.Add(rockFromHits);
                                     //Debug.Log("Counting matches " + i + " : " + secondRock);
                                 }
                                 else {
@@ -459,10 +460,7 @@ public class MatchChecker : MonoBehaviour {
                 }
             }
         }
-        gameObject.GetComponent<GameLogic>().SetTouchTrue();
-        
-        
-        typeOfCheck = "boardCheck";
+        //gameObject.GetComponent<GameLogic>().SetTouchTrue();
 
     }
 }
