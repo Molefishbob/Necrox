@@ -55,7 +55,7 @@ public class GameField : MonoBehaviour {
 		gameField = new GameObject[arrayColumns, arrayRows*2];
 		Time.timeScale = 1;
 		Debug.Log(gameField.GetLength(1));
-		for(int c = 0 ; c > gameField.GetLength(1);c++) {
+		for(int c = 0 ; c < gameField.GetLength(1);c++) {
 				Debug.Log("count:" + c);
 		}
 	}
@@ -237,6 +237,17 @@ public class GameField : MonoBehaviour {
 				Debug.LogError("GameField/FindParent: Mistake in Y-value");
 				return column0;
 		}
+	}
+	public bool AreVisibleTilesMoving() {
+		for (int a = 0; a < gameField.GetLength(0);a++) {
+			for ( int b = 0; b < gameField.GetLength(1);b++) {
+				bool moving = gameField[a,b].GetComponent<Rock>().GetMoved();
+				if (moving) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public void ClearTileFromField(int a, int b) {
