@@ -31,7 +31,8 @@ public class GameLogic : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //gameFieldArray = gameField.GetComponent<GameField>().
+        gameFieldArray = GameField.GetGameField();
+        Debug.Log(gameFieldArray);
 
     }
 
@@ -47,12 +48,33 @@ public class GameLogic : MonoBehaviour {
      */
 
     void Update() {
+        if (!canTouch) {
+            CheckBoard();
+        }
+        if (Input.GetKeyDown("p")) {
+            canTouch = false;
+        }
+        
 
         if (canTouch) {
             TrackMovement();
         }
 
 
+    }
+
+    void CheckBoard() {
+        /*for (int x = 0; x < gameFieldArray.GetLength(0); x++) {
+            for (int c = 6; c < gameFieldArray.GetLength(1); c++) {
+                Debug.Log("This is " + gameFieldArray[x, c] + " in the array");
+                if (gameFieldArray[x, c] != null) {
+                    gameField.GetComponent<MatchChecker>().BoardCheck(gameFieldArray[x, c]);
+                }
+                //gameField.GetComponent<MatchChecker>().MatchCheck(gameFieldArray[x, c].gameObject, gameFieldArray[x, c].gameObject);
+            }
+        }
+        canTouch = true;*/
+        gameField.GetComponent<MatchChecker>().BoardCheck();
     }
 
     void TrackMovement() {
@@ -159,6 +181,11 @@ public class GameLogic : MonoBehaviour {
             gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock, newMove: true);
             directionChosen = false;
             gotFirstTouch = false;
+            firstRock = null;
+            secondRock = null;
         }
+    }
+    public void SetTouchTrue() {
+        canTouch = true;
     }
 }
