@@ -98,7 +98,7 @@ public class MatchChecker : MonoBehaviour {
                         horizontalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
-                        i = MAXAMOUNT;
+                        break;
                     }
                 }
             }
@@ -123,7 +123,7 @@ public class MatchChecker : MonoBehaviour {
                             //Debug.Log("Counting matches " + i + " : " + secondRock);
                         }
                         else {
-                            i = MAXAMOUNT;
+                            break;
                         }
                     }
                 }
@@ -150,7 +150,7 @@ public class MatchChecker : MonoBehaviour {
                         horizontalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
-                        i = MAXAMOUNT;
+                        break;
                     }
                 }
             }
@@ -172,7 +172,7 @@ public class MatchChecker : MonoBehaviour {
                             //Debug.Log("Counting matches " + i + " : " + secondRock);
                         }
                         else {
-                            i = MAXAMOUNT;
+                            break;
                         }
                     }
                 }
@@ -196,7 +196,7 @@ public class MatchChecker : MonoBehaviour {
                         verticalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
-                        i = MAXAMOUNT;
+                        break;
                     }
                 }
             }
@@ -218,7 +218,7 @@ public class MatchChecker : MonoBehaviour {
                             //Debug.Log("Counting matches " + i + " : " + secondRock);
                         }
                         else {
-                            i = MAXAMOUNT;
+                            break;
                         }
                     }
                 }
@@ -242,7 +242,7 @@ public class MatchChecker : MonoBehaviour {
                         verticalMatchList.Add(rockFromHits);
                         //Debug.Log("Counting matches " + i + " : " + secondRock);
                     } else {
-                        i = MAXAMOUNT;
+                        break;
                     }
                 }
             }
@@ -264,7 +264,7 @@ public class MatchChecker : MonoBehaviour {
                             //Debug.Log("Counting matches " + i + " : " + secondRock);
                         }
                         else {
-                            i = MAXAMOUNT;
+                            break;
                         }
                     }
                 }
@@ -372,7 +372,7 @@ public class MatchChecker : MonoBehaviour {
                                     //Debug.Log("Counting matches " + i + " : " + secondRock);
                                 }
                                 else {
-                                    i = MAXAMOUNT;
+                                    break;
                                 }
                             }
                         }
@@ -393,7 +393,7 @@ public class MatchChecker : MonoBehaviour {
                                     //Debug.Log("Counting matches " + i + " : " + secondRock);
                                 }
                                 else {
-                                    i = MAXAMOUNT;
+                                    break;
                                 }
                             }
                         }
@@ -414,7 +414,7 @@ public class MatchChecker : MonoBehaviour {
                                     //Debug.Log("Counting matches " + i + " : " + secondRock);
                                 }
                                 else {
-                                    i = MAXAMOUNT;
+                                    break;
                                 }
                             }
                         }
@@ -435,7 +435,7 @@ public class MatchChecker : MonoBehaviour {
                                     //Debug.Log("Counting matches " + i + " : " + secondRock);
                                 }
                                 else {
-                                    i = MAXAMOUNT;
+                                    break;
                                 }
                             }
                         }
