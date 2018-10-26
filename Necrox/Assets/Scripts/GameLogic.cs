@@ -32,7 +32,6 @@ public class GameLogic : MonoBehaviour {
     // Use this for initialization
     void Start () {
         gameFieldArray = GameField.GetGameField();
-        Debug.Log(gameFieldArray);
 
     }
 

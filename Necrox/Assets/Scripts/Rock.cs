@@ -232,6 +232,7 @@ public class Rock : MonoBehaviour
     }
     public void DestroyTile() {
         if (_toBeDestroyed) {
+            Debug.Log("Destroyed:" + "X:" + pos[0] + " Y:" + pos[1]);
             _gameField.ClearTileFromField(pos[0],pos[1]);
             Destroy(gameObject);
         }
@@ -239,7 +240,6 @@ public class Rock : MonoBehaviour
 
     public void SetPos(int[] pos)
     {
-        Debug.Log(pos[0] + " " + pos[1]);
         if (this.pos[0] != pos[0])
         {
             _xValueChanged = true;
