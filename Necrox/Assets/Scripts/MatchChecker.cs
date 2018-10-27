@@ -285,88 +285,15 @@ public class MatchChecker : MonoBehaviour {
     }
     void DestroyMatchesChecker()
     {
-        /* CHECK EVERYTHING!!
-        Debug.Log("first hor ma length is " + horizontalMatchList.Count);
-        Debug.Log("first ver ma length is " + verticalMatchList.Count);
-        Debug.Log("second hor ma length is " + horizontalMatchList2.Count);
-        Debug.Log("second ver ma length is " + verticalMatchList2.Count);
-        for (int k = 0; k < horizontalMatchList.Count; k++) {
-            Debug.Log("Tile " + k + " is: " + horizontalMatchList[k]);
-            if (horizontalMatchList[k] == null) {
-                Debug.Log("There was a null");
-                horizontalMatchList.Remove(horizontalMatchList[k]);
-            }
-        }
-        for (int k = 0; k < verticalMatchList.Count; k++) {
-            Debug.Log("Tile " + k + " is: " + verticalMatchList[k]);
-            if (verticalMatchList[k] == null) {
-                Debug.Log("There was a null");
-                verticalMatchList.Remove(verticalMatchList[k]);
-            }
-        }
-        for (int k = 0; k < horizontalMatchList2.Count; k++) {
-            Debug.Log("Tile " + k + " is: " + horizontalMatchList2[k]);
-            if (horizontalMatchList2[k] == null) {
-                Debug.Log("There was a null");
-                horizontalMatchList2.Remove(horizontalMatchList2[k]);
-            }
-        }
-        for (int k = 0; k < verticalMatchList2.Count; k++) {
-            Debug.Log("Tile " + k + " is: " + verticalMatchList2[k]);
-            if (verticalMatchList2[k] == null) {
-                Debug.Log("There was a null");
-                verticalMatchList2.Remove(verticalMatchList2[k]);
-            }
-        }
-        Debug.Log("first hor ma length is now " + horizontalMatchList.Count);
-        Debug.Log("first ver ma length is now " + verticalMatchList.Count);
-        Debug.Log("second hor ma length is now " + horizontalMatchList2.Count);
-        Debug.Log("second ver ma length is now " + verticalMatchList2.Count);
-        */
         bool noMatchesHor = false;
         bool noMatchesVer = false;
         bool noMatchesHor2 = false;
         bool noMatchesVer2 = false;
-        //detroy the gameobjects if match is 3+
-        //First rock check
-        // if (horizontalMatchList.Count >= 3) {
-        //     for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++) {
-        //         Destroy(horizontalMatchList[mCnt]);
-        //     }
-
-        // } else {
-        //     noMatchesHor = true;
-        // }
-        // if (verticalMatchList.Count >= 3) {
-        //     for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++) {
-        //         Destroy(verticalMatchList[mCnt]);
-        //     }
-
-        // } else {
-        //     noMatchesVer = true;
-        // }
-        // //seocnd rock check
-        // if (horizontalMatchList2.Count >= 3) {
-        //     for (int mCnt = 0; mCnt < horizontalMatchList2.Count; mCnt++) {
-        //         Destroy(horizontalMatchList2[mCnt]);
-        //     }
-
-        // } else {
-        //     noMatchesHor2 = true;
-        // }
-        // if (verticalMatchList2.Count >= 3) {
-        //     for (int mCnt = 0; mCnt < verticalMatchList2.Count; mCnt++) {
-        //         Destroy(verticalMatchList2[mCnt]);
-        //     }
-
-        // } else {
-        //     noMatchesVer2 = true;
-        // }
+        
         if (horizontalMatchList.Count >= 3)
         {
             for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++)
             {
-                Debug.Log("firstrock hor match");
                 horizontalMatchList[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
             }
         }
@@ -377,8 +304,7 @@ public class MatchChecker : MonoBehaviour {
         if (verticalMatchList.Count >= 3)
         {
             for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++)
-            {
-                Debug.Log("firstrock ver match");   
+            {   
                 verticalMatchList[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
             }
         }
