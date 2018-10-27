@@ -283,7 +283,8 @@ public class MatchChecker : MonoBehaviour {
         DestroyMatchesChecker();
 
     }
-    void DestroyMatchesChecker() {
+    void DestroyMatchesChecker()
+    {
         /* CHECK EVERYTHING!!
         Debug.Log("first hor ma length is " + horizontalMatchList.Count);
         Debug.Log("first ver ma length is " + verticalMatchList.Count);
@@ -361,63 +362,83 @@ public class MatchChecker : MonoBehaviour {
         // } else {
         //     noMatchesVer2 = true;
         // }
-        if (horizontalMatchList.Count >= 3) {
-            for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++) {
+        if (horizontalMatchList.Count >= 3)
+        {
+            for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++)
+            {
                 Debug.Log("firstrock hor match");
                 horizontalMatchList[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
             }
         }
-        else {
+        else
+        {
             noMatchesHor = true;
         }
-        if (verticalMatchList.Count >= 3) {
-            for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++) {
-                Debug.Log("firstrock ver match");
+        if (verticalMatchList.Count >= 3)
+        {
+            for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++)
+            {
+                Debug.Log("firstrock ver match");   
                 verticalMatchList[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
             }
         }
-        else {
+        else
+        {
             noMatchesVer = true;
         }
-        if (horizontalMatchList2.Count >= 3) {
-            for (int mCnt = 0; mCnt < horizontalMatchList2.Count; mCnt++) {
+        if (horizontalMatchList2.Count >= 3)
+        {
+            for (int mCnt = 0; mCnt < horizontalMatchList2.Count; mCnt++)
+            {
                 horizontalMatchList2[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
             }
         }
-        else {
+        else
+        {
             noMatchesHor2 = true;
         }
-        if (verticalMatchList2.Count >= 3) {
-            for (int mCnt = 0; mCnt < verticalMatchList2.Count; mCnt++) {
+        if (verticalMatchList2.Count >= 3)
+        {
+            for (int mCnt = 0; mCnt < verticalMatchList2.Count; mCnt++)
+            {
                 verticalMatchList2[mCnt].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
             }
         }
-        else {
+        else
+        {
             noMatchesVer2 = true;
         }
-        for (int a = 0; a < GameField.GetGameField().GetLength(0); a++) {
-            for (int b = 0; b < GameField.GetGameField().GetLength(1); b++) {
+        if (noMatchesHor && noMatchesVer && noMatchesHor2 && noMatchesVer2)
+        {
+            RevertPositions();
+        }
+        for (int a = 0; a < GameField.GetGameField().GetLength(0); a++)
+        {
+            for (int b = 6; b < GameField.GetGameField().GetLength(1); b++)
+            {
                 GameField.GetGameField()[a, b].GetComponent<Rock>().DestroyTile();
             }
         }
-        if (noMatchesHor && noMatchesVer && noMatchesHor2 && noMatchesVer2) {
-            RevertPositions();
-        }
+        ResetMatchChecker();
 
-        //reset the lists and clear rocks
+    }
+
+    private void ResetMatchChecker()
+    {
         firstRock = null;
         secondRock = null;
         isChecking = false;
         horizontalMatchList.Clear();
         verticalMatchList.Clear();
+        horizontalMatchList2.Clear();
+        verticalMatchList2.Clear();
     }
-
 
     private void RevertPositions() {
         //Debug.Log(firstRock.GetComponent<Rock>().GetPos()[0]);
         //Debug.Log(secondRock.GetComponent<Rock>().GetPos()[0]);
         gameObject.GetComponent<GameField>().MoveTiles(firstRock,secondRock,newMove: false);
-        firstRock = null;
+        ResetMatchChecker();
     }
     //do the same check but iterate through the array
     public void BoardCheck() {

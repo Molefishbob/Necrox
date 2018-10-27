@@ -43,10 +43,12 @@ public class Rock : MonoBehaviour
         }
         if (pos[1] < 11) {
             if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
+               //Debug.Log("Nothing under me, my pos: X:" + pos[0] + " Y:" + pos[1]);
                 _gameField.ClearTileFromField(pos[0],pos[1]);
                 pos[1] = pos[1]+ 1;
                 GameField.setObject(pos[0],pos[1],gameObject);
                 _yPosition = ToPosValues(pos[1]);
+                //Debug.Log("I'm moving to: X:" + pos[0] + " Y:" + pos[1] + " Element:" + _element);
                 _yValueChanged = true;
                 _moved = true;
             }

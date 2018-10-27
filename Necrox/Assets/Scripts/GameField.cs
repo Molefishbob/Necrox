@@ -35,6 +35,7 @@ public class GameField : MonoBehaviour {
 	private List<GameObject> Children = new List<GameObject>();
     private bool emptyAreas;
     private bool firstTable = true;
+    private bool tileMoved;
 
     void Start () {
 		_firstField = new string[6,6];
@@ -96,6 +97,16 @@ public class GameField : MonoBehaviour {
 					Debug.Log(gameField[a,b].GetComponent<Rock>().GetElement());
 				}
 			}
+		}
+		if (tileMoved) {
+			for (int a = 0; a < gameField.GetLength(0);a++) {
+				Debug.Log("Column:" + a);
+				for (int b = 6; b < gameField.GetLength(1);b++) {
+					int[] pos = gameField[a,b].GetComponent<Rock>().GetPos();
+					Debug.Log("x:" + pos[0] + " y:" + pos[1] + " element:" + gameField[a,b].GetComponent<Rock>().GetElement());
+				}
+			}
+			tileMoved = false;
 		}
 	}
 
@@ -198,6 +209,7 @@ public class GameField : MonoBehaviour {
 	}
 
 	public void MoveTiles(GameObject rock1, GameObject rock2, bool newMove) {
+		tileMoved = true;
 
 		Rock rocker1 = rock1.GetComponent<Rock>();
 		Rock rocker2 = rock2.GetComponent<Rock>();
@@ -215,6 +227,7 @@ public class GameField : MonoBehaviour {
 		gameField[rocker2.pos[0],rocker2.pos[1]] = rock2;
 
 		if(newMove) {
+			Debug.Log("Calling to check matches");
         	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
 		}
 
@@ -291,6 +304,9 @@ public class GameField : MonoBehaviour {
 	}
 	public static void setObject(int a, int b, GameObject rock) {
 		gameField[a,b] = rock;
+		// if (rock.GetComponent<Rock>().GetElement().Length > 1) {
+		// 	Debug.Log("X:" + a + " Y:" + b + " Element:" + rock.GetComponent<Rock>().GetElement());
+		// }
 	}
 	void OnDrawGizmosSelected() {
 		Gizmos.color = new Color(1,0,0,0.5f);
