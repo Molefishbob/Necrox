@@ -79,7 +79,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: 0000000000000000
-  _moved: 0
   _element: 
 --- !u!212 &212001025471069870
 SpriteRenderer:
@@ -116,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: a1c8ab53276a1a74686f7c52b08c1a4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea55d83c0e6180e44b4be13e9bb46c3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
