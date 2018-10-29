@@ -283,8 +283,11 @@ public class MatchChecker : MonoBehaviour {
         DestroyMatchesChecker();
 
     }
-    void DestroyMatchesChecker()
-    {
+    void DestroyMatchesChecker() {
+        Debug.Log("first hor ma length is now " + horizontalMatchList.Count);
+        Debug.Log("first ver ma length is now " + verticalMatchList.Count);
+        Debug.Log("second hor ma length is now " + horizontalMatchList2.Count);
+        Debug.Log("second ver ma length is now " + verticalMatchList2.Count);
         bool noMatchesHor = false;
         bool noMatchesVer = false;
         bool noMatchesHor2 = false;
@@ -349,8 +352,7 @@ public class MatchChecker : MonoBehaviour {
 
     }
 
-    private void ResetMatchChecker()
-    {
+    private void ResetMatchChecker() {
         firstRock = null;
         secondRock = null;
         isChecking = false;
@@ -466,7 +468,6 @@ public class MatchChecker : MonoBehaviour {
                     Debug.Log("first hor ma length is " + horizontalMatchList.Count);
                     Debug.Log("first ver ma length is " + verticalMatchList.Count);
                     for (int k = 0; k < horizontalMatchList.Count; k++) {
-                        Debug.Log("Tile " + k + " is: " + horizontalMatchList[k]);
                         if (horizontalMatchList[k] == null) {
                             Debug.Log("There was a null");
                         }
@@ -497,7 +498,8 @@ public class MatchChecker : MonoBehaviour {
                         }
 
                     }
-                    //reset the lists
+                    //reset the lists and rocks
+                    checkRock = null;
 
                     horizontalMatchList.Clear();
                     verticalMatchList.Clear();
