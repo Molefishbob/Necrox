@@ -242,12 +242,17 @@ public class GameField : MonoBehaviour {
 		}
 	}
 	public bool AreVisibleTilesMoving() {
+        
 		for (int a = 0; a < gameField.GetLength(0);a++) {
 			for ( int b = 0; b < gameField.GetLength(1);b++) {
-				bool moving = gameField[a,b].GetComponent<Rock>().GetMoved();
-				if (moving) {
-					return true;
-				}
+                Debug.Log(gameField[a, b]);
+                if (gameField[a, b] != null) {
+
+                    bool moving = gameField[a, b].GetComponent<Rock>().GetMoved();
+                    if (moving) {
+                        return true;
+                    }
+                }
 			}
 		}
 		return false;

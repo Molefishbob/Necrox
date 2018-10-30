@@ -190,6 +190,11 @@ Prefab:
       propertyPath: arrayColumns
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114539455147932014, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: gameLogic
+      value: 
+      objectReference: {fileID: 1907070646}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
@@ -672,6 +677,11 @@ SpriteRenderer:
 --- !u!1 &1629014414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1897302821296384, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+    type: 2}
+  m_PrefabInternal: {fileID: 85816611}
+--- !u!1 &1907070646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1528817902284588, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
     type: 2}
   m_PrefabInternal: {fileID: 85816611}
 --- !u!20 &1926543292 stripped

@@ -9,6 +9,7 @@ public class MatchChecker : MonoBehaviour {
     public Camera mainCamera;
     public LayerMask touchInputMask;
     private RaycastHit2D hit;
+    public GameObject gameLogic;
     public GameObject firstRock;
     public GameObject secondRock;
     public GameObject checkRock;
@@ -27,7 +28,6 @@ public class MatchChecker : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
     }
 	
 	// Update is called once per frame
@@ -355,6 +355,7 @@ public class MatchChecker : MonoBehaviour {
     private void ResetMatchChecker() {
         firstRock = null;
         secondRock = null;
+        checkRock = null;
         isChecking = false;
         horizontalMatchList.Clear();
         verticalMatchList.Clear();
@@ -499,14 +500,11 @@ public class MatchChecker : MonoBehaviour {
 
                     }
                     //reset the lists and rocks
-                    checkRock = null;
-
-                    horizontalMatchList.Clear();
-                    verticalMatchList.Clear();
+                    ResetMatchChecker();
                 }
             }
         }
-        //gameObject.GetComponent<GameLogic>().SetTouchTrue();
+        gameLogic.GetComponent<GameLogic>().SetTouchTrue();
 
     }
 }
