@@ -48,9 +48,9 @@ public class GameLogic : MonoBehaviour {
      */
 
     void Update() {
-        Debug.Log("can touch is: " + canTouch);
-        Debug.Log("moving is: " + moving);
-        Debug.Log("moveComplete is " + moveComplete);
+        // Debug.Log("can touch is: " + canTouch);
+        // Debug.Log("moving is: " + moving);
+        // Debug.Log("moveComplete is " + moveComplete);
 
         if (gameField.GetComponent<GameField>().AreVisibleTilesMoving() && !moving) {
             
@@ -79,9 +79,9 @@ public class GameLogic : MonoBehaviour {
     void CheckMovementComplete() {
         
         if (moving && !moveComplete) {
-            Debug.Log("I am here!!!");
+            // Debug.Log("I am here!!!");
             if (!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
-                Debug.Log("Hey hey it became false");
+                // Debug.Log("Hey hey it became false");
                 moving = false;
                 CheckBoard();
             }
@@ -162,23 +162,27 @@ public class GameLogic : MonoBehaviour {
                 float xResult = startPos[0] - endPos[0];
                 if (xResult < 0) {
                     direction = "right";
-                    //directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, touchInputMask);
-                    Vector2 endingPos = new Vector2(firstRock.transform.position.x + 50, firstRock.transform.position.y);
-                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    //Debug.Log("array is: " + raycast2DHits);
-                    if (raycast2DHits[1].collider != null) {
-                        secondRock = raycast2DHits[1].collider.gameObject;
-                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    if (firstRock != null) {
+                        //directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, touchInputMask);
+                        Vector2 endingPos = new Vector2(firstRock.transform.position.x + 50, firstRock.transform.position.y);
+                        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                        //Debug.Log("array is: " + raycast2DHits);
+                        if (raycast2DHits[1].collider != null) {
+                            secondRock = raycast2DHits[1].collider.gameObject;
+                            //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        }
                     }
                 }
                 else {
                     direction = "left";
-                    Vector2 endingPos = new Vector2(firstRock.transform.position.x - 50, firstRock.transform.position.y);
-                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    //Debug.Log("array is: " + raycast2DHits);
-                    if (raycast2DHits[1].collider != null) {
-                        secondRock = raycast2DHits[1].collider.gameObject;
-                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    if (firstRock != null) {
+                        Vector2 endingPos = new Vector2(firstRock.transform.position.x - 50, firstRock.transform.position.y);
+                        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                        //Debug.Log("array is: " + raycast2DHits);
+                        if (raycast2DHits[1].collider != null) {
+                            secondRock = raycast2DHits[1].collider.gameObject;
+                            //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        }
                     }
                 }
             }
@@ -186,27 +190,33 @@ public class GameLogic : MonoBehaviour {
                 float yResult = startPos[1] - endPos[1];
                 if (yResult < 0) {
                     direction = "up";
-                    Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + 50);
-                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    //Debug.Log("array is: " + raycast2DHits);
-                    if (raycast2DHits[1].collider != null) {
-                        secondRock = raycast2DHits[1].collider.gameObject;
-                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    if (firstRock != null) {
+                        Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + 50);
+                        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                        //Debug.Log("array is: " + raycast2DHits);
+                        if (raycast2DHits[1].collider != null) {
+                            secondRock = raycast2DHits[1].collider.gameObject;
+                            //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        }
                     }
                 }
                 else {
                     direction = "down";
-                    Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y - 50);
-                    raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                    //Debug.Log("array is: " + raycast2DHits);
-                    if (raycast2DHits[1].collider != null) {
-                        secondRock = raycast2DHits[1].collider.gameObject;
-                        //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                    if (firstRock != null) {
+                        Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y - 50);
+                        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+                        //Debug.Log("array is: " + raycast2DHits);
+                        if (raycast2DHits[1].collider != null) {
+                            secondRock = raycast2DHits[1].collider.gameObject;
+                            //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
+                        }
                     }
                 }
             }
             //Debug.Log(direction);
-            gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock, newMove: true);
+            if (secondRock != null) {
+                gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock, newMove: true);
+            }
             directionChosen = false;
             gotFirstTouch = false;
             firstRock = null;

@@ -466,8 +466,8 @@ public class MatchChecker : MonoBehaviour {
                         }
                     }
                     //destroy if there is matches
-                    Debug.Log("first hor ma length is " + horizontalMatchList.Count);
-                    Debug.Log("first ver ma length is " + verticalMatchList.Count);
+                    // Debug.Log("first hor ma length is " + horizontalMatchList.Count);
+                    // Debug.Log("first ver ma length is " + verticalMatchList.Count);
                     for (int k = 0; k < horizontalMatchList.Count; k++) {
                         if (horizontalMatchList[k] == null) {
                             Debug.Log("There was a null");
@@ -504,6 +504,7 @@ public class MatchChecker : MonoBehaviour {
                 }
             }
         }
+        Debug.Log("dasfdasfadfafa");
         gameLogic.GetComponent<GameLogic>().SetTouchTrue();
 
     }

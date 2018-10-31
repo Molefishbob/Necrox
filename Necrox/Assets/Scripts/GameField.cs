@@ -214,10 +214,10 @@ public class GameField : MonoBehaviour {
 		gameField[rocker1.pos[0],rocker1.pos[1]] = rock1;
 		gameField[rocker2.pos[0],rocker2.pos[1]] = rock2;
 
-		if(newMove) {
-			//Debug.Log("Calling to check matches");
-        	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
-		}
+		// if(newMove) {
+		// 	//Debug.Log("Calling to check matches");
+        // 	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
+		// }
 
 
     }
@@ -245,7 +245,6 @@ public class GameField : MonoBehaviour {
         
 		for (int a = 0; a < gameField.GetLength(0);a++) {
 			for ( int b = 0; b < gameField.GetLength(1);b++) {
-                Debug.Log(gameField[a, b]);
                 if (gameField[a, b] != null) {
 
                     bool moving = gameField[a, b].GetComponent<Rock>().GetMoved();
