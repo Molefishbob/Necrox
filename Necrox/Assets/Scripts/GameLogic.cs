@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GameLogic : MonoBehaviour {
 	
-    private BoxCollider2D coll;
-    private float speed = 0.018f;
-    public Camera mainCamera;
     public LayerMask touchInputMask;
     private RaycastHit2D hit;
     private RaycastHit2D directionHit;
@@ -47,7 +44,7 @@ public class GameLogic : MonoBehaviour {
      * pass the information to the game logic class with the array posstion and which direction
      */
 
-    void Update() {
+    void FixedUpdate() {
         // Debug.Log("can touch is: " + canTouch);
         // Debug.Log("moving is: " + moving);
         // Debug.Log("moveComplete is " + moveComplete);

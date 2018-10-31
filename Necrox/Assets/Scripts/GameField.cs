@@ -21,7 +21,6 @@ public class GameField : MonoBehaviour {
 	public GameObject column3;
 	public GameObject column4;
 	public GameObject column5;
-	private Randomizer rand = new Randomizer();
 	private bool startGame = true;
 	private static int rows;
 	private float timer = 0.1f;
@@ -56,7 +55,7 @@ public class GameField : MonoBehaviour {
 		Time.timeScale = 1;
 	}
 	
-	void Update () {
+	void FixedUpdate () {
 		if (startGame)
         {
             ConfigureGame();
