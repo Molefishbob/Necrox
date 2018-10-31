@@ -273,4 +273,28 @@ public class Rock : MonoBehaviour
     {
         return _element;
     }
+
+    public void CheckPlayarea()
+    {
+        // check match in x axis and mark matches
+        //for loop y axis
+        //for loop x axis check and mark matches
+            //if match count > 2 then
+            //for loop back to them and mark them
+
+        // check match in y axis and mark matches
+        //for loop x axis
+        //for loop y axis check and mark matches
+            //if match count > 2 then
+            //for loop back to them and mark them
+
+    }
+
+    public void CleanPlayarea()
+    {
+        // remove marked tiles
+        //for loop x axis
+        //for loop y axis remove marked tiles
+
+    }
 }
