@@ -213,10 +213,10 @@ public class GameField : MonoBehaviour {
 		gameField[rocker1.pos[0],rocker1.pos[1]] = rock1;
 		gameField[rocker2.pos[0],rocker2.pos[1]] = rock2;
 
-		// if(newMove) {
-		// 	//Debug.Log("Calling to check matches");
-        // 	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
-		// }
+		if(newMove) {
+		    //Debug.Log("Calling to check matches");
+         	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
+		 }
 
 
     }

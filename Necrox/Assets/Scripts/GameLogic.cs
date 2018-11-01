@@ -13,6 +13,7 @@ public class GameLogic : MonoBehaviour {
     private bool canTouch = true;
     private bool moving = false;
     private bool moveComplete = false;
+    private bool canCheckBoard = false;
 
     public Vector2 startPos;
     public Vector2 endPos;
@@ -45,9 +46,9 @@ public class GameLogic : MonoBehaviour {
      */
 
     void FixedUpdate() {
-        // Debug.Log("can touch is: " + canTouch);
-        // Debug.Log("moving is: " + moving);
-        // Debug.Log("moveComplete is " + moveComplete);
+        //Debug.Log("can touch is: " + canTouch);
+        //Debug.Log("moving is: " + moving);
+        //Debug.Log("moveComplete is " + moveComplete);
 
         if (gameField.GetComponent<GameField>().AreVisibleTilesMoving() && !moving) {
             
@@ -69,18 +70,22 @@ public class GameLogic : MonoBehaviour {
         if (canTouch) {
             TrackMovement();
         }
+        
 
 
     }
 
     void CheckMovementComplete() {
         
-        if (moving && !moveComplete) {
-            // Debug.Log("I am here!!!");
+        if (moving && !moveComplete ) {
+            //Debug.Log("I am here!!!");
             if (!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
                 // Debug.Log("Hey hey it became false");
-                moving = false;
+                
                 CheckBoard();
+                
+                moving = false;
+                
             }
         }
         if (moving && moveComplete) {
@@ -224,4 +229,7 @@ public class GameLogic : MonoBehaviour {
         canTouch = true;
         moveComplete = true;
     }
+    //public void SetBoardCheckTrue() {
+    //    canCheckBoard = true;
+    //}
 }

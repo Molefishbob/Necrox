@@ -23,6 +23,7 @@ public class MatchChecker : MonoBehaviour {
     private bool noMatchesVer = false;
     private bool noMatchesHor2 = false;
     private bool noMatchesVer2 = false;
+    private bool swapMatchDone = false;
 
 
     public List<GameObject> horizontalMatchList = new List<GameObject>();
@@ -31,10 +32,10 @@ public class MatchChecker : MonoBehaviour {
     public List<GameObject> verticalMatchList2 = new List<GameObject>();
 
     // Use this for initialization
-    void Start () {
+    void Start() {
     }
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
     /*
      * use mouse click to start the raycast chain to test
      * get the gameobject from the raycast
@@ -43,22 +44,21 @@ public class MatchChecker : MonoBehaviour {
      * continue until it is different
      * ïf the array is greater than or equal to 3 destroy the game objects in the array
      */
-	void FixedUpdate () {
-       
+    void FixedUpdate() {
+
         if (firstRock != null) {
             if (!firstRock.GetComponent<Rock>().GetMoved()) {
-                //Debug.Log("I am HERE");
                 if (!isChecking) {
                     checkHorizontalRight();
                 }
             }
         }
-	}
+    }
 
     public void MatchCheck(GameObject tile, GameObject tile2) {
         firstRock = tile;
         secondRock = tile2;
-
+        //Debug.Log("match check has been called and first rock is: " + firstRock);
         horizontalMatchList.Add(firstRock);
         verticalMatchList.Add(firstRock);
 
@@ -66,19 +66,19 @@ public class MatchChecker : MonoBehaviour {
         verticalMatchList2.Add(secondRock);
     }
 
-    
 
-    void checkHorizontalRight () {
+
+    void checkHorizontalRight() {
+        //Debug.Log("Checking right");
         isChecking = true;
-        
+
         //check going right on first rock
         endingPos = new Vector2(firstRock.transform.position.x + POSITIONCHANGE, firstRock.transform.position.y);
         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
 
         for (int i = 1; i < raycast2DHits.Length; i++) {
 
-            if (raycast2DHits.Length >= 2 || i <= raycast2DHits.Length) 
-            {
+            if (raycast2DHits.Length >= 2 || i <= raycast2DHits.Length) {
                 if (raycast2DHits[i].collider != null) {
 
                     rockFromHits = raycast2DHits[i].collider.gameObject;
@@ -92,7 +92,7 @@ public class MatchChecker : MonoBehaviour {
                     }
                 }
             }
-            
+
         }
         //Check right on second rock
         if (secondRock != null) {
@@ -111,7 +111,7 @@ public class MatchChecker : MonoBehaviour {
                         if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
 
                             horizontalMatchList2.Add(rockFromHits);
-                            
+
                         }
                         else {
                             break;
@@ -120,7 +120,7 @@ public class MatchChecker : MonoBehaviour {
                 }
             }
         }
-        
+
         CheckHorizontalLeft();
     }
 
@@ -161,7 +161,7 @@ public class MatchChecker : MonoBehaviour {
                         rockFromHits = raycast2DHits[i].collider.gameObject;
 
                         if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
-                            
+
                             horizontalMatchList2.Add(rockFromHits);
 
                         }
@@ -213,7 +213,7 @@ public class MatchChecker : MonoBehaviour {
                         if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element) {
 
                             if (rockFromHits.GetComponent<Rock>()._element == null) {
-                                
+
                             }
 
                             verticalMatchList2.Add(rockFromHits);
@@ -279,15 +279,13 @@ public class MatchChecker : MonoBehaviour {
         DestroyMatchesChecker();
 
     }
-    void DestroyMatchesChecker()
-    {
+    void DestroyMatchesChecker() {
 
         CheckVerticalMatches();
 
         CheckHorizontalMatches();
 
-        if (noMatchesHor && noMatchesVer && noMatchesHor2 && noMatchesVer2)
-        {
+        if (noMatchesHor && noMatchesVer && noMatchesHor2 && noMatchesVer2) {
             RevertPositions();
         }
 
@@ -297,19 +295,15 @@ public class MatchChecker : MonoBehaviour {
 
     }
 
-    private static void OrderTilesToBeDestroyed()
-    {
-        for (int a = 0; a < GameField.GetGameField().GetLength(0); a++)
-        {
-            for (int b = 6; b < GameField.GetGameField().GetLength(1); b++)
-            {
+    private static void OrderTilesToBeDestroyed() {
+        for (int a = 0; a < GameField.GetGameField().GetLength(0); a++) {
+            for (int b = 6; b < GameField.GetGameField().GetLength(1); b++) {
                 GameField.GetGameField()[a, b].GetComponent<Rock>().DestroyTile();
             }
         }
     }
 
-    private void CheckHorizontalMatches()
-    {
+    private void CheckHorizontalMatches() { 
         if (horizontalMatchList2.Count >= 3)
         {
             for (int mCnt = 0; mCnt < horizontalMatchList2.Count; mCnt++)
@@ -334,8 +328,7 @@ public class MatchChecker : MonoBehaviour {
         }
     }
 
-    private void CheckVerticalMatches()
-    {
+    private void CheckVerticalMatches() {
         if (horizontalMatchList.Count >= 3)
         {
             for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++)
@@ -361,6 +354,7 @@ public class MatchChecker : MonoBehaviour {
     }
 
     private void ResetMatchChecker() {
+        //Debug.Log("Reset");
         firstRock = null;
         secondRock = null;
         checkRock = null;
@@ -370,6 +364,7 @@ public class MatchChecker : MonoBehaviour {
         horizontalMatchList2.Clear();
         verticalMatchList2.Clear();
         // Add boolean that enables the boardcheck in GameLogic
+        swapMatchDone = true;
     }
 
     private void RevertPositions() {
@@ -381,40 +376,42 @@ public class MatchChecker : MonoBehaviour {
 
     //do the same check but iterate through the array
     public void BoardCheck() {
-        gameFieldArray = GameField.GetGameField();
+        if (swapMatchDone) {
+            gameFieldArray = GameField.GetGameField();
 
-        for (int x = 0; x < gameFieldArray.GetLength(0); x++) {
+            for (int x = 0; x < gameFieldArray.GetLength(0); x++) {
 
-            for (int c = 6; c < gameFieldArray.GetLength(1); c++) {
-                
-                if (gameFieldArray[x, c] != null)
-                {
+                for (int c = 6; c < gameFieldArray.GetLength(1); c++) {
 
-                    checkRock = gameFieldArray[x, c];
-                    horizontalMatchList.Add(checkRock);
-                    verticalMatchList.Add(checkRock);
+                    if (gameFieldArray[x, c] != null) {
 
-                    //check right
-                    RightCheck();
+                        checkRock = gameFieldArray[x, c];
+                        horizontalMatchList.Add(checkRock);
+                        verticalMatchList.Add(checkRock);
 
-                    //check left
-                    LeftCheck();
+                        //check right
+                        RightCheck();
 
-                    //check up
-                    UpCheck();
+                        //check left
+                        LeftCheck();
 
-                    //check down
-                    DownCheck();
+                        //check up
+                        UpCheck();
 
-                    //destroy if there is matches
-                    DestroyMatches();
+                        //check down
+                        DownCheck();
 
-                    //reset the lists and rocks
-                    ResetMatchChecker();
+                        //destroy if there is matches
+                        DestroyMatches();
 
+                        //reset the lists and rocks
+                        ResetMatchChecker();
+
+                    }
                 }
             }
         }
+        swapMatchDone = false;
         gameLogic.GetComponent<GameLogic>().SetTouchTrue();
 
     }
