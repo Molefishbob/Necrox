@@ -195,6 +195,16 @@ Prefab:
       propertyPath: gameLogic
       value: 
       objectReference: {fileID: 1907070646}
+    - target: {fileID: 114539455147932014, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: _minimumMatch
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114584270685818758, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: test1
+      value: ffwefeefwwfeffffffceeefceeceecweeefc
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0

@@ -15,6 +15,9 @@ public class MatchChecker : MonoBehaviour {
     public GameObject checkRock;
     private GameObject rockFromHits;
     public RaycastHit2D[] raycast2DHits;
+    [Range(1,6)]
+    public int _minimumMatch;
+
     private Vector2 endingPos;
     private string typeOfCheck;
     private GameObject[,] gameFieldArray;
@@ -24,7 +27,10 @@ public class MatchChecker : MonoBehaviour {
     private bool noMatchesHor2 = false;
     private bool noMatchesVer2 = false;
     private bool swapMatchDone = false;
-
+    private int _fieldColumns;
+    private int _fieldRows;
+    private int _fieldVisibleRows;
+    private string _firstRockElement;
 
     public List<GameObject> horizontalMatchList = new List<GameObject>();
     public List<GameObject> verticalMatchList = new List<GameObject>();
@@ -33,6 +39,9 @@ public class MatchChecker : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        _fieldColumns = GameField.GetGameField().GetLength(0);
+        _fieldRows = GameField.GetGameField().GetLength(1);
+        _fieldVisibleRows = GameField.GetGameField().GetLength(1)/2;
     }
 
     // Update is called once per frame
@@ -298,7 +307,9 @@ public class MatchChecker : MonoBehaviour {
     private static void OrderTilesToBeDestroyed() {
         for (int a = 0; a < GameField.GetGameField().GetLength(0); a++) {
             for (int b = 6; b < GameField.GetGameField().GetLength(1); b++) {
-                GameField.GetGameField()[a, b].GetComponent<Rock>().DestroyTile();
+                if (GameField.GetGameField()[a, b] != null) {
+                    GameField.GetGameField()[a, b].GetComponent<Rock>().DestroyTile();
+                }
             }
         }
     }
@@ -376,6 +387,119 @@ public class MatchChecker : MonoBehaviour {
 
     //do the same check but iterate through the array
     public void BoardCheck() {
+
+        ColumnCheck();
+
+        RowCheck();
+
+        OrderTilesToBeDestroyed();
+
+        gameLogic.GetComponent<GameLogic>().SetTouchTrue();
+
+        ResetMatchChecker();
+    }
+    public void ColumnCheck() {
+        bool noMatch;
+
+        for(int a = 0; a < _fieldColumns; a++) {
+
+            _firstRockElement = GameField.GetGameField()[a,6].GetComponent<Rock>().GetElement();
+            int counter = 1;
+
+            for (int b = _fieldVisibleRows + 1; b < _fieldRows; b++) {
+                noMatch = true;
+                Rock tile = GameField.GetGameField()[a,b].GetComponent<Rock>();
+
+                if (tile.GetElement() == _firstRockElement) {
+
+                    noMatch = false;
+                    counter++;
+
+                    if (b+1 ==  _fieldRows && counter >= _minimumMatch) {
+
+                        for (int c = 0; counter > 0; c++) {
+
+                        GameField.GetGameField()[a,b-c].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
+                        counter--;
+
+                        }
+                        counter = 1;
+                    }
+
+                }
+                if (counter >= _minimumMatch && noMatch) {
+
+                    _firstRockElement = tile.GetElement();
+
+                    for (int c = 1; counter > 0; c++) {
+
+                        GameField.GetGameField()[a,b-c].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
+                        counter--;
+
+                    }
+                    counter = 1;
+
+                } else if (noMatch) {
+                    counter = 1;
+                }
+                _firstRockElement = tile.GetElement();
+            }
+        }
+    }
+
+    public void RowCheck() {
+        bool noMatch;
+
+        for(int b = _fieldVisibleRows; b < _fieldRows; b++) {
+
+            _firstRockElement = GameField.GetGameField()[0,b].GetComponent<Rock>().GetElement();
+            int counter = 1;
+
+            for (int a = 1; a < _fieldColumns; a++) {
+
+                noMatch = true;
+                Rock tile = GameField.GetGameField()[a,b].GetComponent<Rock>();
+
+                if (tile.GetElement() == _firstRockElement) {
+
+                    noMatch = false;
+                    counter++;
+
+                    if (a+1 ==  _fieldColumns && counter >= _minimumMatch) {
+
+                        for (int c = 0; counter > 0; c++) {
+
+                            GameField.GetGameField()[a-c,b].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
+                            counter--;
+
+                        }
+                        counter = 1;
+                    }
+                }
+
+                if (counter >= _minimumMatch && noMatch) {
+
+                    _firstRockElement = tile.GetElement();
+
+                    for (int c = 1; counter > 0; c++) {
+
+                        GameField.GetGameField()[a-c,b].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
+                        counter--;
+
+                    }
+                    counter = 1;
+
+                } else if (noMatch) {
+                    counter = 1;
+                }
+                _firstRockElement = tile.GetElement();
+            }
+        }
+    }
+
+
+
+/*     public void BoardCheck() {
         if (swapMatchDone) {
             gameFieldArray = GameField.GetGameField();
 
@@ -551,5 +675,5 @@ public class MatchChecker : MonoBehaviour {
                 }
             }
         }
-    }
+    } */
 }

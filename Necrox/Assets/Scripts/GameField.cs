@@ -48,8 +48,8 @@ public class GameField : MonoBehaviour {
 
 			Children.Add(child.gameObject);
     	}
-		CreateRandomRow(template.GetRandomRowTemplate(),1);
-		CreateRandomRow(template.GetRandomRowTemplate(),2);
+		CreateRandomRow(template.GetRandomRowTemplate(0),1);
+		CreateRandomRow(template.GetRandomRowTemplate(0),2);
 
 		gameField = new GameObject[arrayColumns, arrayRows*2];
 		Time.timeScale = 1;
@@ -74,7 +74,7 @@ public class GameField : MonoBehaviour {
 							gameField[c,d] = null;
 						}
 					}
-					CreateRandomRow(template.GetRandomRowTemplate(),2);
+					CreateRandomRow(template.GetRandomRowTemplate(0),2);
 					startGame = true;
 					newExtraTable = true;
 				}
@@ -83,18 +83,18 @@ public class GameField : MonoBehaviour {
 
 
         if (Input.GetKeyDown("space")) {
-			// System.Random random = new System.Random();
-			// int a = random.Next(0,6);
-			// int b = random.Next(6,12);
-			// Destroy(gameField[a,b]);
-			// gameField[a,b] = null;
+			System.Random random = new System.Random();
+			int a = random.Next(0,6);
+			int b = random.Next(6,12);
+			Destroy(gameField[a,b]);
+			gameField[a,b] = null;
 
-			for (int a = 0; a < gameField.GetLength(0);a++) {
+			/* for (int a = 0; a < gameField.GetLength(0);a++) {
 				Debug.Log("Column:" + a);
 				for (int b = 0; b < gameField.GetLength(1);b++) {
 					Debug.Log(gameField[a,b].GetComponent<Rock>().GetElement());
 				}
-			}
+			} */
 		}
 	}
 
