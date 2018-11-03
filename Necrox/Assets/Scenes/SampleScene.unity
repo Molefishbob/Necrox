@@ -152,68 +152,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114672854503079654, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+    - target: {fileID: 114738568120759442, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
         type: 2}
-      propertyPath: template
+      propertyPath: tileExplosion
       value: 
-      objectReference: {fileID: 85816612}
-    - target: {fileID: 4486699486659626, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4182196311748312, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114908337503724214, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+      objectReference: {fileID: 1019361197228910, guid: 3624722c4a0767645aec081a3a92e0f9,
         type: 2}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 1926543292}
-    - target: {fileID: 114908337503724214, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: gameField
-      value: 
-      objectReference: {fileID: 1629014414}
-    - target: {fileID: 114908337503724214, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: MatchChecker
-      value: 
-      objectReference: {fileID: 1629014414}
-    - target: {fileID: 114672854503079654, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: arrayRows
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114672854503079654, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: arrayColumns
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114539455147932014, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: gameLogic
-      value: 
-      objectReference: {fileID: 1907070646}
-    - target: {fileID: 114539455147932014, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: _minimumMatch
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114584270685818758, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: test1
-      value: ffwefeefwwfeffffffceeefceeceecweeefc
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &85816612 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114584270685818758, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-    type: 2}
-  m_PrefabInternal: {fileID: 85816611}
-  m_Script: {fileID: 11500000, guid: 49d31d92556f986468e02170806ce20b, type: 3}
 --- !u!1 &89665923
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,18 +631,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1629014414 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1897302821296384, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-    type: 2}
-  m_PrefabInternal: {fileID: 85816611}
---- !u!1 &1907070646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1528817902284588, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-    type: 2}
-  m_PrefabInternal: {fileID: 85816611}
---- !u!20 &1926543292 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 20242337812600412, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-    type: 2}
-  m_PrefabInternal: {fileID: 85816611}

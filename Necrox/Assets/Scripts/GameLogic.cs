@@ -27,6 +27,8 @@ public class GameLogic : MonoBehaviour {
     public Color onMoveColor = Color.red;
     public RaycastHit2D[] raycast2DHits;
 
+    public GameObject selectBorder;
+
 
     // Use this for initialization
     void Start () {
@@ -108,6 +110,8 @@ public class GameLogic : MonoBehaviour {
 
                     firstRock = hit.collider.gameObject;
                     //firstRock.GetComponent<Renderer>().material.color = selectedColor;
+                    GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
+                    border.transform.parent = firstRock.transform;
                     gotFirstTouch = true;
                 }
 

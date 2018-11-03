@@ -31,16 +31,17 @@ public class Feedback : MonoBehaviour {
             if (hit.collider != null) {
 
                 testRock = hit.collider.gameObject;
-                TileFeedback();
+                TileFeedback(testRock);
             }
         }
 	}
 
-    public void TileFeedback () {
-        GameObject explosion = Instantiate(tileExplosion, new Vector3(testRock.transform.position.x, testRock.transform.position.y, 0),  Quaternion.identity);
+    public void TileFeedback (GameObject tile) {
+        GameObject explosion = Instantiate(tileExplosion, new Vector3(tile.transform.position.x, tile.transform.position.y, 0),  Quaternion.identity);
         //explosion.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
-        //how to thrown in the elemental attacks
-        switch (testRock.GetComponent<Rock>()._element) {
+
+        //how to thrown in the elemental if needed later
+        switch (tile.GetComponent<Rock>()._element) {
             case "fire":
                 Instantiate(fireball);
                 break; 
