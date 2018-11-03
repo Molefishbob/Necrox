@@ -25,7 +25,6 @@ public class GameLogic : MonoBehaviour {
     public Color defaultColor = Color.white;
     public Color selectedColor = Color.green;
     public Color onMoveColor = Color.red;
-    public int[] rockPos;
     public RaycastHit2D[] raycast2DHits;
 
 
@@ -78,9 +77,7 @@ public class GameLogic : MonoBehaviour {
     void CheckMovementComplete() {
         
         if (moving && !moveComplete ) {
-            //Debug.Log("I am here!!!");
             if (!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
-                // Debug.Log("Hey hey it became false");
                 
                 CheckBoard();
                 
@@ -94,16 +91,6 @@ public class GameLogic : MonoBehaviour {
     }
 
     void CheckBoard() {
-        /*for (int x = 0; x < gameFieldArray.GetLength(0); x++) {
-            for (int c = 6; c < gameFieldArray.GetLength(1); c++) {
-                Debug.Log("This is " + gameFieldArray[x, c] + " in the array");
-                if (gameFieldArray[x, c] != null) {
-                    gameField.GetComponent<MatchChecker>().BoardCheck(gameFieldArray[x, c]);
-                }
-                //gameField.GetComponent<MatchChecker>().MatchCheck(gameFieldArray[x, c].gameObject, gameFieldArray[x, c].gameObject);
-            }
-        }
-        canTouch = true;*/
         gameField.GetComponent<MatchChecker>().BoardCheck();
     }
 
@@ -121,8 +108,6 @@ public class GameLogic : MonoBehaviour {
 
                     firstRock = hit.collider.gameObject;
                     //firstRock.GetComponent<Renderer>().material.color = selectedColor;
-                    rockPos = firstRock.GetComponent<Rock>().pos;
-                    //Debug.Log(rockPos);
                     gotFirstTouch = true;
                 }
 
@@ -133,14 +118,12 @@ public class GameLogic : MonoBehaviour {
                 // Record initial touch position.
                 case TouchPhase.Began:
                     startPos = touch.position;
-                    //Debug.Log("The start pos is: " + startPos + " and the firstRock is: " + firstRock);
                     directionChosen = false;
                     break;
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
                     endPos = touch.position;
-                    //Debug.Log("The direction is: " + endPos);
                     directionChosen = true;
                     break;
             }
@@ -148,27 +131,20 @@ public class GameLogic : MonoBehaviour {
         if (directionChosen) {
             // if statements to know which direction
             float xDiff = startPos[0] - endPos[0];
-            //Debug.Log("xDiff is: " + xDiff);
             if (xDiff < 0) {
-                //Debug.Log(xDiff + " xDiff was less than 0");
                 xDiff *= -1;
             }
             float yDiff = startPos[1] - endPos[1];
-            //Debug.Log("yDiff is: " + yDiff);
             if (yDiff < 0) {
-                //Debug.Log(yDiff + " yDiff was less than 0");
                 yDiff *= -1;
             }
-            //Debug.Log("xDiff is now: " + xDiff + " and the yDiff is: " + yDiff);
             if (xDiff > yDiff) {
                 float xResult = startPos[0] - endPos[0];
                 if (xResult < 0) {
                     direction = "right";
                     if (firstRock != null) {
-                        //directionHit = Physics2D.Raycast(firstRock.transform.position, endPos, touchInputMask);
                         Vector2 endingPos = new Vector2(firstRock.transform.position.x + 50, firstRock.transform.position.y);
                         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                        //Debug.Log("array is: " + raycast2DHits);
                         if (raycast2DHits[1].collider != null) {
                             secondRock = raycast2DHits[1].collider.gameObject;
                             //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
@@ -180,7 +156,6 @@ public class GameLogic : MonoBehaviour {
                     if (firstRock != null) {
                         Vector2 endingPos = new Vector2(firstRock.transform.position.x - 50, firstRock.transform.position.y);
                         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                        //Debug.Log("array is: " + raycast2DHits);
                         if (raycast2DHits[1].collider != null) {
                             secondRock = raycast2DHits[1].collider.gameObject;
                             //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
@@ -195,7 +170,6 @@ public class GameLogic : MonoBehaviour {
                     if (firstRock != null) {
                         Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + 50);
                         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                        //Debug.Log("array is: " + raycast2DHits);
                         if (raycast2DHits[1].collider != null) {
                             secondRock = raycast2DHits[1].collider.gameObject;
                             //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
@@ -207,7 +181,6 @@ public class GameLogic : MonoBehaviour {
                     if (firstRock != null) {
                         Vector2 endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y - 50);
                         raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
-                        //Debug.Log("array is: " + raycast2DHits);
                         if (raycast2DHits[1].collider != null) {
                             secondRock = raycast2DHits[1].collider.gameObject;
                             //secondRock.GetComponent<Renderer>().material.color = onMoveColor;
@@ -229,7 +202,4 @@ public class GameLogic : MonoBehaviour {
         canTouch = true;
         moveComplete = true;
     }
-    //public void SetBoardCheckTrue() {
-    //    canCheckBoard = true;
-    //}
 }
