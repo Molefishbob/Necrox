@@ -239,10 +239,10 @@ public class Rock : MonoBehaviour
             /*
              * no idea why it is null
              * doesnt work
-             * _gameField.GetComponent<Feedback>().TileFeedback(tilePos);
+             * _gameField.GetComponent<Feedback>().TileFeedback(tilePos);*/
+            //transform.parent.parent.GetComponent<Feedback>().TileFeedback(tilePos);
             Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
-            Debug.Log("tile pos: " + tilePos);
-            transform.parent.parent.GetComponent<Feedback>().TileFeedback(tilePos);*/
+            GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos);
             _gameField.ClearTileFromField(pos[0],pos[1]);
             Destroy(gameObject);
         }
