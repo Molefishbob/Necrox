@@ -9,6 +9,7 @@ public class Feedback : MonoBehaviour {
     public int explosionLayer = 50;
 
     public GameObject tileExplosion;
+    public GameObject example;
     public GameObject fireball;
 
     private RaycastHit2D hit;
@@ -19,11 +20,10 @@ public class Feedback : MonoBehaviour {
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetMouseButtonDown(0)) {
-            
+
+    void Update() {
+       /* if (Input.GetMouseButtonDown(0)) {
+
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 clickPos = new Vector2(wp.x, wp.y);
             hit = Physics2D.Raycast(clickPos, -Vector2.up);
@@ -31,20 +31,25 @@ public class Feedback : MonoBehaviour {
             if (hit.collider != null) {
 
                 testRock = hit.collider.gameObject;
-                TileFeedback(testRock);
+                TestFeedback(testRock);
             }
-        }
-	}
+        }*/
+    }
 
-    public void TileFeedback (GameObject tile) {
-        GameObject explosion = Instantiate(tileExplosion, new Vector3(tile.transform.position.x, tile.transform.position.y, 0),  Quaternion.identity);
-        //explosion.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
+    public void TestFeedback (GameObject tile) {
+        GameObject test = Instantiate(example, new Vector3(tile.transform.position.x, tile.transform.position.y, 0), Quaternion.identity);
+        //test.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
 
         //how to thrown in the elemental if needed later
         switch (tile.GetComponent<Rock>()._element) {
             case "fire":
                 Instantiate(fireball);
-                break; 
+                break;
         }
+    }
+
+    public void TileFeedback (Vector3 tilePos) {
+        GameObject explosion = Instantiate(tileExplosion, tilePos,  Quaternion.identity);
+        //explosion.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
     }
 }

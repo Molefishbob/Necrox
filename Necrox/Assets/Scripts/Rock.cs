@@ -17,6 +17,7 @@ public class Rock : MonoBehaviour
     private bool _toBeDestroyed;
     private GameField _gameField;
     private float speed = 0.25f;
+    public GameObject feedback;
 
 
     // Use this for initialization
@@ -235,6 +236,13 @@ public class Rock : MonoBehaviour
     public void DestroyTile() {
         if (_toBeDestroyed) {
             Debug.Log("Destroyed:" + "X:" + pos[0] + " Y:" + pos[1]);
+            /*
+             * no idea why it is null
+             * doesnt work
+             * _gameField.GetComponent<Feedback>().TileFeedback(tilePos);
+            Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+            Debug.Log("tile pos: " + tilePos);
+            transform.parent.parent.GetComponent<Feedback>().TileFeedback(tilePos);*/
             _gameField.ClearTileFromField(pos[0],pos[1]);
             Destroy(gameObject);
         }

@@ -542,8 +542,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameField: {fileID: 114672854503079654}
   explosionLayer: 50
-  tileExplosion: {fileID: 1019361197228910, guid: 3624722c4a0767645aec081a3a92e0f9,
+  tileExplosion: {fileID: 1284098919936816, guid: 5ec21bf1d56716541a5266c5d5079e0d,
     type: 2}
+  example: {fileID: 1019361197228910, guid: 3624722c4a0767645aec081a3a92e0f9, type: 2}
   fireball: {fileID: 1099891539359314, guid: 50c1a72483f6e534a8a4fb007cfc6d22, type: 2}
 --- !u!114 &114814576860553504
 MonoBehaviour:

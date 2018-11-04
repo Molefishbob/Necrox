@@ -8,12 +8,10 @@ public class GameLogic : MonoBehaviour {
     private RaycastHit2D hit;
     private RaycastHit2D directionHit;
     public GameObject gameField;
-    private GameObject[,] gameFieldArray;
     public GameObject MatchChecker;
     private bool canTouch = true;
     private bool moving = false;
     private bool moveComplete = false;
-    private bool canCheckBoard = false;
 
     public Vector2 startPos;
     public Vector2 endPos;
@@ -32,7 +30,7 @@ public class GameLogic : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameFieldArray = GameField.GetGameField();
+
     }
 
     //Movement
@@ -110,8 +108,8 @@ public class GameLogic : MonoBehaviour {
 
                     firstRock = hit.collider.gameObject;
                     //firstRock.GetComponent<Renderer>().material.color = selectedColor;
-                    GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
-                    border.transform.parent = firstRock.transform;
+                    //GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
+                    //border.transform.parent = firstRock.transform;
                     gotFirstTouch = true;
                 }
 
