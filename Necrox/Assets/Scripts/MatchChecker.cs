@@ -76,7 +76,7 @@ public class MatchChecker : MonoBehaviour {
     }
 
 
-
+    #region DirectionCheck
     void checkHorizontalRight() {
         //Debug.Log("Checking right");
         isChecking = true;
@@ -288,6 +288,7 @@ public class MatchChecker : MonoBehaviour {
         DestroyMatchesChecker();
 
     }
+    #endregion DirectionCheck
     void DestroyMatchesChecker() {
 
         CheckVerticalMatches();
@@ -496,184 +497,4 @@ public class MatchChecker : MonoBehaviour {
             }
         }
     }
-
-
-
-/*     public void BoardCheck() {
-        if (swapMatchDone) {
-            gameFieldArray = GameField.GetGameField();
-
-            for (int x = 0; x < gameFieldArray.GetLength(0); x++) {
-
-                for (int c = 6; c < gameFieldArray.GetLength(1); c++) {
-
-                    if (gameFieldArray[x, c] != null) {
-
-                        checkRock = gameFieldArray[x, c];
-                        horizontalMatchList.Add(checkRock);
-                        verticalMatchList.Add(checkRock);
-
-                        //check right
-                        RightCheck();
-
-                        //check left
-                        LeftCheck();
-
-                        //check up
-                        UpCheck();
-
-                        //check down
-                        DownCheck();
-
-                        //destroy if there is matches
-                        DestroyMatches();
-
-                        //reset the lists and rocks
-                        ResetMatchChecker();
-
-                    }
-                }
-            }
-        }
-        swapMatchDone = false;
-        gameLogic.GetComponent<GameLogic>().SetTouchTrue();
-
-    }
-
-    private void DestroyMatches()
-    {
-        for (int k = 0; k < horizontalMatchList.Count; k++)
-        {
-            if (horizontalMatchList[k] == null)
-            {
-                Debug.Log("There was a null");
-            }
-        }
-
-        if (horizontalMatchList.Count >= 3)
-        {
-            for (int mCnt = 0; mCnt < horizontalMatchList.Count; mCnt++)
-            {
-                Destroy(horizontalMatchList[mCnt]);
-            }
-
-        }
-        if (verticalMatchList.Count >= 3)
-        {
-            for (int mCnt = 0; mCnt < verticalMatchList.Count; mCnt++)
-            {
-                Destroy(verticalMatchList[mCnt]);
-            }
-
-        }
-    }
-
-    private void DownCheck()
-    {
-        endingPos = new Vector2(checkRock.transform.position.x, checkRock.transform.position.y - POSITIONCHANGE);
-        raycast2DHits = Physics2D.RaycastAll(checkRock.transform.position, endingPos, touchInputMask);
-
-        for (int i = 1; i < raycast2DHits.Length; i++)
-        {
-
-            if (raycast2DHits.Length >= 2)
-            {
-                if (raycast2DHits[i].collider != null)
-                {
-
-                    rockFromHits = raycast2DHits[i].collider.gameObject;
-
-                    if (checkRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element)
-                    {
-                        verticalMatchList.Add(rockFromHits);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    private void UpCheck()
-    {
-        endingPos = new Vector2(checkRock.transform.position.x, checkRock.transform.position.y + POSITIONCHANGE);
-        raycast2DHits = Physics2D.RaycastAll(checkRock.transform.position, endingPos, touchInputMask);
-        for (int i = 1; i < raycast2DHits.Length; i++)
-        {
-
-            if (raycast2DHits.Length >= 2)
-            {
-                if (raycast2DHits[i].collider != null)
-                {
-
-                    rockFromHits = raycast2DHits[i].collider.gameObject;
-
-                    if (checkRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element)
-                    {
-                        verticalMatchList.Add(rockFromHits);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    private void LeftCheck()
-    {
-        endingPos = new Vector2(checkRock.transform.position.x + POSITIONCHANGE, checkRock.transform.position.y);
-        raycast2DHits = Physics2D.RaycastAll(checkRock.transform.position, endingPos, touchInputMask);
-        for (int i = 1; i < raycast2DHits.Length; i++)
-        {
-            if (raycast2DHits.Length >= 2)
-            {
-                if (raycast2DHits[i].collider != null)
-                {
-
-                    rockFromHits = raycast2DHits[i].collider.gameObject;
-
-                    if (checkRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element)
-                    {
-                        horizontalMatchList.Add(rockFromHits);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    private void RightCheck()
-    {
-        endingPos = new Vector2(checkRock.transform.position.x - POSITIONCHANGE, checkRock.transform.position.y);
-        raycast2DHits = Physics2D.RaycastAll(checkRock.transform.position, endingPos, touchInputMask);
-
-        for (int i = 1; i < raycast2DHits.Length; i++)
-        {
-
-            if (raycast2DHits.Length >= 2)
-            {
-                if (raycast2DHits[i].collider != null)
-                {
-
-                    rockFromHits = raycast2DHits[i].collider.gameObject;
-
-                    if (checkRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element)
-                    {
-                        horizontalMatchList.Add(rockFromHits);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-            }
-        }
-    } */
 }

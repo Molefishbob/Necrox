@@ -244,7 +244,7 @@ public class Rock : MonoBehaviour
             Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
             GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos);
             _gameField.ClearTileFromField(pos[0],pos[1]);
-            Destroy(gameObject);
+            Destroy(gameObject,0.5f);
         }
     }
 
