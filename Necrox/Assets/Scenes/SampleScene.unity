@@ -251,6 +251,18 @@ Prefab:
       value: 
       objectReference: {fileID: 1490199593989736, guid: 804d100741f58464f95d0ea8bd42277a,
         type: 2}
+    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: tileExplosion
+      value: 
+      objectReference: {fileID: 1353143841151906, guid: 351ea0f82b721e9439bacd144e4388c4,
+        type: 2}
+    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: example
+      value: 
+      objectReference: {fileID: 1490199593989736, guid: a3bfc6c80cf5f8649961a7f190956728,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
