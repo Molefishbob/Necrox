@@ -68,8 +68,11 @@ public class GameField : MonoBehaviour {
 				if (count >= arrayRows) {
 					for(int c = 0; c < arrayColumns;c++) {
 						for(int d = 0; d < arrayRows; d++) {
-							Destroy(gameField[c,d]);
-							gameField[c,d] = null;
+							if (gameField[c,d] != null) {
+								gameField[c,d].GetComponent<Rock>().SetToBeDestroyed(true);
+								gameField[c,d].GetComponent<Rock>().DestroyTile();
+								//gameField[c,d] = null;
+							}
 						}
 					}
 					CreateRandomRow(template.GetRandomRowTemplate(0),2);

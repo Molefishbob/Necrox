@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4108341706982138}
   - component: {fileID: 212191061785716568}
   - component: {fileID: 95424794175230452}
-  - component: {fileID: 114187442858925718}
   m_Layer: 0
   m_Name: tileExplosion
   m_TagString: Untagged
@@ -51,7 +50,7 @@ Animator:
   m_GameObject: {fileID: 1284098919936816}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ce9b7135d8b9bfa409a052a6687ba99e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 62f1ac68cc3c0734fb0eee78fd747dae, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -60,18 +59,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114187442858925718
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1284098919936816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5270a8071394a35488f7b6f34b6c8df0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
 --- !u!212 &212191061785716568
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -107,7 +94,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 50
-  m_Sprite: {fileID: 21300000, guid: 6ffdd9fea2a5b5b4caaaa9cc337df4f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c11e44228a5f9a42a346d3a3c33f013, type: 3}
   m_Color: {r: 0.6226415, g: 0.6020826, b: 0.6020826, a: 1}
   m_FlipX: 0
   m_FlipY: 0
