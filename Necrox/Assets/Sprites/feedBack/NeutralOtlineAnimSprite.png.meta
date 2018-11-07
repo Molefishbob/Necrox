@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: f441c8b36938d8845a3a3d07c1040aa6
+guid: 94e17f1a02ea98a4ebd9d944be06e069
 TextureImporter:
   fileIDToRecycleName:
-    21300000: FireTileSprite_0
-    21300002: FireTileSprite_1
-    21300004: FireTileSprite_2
-    21300006: FireTileSprite_3
-    21300008: FireTileSprite_4
-    21300010: FireTileSprite_5
-    21300012: FireTileSprite_6
-    21300014: FireTileSprite_7
-    21300016: FireTileSprite_8
+    21300000: NeutralOtlineAnimSprite_0
+    21300002: NeutralOtlineAnimSprite_1
+    21300004: NeutralOtlineAnimSprite_2
+    21300006: NeutralOtlineAnimSprite_3
+    21300008: NeutralOtlineAnimSprite_4
+    21300010: NeutralOtlineAnimSprite_5
+    21300012: NeutralOtlineAnimSprite_6
+    21300014: NeutralOtlineAnimSprite_7
+    21300016: NeutralOtlineAnimSprite_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -93,7 +93,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FireTileSprite_0
+      name: NeutralOtlineAnimSprite_0
       rect:
         serializedVersion: 2
         x: 0
@@ -107,13 +107,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 938dadee28386994ab835caff524351e
+      spriteID: ee200b9c123fce74e91faa856af616f0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_1
+      name: NeutralOtlineAnimSprite_1
       rect:
         serializedVersion: 2
         x: 32
@@ -127,13 +127,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31548c202ec43b34481b9a0e6ca69582
+      spriteID: 1e8545d234e140b449a72cf7e377b7bc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_2
+      name: NeutralOtlineAnimSprite_2
       rect:
         serializedVersion: 2
         x: 64
@@ -147,13 +147,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95b081558bc31c64493416dce0659c8c
+      spriteID: 205fe5d46c5a9d843a59101c51769f1c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_3
+      name: NeutralOtlineAnimSprite_3
       rect:
         serializedVersion: 2
         x: 96
@@ -167,13 +167,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e90b9281e2fee2748b416a2dfe6bd735
+      spriteID: 81d4c0d8446e24b48b17b920f49b75b1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_4
+      name: NeutralOtlineAnimSprite_4
       rect:
         serializedVersion: 2
         x: 128
@@ -187,13 +187,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee21f21e102eddb4f9ae5b00571928bb
+      spriteID: e061f51a02c7c6248ab5d9ee2eaeede4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_5
+      name: NeutralOtlineAnimSprite_5
       rect:
         serializedVersion: 2
         x: 160
@@ -207,13 +207,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a523ab8a8a001e4d9f6a42e0c4ab45b
+      spriteID: a5e5959e2fe7cb8488981f59a02c7f80
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_6
+      name: NeutralOtlineAnimSprite_6
       rect:
         serializedVersion: 2
         x: 192
@@ -227,13 +227,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be419760a90564f4c9e1ccbc6561f75e
+      spriteID: fa19db50e8cf0a64a8c66b4cf7c52019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_7
+      name: NeutralOtlineAnimSprite_7
       rect:
         serializedVersion: 2
         x: 224
@@ -247,13 +247,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 813e1542dbb46cb459b3de626a5dfb73
+      spriteID: f57cb9a6553008f48a4ae0b34bfd9010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireTileSprite_8
+      name: NeutralOtlineAnimSprite_8
       rect:
         serializedVersion: 2
         x: 256
@@ -267,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 842c0d4a53bd16d49aa7aca3c04870a3
+      spriteID: d330a8282bc01c847b1b079f277e4b12
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: faea0ebec2e68f241b45795e75e45899
+    spriteID: fbda37d53ac0e0f4987fceb9e2162bd1
     vertices: []
     indices: 
     edges: []

@@ -108,8 +108,8 @@ public class GameLogic : MonoBehaviour {
 
                     firstRock = hit.collider.gameObject;
                     //firstRock.GetComponent<Renderer>().material.color = selectedColor;
-                    //GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
-                    //border.transform.parent = firstRock.transform;
+                    GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
+                    border.transform.parent = firstRock.transform;
                     gotFirstTouch = true;
                 }
 

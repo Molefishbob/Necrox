@@ -249,7 +249,7 @@ Prefab:
         type: 2}
       propertyPath: selectBorder
       value: 
-      objectReference: {fileID: 1490199593989736, guid: 804d100741f58464f95d0ea8bd42277a,
+      objectReference: {fileID: 1438612723207384, guid: 58a245ac64b60dd48a43e53e93913c51,
         type: 2}
     - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
         type: 2}
@@ -261,7 +261,7 @@ Prefab:
         type: 2}
       propertyPath: example
       value: 
-      objectReference: {fileID: 1490199593989736, guid: a3bfc6c80cf5f8649961a7f190956728,
+      objectReference: {fileID: 1438612723207384, guid: 58a245ac64b60dd48a43e53e93913c51,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}

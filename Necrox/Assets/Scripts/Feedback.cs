@@ -22,7 +22,7 @@ public class Feedback : MonoBehaviour {
 	}
 
     void Update() {
-       /* if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0)) {
 
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 clickPos = new Vector2(wp.x, wp.y);
@@ -33,7 +33,7 @@ public class Feedback : MonoBehaviour {
                 testRock = hit.collider.gameObject;
                 TestFeedback(testRock);
             }
-        }*/
+        }
     }
 
     public void TestFeedback (GameObject tile) {
