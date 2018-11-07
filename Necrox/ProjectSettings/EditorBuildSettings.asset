@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Nikolai Menu Test.unity
     guid: d1aded595c204084f98f8e2dc62f04de
   - enabled: 1
