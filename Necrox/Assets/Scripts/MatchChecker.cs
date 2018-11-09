@@ -10,6 +10,7 @@ public class MatchChecker : MonoBehaviour {
     public LayerMask touchInputMask;
     private RaycastHit2D hit;
     public GameObject gameLogic;
+    private bool swipeCheck;
     public GameObject firstRock;
     public GameObject secondRock;
     public GameObject checkRock;
@@ -65,6 +66,7 @@ public class MatchChecker : MonoBehaviour {
     }
 
     public void MatchCheck(GameObject tile, GameObject tile2) {
+        gameLogic.GetComponent<GameLogic>().SetSwipeChecking(true);
         firstRock = tile;
         secondRock = tile2;
         //Debug.Log("match check has been called and first rock is: " + firstRock);
@@ -291,15 +293,22 @@ public class MatchChecker : MonoBehaviour {
     #endregion DirectionCheck
     void DestroyMatchesChecker() {
 
+        Debug.Log("SwipeCheck");
+
         CheckVerticalMatches();
 
         CheckHorizontalMatches();
 
+        Debug.Log("noMatchesHor:" + noMatchesHor + " noMatchesVer:" + noMatchesVer 
+                + " noMatchesHor2:" + noMatchesHor2  + " noMatchesVer2:" +  noMatchesVer2);
         if (noMatchesHor && noMatchesVer && noMatchesHor2 && noMatchesVer2) {
+            Debug.Log("Reverting tiles");
             RevertPositions();
+        } else {
+            OrderTilesToBeDestroyed();
         }
 
-        OrderTilesToBeDestroyed();
+        gameLogic.GetComponent<GameLogic>().SetSwipeChecking(false);
 
         ResetMatchChecker();
 
@@ -375,6 +384,10 @@ public class MatchChecker : MonoBehaviour {
         verticalMatchList.Clear();
         horizontalMatchList2.Clear();
         verticalMatchList2.Clear();
+        noMatchesHor = false;
+        noMatchesVer = false;
+        noMatchesHor2 = false;
+        noMatchesVer2 = false;
         // Add boolean that enables the boardcheck in GameLogic
         swapMatchDone = true;
     }

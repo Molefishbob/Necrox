@@ -8,6 +8,7 @@ public class Rock : MonoBehaviour
 
     public int[] pos = new int[2];
     private bool _fallingToPlace;
+    [SerializeField]
     private bool _moved;
     public string _element;
     private int _yPosition;
@@ -42,9 +43,8 @@ public class Rock : MonoBehaviour
         {
             TileMovement();
         }
-        if (pos[1] < 11) {
+        if (pos[1] < 11 && !_fallingToPlace) {
             if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
-               //Debug.Log("Nothing under me, my pos: X:" + pos[0] + " Y:" + pos[1]);
                 _gameField.ClearTileFromField(pos[0],pos[1]);
                 pos[1] = pos[1]+ 1;
                 GameField.setObject(pos[0],pos[1],gameObject);
@@ -235,12 +235,11 @@ public class Rock : MonoBehaviour
     }
     public void DestroyTile() {
         if (_toBeDestroyed) {
-            Debug.Log("Destroyed:" + "X:" + pos[0] + " Y:" + pos[1]);
-            /*
-             * no idea why it is null
-             * doesnt work
-             * _gameField.GetComponent<Feedback>().TileFeedback(tilePos);*/
-            //transform.parent.parent.GetComponent<Feedback>().TileFeedback(tilePos);
+            
+            if (pos[1] >= 6) {
+                // GameObject.Find("GameLogic").GetComponent<GameLogic>().TileWasDestroyed();
+            }
+
             Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
             GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos);
             gameObject.GetComponent<Renderer>().enabled = false;
@@ -271,6 +270,9 @@ public class Rock : MonoBehaviour
     }
     public bool GetMoved() {
         return _moved;
+    }
+    public bool GetFalling() {
+        return _fallingToPlace;
     }
 
     public int[] GetPos()

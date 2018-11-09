@@ -87,8 +87,9 @@ public class GameField : MonoBehaviour {
 			System.Random random = new System.Random();
 			int a = random.Next(0,6);
 			int b = random.Next(6,12);
-			Destroy(gameField[a,b]);
-			gameField[a,b] = null;
+			if(gameField[a,b] != null) {
+				Destroy(gameField[a,b]);
+			}
 
 			/* for (int a = 0; a < gameField.GetLength(0);a++) {
 				Debug.Log("Column:" + a);
@@ -244,11 +245,12 @@ public class GameField : MonoBehaviour {
 	public bool AreVisibleTilesMoving() {
         
 		for (int a = 0; a < gameField.GetLength(0);a++) {
-			for ( int b = 0; b < gameField.GetLength(1);b++) {
+			for ( int b = 6; b < gameField.GetLength(1);b++) {
                 if (gameField[a, b] != null) {
 
                     bool moving = gameField[a, b].GetComponent<Rock>().GetMoved();
-                    if (moving) {
+					bool falling = gameField[a, b].GetComponent<Rock>().GetFalling();
+                    if (moving || falling) {
                         return true;
                     }
                 }

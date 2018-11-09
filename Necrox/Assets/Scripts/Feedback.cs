@@ -22,18 +22,18 @@ public class Feedback : MonoBehaviour {
 	}
 
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        // if (Input.GetMouseButtonDown(0)) {
 
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 clickPos = new Vector2(wp.x, wp.y);
-            hit = Physics2D.Raycast(clickPos, -Vector2.up);
+        //     Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //     Vector2 clickPos = new Vector2(wp.x, wp.y);
+        //     hit = Physics2D.Raycast(clickPos, -Vector2.up);
 
-            if (hit.collider != null) {
+        //     if (hit.collider != null) {
 
-                testRock = hit.collider.gameObject;
-                TestFeedback(testRock);
-            }
-        }
+        //         testRock = hit.collider.gameObject;
+        //         TestFeedback(testRock);
+        //     }
+        // }
     }
 
     public void TestFeedback (GameObject tile) {

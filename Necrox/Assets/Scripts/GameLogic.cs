@@ -26,6 +26,8 @@ public class GameLogic : MonoBehaviour {
     public RaycastHit2D[] raycast2DHits;
 
     public GameObject selectBorder;
+    private bool _touched;
+    private int _counter = 0;
 
 
     // Use this for initialization
@@ -48,12 +50,14 @@ public class GameLogic : MonoBehaviour {
         //Debug.Log("can touch is: " + canTouch);
         //Debug.Log("moving is: " + moving);
         //Debug.Log("moveComplete is " + moveComplete);
+        if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+            canTouch = true;
+        }
 
         if (gameField.GetComponent<GameField>().AreVisibleTilesMoving() && !moving) {
             
             canTouch = false;
-            moving = true;
-        } 
+        }
         if (moving) {
             CheckMovementComplete();
         }
@@ -66,37 +70,48 @@ public class GameLogic : MonoBehaviour {
         }
 
 
-        if (canTouch) {
+        if (canTouch && !gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
             TrackMovement();
         }
         
-
+        if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+            if (_counter >= 15) {
+                CheckBoard();
+                _counter = 0;
+            }
+            _counter++;
+        }
 
     }
 
     void CheckMovementComplete() {
         
-        if (moving && !moveComplete ) {
+        if (!moveComplete) {
+            // Debug.Log("Moving");
+            // Debug.Log("Tiles moving:" + gameField.GetComponent<GameField>().AreVisibleTilesMoving());
             if (!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
                 
                 CheckBoard();
                 
-                moving = false;
-                
             }
         }
-        if (moving && moveComplete) {
+        if (moveComplete) {
             moveComplete = false;
+            moving = false;
         }
     }
 
     void CheckBoard() {
         gameField.GetComponent<MatchChecker>().BoardCheck();
     }
+    public void SetSwipeChecking(bool value) {
+        moving = false;
+    }
 
     void TrackMovement() {
         // Track a single touch motion as a direction control.
         if (Input.touchCount > 0) {
+            _touched = true;
             Touch touch = Input.GetTouch(0);
             Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
             Vector2 touchPos = new Vector2(wp.x, wp.y);
