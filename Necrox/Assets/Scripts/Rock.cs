@@ -241,9 +241,9 @@ public class Rock : MonoBehaviour
             }
 
             Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
-            GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos);
+            GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos,gameObject);
             gameObject.GetComponent<Renderer>().enabled = false;
-            Destroy(gameObject,0.5f);
+            Destroy(gameObject,0.75f);
         }
     }
 

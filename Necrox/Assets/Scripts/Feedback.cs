@@ -48,8 +48,9 @@ public class Feedback : MonoBehaviour {
         }
     }
 
-    public void TileFeedback (Vector3 tilePos) {
+    public void TileFeedback (Vector3 tilePos, GameObject OgTile) {
         GameObject explosion = Instantiate(tileExplosion, tilePos,  Quaternion.identity);
+        explosion.transform.parent = OgTile.transform;
         //explosion.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
     }
 }
