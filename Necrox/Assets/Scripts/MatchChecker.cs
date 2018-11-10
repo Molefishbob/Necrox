@@ -393,7 +393,7 @@ public class MatchChecker : MonoBehaviour {
     }
 
     private void RevertPositions() {
-
+        Destroy(firstRock.transform.GetChild(0).gameObject);
         gameObject.GetComponent<GameField>().MoveTiles(firstRock,secondRock,newMove: false);
         ResetMatchChecker();
 

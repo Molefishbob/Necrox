@@ -49,6 +49,9 @@ public class Feedback : MonoBehaviour {
     }
 
     public void TileFeedback (Vector3 tilePos, GameObject OgTile) {
+        if (OgTile.transform.childCount > 0) {
+            Destroy(OgTile.transform.GetChild(0).gameObject);
+        }
         GameObject explosion = Instantiate(tileExplosion, tilePos,  Quaternion.identity);
         explosion.transform.parent = OgTile.transform;
         //explosion.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
