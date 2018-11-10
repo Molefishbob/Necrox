@@ -70,7 +70,7 @@ public class GameField : MonoBehaviour {
 						for(int d = 0; d < arrayRows; d++) {
 							if (gameField[c,d] != null) {
 								gameField[c,d].GetComponent<Rock>().SetToBeDestroyed(true);
-								gameField[c,d].GetComponent<Rock>().DestroyTile();
+								gameField[c,d].GetComponent<Rock>().DestroyExtraTile();
 								//gameField[c,d] = null;
 							}
 						}

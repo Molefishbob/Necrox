@@ -11,6 +11,16 @@ public class Feedback : MonoBehaviour {
     public GameObject tileExplosion;
     public GameObject example;
     public GameObject fireball;
+    public GameObject earthProtect;
+    public GameObject waterHeal;
+    public GameObject skeleton;
+
+    private int fireCount;
+    private int waterCount;
+    private int earthCount;
+    private int chaosCount;
+
+    private int countCount = 0;
 
     private RaycastHit2D hit;
     private GameObject testRock;
@@ -49,11 +59,48 @@ public class Feedback : MonoBehaviour {
     }
 
     public void TileFeedback (Vector3 tilePos, GameObject OgTile) {
+       /* countCount++;
+        Debug.Log("how many times did it get here: " + countCount);*/
+
+        SpellFeedback(OgTile);
         if (OgTile.transform.childCount > 0) {
             Destroy(OgTile.transform.GetChild(0).gameObject);
         }
         GameObject explosion = Instantiate(tileExplosion, tilePos,  Quaternion.identity);
         explosion.transform.parent = OgTile.transform;
         //explosion.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
+    }
+
+    void SpellFeedback (GameObject tile) {
+        switch (tile.GetComponent<Rock>()._element) {
+            case "fire":
+                fireCount++;
+                break;
+            case "water":
+                waterCount++;
+                break;
+            case "earth":
+                earthCount++;
+                break;
+            case "chaos":
+                chaosCount++;
+                break;
+        }
+        if (fireCount >= 3) {
+            Instantiate(fireball);
+            fireCount = 0;
+        }
+        if (waterCount >= 3) {
+            Instantiate(waterHeal);
+            waterCount = 0;
+        }
+        if (earthCount >= 3) {
+            Instantiate(earthProtect);
+            earthCount = 0;
+        }
+        if (chaosCount >= 3) {
+            Instantiate(skeleton);
+            chaosCount = 0;
+        }
     }
 }

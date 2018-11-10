@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 198376189803588860}
   - component: {fileID: 199037308487078484}
   - component: {fileID: 95413279557229978}
+  - component: {fileID: 114622120701200680}
   m_Layer: 0
   m_Name: waterHeal
   m_TagString: Untagged
@@ -60,6 +61,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114622120701200680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1522356780369990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 796a1b5ffed201e48b08186af9f93bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
 --- !u!198 &198376189803588860
 ParticleSystem:
   m_ObjectHideFlags: 1

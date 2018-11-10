@@ -245,24 +245,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114531370456334196, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: selectBorder
-      value: 
-      objectReference: {fileID: 1438612723207384, guid: 58a245ac64b60dd48a43e53e93913c51,
-        type: 2}
-    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: tileExplosion
-      value: 
-      objectReference: {fileID: 1353143841151906, guid: 351ea0f82b721e9439bacd144e4388c4,
-        type: 2}
-    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: example
-      value: 
-      objectReference: {fileID: 1438612723207384, guid: 58a245ac64b60dd48a43e53e93913c51,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0

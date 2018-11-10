@@ -246,6 +246,15 @@ public class Rock : MonoBehaviour
             Destroy(gameObject,0.75f);
         }
     }
+    public void DestroyExtraTile() {
+        if (_toBeDestroyed) {
+
+            if (pos[1] >= 6) {
+                // GameObject.Find("GameLogic").GetComponent<GameLogic>().TileWasDestroyed();
+            }
+            Destroy(gameObject, 0.75f);
+        }
+    }
 
     public void SetPos(int[] pos)
     {
