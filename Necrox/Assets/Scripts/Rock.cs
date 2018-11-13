@@ -19,6 +19,7 @@ public class Rock : MonoBehaviour
     private GameField _gameField;
     private float speed = 0.25f;
     public GameObject feedback;
+    private bool sentToFeedback = false;
 
 
     // Use this for initialization
@@ -239,9 +240,12 @@ public class Rock : MonoBehaviour
             if (pos[1] >= 6) {
                 // GameObject.Find("GameLogic").GetComponent<GameLogic>().TileWasDestroyed();
             }
-
-            Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
-            GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos,gameObject);
+            if (!sentToFeedback) {
+                Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
+                GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos, gameObject);
+                sentToFeedback = true;
+            }
+            
             gameObject.GetComponent<Renderer>().enabled = false;
             Destroy(gameObject,0.75f);
         }
