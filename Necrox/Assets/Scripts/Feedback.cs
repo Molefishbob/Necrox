@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Feedback : MonoBehaviour {
 
@@ -14,11 +15,13 @@ public class Feedback : MonoBehaviour {
     public GameObject earthProtect;
     public GameObject waterHeal;
     public GameObject skeleton;
+    public Text scoreText;
 
     private int fireCount;
     private int waterCount;
     private int earthCount;
     private int chaosCount;
+    private int score = 0;
 
     private int countCount = 0;
 
@@ -75,15 +78,19 @@ public class Feedback : MonoBehaviour {
         switch (tile.GetComponent<Rock>()._element) {
             case "fire":
                 fireCount++;
+                score += 5;
                 break;
             case "water":
                 waterCount++;
+                score += 5;
                 break;
             case "earth":
                 earthCount++;
+                score += 5;
                 break;
             case "chaos":
                 chaosCount++;
+                score += 5;
                 break;
         }
         if (fireCount >= 3) {
@@ -102,5 +109,6 @@ public class Feedback : MonoBehaviour {
             Instantiate(skeleton);
             chaosCount = 0;
         }
+        scoreText.text = "" + score;
     }
 }
