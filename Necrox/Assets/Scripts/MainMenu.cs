@@ -11,3 +11,11 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 }
+
+//Another way of doing the game loader
+//public class GameLoader : monoBehaviour { 
+
+//  public void LoadScene ()
+//  {  
+//      SceneManager.LoadScene(1) 
+//  } 
