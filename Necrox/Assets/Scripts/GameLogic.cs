@@ -111,9 +111,9 @@ public class GameLogic : MonoBehaviour {
     void TrackMovement() {
         // Track a single touch motion as a direction control.
         if (Input.touchCount > 0) {
-            _touched = true;
+            canTouch = false;
             Touch touch = Input.GetTouch(0);
-            Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+            Vector3 wp = Camera.main.ScreenToWorldPoint(touch.position);
             Vector2 touchPos = new Vector2(wp.x, wp.y);
             hit = Physics2D.Raycast(touchPos, -Vector2.up, touchInputMask);
 
