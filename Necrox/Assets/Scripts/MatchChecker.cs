@@ -424,7 +424,7 @@ public class MatchChecker : MonoBehaviour {
                 noMatch = true;
                 Rock tile = GameField.GetGameField()[a,b].GetComponent<Rock>();
 
-                if (tile.GetElement() == _firstRockElement) {
+                if (tile.GetElement() == _firstRockElement && !tile.sentToFeedback) {
 
                     noMatch = false;
                     counter++;
@@ -474,7 +474,7 @@ public class MatchChecker : MonoBehaviour {
                 noMatch = true;
                 Rock tile = GameField.GetGameField()[a,b].GetComponent<Rock>();
 
-                if (tile.GetElement() == _firstRockElement) {
+                if (tile.GetElement() == _firstRockElement && !tile.sentToFeedback) {
 
                     noMatch = false;
                     counter++;

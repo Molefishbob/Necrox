@@ -20,12 +20,21 @@ public class Timer : MonoBehaviour
 		/// <summary>
 		/// Tells if the timer is running or not
 		/// </summary>
-		public bool IsRunning { get; private set; }
+		public bool IsRunning 
+		{ 
+			get;
+			private set;
+		}
 
-		// Kertoo tämänhetkisen ajan
+		/// <summary>
+		/// Tells the current time in the timer
+		/// </summary>
 		public float CurrentTime
 		{
-			get { return _currentTime; }
+			get 
+			{ 
+				return _currentTime; 
+			}
 			private set
 			{
 				_currentTime = Mathf.Max(value, 0);

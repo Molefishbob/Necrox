@@ -110,7 +110,7 @@ public class GameLogic : MonoBehaviour {
 
     void TrackMovement() {
         // Track a single touch motion as a direction control.
-        if (Input.touchCount > 0) {
+        if (Input.touchCount == 1) {
             canTouch = false;
             Touch touch = Input.GetTouch(0);
             Vector3 wp = Camera.main.ScreenToWorldPoint(touch.position);
@@ -121,11 +121,13 @@ public class GameLogic : MonoBehaviour {
                 if (!gotFirstTouch) {
                     //Debug.Log("The hit is: " + hit.collider.name);
 
-                    firstRock = hit.collider.gameObject;
-                    //firstRock.GetComponent<Renderer>().material.color = selectedColor;
-                    GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
-                    border.transform.parent = firstRock.transform;
-                    gotFirstTouch = true;
+                        firstRock = hit.collider.gameObject;
+                        if (!firstRock.GetComponent<Rock>().sentToFeedback) {
+                        //firstRock.GetComponent<Renderer>().material.color = selectedColor;
+                        GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
+                        border.transform.parent = firstRock.transform;
+                        gotFirstTouch = true;
+                    }
                 }
 
             }
