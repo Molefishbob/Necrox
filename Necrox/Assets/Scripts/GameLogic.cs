@@ -147,7 +147,7 @@ public class GameLogic : MonoBehaviour {
                     break;
             }
         }
-        if (directionChosen) {
+        if (directionChosen && gotFirstTouch) {
             // if statements to know which direction
             float xDiff = startPos[0] - endPos[0];
             if (xDiff < 0) {

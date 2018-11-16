@@ -207,7 +207,7 @@ public class GameField : MonoBehaviour {
 		int[] posRock1 = rocker1.GetPos();
 		rocker1.SetPos(rocker2.GetPos());
 		rocker2.SetPos(posRock1);
-
+		
 		
 		rocker1.ChangeParent(FindParent(rocker1.GetPos()[0]));
 		rocker2.ChangeParent(FindParent(rocker2.GetPos()[0]));
