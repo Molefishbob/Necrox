@@ -208,7 +208,7 @@ public class GameLogic : MonoBehaviour {
                 }
             }
             //Debug.Log(direction);
-            if (secondRock != null) {
+            if (secondRock != null && !secondRock.GetComponent<Rock>().sentToFeedback) {
                 gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock, newMove: true);
             }
             directionChosen = false;

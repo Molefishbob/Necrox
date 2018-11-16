@@ -94,7 +94,7 @@ public class MatchChecker : MonoBehaviour {
 
                     rockFromHits = raycast2DHits[i].collider.gameObject;
 
-                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !firstRock.GetComponent<Rock>().sentToFeedback) {
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                         horizontalMatchList.Add(rockFromHits);
 
@@ -119,7 +119,7 @@ public class MatchChecker : MonoBehaviour {
 
                         rockFromHits = raycast2DHits[i].collider.gameObject;
 
-                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !secondRock.GetComponent<Rock>().sentToFeedback) {
+                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                             horizontalMatchList2.Add(rockFromHits);
 
@@ -147,7 +147,7 @@ public class MatchChecker : MonoBehaviour {
                 if (raycast2DHits[i].collider != null) {
 
                     rockFromHits = raycast2DHits[i].collider.gameObject;
-                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !firstRock.GetComponent<Rock>().sentToFeedback) {
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                         horizontalMatchList.Add(rockFromHits);
 
@@ -171,7 +171,7 @@ public class MatchChecker : MonoBehaviour {
 
                         rockFromHits = raycast2DHits[i].collider.gameObject;
 
-                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !secondRock.GetComponent<Rock>().sentToFeedback) {
+                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                             horizontalMatchList2.Add(rockFromHits);
 
@@ -198,7 +198,7 @@ public class MatchChecker : MonoBehaviour {
 
                     rockFromHits = raycast2DHits[i].collider.gameObject;
 
-                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !firstRock.GetComponent<Rock>().sentToFeedback) {
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                         verticalMatchList.Add(rockFromHits);
 
@@ -221,7 +221,7 @@ public class MatchChecker : MonoBehaviour {
                     if (raycast2DHits[i].collider != null) {
 
                         rockFromHits = raycast2DHits[i].collider.gameObject;
-                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !secondRock.GetComponent<Rock>().sentToFeedback) {
+                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                             if (rockFromHits.GetComponent<Rock>()._element == null) {
 
@@ -251,7 +251,7 @@ public class MatchChecker : MonoBehaviour {
                 if (raycast2DHits[i].collider != null) {
 
                     rockFromHits = raycast2DHits[i].collider.gameObject;
-                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !firstRock.GetComponent<Rock>().sentToFeedback) {
+                    if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                         verticalMatchList.Add(rockFromHits);
 
@@ -275,7 +275,7 @@ public class MatchChecker : MonoBehaviour {
 
                         rockFromHits = raycast2DHits[i].collider.gameObject;
 
-                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !secondRock.GetComponent<Rock>().sentToFeedback) {
+                        if (secondRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
 
                             verticalMatchList2.Add(rockFromHits);
 
