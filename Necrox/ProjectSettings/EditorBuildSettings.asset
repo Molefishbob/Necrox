@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Nikolai Menu Test.unity
+    path: Assets/Scenes/MainMenu (N).unity
     guid: d1aded595c204084f98f8e2dc62f04de
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
