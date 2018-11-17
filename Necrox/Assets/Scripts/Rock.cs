@@ -21,6 +21,10 @@ public class Rock : MonoBehaviour
     public GameObject feedback;
     public AudioClip _movementAudio;
     public PlaySoundClip _audioPlayer;
+    public bool Paused {
+        get;
+        set;
+    }
     public bool sentToFeedback {
         get; 
         private set;
@@ -36,31 +40,33 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_fallingToPlace)
-        {
-            transform.localPosition = new Vector3(0, transform.localPosition.y - speed, 0);
-            if (transform.localPosition.y <= _yPosition)
+        if(!Paused) {
+            if (_fallingToPlace)
             {
-                _fallingToPlace = false;
-                //Debug.Log(pos[0] + " " + pos[1]);
+                transform.localPosition = new Vector3(0, transform.localPosition.y - speed, 0);
+                if (transform.localPosition.y <= _yPosition)
+                {
+                    _fallingToPlace = false;
+                    //Debug.Log(pos[0] + " " + pos[1]);
+                }
             }
-        }
-        if (_moved && !_fallingToPlace)
-        {
-            TileMovement();
-        }
-        if (pos[1] < 11 && !_fallingToPlace) {
-            if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
-                _gameField.ClearTileFromField(pos[0],pos[1]);
-                pos[1] = pos[1]+ 1;
-                GameField.setObject(pos[0],pos[1],gameObject);
-                _yPosition = ToPosValues(pos[1]);
-                //Debug.Log("I'm moving to: X:" + pos[0] + " Y:" + pos[1] + " Element:" + _element);
-                _yValueChanged = true;
-                _moved = true;
+            if (_moved && !_fallingToPlace)
+            {
+                TileMovement();
             }
+            if (pos[1] < 11 && !_fallingToPlace) {
+                if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
+                    _gameField.ClearTileFromField(pos[0],pos[1]);
+                    pos[1] = pos[1]+ 1;
+                    GameField.setObject(pos[0],pos[1],gameObject);
+                    _yPosition = ToPosValues(pos[1]);
+                    //Debug.Log("I'm moving to: X:" + pos[0] + " Y:" + pos[1] + " Element:" + _element);
+                    _yValueChanged = true;
+                    _moved = true;
+                }
+            }
+            IsDestroyable();
         }
-        IsDestroyable();
     }
 
     private void IsDestroyable() {
@@ -279,7 +285,10 @@ public class Rock : MonoBehaviour
         }
         if (_yValueChanged || _xValueChanged) {
             Settings.soundVolume = 1;
-            Instantiate(_audioPlayer,transform.position,Quaternion.identity).PlayClip(_movementAudio,Settings.soundVolume,usePitchVariance: true);
+            Debug.Log(Settings.soundVolume);
+            Instantiate(_audioPlayer,transform.position,Quaternion.identity).PlayClip
+                    (_movementAudio,GameObject.Find("GameManager").GetComponent<GameManager>()._soundVolume,
+                    usePitchVariance: true);
         }
         this.pos = pos;
         _yPosition = ToPosValues(pos[1]);

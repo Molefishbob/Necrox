@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour {
 	public void PlayGame ()
 
     {
+        DontDestroyOnLoad(GameObject.Find("GameManager"));
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 }
