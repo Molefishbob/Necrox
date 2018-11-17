@@ -16,6 +16,7 @@ public class Feedback : MonoBehaviour {
     public GameObject waterHeal;
     public GameObject skeleton;
     public Text scoreText;
+    public Canvas CombatUI;
 
     private int fireCount;
     private int waterCount;
@@ -95,6 +96,7 @@ public class Feedback : MonoBehaviour {
         }
         if (fireCount >= 3) {
             Instantiate(fireball);
+            CombatUI.GetComponent<CombatUI>().FireAttack();
             fireCount = 0;
         }
         if (waterCount >= 3) {
