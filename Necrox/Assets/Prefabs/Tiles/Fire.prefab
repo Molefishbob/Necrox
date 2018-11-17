@@ -79,7 +79,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: 0000000000000000
+  _moved: 0
   _element: 
+  feedback: {fileID: 0}
+  _movementAudio: {fileID: 8300000, guid: 79401e6e50855a643a0b89218654701b, type: 3}
+  _audioPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
+    type: 2}
 --- !u!212 &212938083779630152
 SpriteRenderer:
   m_ObjectHideFlags: 1
