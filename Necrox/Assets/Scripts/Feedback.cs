@@ -111,6 +111,10 @@ public class Feedback : MonoBehaviour {
             Instantiate(skeleton);
             chaosCount = 0;
         }
-        scoreText.text = "Score:" + score;
+        scoreText.text ="" + score;
+    }
+
+    public int GetScore() {
+        return score;
     }
 }

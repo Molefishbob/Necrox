@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1721104769928714}
+  m_RootGameObject: {fileID: 1056905756489922}
   m_IsPrefabAsset: 1
---- !u!1 &1721104769928714
+--- !u!1 &1056905756489922
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4127849520141346}
-  - component: {fileID: 212072923956773960}
-  - component: {fileID: 95032503504310318}
+  - component: {fileID: 4682160129966352}
+  - component: {fileID: 212187839145401832}
+  - component: {fileID: 95009625124234814}
   m_Layer: 0
-  m_Name: villageElderAttacklFrames_0
+  m_Name: villagerElder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4127849520141346
+--- !u!4 &4682160129966352
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721104769928714}
+  m_GameObject: {fileID: 1056905756489922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.73, y: 3.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,13 +41,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95032503504310318
+--- !u!95 &95009625124234814
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721104769928714}
+  m_GameObject: {fileID: 1056905756489922}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c4fbc71eb9471bd43976f2d2684aef51, type: 2}
@@ -59,12 +59,12 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &212072923956773960
+--- !u!212 &212187839145401832
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721104769928714}
+  m_GameObject: {fileID: 1056905756489922}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

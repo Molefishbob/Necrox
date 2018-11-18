@@ -7,8 +7,8 @@ public class CombatUI : MonoBehaviour {
 
     public Slider MainCharHealth;
     public Slider EnemyHealth;
-    private float mainCharHP;
-    private float enemyHP;
+    public Canvas GameOverMenu;
+    public GameObject Feedback;
 
     public float FireDmg = 10;
     public float WaterHeal = 7;
@@ -25,14 +25,16 @@ public class CombatUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         MainCharHealth.value = 50;
-        //mainCharHP = MainCharHealth.value;
-        //enemyHP = EnemyHealth.value;
         Debug.Log(MainCharHealth.value + "   " + EnemyHealth.value);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Debug.Log(EnemyHealth.value);
+		if (EnemyHealth.value <= 0) {
+            GameOverMenu.gameObject.SetActive(true);
+            GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+        }
 	}
 
     public void FireAttack() {
