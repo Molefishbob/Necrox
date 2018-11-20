@@ -19,8 +19,6 @@ public class Rock : MonoBehaviour
     private GameField _gameField;
     private float speed = 0.25f;
     public GameObject feedback;
-    public AudioClip _movementAudio;
-    public PlaySoundClip _audioPlayer;
     public bool Paused {
         get;
         set;
@@ -282,13 +280,6 @@ public class Rock : MonoBehaviour
         {
             _yValueChanged = true;
             _moved = true;
-        }
-        if (_yValueChanged || _xValueChanged) {
-            Settings.soundVolume = 1;
-            Debug.Log(Settings.soundVolume);
-            Instantiate(_audioPlayer,transform.position,Quaternion.identity).PlayClip
-                    (_movementAudio,GameObject.Find("GameManager").GetComponent<GameManager>()._soundVolume,
-                    usePitchVariance: true);
         }
         this.pos = pos;
         _yPosition = ToPosValues(pos[1]);

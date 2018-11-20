@@ -20,6 +20,9 @@ public class GameField : MonoBehaviour {
 	public GameObject column3;
 	public GameObject column4;
 	public GameObject column5;
+    public AudioClip _movementAudio;
+    public PlaySoundClip _audioPlayer;
+
 	private bool startGame = true;
 	private static int rows;
 	private float timer = 0.1f;
@@ -217,6 +220,9 @@ public class GameField : MonoBehaviour {
 
 		if(newMove) {
 		    //Debug.Log("Calling to check matches");
+			Instantiate(_audioPlayer,transform.position,Quaternion.identity).PlayClip
+                    (_movementAudio,GameManager._soundVolume,
+                    usePitchVariance: true);
          	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
 		 }
 

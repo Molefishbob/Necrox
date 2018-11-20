@@ -545,6 +545,9 @@ MonoBehaviour:
   column3: {fileID: 1497478480444152}
   column4: {fileID: 1299605493018598}
   column5: {fileID: 1844402645481672}
+  _movementAudio: {fileID: 8300000, guid: 79401e6e50855a643a0b89218654701b, type: 3}
+  _audioPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
+    type: 2}
 --- !u!114 &114737322769587644
 MonoBehaviour:
   m_ObjectHideFlags: 1

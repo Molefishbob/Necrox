@@ -30,7 +30,7 @@ public class CombatUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(EnemyHealth.value);
+        //Debug.Log(EnemyHealth.value);
 		if (EnemyHealth.value <= 0) {
             GameOverMenu.gameObject.SetActive(true);
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
