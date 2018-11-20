@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour {
-	
+
+    private const int MINDISTANCE = 15;
     public LayerMask touchInputMask;
     private RaycastHit2D hit;
     private RaycastHit2D directionHit;
@@ -26,6 +27,7 @@ public class GameLogic : MonoBehaviour {
     public RaycastHit2D[] raycast2DHits;
 
     public GameObject selectBorder;
+    private GameObject border;
     private bool _touched;
     private int _counter = 0;
 
@@ -124,7 +126,7 @@ public class GameLogic : MonoBehaviour {
                         firstRock = hit.collider.gameObject;
                         if (!firstRock.GetComponent<Rock>().sentToFeedback) {
                         //firstRock.GetComponent<Renderer>().material.color = selectedColor;
-                        GameObject border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
+                        border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
                         border.transform.parent = firstRock.transform;
                         gotFirstTouch = true;
                     }
@@ -137,13 +139,29 @@ public class GameLogic : MonoBehaviour {
                 // Record initial touch position.
                 case TouchPhase.Began:
                     startPos = touch.position;
+                    Debug.Log(startPos);
                     directionChosen = false;
                     break;
 
                 // Report that a direction has been chosen when the finger is lifted.
                 case TouchPhase.Ended:
                     endPos = touch.position;
-                    directionChosen = true;
+                    Debug.Log(endPos);
+                    Destroy(border);
+                    float xDiff = startPos[0] - endPos[0];
+                    if (xDiff < 0) {
+                        xDiff *= -1;
+                    }
+                    float yDiff = startPos[1] - endPos[1];
+                    if (yDiff < 0) {
+                        yDiff *= -1;
+                    }
+                    if (yDiff >= MINDISTANCE || xDiff >= MINDISTANCE) {
+                        directionChosen = true;
+                    } else {
+                        gotFirstTouch = false;
+                    }
+                    
                     break;
             }
         }
