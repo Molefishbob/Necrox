@@ -393,7 +393,12 @@ public class MatchChecker : MonoBehaviour {
     }
 
     private void RevertPositions() {
-        Destroy(firstRock.transform.GetChild(0).gameObject);
+        if(firstRock.transform.GetChild(0) != null) {
+            Destroy(firstRock.transform.GetChild(0).gameObject);
+        }
+        if(secondRock.transform.GetChild(0) != null) {
+            Destroy(secondRock.transform.GetChild(0).gameObject);
+        }
         gameObject.GetComponent<GameField>().MoveTiles(firstRock,secondRock,newMove: false);
         ResetMatchChecker();
 
@@ -432,9 +437,9 @@ public class MatchChecker : MonoBehaviour {
                     if (b+1 ==  _fieldRows && counter >= _minimumMatch) {
 
                         for (int c = 0; counter > 0; c++) {
-
-                        GameField.GetGameField()[a,b-c].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
-                        counter--;
+                            
+                            GameField.GetGameField()[a,b-c].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
+                            counter--;
 
                         }
                         counter = 1;

@@ -63,7 +63,7 @@ public class GameLogic : MonoBehaviour {
         if (moving) {
             CheckMovementComplete();
         }
-        if (Input.GetKeyDown("p")) {
+        if (Input.GetKeyDown("p") || Input.GetKeyDown(KeyCode.Escape)) {
             CheckBoard();
             canTouch = false;
         }

@@ -413,6 +413,7 @@ MonoBehaviour:
   skeleton: {fileID: 1154713338512846, guid: 53ecec1f7eae2b140b77e4a66f8518d0, type: 2}
   scoreText: {fileID: 0}
   CombatUI: {fileID: 0}
+  _character: {fileID: 0}
 --- !u!114 &114458634032359234
 MonoBehaviour:
   m_ObjectHideFlags: 1
