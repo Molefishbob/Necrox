@@ -1697,7 +1697,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 178.2, y: 256.4}
+  m_SizeDelta: {x: 289, y: 513}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865341313
 MonoBehaviour:
@@ -1711,7 +1711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6431373}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2150,9 +2150,9 @@ MonoBehaviour:
   GameOverMenu: {fileID: 112263648}
   Feedback: {fileID: 1919969345}
   FireDmg: 10
-  WaterHeal: 7
-  earthProtect: 0
-  SkeleDmg: 15
+  waterHeal: 7
+  earthBool: 0
+  skeleDmg: 15
 --- !u!1001 &2027948252
 Prefab:
   m_ObjectHideFlags: 0
