@@ -11,9 +11,9 @@ public class CombatUI : MonoBehaviour {
     public GameObject Feedback;
 
     public float FireDmg = 10;
-    public float WaterHeal = 7;
-    public bool earthProtect = false;
-    public float SkeleDmg = 15;
+    public float waterHeal = 7;
+    public bool earthBool = false;
+    public float skeleDmg = 15;
 
     /*
      * Have two health bars
@@ -38,7 +38,15 @@ public class CombatUI : MonoBehaviour {
 	}
 
     public void FireAttack() {
-        //enemyHP -= FireDmg;
         EnemyHealth.value -= FireDmg;
+    }
+    public void WaterHeal() {
+        MainCharHealth.value += waterHeal;
+    }
+    public void EarthProtect() {
+        earthBool = true; 
+    }
+    public void SkeletonAttack() {
+        EnemyHealth.value -= skeleDmg;
     }
 }

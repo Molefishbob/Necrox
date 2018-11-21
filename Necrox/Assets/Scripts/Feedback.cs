@@ -24,8 +24,6 @@ public class Feedback : MonoBehaviour {
     private int chaosCount;
     private int score = 0;
 
-    private int countCount = 0;
-
     private RaycastHit2D hit;
     private GameObject testRock;
 
@@ -63,8 +61,6 @@ public class Feedback : MonoBehaviour {
     }
 
     public void TileFeedback (Vector3 tilePos, GameObject OgTile) {
-       /* countCount++;
-        Debug.Log("how many times did it get here: " + countCount);*/
 
         SpellFeedback(OgTile);
         if (OgTile.transform.childCount > 0) {
@@ -101,14 +97,17 @@ public class Feedback : MonoBehaviour {
         }
         if (waterCount >= 3) {
             Instantiate(waterHeal);
+            CombatUI.GetComponent<CombatUI>().WaterHeal();
             waterCount = 0;
         }
         if (earthCount >= 3) {
             Instantiate(earthProtect);
+            CombatUI.GetComponent<CombatUI>().EarthProtect();
             earthCount = 0;
         }
         if (chaosCount >= 3) {
             Instantiate(skeleton);
+            CombatUI.GetComponent<CombatUI>().SkeletonAttack();
             chaosCount = 0;
         }
         scoreText.text ="" + score;
