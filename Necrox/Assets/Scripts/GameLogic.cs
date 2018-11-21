@@ -30,8 +30,13 @@ public class GameLogic : MonoBehaviour {
     private GameObject border;
     private bool _touched;
     private int _counter = 0;
+    
+    public bool _paused {
+        get;
+        set;
+    }
 
-
+    
     // Use this for initialization
     void Start () {
 
@@ -49,41 +54,42 @@ public class GameLogic : MonoBehaviour {
      */
 
     void FixedUpdate() {
-        //Debug.Log("can touch is: " + canTouch);
-        //Debug.Log("moving is: " + moving);
-        //Debug.Log("moveComplete is " + moveComplete);
-        if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
-            canTouch = true;
-        }
-
-        if (gameField.GetComponent<GameField>().AreVisibleTilesMoving() && !moving) {
-            
-            canTouch = false;
-        }
-        if (moving) {
-            CheckMovementComplete();
-        }
-        if (Input.GetKeyDown("p") || Input.GetKeyDown(KeyCode.Escape)) {
-            CheckBoard();
-            canTouch = false;
-        }
-        if (Input.GetKeyDown("l")) {
-            canTouch = true;
-        }
-
-
-        if (canTouch && !gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
-            TrackMovement();
-        }
-        
-        if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
-            if (_counter >= 15) {
-                CheckBoard();
-                _counter = 0;
+        if (!_paused) {
+            //Debug.Log("can touch is: " + canTouch);
+            //Debug.Log("moving is: " + moving);
+            //Debug.Log("moveComplete is " + moveComplete);
+            if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+                canTouch = true;
             }
-            _counter++;
-        }
 
+            if (gameField.GetComponent<GameField>().AreVisibleTilesMoving() && !moving) {
+                
+                canTouch = false;
+            }
+            if (moving) {
+                CheckMovementComplete();
+            }
+            if (Input.GetKeyDown("p") || Input.GetKeyDown(KeyCode.Escape)) {
+                CheckBoard();
+                canTouch = false;
+            }
+            if (Input.GetKeyDown("l")) {
+                canTouch = true;
+            }
+
+
+            if (canTouch && !gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+                TrackMovement();
+            }
+            
+            if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+                if (_counter >= 15) {
+                    CheckBoard();
+                    _counter = 0;
+                }
+                _counter++;
+            }
+        }
     }
 
     void CheckMovementComplete() {

@@ -19,10 +19,6 @@ public class Rock : MonoBehaviour
     private GameField _gameField;
     private float speed = 0.25f;
     public GameObject feedback;
-    public bool Paused {
-        get;
-        set;
-    }
     public bool sentToFeedback {
         get; 
         private set;
@@ -38,33 +34,31 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(!Paused) {
-            if (_fallingToPlace)
+        if (_fallingToPlace)
+        {
+            transform.localPosition = new Vector3(0, transform.localPosition.y - speed, 0);
+            if (transform.localPosition.y <= _yPosition)
             {
-                transform.localPosition = new Vector3(0, transform.localPosition.y - speed, 0);
-                if (transform.localPosition.y <= _yPosition)
-                {
-                    _fallingToPlace = false;
-                    //Debug.Log(pos[0] + " " + pos[1]);
-                }
+                _fallingToPlace = false;
+                //Debug.Log(pos[0] + " " + pos[1]);
             }
-            if (_moved && !_fallingToPlace)
-            {
-                TileMovement();
-            }
-            if (pos[1] < 11 && !_fallingToPlace) {
-                if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
-                    _gameField.ClearTileFromField(pos[0],pos[1]);
-                    pos[1] = pos[1]+ 1;
-                    GameField.setObject(pos[0],pos[1],gameObject);
-                    _yPosition = ToPosValues(pos[1]);
-                    //Debug.Log("I'm moving to: X:" + pos[0] + " Y:" + pos[1] + " Element:" + _element);
-                    _yValueChanged = true;
-                    _moved = true;
-                }
-            }
-            IsDestroyable();
         }
+        if (_moved && !_fallingToPlace)
+        {
+            TileMovement();
+        }
+        if (pos[1] < 11 && !_fallingToPlace) {
+            if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
+                _gameField.ClearTileFromField(pos[0],pos[1]);
+                pos[1] = pos[1]+ 1;
+                GameField.setObject(pos[0],pos[1],gameObject);
+                _yPosition = ToPosValues(pos[1]);
+                //Debug.Log("I'm moving to: X:" + pos[0] + " Y:" + pos[1] + " Element:" + _element);
+                _yValueChanged = true;
+                _moved = true;
+            }
+        }
+        IsDestroyable();
     }
 
     private void IsDestroyable() {

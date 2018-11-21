@@ -11,7 +11,9 @@ using UnityEngine.UI;
 /// </summary>
 public static class GameManager
 {
-	private static int _score = 0;
+    private const string SoundKey = "soundvolume";
+    private const string MusicKey = "musicvolume";
+    private static int _score = 0;
 	public static float _soundVolume {
 		get;
 		private set;
@@ -52,9 +54,11 @@ public static class GameManager
 	
 	public static void ChangeSoundVolume(float value) {
 		_soundVolume = value;
+		PlayerPrefs.SetFloat(SoundKey, _soundVolume);
 	}
 	
 	public static void ChangeMusicVolume(float value) {
 		_musicVolume = value;
+		PlayerPrefs.SetFloat(MusicKey, _musicVolume);
 	}
 }

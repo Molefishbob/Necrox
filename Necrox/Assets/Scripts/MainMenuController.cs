@@ -5,13 +5,14 @@ namespace TAMK.SpaceShooter.UI
 {
 	public class MainMenuController : MonoBehaviour
 	{
-		private const int MaximumVolume = 1;
+		private const float SoundDefaultVolume = 0.4f;
+		private const float MusicDefaultVolume = 0.6f;
 		private const string FirstBootKey = "firstboot";
 
 		private void Awake() {
 			if (!PlayerPrefs.HasKey(FirstBootKey)) {
-			GameManager.ChangeSoundVolume(MaximumVolume);
-			GameManager.ChangeMusicVolume(MaximumVolume);
+			GameManager.ChangeSoundVolume(SoundDefaultVolume);
+			GameManager.ChangeMusicVolume(MusicDefaultVolume);
 			Debug.Log(GameManager._soundVolume + " " + GameManager._musicVolume);
 			PlayerPrefs.SetInt(FirstBootKey,1);
 		}
