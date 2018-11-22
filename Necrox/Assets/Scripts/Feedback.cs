@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Feedback : MonoBehaviour {
 
@@ -15,7 +16,7 @@ public class Feedback : MonoBehaviour {
     public GameObject earthProtect;
     public GameObject waterHeal;
     public GameObject skeleton;
-    public Text scoreText;
+    public TMP_Text scoreText;
     public Canvas CombatUI;
 
     private int fireCount;
@@ -27,37 +28,12 @@ public class Feedback : MonoBehaviour {
     private RaycastHit2D hit;
     private GameObject testRock;
 
-
-    // Use this for initialization
     void Start () {
 		
 	}
 
     void Update() {
-        // if (Input.GetMouseButtonDown(0)) {
-
-        //     Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     Vector2 clickPos = new Vector2(wp.x, wp.y);
-        //     hit = Physics2D.Raycast(clickPos, -Vector2.up);
-
-        //     if (hit.collider != null) {
-
-        //         testRock = hit.collider.gameObject;
-        //         TestFeedback(testRock);
-        //     }
-        // }
-    }
-
-    public void TestFeedback (GameObject tile) {
-        GameObject test = Instantiate(example, new Vector3(tile.transform.position.x, tile.transform.position.y, 0), Quaternion.identity);
-        //test.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
-
-        //how to thrown in the elemental if needed later
-        switch (tile.GetComponent<Rock>()._element) {
-            case "fire":
-                Instantiate(fireball);
-                break;
-        }
+        
     }
 
     public void TileFeedback (Vector3 tilePos, GameObject OgTile) {
@@ -110,7 +86,7 @@ public class Feedback : MonoBehaviour {
             CombatUI.GetComponent<CombatUI>().SkeletonAttack();
             chaosCount = 0;
         }
-        scoreText.text ="" + score;
+        scoreText.text ="SCORE:" + score;
     }
 
     public int GetScore() {

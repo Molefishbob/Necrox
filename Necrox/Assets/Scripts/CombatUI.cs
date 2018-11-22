@@ -15,6 +15,10 @@ public class CombatUI : MonoBehaviour {
     public bool earthBool = false;
     public float skeleDmg = 15;
 
+    public float enemyAtkTime;
+    public float enemyDmg;
+    public float enemyHealth;
+
     /*
      * Have two health bars
      * method for each of the spells/matches to add or subtract health
@@ -32,8 +36,9 @@ public class CombatUI : MonoBehaviour {
 	void Update () {
         //Debug.Log(EnemyHealth.value);
 		if (EnemyHealth.value <= 0) {
-            GameOverMenu.gameObject.SetActive(true);
+            FindObjectOfType<GameLogic>().SetTouchFalse();
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+            GameOverMenu.gameObject.SetActive(true);
         }
 	}
 
