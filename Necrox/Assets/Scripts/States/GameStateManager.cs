@@ -123,5 +123,8 @@ namespace TAMK.SpaceShooter.States
 
 			return null;
 		}
+		private void OnDisable() {
+			GameManager.SaveSettings();
+		}
 	}
 }

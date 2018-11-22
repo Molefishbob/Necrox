@@ -587,6 +587,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 933242207}
+        m_MethodName: SaveSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &244165595
@@ -1338,6 +1349,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1150f84330682ef42ba637f03345ad8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
+    type: 2}
 --- !u!81 &1223803737
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1414,7 +1427,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2033,6 +2046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e176bfa843f91a4b9c1ff16c3a71d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 1223803738}
+  _audioClip: {fileID: 8300000, guid: a2dd0da0436d7954fbdbc0ffc40d1ff1, type: 3}
 --- !u!1 &1577436669
 GameObject:
   m_ObjectHideFlags: 0

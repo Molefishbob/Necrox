@@ -15,6 +15,7 @@ public class PlaySoundClip : MonoBehaviour {
     }
 
     public void PlayClip(AudioClip audioClip, float volume, bool usePitchVariance) {
+        Debug.Log("PlayClip");
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.enabled = true;
         audioSource.clip = audioClip;

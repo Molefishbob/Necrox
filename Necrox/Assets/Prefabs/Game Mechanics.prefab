@@ -413,7 +413,6 @@ MonoBehaviour:
   skeleton: {fileID: 1154713338512846, guid: 53ecec1f7eae2b140b77e4a66f8518d0, type: 2}
   scoreText: {fileID: 0}
   CombatUI: {fileID: 0}
-  _character: {fileID: 0}
 --- !u!114 &114458634032359234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -515,6 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1150f84330682ef42ba637f03345ad8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
+    type: 2}
 --- !u!114 &114683548365199306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -529,6 +530,7 @@ MonoBehaviour:
   center: {x: 0, y: -2.65}
   size: {x: 6, y: 6}
   arrayRows: 6
+  _camera: {fileID: 0}
   arrayColumns: 6
   waterRock: {fileID: 114113264240395260, guid: c4bd75e4cbba6374ead45320d1d14101,
     type: 2}

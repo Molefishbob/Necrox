@@ -5,6 +5,8 @@ public class GameField : MonoBehaviour {
 
 	public Vector2 center;
 	public Vector2 size;
+	public Camera _camera;
+
 	public int arrayRows;
 	public int arrayColumns;
 	public static GameObject[,] gameField;
@@ -220,9 +222,8 @@ public class GameField : MonoBehaviour {
 
 		if(newMove) {
 		    //Debug.Log("Calling to check matches");
-			Instantiate(_audioPlayer,transform.position,Quaternion.identity).PlayClip
-                    (_movementAudio,GameManager._soundVolume,
-                    usePitchVariance: true);
+			_camera.GetComponent<CameraManager>()
+				   	.PlaySound(_movementAudio,GameManager._soundVolume,usePitchVariance: true);
          	gameObject.GetComponent<MatchChecker>().MatchCheck(rock1,rock2);
 		 }
 

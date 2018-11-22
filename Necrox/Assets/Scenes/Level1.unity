@@ -2221,6 +2221,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f573e5d581cf574e91e463c03ec4260, type: 2}
   m_IsPrefabAsset: 0
+--- !u!20 &2065955135 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20394338051552618, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+    type: 2}
+  m_PrefabInternal: {fileID: 2070644855}
 --- !u!1001 &2070644855
 Prefab:
   m_ObjectHideFlags: 0
@@ -2270,6 +2275,11 @@ Prefab:
       propertyPath: CombatUI
       value: 
       objectReference: {fileID: 2003621863}
+    - target: {fileID: 114683548365199306, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 2065955135}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
