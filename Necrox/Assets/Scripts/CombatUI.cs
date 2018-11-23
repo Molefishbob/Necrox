@@ -17,6 +17,7 @@ public class CombatUI : MonoBehaviour {
 
     public float enemyAtkTime;
     public float enemyDmg;
+    //not sure if needed
     public float enemyHealth;
 
     /*
