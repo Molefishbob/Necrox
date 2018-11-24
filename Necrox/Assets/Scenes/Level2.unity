@@ -535,6 +535,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78d8319037c502b4bace58890ccfc51e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!223 &439739680 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 223738411800802944, guid: 78d8319037c502b4bace58890ccfc51e,
+    type: 2}
+  m_PrefabInternal: {fileID: 439739679}
 --- !u!1001 &747513601
 Prefab:
   m_ObjectHideFlags: 0
@@ -542,11 +547,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224830372887609920, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 224830372887609920, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -637,6 +637,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 2070644856}
     - target: {fileID: 114308286153506754, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -649,9 +654,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: _camera
+      propertyPath: GameOverMenu
       value: 
-      objectReference: {fileID: 2070644856}
+      objectReference: {fileID: 439739680}
+    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: Feedback
+      value: 
+      objectReference: {fileID: 2070644857}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
   m_IsPrefabAsset: 0
@@ -1273,6 +1283,11 @@ Prefab:
 --- !u!20 &2070644856 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20394338051552618, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+    type: 2}
+  m_PrefabInternal: {fileID: 2070644855}
+--- !u!1 &2070644857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1335284719392662, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
     type: 2}
   m_PrefabInternal: {fileID: 2070644855}
 --- !u!1 &2125017586
