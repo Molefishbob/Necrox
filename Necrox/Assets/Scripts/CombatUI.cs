@@ -17,8 +17,8 @@ public class CombatUI : MonoBehaviour {
 
     public float enemyAtkTime;
     public float enemyDmg;
-    //not sure if needed
-    public float enemyHealth;
+    private bool firstAttack = true;
+    private bool attackComplete = true;
 
     /*
      * Have two health bars
@@ -27,13 +27,11 @@ public class CombatUI : MonoBehaviour {
      * if Char health = 0 lose
      * show the score scene after and set the game to be unplayable
      */
-	// Use this for initialization
 	void Start () {
         MainCharHealth.value = 50;
         Debug.Log(MainCharHealth.value + "   " + EnemyHealth.value);
 	}
 	
-	// Update is called once per frame
 	void Update () {
         //Debug.Log(EnemyHealth.value);
 		if (EnemyHealth.value <= 0) {
@@ -41,7 +39,8 @@ public class CombatUI : MonoBehaviour {
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
             GameOverMenu.gameObject.SetActive(true);
         }
-	}
+        EnemyAttack();
+    }
 
     public void FireAttack() {
         EnemyHealth.value -= FireDmg;
@@ -54,5 +53,20 @@ public class CombatUI : MonoBehaviour {
     }
     public void SkeletonAttack() {
         EnemyHealth.value -= skeleDmg;
+    }
+
+    void EnemyAttack() {
+        if (firstAttack) {
+            firstAttack = false;
+        }
+        if (attackComplete) {
+            attackComplete = false;
+            gameObject.GetComponent<Timer>().SetTime(enemyAtkTime);
+            gameObject.GetComponent<Timer>().StartTimer();
+        }
+        if(gameObject.GetComponent<Timer>().IsCompleted) {
+            attackComplete = true;
+            MainCharHealth.value -= enemyDmg;
+        }
     }
 }
