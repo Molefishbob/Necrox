@@ -72,7 +72,7 @@ namespace TAMK.SpaceShooter.States
 
 			_gameStates.Add( new LevelState( GameStateType.Level1, GameStateType.Level2, "Level1" ) );
 			_gameStates.Add( new LevelState( GameStateType.Level2, GameStateType.Level3, "Level2" ) );
-			_gameStates.Add( new LevelState( GameStateType.Level3, GameStateType.None, "Level3" ) );
+			_gameStates.Add( new LevelState( GameStateType.Level3, GameStateType.Level1, "Level3" ) );
 			_gameStates.Add( new GameOverState() );
 			_gameStates.Add( new VictoryState() );
 		}
