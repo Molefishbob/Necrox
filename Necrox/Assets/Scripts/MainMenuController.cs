@@ -12,6 +12,8 @@ namespace TAMK.SpaceShooter.UI
 		private Camera _camera;
 		[SerializeField]
 		private AudioClip _audioClip;
+		[SerializeField]
+		private GameObject _gameManager;
         private bool _startGame;
 		private float _timer;
 		private float _count = 0;
@@ -20,17 +22,15 @@ namespace TAMK.SpaceShooter.UI
 			if (!PlayerPrefs.HasKey(FirstBootKey)) {
 			GameManager.ChangeSoundVolume(DefaultSoundVolume);
 			GameManager.ChangeMusicVolume(DefaultMusicVolume);
-			Debug.Log(GameManager._soundVolume + " " + GameManager._musicVolume);
 			PlayerPrefs.SetInt(FirstBootKey,1);
 			} else {
 				GameManager.LoadSettings();
 			}
-			_timer = _audioClip.length + 0.1f;
-			Debug.Log(_timer);
+			_timer = _audioClip.length;
+			DontDestroyOnLoad(_gameManager);
 		}
 		private void Update() {
 			if (_startGame) {
-				Debug.Log(_count);
 				if(_timer <= _count) {
 				GameStateManager.Instance.ChangeState( GameStateType.Level1 );
 				_count = 0;

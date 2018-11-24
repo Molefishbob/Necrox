@@ -1906,7 +1906,6 @@ GameObject:
   - component: {fileID: 1557800252}
   - component: {fileID: 1557800256}
   - component: {fileID: 1557800255}
-  - component: {fileID: 1557800254}
   - component: {fileID: 1557800253}
   - component: {fileID: 1557800257}
   m_Layer: 5
@@ -1990,17 +1989,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1557800254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1557800251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 417b1528d2a1b5a47bbc12206226d77f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1557800255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2048,6 +2036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 1223803738}
   _audioClip: {fileID: 8300000, guid: a2dd0da0436d7954fbdbc0ffc40d1ff1, type: 3}
+  _gameManager: {fileID: 148906434}
 --- !u!1 &1577436669
 GameObject:
   m_ObjectHideFlags: 0
