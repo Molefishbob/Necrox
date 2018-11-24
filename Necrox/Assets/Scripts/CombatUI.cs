@@ -22,6 +22,8 @@ public class CombatUI : MonoBehaviour {
     public AudioClip _victoryMusic;
     public Camera _camera;
     private bool _victory;
+    private bool firstAttack = true;
+    private bool attackComplete = true;
 
     /*
      * Have two health bars
@@ -36,7 +38,6 @@ public class CombatUI : MonoBehaviour {
         Debug.Log(MainCharHealth.value + "   " + EnemyHealth.value);
 	}
 	
-	// Update is called once per frame
 	void Update () {
         //Debug.Log(EnemyHealth.value);
 		if (EnemyHealth.value <= 0) {
@@ -49,7 +50,13 @@ public class CombatUI : MonoBehaviour {
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
             GameOverMenu.gameObject.SetActive(true);
         }
-	}
+        if (MainCharHealth.value <= 0) {
+            FindObjectOfType<GameLogic>().SetTouchFalse();
+            GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+            GameOverMenu.gameObject.SetActive(true);
+        }
+        EnemyAttack();
+    }
 
     public void FireAttack() {
         EnemyHealth.value -= FireDmg;
@@ -62,5 +69,20 @@ public class CombatUI : MonoBehaviour {
     }
     public void SkeletonAttack() {
         EnemyHealth.value -= skeleDmg;
+    }
+
+    void EnemyAttack() {
+        if (firstAttack) {
+            firstAttack = false;
+        }
+        if (attackComplete) {
+            attackComplete = false;
+            gameObject.GetComponent<Timer>().SetTime(enemyAtkTime);
+            gameObject.GetComponent<Timer>().StartTimer();
+        }
+        if(gameObject.GetComponent<Timer>().IsCompleted) {
+            attackComplete = true;
+            MainCharHealth.value -= enemyDmg;
+        }
     }
 }
