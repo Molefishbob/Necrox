@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e736b15a58ff9b42b69ed87eda6eb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 20394338051552618}
   gameField: {fileID: 0}
   explosionLayer: 50
   tileExplosion: {fileID: 1353143841151906, guid: 351ea0f82b721e9439bacd144e4388c4,
@@ -413,6 +414,10 @@ MonoBehaviour:
   skeleton: {fileID: 1154713338512846, guid: 53ecec1f7eae2b140b77e4a66f8518d0, type: 2}
   scoreText: {fileID: 0}
   CombatUI: {fileID: 0}
+  _fireMatch: {fileID: 8300000, guid: 2d8dafcc895557f46a4e07822f678d49, type: 3}
+  _waterMatch: {fileID: 8300000, guid: 589bc40826aa1f64da92eb9910c6dadb, type: 3}
+  _earthMatch: {fileID: 8300000, guid: 275d3c91d16f9034494e2d4b6852aa2e, type: 3}
+  _chaosMatch: {fileID: 8300000, guid: 9306c08a26a0c8844952a386f09c4378, type: 3}
 --- !u!114 &114458634032359234
 MonoBehaviour:
   m_ObjectHideFlags: 1

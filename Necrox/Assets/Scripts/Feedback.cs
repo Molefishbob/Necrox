@@ -7,6 +7,7 @@ using TMPro;
 public class Feedback : MonoBehaviour {
 
     
+    public Camera _camera;
     public GameField gameField;
     public int explosionLayer = 50;
 
@@ -18,6 +19,14 @@ public class Feedback : MonoBehaviour {
     public GameObject skeleton;
     public TMP_Text scoreText;
     public Canvas CombatUI;
+    [SerializeField]
+    private AudioClip _fireMatch;
+    [SerializeField]
+    private AudioClip _waterMatch;
+    [SerializeField]
+    private AudioClip _earthMatch;
+    [SerializeField]
+    private AudioClip _chaosMatch;
 
     private int fireCount;
     private int waterCount;
@@ -68,21 +77,29 @@ public class Feedback : MonoBehaviour {
         }
         if (fireCount >= 3) {
             Instantiate(fireball);
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_fireMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().FireAttack();
             fireCount = 0;
         }
         if (waterCount >= 3) {
             Instantiate(waterHeal);
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_waterMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().WaterHeal();
             waterCount = 0;
         }
         if (earthCount >= 3) {
             Instantiate(earthProtect);
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_earthMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().EarthProtect();
             earthCount = 0;
         }
         if (chaosCount >= 3) {
             Instantiate(skeleton);
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_chaosMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().SkeletonAttack();
             chaosCount = 0;
         }
