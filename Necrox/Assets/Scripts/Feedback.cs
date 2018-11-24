@@ -11,8 +11,6 @@ public class Feedback : MonoBehaviour {
     public GameField gameField;
     public int explosionLayer = 50;
 
-    public GameObject mainChar;
-    public GameObject enemy;
     public GameObject tileExplosion;
     public GameObject example;
     public GameObject fireball;
@@ -79,16 +77,13 @@ public class Feedback : MonoBehaviour {
         }
         if (fireCount >= 3) {
             Instantiate(fireball);
-            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_fireMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().FireAttack();
             fireCount = 0;
-            //mainChar.GetComponent<Animator>().SetBool("StartSpell", false);
         }
         if (waterCount >= 3) {
             Instantiate(waterHeal);
-            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_waterMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().WaterHeal();
@@ -96,7 +91,6 @@ public class Feedback : MonoBehaviour {
         }
         if (earthCount >= 3) {
             Instantiate(earthProtect);
-            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_earthMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().EarthProtect();
@@ -104,7 +98,6 @@ public class Feedback : MonoBehaviour {
         }
         if (chaosCount >= 3) {
             Instantiate(skeleton);
-            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_chaosMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().SkeletonAttack();

@@ -115,9 +115,9 @@ TextureImporter:
       name: NecroCharNewJumpAnim_1
       rect:
         serializedVersion: 2
-        x: 193
+        x: 195
         y: 214
-        width: 29
+        width: 27
         height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -135,9 +135,9 @@ TextureImporter:
       name: NecroCharNewJumpAnim_2
       rect:
         serializedVersion: 2
-        x: 321
+        x: 323
         y: 214
-        width: 29
+        width: 27
         height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -157,7 +157,7 @@ TextureImporter:
         serializedVersion: 2
         x: 451
         y: 214
-        width: 29
+        width: 27
         height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -175,9 +175,9 @@ TextureImporter:
       name: NecroCharNewJumpAnim_4
       rect:
         serializedVersion: 2
-        x: 65
-        y: 54
-        width: 29
+        x: 67
+        y: 53
+        width: 27
         height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
