@@ -1291,6 +1291,7 @@ GameObject:
   - component: {fileID: 2003621862}
   - component: {fileID: 2003621861}
   - component: {fileID: 2003621865}
+  - component: {fileID: 2003621866}
   m_Layer: 5
   m_Name: CombatUICanvas
   m_TagString: Untagged
@@ -1396,9 +1397,19 @@ MonoBehaviour:
   waterHeal: 7
   earthBool: 0
   skeleDmg: 15
-  enemyAtkTime: 0
-  enemyDmg: 0
-  enemyHealth: 0
+  enemyAtkTime: 8
+  enemyDmg: 10
+--- !u!114 &2003621866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003621860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7fe696c379119046a5e30702db5bb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2027948252
 Prefab:
   m_ObjectHideFlags: 0

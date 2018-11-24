@@ -39,6 +39,11 @@ public class CombatUI : MonoBehaviour {
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
             GameOverMenu.gameObject.SetActive(true);
         }
+        if (MainCharHealth.value <= 0) {
+            FindObjectOfType<GameLogic>().SetTouchFalse();
+            GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+            GameOverMenu.gameObject.SetActive(true);
+        }
         EnemyAttack();
     }
 

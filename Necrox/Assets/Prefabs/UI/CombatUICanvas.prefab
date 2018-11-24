@@ -333,8 +333,8 @@ MonoBehaviour:
   waterHeal: 7
   earthBool: 0
   skeleDmg: 15
-  enemyAtkTime: 0
-  enemyDmg: 0
+  enemyAtkTime: 8
+  enemyDmg: 10
 --- !u!114 &114308286153506754
 MonoBehaviour:
   m_ObjectHideFlags: 1
