@@ -19,6 +19,9 @@ public class CombatUI : MonoBehaviour {
     public float enemyDmg;
     //not sure if needed
     public float enemyHealth;
+    public AudioClip _victoryMusic;
+    public Camera _camera;
+    private bool _victory;
 
     /*
      * Have two health bars
@@ -27,8 +30,8 @@ public class CombatUI : MonoBehaviour {
      * if Char health = 0 lose
      * show the score scene after and set the game to be unplayable
      */
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         MainCharHealth.value = 50;
         Debug.Log(MainCharHealth.value + "   " + EnemyHealth.value);
 	}
@@ -37,6 +40,11 @@ public class CombatUI : MonoBehaviour {
 	void Update () {
         //Debug.Log(EnemyHealth.value);
 		if (EnemyHealth.value <= 0) {
+            if(!_victory) {
+                _camera.GetComponent<CameraManager>()
+				   	    .PlaySound(_victoryMusic,GameManager._soundVolume,usePitchVariance: false);
+                _victory = true;
+            }
             FindObjectOfType<GameLogic>().SetTouchFalse();
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
             GameOverMenu.gameObject.SetActive(true);

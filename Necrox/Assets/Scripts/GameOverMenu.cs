@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using TAMK.SpaceShooter.States;
 
 public class GameOverMenu : MonoBehaviour {
 
@@ -11,6 +12,9 @@ public class GameOverMenu : MonoBehaviour {
     private TMP_Text _scoreText;
     [SerializeField]
     private TMP_Text StatusText;
+    [SerializeField]
+    [Tooltip("Level1,Level2,Level3,etc.")]
+    private string _nextScene;
 
     // Use this for initialization
     void Start () {
@@ -27,6 +31,10 @@ public class GameOverMenu : MonoBehaviour {
     }
 
     public void Continue() {
-        SceneManager.LoadScene(1);
+        if(!GameStateManager.Instance.ChangeState( 
+                        (GameStateType)GameStateType.Parse(typeof(GameStateType)
+                        , _nextScene))) {
+            GameStateManager.Instance.ChangeState( GameStateType.Victory );
+        }
     }
 }
