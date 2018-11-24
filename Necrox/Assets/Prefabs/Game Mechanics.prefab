@@ -529,8 +529,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {x: 0, y: -2.65}
   size: {x: 6, y: 6}
+  _camera: {fileID: 20394338051552618}
   arrayRows: 6
-  _camera: {fileID: 0}
   arrayColumns: 6
   waterRock: {fileID: 114113264240395260, guid: c4bd75e4cbba6374ead45320d1d14101,
     type: 2}
@@ -548,7 +548,7 @@ MonoBehaviour:
   column3: {fileID: 1497478480444152}
   column4: {fileID: 1299605493018598}
   column5: {fileID: 1844402645481672}
-  _movementAudio: {fileID: 8300000, guid: 79401e6e50855a643a0b89218654701b, type: 3}
+  _movementAudio: {fileID: 8300000, guid: 5b459758f81f15148bf9272648356ad6, type: 3}
   _audioPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
     type: 2}
 --- !u!114 &114737322769587644

@@ -1637,6 +1637,11 @@ Prefab:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 2065955135}
+    - target: {fileID: 114683548365199306, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: _movementAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b459758f81f15148bf9272648356ad6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
