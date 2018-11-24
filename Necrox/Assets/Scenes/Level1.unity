@@ -506,6 +506,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: _victoryMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 4526799172348d54fbd554c9e41fa111, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
   m_IsPrefabAsset: 0
@@ -547,15 +552,6 @@ Prefab:
     - target: {fileID: 4172790609319040, guid: 513f2c984a4ec8e449d46d9dbd094190, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 95651853606572682, guid: 513f2c984a4ec8e449d46d9dbd094190,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1569448885243844, guid: 513f2c984a4ec8e449d46d9dbd094190, type: 2}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 513f2c984a4ec8e449d46d9dbd094190, type: 2}
@@ -764,6 +760,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &823444513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1569448885243844, guid: 513f2c984a4ec8e449d46d9dbd094190,
+    type: 2}
+  m_PrefabInternal: {fileID: 205818064}
 --- !u!1 &883641629
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,6 +1276,11 @@ Prefab:
       propertyPath: CombatUI
       value: 
       objectReference: {fileID: 2101866227}
+    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: mainChar
+      value: 
+      objectReference: {fileID: 823444513}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
