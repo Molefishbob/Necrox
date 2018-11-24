@@ -335,6 +335,9 @@ MonoBehaviour:
   skeleDmg: 15
   enemyAtkTime: 8
   enemyDmg: 10
+  enemyHealth: 0
+  _victoryMusic: {fileID: 8300000, guid: e0f9b40518a9cc24b9bed9596f236a93, type: 3}
+  _camera: {fileID: 0}
 --- !u!114 &114308286153506754
 MonoBehaviour:
   m_ObjectHideFlags: 1
