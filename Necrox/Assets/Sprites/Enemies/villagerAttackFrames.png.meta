@@ -115,9 +115,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 40
+        y: 0
         width: 40
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 755aa40fa2e5fe94d94b7fb95736dfd8
+      spriteID: 88def44298ebcf645b257e08de7e1061
       vertices: []
       indices: 
       edges: []
@@ -135,9 +135,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 40
-        y: 40
+        y: 0
         width: 40
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4540653e86661734a981c7bc06d29d7b
+      spriteID: dc9910d84a2601b4ab790b6bcbb71989
       vertices: []
       indices: 
       edges: []
@@ -155,9 +155,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 80
-        y: 40
+        y: 0
         width: 40
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7482225be357a1340bf88bcf7c6d6b9f
+      spriteID: b558274731fcb3b40ab38fd5941a7abb
       vertices: []
       indices: 
       edges: []
@@ -174,10 +174,10 @@ TextureImporter:
       name: villagerAttackFrames_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 120
         y: 0
         width: 40
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,7 +185,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1b77de945bf0414380755d715a8f5b9
+      spriteID: e53a86abc025409418d61769c1b88608
       vertices: []
       indices: 
       edges: []
@@ -194,10 +194,10 @@ TextureImporter:
       name: villagerAttackFrames_4
       rect:
         serializedVersion: 2
-        x: 40
+        x: 160
         y: 0
         width: 40
-        height: 40
+        height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa0360357c19332419c7e9234fc48776
+      spriteID: f125599fcb5262545a50a59aa6e60034
       vertices: []
       indices: 
       edges: []
