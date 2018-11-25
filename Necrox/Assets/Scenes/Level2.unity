@@ -1050,6 +1050,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6a2d7626a7701743a672e7ea6689c6b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1751228466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1569448885243844, guid: 513f2c984a4ec8e449d46d9dbd094190,
+    type: 2}
+  m_PrefabInternal: {fileID: 205818064}
 --- !u!1 &1837344393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1282,11 @@ Prefab:
       propertyPath: CombatUI
       value: 
       objectReference: {fileID: 747513603}
+    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: mainChar
+      value: 
+      objectReference: {fileID: 1751228466}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
