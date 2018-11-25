@@ -1268,6 +1268,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
         type: 2}
+      propertyPath: mainChar
+      value: 
+      objectReference: {fileID: 823444513}
+    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 886096526}
@@ -1276,11 +1281,6 @@ Prefab:
       propertyPath: CombatUI
       value: 
       objectReference: {fileID: 2101866227}
-    - target: {fileID: 114315787097539126, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-        type: 2}
-      propertyPath: mainChar
-      value: 
-      objectReference: {fileID: 823444513}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0

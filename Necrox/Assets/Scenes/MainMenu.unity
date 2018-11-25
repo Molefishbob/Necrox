@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1223803738}
-  _audioClip: {fileID: 8300000, guid: a2dd0da0436d7954fbdbc0ffc40d1ff1, type: 3}
+  _buttonClick: {fileID: 8300000, guid: fb8a8aeee6395b642b52203fb4956694, type: 3}
   _gameManager: {fileID: 148906434}
 --- !u!1 &1577436669
 GameObject:

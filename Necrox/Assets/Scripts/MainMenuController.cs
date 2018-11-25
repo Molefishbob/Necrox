@@ -11,12 +11,13 @@ namespace TAMK.SpaceShooter.UI
 		[SerializeField]
 		private Camera _camera;
 		[SerializeField]
-		private AudioClip _audioClip;
+		private AudioClip _buttonClick;
 		[SerializeField]
 		private GameObject _gameManager;
         private bool _startGame;
 		private float _timer;
 		private float _count = 0;
+        private bool _quitGame;
 
         private void Awake() {
 			if (!PlayerPrefs.HasKey(FirstBootKey)) {
@@ -26,7 +27,7 @@ namespace TAMK.SpaceShooter.UI
 			} else {
 				GameManager.LoadSettings();
 			}
-			_timer = _audioClip.length;
+			_timer = _buttonClick.length;
 			DontDestroyOnLoad(_gameManager);
 		}
 		private void Update() {
@@ -36,19 +37,32 @@ namespace TAMK.SpaceShooter.UI
 				_count = 0;
 				}
 				_count += Time.deltaTime;
+			} else if (_quitGame) {
+				if(_timer <= _count) {
+				GameStateManager.Instance.ChangeState( GameStateType.Level1 );
+				_count = 0;
+				}
 			}
 		}
 		public void StartGame()
 		{
 			Debug.Log("startgame");
 			_camera.GetComponent<CameraManager>()
-					.PlaySound(_audioClip,GameManager._soundVolume,usePitchVariance: false);
+					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);
 			_startGame = true;
+		}
+
+		public void Settings() {
+			_camera.GetComponent<CameraManager>()
+					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);
 		}
 
 		public void QuitGame()
 		{
 			Debug.Log( "Quitting" );
+			_camera.GetComponent<CameraManager>()
+					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);
+			_quitGame = true;
 			Application.Quit();
 		}
 	}

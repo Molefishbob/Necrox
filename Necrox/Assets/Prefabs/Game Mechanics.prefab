@@ -404,6 +404,8 @@ MonoBehaviour:
   _camera: {fileID: 20394338051552618}
   gameField: {fileID: 0}
   explosionLayer: 50
+  mainChar: {fileID: 0}
+  enemy: {fileID: 0}
   tileExplosion: {fileID: 1353143841151906, guid: 351ea0f82b721e9439bacd144e4388c4,
     type: 2}
   example: {fileID: 1438612723207384, guid: 58a245ac64b60dd48a43e53e93913c51, type: 2}
@@ -553,9 +555,11 @@ MonoBehaviour:
   column3: {fileID: 1497478480444152}
   column4: {fileID: 1299605493018598}
   column5: {fileID: 1844402645481672}
+  _tilesFallingAudio: {fileID: 8300000, guid: a228a52a9589ce34b8b1660d8812ecff, type: 3}
   _movementAudio: {fileID: 8300000, guid: 5b459758f81f15148bf9272648356ad6, type: 3}
   _audioPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
     type: 2}
+  _audioNotPlayed: 0
 --- !u!114 &114737322769587644
 MonoBehaviour:
   m_ObjectHideFlags: 1
