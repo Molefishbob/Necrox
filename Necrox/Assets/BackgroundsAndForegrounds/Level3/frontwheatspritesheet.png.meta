@@ -1,10 +1,14 @@
 fileFormatVersion: 2
-guid: 641b1fc89c08cfb4b9aa2dd4e05f003a
+guid: e435557ba2fd04878997f1383ca86302
 TextureImporter:
   fileIDToRecycleName:
-    21300000: villagerIdolFrames_0
-    21300002: villagerIdolFrames_1
-    21300004: villagerIdolFrames_2
+    21300000: frontwheatspritesheet_0
+    21300002: frontwheatspritesheet_1
+    21300004: frontwheatspritesheet_2
+    21300006: frontwheatspritesheet_3
+    21300008: frontwheatspritesheet_4
+    21300010: frontwheatspritesheet_5
+    21300012: frontwheatspritesheet_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -94,28 +98,17 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: villagerIdolFrames_0
+      name: frontwheatspritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 42
+        width: 216
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,19 +116,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab12cb4d5b22604a99dd9df34bb3963
+      spriteID: 72c94e6563385473db421f73c498dfd0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: villagerIdolFrames_1
+      name: frontwheatspritesheet_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 216
         y: 0
-        width: 40
-        height: 42
+        width: 216
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,19 +136,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddb120f7abebce4408705a94dcb593af
+      spriteID: 300a8a595dc4d4048a4d79a27b7b3f4f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: villagerIdolFrames_2
+      name: frontwheatspritesheet_2
       rect:
         serializedVersion: 2
-        x: 80
+        x: 432
         y: 0
-        width: 40
-        height: 42
+        width: 216
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +156,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc549a543382d74387faa5bdd746e05
+      spriteID: 5ff9f72c60efb48549f5c2025e188934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frontwheatspritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e4a30caedc0a442088c0612f9fd89a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frontwheatspritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6547a8816712048f2ad4ca3f014c93e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frontwheatspritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedd7a8a0c8cc433dad50cdd7361273e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frontwheatspritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398c83b1e7c6c4c1c95224a24ca36aa4
       vertices: []
       indices: 
       edges: []
@@ -171,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c36105b7a1bd0764dac0501d8d79e0ed
+    spriteID: 7da249c385fcf42b1abaf2eef5f672c9
     vertices: []
     indices: 
     edges: []

@@ -1,10 +1,14 @@
 fileFormatVersion: 2
-guid: 641b1fc89c08cfb4b9aa2dd4e05f003a
+guid: 5fc07e80e337a40e5989288d11f82406
 TextureImporter:
   fileIDToRecycleName:
-    21300000: villagerIdolFrames_0
-    21300002: villagerIdolFrames_1
-    21300004: villagerIdolFrames_2
+    21300000: backwheatspritesheet_0
+    21300002: backwheatspritesheet_1
+    21300004: backwheatspritesheet_2
+    21300006: backwheatspritesheet_3
+    21300008: backwheatspritesheet_4
+    21300010: backwheatspritesheet_5
+    21300012: backwheatspritesheet_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -94,28 +98,17 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: villagerIdolFrames_0
+      name: backwheatspritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 40
-        height: 42
+        width: 216
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,19 +116,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ab12cb4d5b22604a99dd9df34bb3963
+      spriteID: 9a733cf4b159c4625b24f235a805ffc8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: villagerIdolFrames_1
+      name: backwheatspritesheet_1
       rect:
         serializedVersion: 2
-        x: 40
+        x: 216
         y: 0
-        width: 40
-        height: 42
+        width: 216
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,19 +136,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddb120f7abebce4408705a94dcb593af
+      spriteID: e1306796fa4314dd081f016528e600f7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: villagerIdolFrames_2
+      name: backwheatspritesheet_2
       rect:
         serializedVersion: 2
-        x: 80
+        x: 432
         y: 0
-        width: 40
-        height: 42
+        width: 216
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,7 +156,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc549a543382d74387faa5bdd746e05
+      spriteID: 5d7f6360650444ec5b8627071c93d34a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwheatspritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 586315eae9efc4c0f9d97cfede09718f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwheatspritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346b268e76bbc432cbe70e236cff3a47
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwheatspritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5371bef3962bd4e928021be52f68b6f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: backwheatspritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 0
+        width: 216
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32840f231ab234f89b4507cc518d413e
       vertices: []
       indices: 
       edges: []
@@ -171,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c36105b7a1bd0764dac0501d8d79e0ed
+    spriteID: e346e1899ef0441eb8856db85f9642c0
     vertices: []
     indices: 
     edges: []
