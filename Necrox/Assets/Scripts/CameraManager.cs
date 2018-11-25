@@ -26,7 +26,6 @@ public class CameraManager : MonoBehaviour {
 
     internal void PlaySound(AudioClip audioClip, float soundVolume, bool usePitchVariance)
     {
-		Debug.Log("Playsound");
         Instantiate(_soundPlayer,transform.position,Quaternion.identity,transform).PlayClip(audioClip,soundVolume,usePitchVariance);
 
     }
