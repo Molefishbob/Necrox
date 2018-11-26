@@ -10,6 +10,7 @@ public class CombatUI : MonoBehaviour {
     public Canvas GameOverMenu;
     public GameObject Feedback;
     public GameObject enemy;
+    public GameObject enemyDmgFeedback;
 
     public float FireDmg = 10;
     public float waterHeal = 7;
@@ -83,7 +84,15 @@ public class CombatUI : MonoBehaviour {
         if(gameObject.GetComponent<Timer>().IsCompleted) {
             attackComplete = true;
             enemy.GetComponent<Animator>().SetTrigger("Attack");
-            MainCharHealth.value -= enemyDmg;
+            if (earthBool) {
+                earthBool = false;
+                MainCharHealth.value -= (float)(enemyDmg * .8);
+                Instantiate(enemyDmgFeedback);
+            } else {
+                MainCharHealth.value -= enemyDmg;
+                Instantiate(enemyDmgFeedback);
+            }
+            
         }
     }
 }
