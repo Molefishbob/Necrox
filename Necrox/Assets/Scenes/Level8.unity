@@ -436,23 +436,23 @@ Prefab:
       objectReference: {fileID: 2070644857}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: enemyAtkTime
-      value: 6
+      propertyPath: enemyDmg
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: enemyDmg
-      value: 9
+      propertyPath: enemyAtkTime
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114510629533051148, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: m_MaxValue
-      value: 125
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 114510629533051148, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: m_Value
-      value: 125
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 224942813705033102, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}

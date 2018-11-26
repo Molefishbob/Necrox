@@ -113,6 +113,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &197230086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1899921738482260, guid: 33ac4a925a1b3684fb04c488ebf61cce,
+    type: 2}
+  m_PrefabInternal: {fileID: 645332603}
 --- !u!1001 &205818064
 Prefab:
   m_ObjectHideFlags: 0
@@ -307,11 +312,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33ac4a925a1b3684fb04c488ebf61cce, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &645332604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1899921738482260, guid: 33ac4a925a1b3684fb04c488ebf61cce,
-    type: 2}
-  m_PrefabInternal: {fileID: 645332603}
 --- !u!1001 &747513601
 Prefab:
   m_ObjectHideFlags: 0
@@ -436,23 +436,23 @@ Prefab:
       objectReference: {fileID: 2070644857}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: enemyAtkTime
-      value: 6
+      propertyPath: enemyDmg
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: enemyDmg
-      value: 9
+      propertyPath: enemyAtkTime
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114510629533051148, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: m_MaxValue
-      value: 125
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 114510629533051148, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: m_Value
-      value: 125
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 224942813705033102, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
@@ -473,7 +473,7 @@ Prefab:
         type: 2}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 645332604}
+      objectReference: {fileID: 197230086}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
   m_IsPrefabAsset: 0

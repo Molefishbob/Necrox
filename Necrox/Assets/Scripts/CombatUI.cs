@@ -9,6 +9,7 @@ public class CombatUI : MonoBehaviour {
     public Slider EnemyHealth;
     public Canvas GameOverMenu;
     public GameObject Feedback;
+    public GameObject enemy;
 
     public float FireDmg = 10;
     public float waterHeal = 7;
@@ -22,6 +23,7 @@ public class CombatUI : MonoBehaviour {
     private bool _victory;
     private bool firstAttack = true;
     private bool attackComplete = true;
+    
 
     /*
      * Have two health bars
@@ -32,8 +34,8 @@ public class CombatUI : MonoBehaviour {
      */
     // Use this for initialization
     void Start () {
-        MainCharHealth.value = 50;
-        Debug.Log(MainCharHealth.value + "   " + EnemyHealth.value);
+        //MainCharHealth.value = 50;
+        //Debug.Log(MainCharHealth.value + "   " + EnemyHealth.value);
 	}
 	
 	void Update () {
@@ -80,6 +82,7 @@ public class CombatUI : MonoBehaviour {
         }
         if(gameObject.GetComponent<Timer>().IsCompleted) {
             attackComplete = true;
+            enemy.GetComponent<Animator>().SetTrigger("Attack");
             MainCharHealth.value -= enemyDmg;
         }
     }
