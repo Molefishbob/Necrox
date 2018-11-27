@@ -49,11 +49,13 @@ public class CombatUI : MonoBehaviour {
             }
             FindObjectOfType<GameLogic>().SetTouchFalse();
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+            GameOverMenu.GetComponent<GameOverMenu>().SetState("VICTORY");
             GameOverMenu.gameObject.SetActive(true);
         }
         if (MainCharHealth.value <= 0) {
             FindObjectOfType<GameLogic>().SetTouchFalse();
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+            GameOverMenu.GetComponent<GameOverMenu>().SetState("DEFEAT");
             GameOverMenu.gameObject.SetActive(true);
         }
         EnemyAttack();

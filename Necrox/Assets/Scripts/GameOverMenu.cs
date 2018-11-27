@@ -16,6 +16,7 @@ public class GameOverMenu : MonoBehaviour {
     [Tooltip("Level1,Level2,Level3,etc.")]
     private string _nextScene;
     public string nextSceneToLoad;
+    private string state;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +31,11 @@ public class GameOverMenu : MonoBehaviour {
     public void SetScore(int score) {
         _scoreText.SetText("SCORE: {0}", score);
     }
+    public void SetState(string result) {
+        StatusText.text = result;
+        state = result;
+        
+    }
 
     public void Continue() {
         if(!GameStateManager.Instance.ChangeState( 
@@ -37,6 +43,10 @@ public class GameOverMenu : MonoBehaviour {
                         , _nextScene))) {
             GameStateManager.Instance.ChangeState( GameStateType.Victory );
         }
-        SceneManager.LoadScene(nextSceneToLoad);
+        if (state == "DEFEAT") {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else {
+            SceneManager.LoadScene(nextSceneToLoad);
+        }
     }
 }
