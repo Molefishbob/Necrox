@@ -15,6 +15,7 @@ public class GameOverMenu : MonoBehaviour {
     [SerializeField]
     [Tooltip("Level1,Level2,Level3,etc.")]
     private string _nextScene;
+    public string nextSceneToLoad;
 
     // Use this for initialization
     void Start () {
@@ -36,5 +37,6 @@ public class GameOverMenu : MonoBehaviour {
                         , _nextScene))) {
             GameStateManager.Instance.ChangeState( GameStateType.Victory );
         }
+        SceneManager.LoadScene(nextSceneToLoad);
     }
 }
