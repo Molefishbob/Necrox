@@ -14,7 +14,7 @@ public class Templates : MonoBehaviour {
 
 	public string GetRandomRowTemplate(int index) {
 		if (index == 0) {
-			switch ((int) Random.Range(1,6)) {
+			switch (Random.Range(1,6)) {
 				case 1:
 					return template1;
 				case 2:

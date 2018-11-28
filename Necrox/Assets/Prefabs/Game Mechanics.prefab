@@ -401,8 +401,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e736b15a58ff9b42b69ed87eda6eb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _camera: {fileID: 20394338051552618}
   gameField: {fileID: 0}
   explosionLayer: 50
+  mainChar: {fileID: 0}
+  enemy: {fileID: 0}
   tileExplosion: {fileID: 1353143841151906, guid: 351ea0f82b721e9439bacd144e4388c4,
     type: 2}
   example: {fileID: 1438612723207384, guid: 58a245ac64b60dd48a43e53e93913c51, type: 2}
@@ -413,7 +416,10 @@ MonoBehaviour:
   skeleton: {fileID: 1154713338512846, guid: 53ecec1f7eae2b140b77e4a66f8518d0, type: 2}
   scoreText: {fileID: 0}
   CombatUI: {fileID: 0}
-  _character: {fileID: 0}
+  _fireMatch: {fileID: 8300000, guid: 2d8dafcc895557f46a4e07822f678d49, type: 3}
+  _waterMatch: {fileID: 8300000, guid: 589bc40826aa1f64da92eb9910c6dadb, type: 3}
+  _earthMatch: {fileID: 8300000, guid: 275d3c91d16f9034494e2d4b6852aa2e, type: 3}
+  _chaosMatch: {fileID: 8300000, guid: 9306c08a26a0c8844952a386f09c4378, type: 3}
 --- !u!114 &114458634032359234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -515,6 +521,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1150f84330682ef42ba637f03345ad8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
+    type: 2}
 --- !u!114 &114683548365199306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,6 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {x: 0, y: -2.65}
   size: {x: 6, y: 6}
+  _camera: {fileID: 20394338051552618}
   arrayRows: 6
   arrayColumns: 6
   waterRock: {fileID: 114113264240395260, guid: c4bd75e4cbba6374ead45320d1d14101,
@@ -546,9 +555,11 @@ MonoBehaviour:
   column3: {fileID: 1497478480444152}
   column4: {fileID: 1299605493018598}
   column5: {fileID: 1844402645481672}
-  _movementAudio: {fileID: 8300000, guid: 79401e6e50855a643a0b89218654701b, type: 3}
+  _tilesFallingAudio: {fileID: 8300000, guid: a228a52a9589ce34b8b1660d8812ecff, type: 3}
+  _movementAudio: {fileID: 8300000, guid: 5b459758f81f15148bf9272648356ad6, type: 3}
   _audioPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
     type: 2}
+  _audioNotPlayed: 0
 --- !u!114 &114737322769587644
 MonoBehaviour:
   m_ObjectHideFlags: 1

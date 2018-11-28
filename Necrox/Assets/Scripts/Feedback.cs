@@ -2,21 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Feedback : MonoBehaviour {
 
     
+    public Camera _camera;
     public GameField gameField;
     public int explosionLayer = 50;
 
+    public GameObject mainChar;
+    public GameObject enemy;
     public GameObject tileExplosion;
     public GameObject example;
     public GameObject fireball;
     public GameObject earthProtect;
     public GameObject waterHeal;
     public GameObject skeleton;
-    public Text scoreText;
+    public TMP_Text scoreText;
     public Canvas CombatUI;
+    [SerializeField]
+    private AudioClip _fireMatch;
+    [SerializeField]
+    private AudioClip _waterMatch;
+    [SerializeField]
+    private AudioClip _earthMatch;
+    [SerializeField]
+    private AudioClip _chaosMatch;
 
     private int fireCount;
     private int waterCount;
@@ -24,47 +36,18 @@ public class Feedback : MonoBehaviour {
     private int chaosCount;
     private int score = 0;
 
-    private int countCount = 0;
-
     private RaycastHit2D hit;
     private GameObject testRock;
 
-
-    // Use this for initialization
     void Start () {
 		
 	}
 
     void Update() {
-        // if (Input.GetMouseButtonDown(0)) {
-
-        //     Vector3 wp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //     Vector2 clickPos = new Vector2(wp.x, wp.y);
-        //     hit = Physics2D.Raycast(clickPos, -Vector2.up);
-
-        //     if (hit.collider != null) {
-
-        //         testRock = hit.collider.gameObject;
-        //         TestFeedback(testRock);
-        //     }
-        // }
-    }
-
-    public void TestFeedback (GameObject tile) {
-        GameObject test = Instantiate(example, new Vector3(tile.transform.position.x, tile.transform.position.y, 0), Quaternion.identity);
-        //test.gameObject.GetComponent<SpriteRenderer>().sortingOrder = explosionLayer;
-
-        //how to thrown in the elemental if needed later
-        switch (tile.GetComponent<Rock>()._element) {
-            case "fire":
-                Instantiate(fireball);
-                break;
-        }
+        
     }
 
     public void TileFeedback (Vector3 tilePos, GameObject OgTile) {
-       /* countCount++;
-        Debug.Log("how many times did it get here: " + countCount);*/
 
         SpellFeedback(OgTile);
         if (OgTile.transform.childCount > 0) {
@@ -96,22 +79,38 @@ public class Feedback : MonoBehaviour {
         }
         if (fireCount >= 3) {
             Instantiate(fireball);
+            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_fireMatch,GameManager._soundVolume,usePitchVariance: true);
             CombatUI.GetComponent<CombatUI>().FireAttack();
             fireCount = 0;
+            //mainChar.GetComponent<Animator>().SetBool("StartSpell", false);
         }
         if (waterCount >= 3) {
             Instantiate(waterHeal);
+            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_waterMatch,GameManager._soundVolume,usePitchVariance: true);
+            CombatUI.GetComponent<CombatUI>().WaterHeal();
             waterCount = 0;
         }
         if (earthCount >= 3) {
             Instantiate(earthProtect);
+            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_earthMatch,GameManager._soundVolume,usePitchVariance: true);
+            CombatUI.GetComponent<CombatUI>().EarthProtect();
             earthCount = 0;
         }
         if (chaosCount >= 3) {
             Instantiate(skeleton);
+            mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_chaosMatch,GameManager._soundVolume,usePitchVariance: true);
+            CombatUI.GetComponent<CombatUI>().SkeletonAttack();
             chaosCount = 0;
         }
-        scoreText.text ="" + score;
+        scoreText.text ="SCORE:" + score;
     }
 
     public int GetScore() {

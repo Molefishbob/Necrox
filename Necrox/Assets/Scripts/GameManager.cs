@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -11,10 +12,12 @@ using UnityEngine.UI;
 /// </summary>
 public static class GameManager
 {
-    private const string SoundKey = "soundvolume";
-    private const string MusicKey = "musicvolume";
-    private static int _score = 0;
-	public static float _soundVolume {
+    private const string SoundVolume = "SoundVolume";
+    private const string MusicVolume = "MusicVolume";
+    private const float DefaultMusicVolume = 0.4f;
+    private const float DefaultSoundVolume = 0.6f;
+
+    public static float _soundVolume {
 		get;
 		private set;
 	}
@@ -34,7 +37,7 @@ public static class GameManager
 	// 	}
 	// }
 	public static bool LevelEnd(string levelKey, float score) {
-		float previousScore = PlayerPrefs.GetFloat(levelKey);
+		float previousScore = PlayerPrefs.GetFloat(levelKey,0);
 			if(previousScore ==  0) {
 				PlayerPrefs.SetFloat(levelKey,score);
 				return true;
@@ -47,12 +50,13 @@ public static class GameManager
 			return false;
 		}
 
-	// public static void IncreaseScore( int amount )
-	// {
-	// 	Score += amount;
-	// }
-	
-	public static void ChangeSoundVolume(float value) {
+    internal static void LoadSettings()
+    {
+        _soundVolume = PlayerPrefs.GetFloat(SoundVolume, DefaultSoundVolume);
+		_musicVolume = PlayerPrefs.GetFloat(MusicVolume, DefaultMusicVolume);
+    }
+
+    public static void ChangeSoundVolume(float value) {
 		_soundVolume = value;
 		PlayerPrefs.SetFloat(SoundKey, _soundVolume);
 	}
@@ -61,4 +65,10 @@ public static class GameManager
 		_musicVolume = value;
 		PlayerPrefs.SetFloat(MusicKey, _musicVolume);
 	}
+
+    public static void SaveSettings()
+    {
+        PlayerPrefs.SetFloat(SoundVolume, _soundVolume);
+		PlayerPrefs.SetFloat(MusicVolume, _musicVolume);
+    }
 }

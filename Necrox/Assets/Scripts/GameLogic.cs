@@ -246,4 +246,7 @@ public class GameLogic : MonoBehaviour {
         canTouch = true;
         moveComplete = true;
     }
+    public void SetTouchFalse() {
+        canTouch = false;
+    }
 }

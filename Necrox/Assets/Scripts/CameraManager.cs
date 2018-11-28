@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
 
 	Camera _camera;
+	[SerializeField]
+	private PlaySoundClip _soundPlayer;
 
 	// Use this for initialization
 	void Start () {
@@ -20,4 +23,10 @@ public class CameraManager : MonoBehaviour {
 			_camera.orthographicSize  = 6;
 		}
 	}
+
+    internal void PlaySound(AudioClip audioClip, float soundVolume, bool usePitchVariance)
+    {
+        Instantiate(_soundPlayer,transform.position,Quaternion.identity,transform).PlayClip(audioClip,soundVolume,usePitchVariance);
+
+    }
 }

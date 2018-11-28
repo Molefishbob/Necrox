@@ -248,7 +248,6 @@ public class Rock : MonoBehaviour
                 GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos, gameObject);
                 sentToFeedback = true;
             }
-            Debug.Log(pos[0] + " " + pos[1]);
             gameObject.GetComponent<Renderer>().enabled = false;
             Destroy(gameObject,0.75f);
         }

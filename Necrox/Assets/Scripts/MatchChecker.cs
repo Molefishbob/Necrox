@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MatchChecker : MonoBehaviour {
 
-    const int POSITIONCHANGE = 25;
+    const int POSITIONCHANGE = 6;
     const int MAXAMOUNT = 6;
     public Camera mainCamera;
     public LayerMask touchInputMask;
@@ -20,6 +20,7 @@ public class MatchChecker : MonoBehaviour {
     public int _minimumMatch;
 
     private Vector2 endingPos;
+    private Vector2 startPos;
     private string typeOfCheck;
     private GameObject[,] gameFieldArray;
     private bool isChecking = false;
@@ -84,8 +85,10 @@ public class MatchChecker : MonoBehaviour {
         isChecking = true;
 
         //check going right on first rock
-        endingPos = new Vector2(firstRock.transform.position.x + POSITIONCHANGE, firstRock.transform.position.y);
-        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+        endingPos = new Vector2(POSITIONCHANGE,0);
+        startPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y);
+        raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+        Debug.DrawRay(startPos, endingPos,Color.red,5f);
 
         for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -95,7 +98,7 @@ public class MatchChecker : MonoBehaviour {
                     rockFromHits = raycast2DHits[i].collider.gameObject;
 
                     if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
-
+                        
                         horizontalMatchList.Add(rockFromHits);
 
                     } else {
@@ -108,8 +111,10 @@ public class MatchChecker : MonoBehaviour {
         //Check right on second rock
         if (secondRock != null) {
 
-            endingPos = new Vector2(secondRock.transform.position.x + POSITIONCHANGE, secondRock.transform.position.y);
-            raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+            endingPos = new Vector2(POSITIONCHANGE,0);
+            startPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y);
+            raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+            Debug.DrawRay(startPos, endingPos,Color.red,5f);
 
             for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -137,8 +142,10 @@ public class MatchChecker : MonoBehaviour {
 
     void CheckHorizontalLeft() {
         //first rock left check
-        endingPos = new Vector2(firstRock.transform.position.x - POSITIONCHANGE, firstRock.transform.position.y);
-        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+        startPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y);
+        endingPos = new Vector2(-POSITIONCHANGE, 0);
+        raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+        Debug.DrawRay(startPos, endingPos,Color.blue,5f);
 
         for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -148,7 +155,7 @@ public class MatchChecker : MonoBehaviour {
 
                     rockFromHits = raycast2DHits[i].collider.gameObject;
                     if (firstRock.GetComponent<Rock>()._element == rockFromHits.GetComponent<Rock>()._element && !rockFromHits.GetComponent<Rock>().sentToFeedback) {
-
+                        
                         horizontalMatchList.Add(rockFromHits);
 
                     } else {
@@ -160,8 +167,10 @@ public class MatchChecker : MonoBehaviour {
         //second rock left check
         if (secondRock != null) {
 
-            endingPos = new Vector2(secondRock.transform.position.x - POSITIONCHANGE, secondRock.transform.position.y);
-            raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+            startPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y);
+            endingPos = new Vector2(-POSITIONCHANGE, 0);
+            raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+            Debug.DrawRay(startPos, endingPos,Color.blue,5f);
 
             for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -187,8 +196,10 @@ public class MatchChecker : MonoBehaviour {
     }
     void CheckVerticleUp() {
         //first rock up check
-        endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y + POSITIONCHANGE);
-        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+        endingPos = new Vector2(0,POSITIONCHANGE);
+        startPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y);
+        raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+        Debug.DrawRay(startPos, endingPos,Color.green,5f);
 
         for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -211,8 +222,10 @@ public class MatchChecker : MonoBehaviour {
         // second rock up check
         if (secondRock != null) {
 
-            endingPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y + POSITIONCHANGE);
-            raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+            endingPos = new Vector2(0,POSITIONCHANGE);
+            startPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y);
+            raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+            Debug.DrawRay(startPos, endingPos,Color.green,5f);
 
             for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -240,8 +253,10 @@ public class MatchChecker : MonoBehaviour {
     }
     void CheckVerticleDown() {
         //firs rock down check
-        endingPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y - POSITIONCHANGE);
-        raycast2DHits = Physics2D.RaycastAll(firstRock.transform.position, endingPos, touchInputMask);
+        endingPos = new Vector2(0,-POSITIONCHANGE);
+        startPos = new Vector2(firstRock.transform.position.x, firstRock.transform.position.y);
+        raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+        Debug.DrawRay(startPos, endingPos,Color.yellow,5f);
 
         for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -264,8 +279,10 @@ public class MatchChecker : MonoBehaviour {
         //second rock down check
         if (secondRock != null) {
 
-            endingPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y - POSITIONCHANGE);
-            raycast2DHits = Physics2D.RaycastAll(secondRock.transform.position, endingPos, touchInputMask);
+            endingPos = new Vector2(0,-POSITIONCHANGE);
+            startPos = new Vector2(secondRock.transform.position.x, secondRock.transform.position.y);
+            raycast2DHits = Physics2D.RaycastAll(startPos, endingPos, touchInputMask);
+            Debug.DrawRay(startPos, endingPos,Color.yellow,5f);
 
             for (int i = 1; i < raycast2DHits.Length; i++) {
 
@@ -293,16 +310,10 @@ public class MatchChecker : MonoBehaviour {
     #endregion DirectionCheck
     void DestroyMatchesChecker() {
 
-        Debug.Log("SwipeCheck");
-
         CheckVerticalMatches();
 
         CheckHorizontalMatches();
-
-        Debug.Log("noMatchesHor:" + noMatchesHor + " noMatchesVer:" + noMatchesVer 
-                + " noMatchesHor2:" + noMatchesHor2  + " noMatchesVer2:" +  noMatchesVer2);
         if (noMatchesHor && noMatchesVer && noMatchesHor2 && noMatchesVer2) {
-            Debug.Log("Reverting tiles");
             RevertPositions();
         } else {
             OrderTilesToBeDestroyed();
@@ -393,10 +404,10 @@ public class MatchChecker : MonoBehaviour {
     }
 
     private void RevertPositions() {
-        if(firstRock.transform.GetChild(0) != null) {
+        if(firstRock.transform.childCount > 0) {
             Destroy(firstRock.transform.GetChild(0).gameObject);
         }
-        if(secondRock.transform.GetChild(0) != null) {
+        if(secondRock.transform.childCount > 0) {
             Destroy(secondRock.transform.GetChild(0).gameObject);
         }
         gameObject.GetComponent<GameField>().MoveTiles(firstRock,secondRock,newMove: false);
@@ -451,7 +462,7 @@ public class MatchChecker : MonoBehaviour {
                     _firstRockElement = tile.GetElement();
 
                     for (int c = 1; counter > 0; c++) {
-
+                        
                         GameField.GetGameField()[a,b-c].GetComponent<Rock>().SetToBeDestroyed(destroy: true);
                         counter--;
 
