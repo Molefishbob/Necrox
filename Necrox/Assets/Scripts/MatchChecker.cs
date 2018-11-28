@@ -28,7 +28,6 @@ public class MatchChecker : MonoBehaviour {
     private bool noMatchesVer = false;
     private bool noMatchesHor2 = false;
     private bool noMatchesVer2 = false;
-    private bool swapMatchDone = false;
     private int _fieldColumns;
     private int _fieldRows;
     private int _fieldVisibleRows;
@@ -399,8 +398,6 @@ public class MatchChecker : MonoBehaviour {
         noMatchesVer = false;
         noMatchesHor2 = false;
         noMatchesVer2 = false;
-        // Add boolean that enables the boardcheck in GameLogic
-        swapMatchDone = true;
     }
 
     private void RevertPositions() {
