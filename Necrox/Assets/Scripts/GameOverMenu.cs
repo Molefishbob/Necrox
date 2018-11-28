@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using TAMK.SpaceShooter.States;
+using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour {
     private const string HighScoreText = "HIGHSCORE:\n{0}";
     private const string ScoreText = "SCORE:\n{0}";
+    private const string Defeat = "DEFEAT";
+    private const string RestartText = "Restart";
+    private const string MainMenu = "MainMenu";
+    [SerializeField]
+    private Button _continueButton;
     [SerializeField]
     private TMP_Text _scoreText;
     [SerializeField]
@@ -32,13 +38,24 @@ public class GameOverMenu : MonoBehaviour {
 	}
 
     public void SetScore(int score) {
-        if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score)) {
-            newText.gameObject.SetActive(true);
-            highScoreText.SetText(HighScoreText, score);
-        } else {
-            highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
-        } 
-        _scoreText.SetText(ScoreText, score);
+    
+            if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score) && state != Defeat) {
+    
+                newText.gameObject.SetActive(true);
+                highScoreText.SetText(HighScoreText, score);
+    
+            } else if (state == Defeat) {
+                
+                _continueButton.gameObject.GetComponentInChildren<TMP_Text>().SetText(RestartText); 
+
+                } else {
+                
+                highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
+            
+            }
+            
+            _scoreText.SetText(ScoreText, score);
+    
     }
     public void SetState(string result) {
         StatusText.text = result;
@@ -47,7 +64,7 @@ public class GameOverMenu : MonoBehaviour {
     }
 
     public void Continue() {
-        if (state == "DEFEAT") {
+        if (state == Defeat) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
             Debug.Log(GameStateManager.Instance.ChangeState( 
@@ -55,5 +72,10 @@ public class GameOverMenu : MonoBehaviour {
                         , _nextScene)));
             
         }
+    }
+    public void ToMainMenu() {
+        GameStateManager.Instance.ChangeState( 
+                        (GameStateType)GameStateType.Parse(typeof(GameStateType)
+                        , MainMenu));
     }
 }
