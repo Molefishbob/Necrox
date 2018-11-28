@@ -6,12 +6,16 @@ using TMPro;
 using TAMK.SpaceShooter.States;
 
 public class GameOverMenu : MonoBehaviour {
-
-    
+    private const string HighScoreText = "HIGHSCORE:\n{0}";
+    private const string ScoreText = "SCORE:\n{0}";
     [SerializeField]
     private TMP_Text _scoreText;
     [SerializeField]
     private TMP_Text StatusText;
+    [SerializeField]
+    private TMP_Text highScoreText;
+    [SerializeField]
+    private TMP_Text newText;
     [SerializeField]
     [Tooltip("Level1,Level2,Level3,etc.")]
     private string _nextScene;
@@ -28,7 +32,13 @@ public class GameOverMenu : MonoBehaviour {
 	}
 
     public void SetScore(int score) {
-        _scoreText.SetText("SCORE: {0}", score);
+        if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score)) {
+            newText.gameObject.SetActive(true);
+            highScoreText.SetText(HighScoreText, score);
+        } else {
+            highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
+        } 
+        _scoreText.SetText(ScoreText, score);
     }
     public void SetState(string result) {
         StatusText.text = result;

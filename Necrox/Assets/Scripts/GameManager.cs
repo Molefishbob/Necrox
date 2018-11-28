@@ -50,6 +50,11 @@ public static class GameManager
 			return false;
 		}
 
+    internal static float GetHighScore(string levelKey)
+    {
+        return PlayerPrefs.GetFloat(levelKey,0);
+    }
+
     internal static void LoadSettings()
     {
         _soundVolume = PlayerPrefs.GetFloat(SoundVolume, DefaultSoundVolume);
