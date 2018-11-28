@@ -15,7 +15,6 @@ public class GameOverMenu : MonoBehaviour {
     [SerializeField]
     [Tooltip("Level1,Level2,Level3,etc.")]
     private string _nextScene;
-    public string nextSceneToLoad;
     private string state;
 
     // Use this for initialization
@@ -38,15 +37,13 @@ public class GameOverMenu : MonoBehaviour {
     }
 
     public void Continue() {
-        if(!GameStateManager.Instance.ChangeState( 
-                        (GameStateType)GameStateType.Parse(typeof(GameStateType)
-                        , _nextScene))) {
-            GameStateManager.Instance.ChangeState( GameStateType.Victory );
-        }
         if (state == "DEFEAT") {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
-            SceneManager.LoadScene(nextSceneToLoad);
+            Debug.Log(GameStateManager.Instance.ChangeState( 
+                        (GameStateType)GameStateType.Parse(typeof(GameStateType)
+                        , _nextScene)));
+            
         }
     }
 }
