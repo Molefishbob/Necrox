@@ -58,12 +58,12 @@ public static class GameManager
 
     public static void ChangeSoundVolume(float value) {
 		_soundVolume = value;
-		PlayerPrefs.SetFloat(SoundKey, _soundVolume);
+		PlayerPrefs.SetFloat(SoundVolume, _soundVolume);
 	}
 	
 	public static void ChangeMusicVolume(float value) {
 		_musicVolume = value;
-		PlayerPrefs.SetFloat(MusicKey, _musicVolume);
+		PlayerPrefs.SetFloat(MusicVolume, _musicVolume);
 	}
 
     public static void SaveSettings()
