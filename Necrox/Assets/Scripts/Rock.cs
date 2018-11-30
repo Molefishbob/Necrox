@@ -322,6 +322,9 @@ public class Rock : MonoBehaviour
             {
                 Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
                 GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos, gameObject);
+                if (!this.GetComponentInParent<ColumnBehaviour>().tileSwitchDisabled) {
+                    this.GetComponentInParent<ColumnBehaviour>().tileSwitchDisabled = true;
+                }
                 sentToFeedback = true;
             }
             gameObject.GetComponent<Renderer>().enabled = false;

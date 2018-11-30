@@ -6,7 +6,37 @@ public class ColumnBehaviour : MonoBehaviour {
 
 	public int rowNumber;
 	public GameField gameField;
-	ColumnBehaviour() {
+	public bool tileSwitchDisabled {
+		get;
+		set;
+	}
+
+	void Update() {
+		
+		if(tileSwitchDisabled) {
+			Transform[] allChildren = GetComponentsInChildren<Transform>();
+			List<Rock> childObjects = new List<Rock>();
+			foreach (Transform child in allChildren)
+			{ 
+				childObjects.Add(child.GetComponent<Rock>());
+			}
+			bool switchNotAllowed = false;
+			foreach (Rock tile in childObjects)
+			{
+				if (tile != null) {
+					bool moving = tile.GetMoved();
+					bool beingDestroyed = tile.sentToFeedback;
+					if (moving || beingDestroyed) {
+						switchNotAllowed = true;
+					}
+				}
+			}
+			if (!switchNotAllowed) {
+				Debug.Log("tileSwitch allowed again");
+				tileSwitchDisabled = false;
+			}
+		}
+
 	}
 
 	void OnDrawGizmosSelected() {
@@ -17,7 +47,7 @@ public class ColumnBehaviour : MonoBehaviour {
 
 	}
 
-	public void CreateExtraRock(int a, int b, string element) {
+    public void CreateExtraRock(int a, int b, string element) {
 
 		var newRock = Instantiate(gameField.GetRockPrefab(element),
 								  new Vector3(transform.position.x,6.85f - b,-1),
