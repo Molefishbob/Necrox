@@ -29,7 +29,7 @@ public class GameOverMenu : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        SetScore(640);
+        SetScore(0);
 	}
 	
 	// Update is called once per frame
