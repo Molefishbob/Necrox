@@ -47,18 +47,21 @@ public class CombatUI : MonoBehaviour {
 				   	    .PlaySound(_victoryMusic,GameManager._soundVolume,usePitchVariance: false);
                 _victory = true;
             }
-            FindObjectOfType<GameLogic>().SetTouchFalse();
+            FindObjectOfType<GameLogic>()._paused = true;
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
             GameOverMenu.GetComponent<GameOverMenu>().SetState("VICTORY");
             GameOverMenu.gameObject.SetActive(true);
         }
         if (MainCharHealth.value <= 0) {
-            FindObjectOfType<GameLogic>().SetTouchFalse();
+            FindObjectOfType<GameLogic>()._paused = true;
             GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
             GameOverMenu.GetComponent<GameOverMenu>().SetState("DEFEAT");
             GameOverMenu.gameObject.SetActive(true);
         }
-        EnemyAttack();
+        if (MainCharHealth.value > 0 && EnemyHealth.value > 0) {
+            EnemyAttack();
+        }
+            
     }
 
     public void FireAttack() {
