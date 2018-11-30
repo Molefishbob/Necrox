@@ -130,7 +130,7 @@ public class GameLogic : MonoBehaviour {
                     //Debug.Log("The hit is: " + hit.collider.name);
 
                         firstRock = hit.collider.gameObject;
-                        if (!firstRock.GetComponent<Rock>().sentToFeedback) {
+                        if (!firstRock.GetComponent<Rock>().sentToFeedback && !firstRock.GetComponent<Rock>().isImmovable) {
                         //firstRock.GetComponent<Renderer>().material.color = selectedColor;
                         border = Instantiate(selectBorder, new Vector3(firstRock.transform.position.x, firstRock.transform.position.y, 0), Quaternion.identity);
                         border.transform.parent = firstRock.transform;
@@ -232,8 +232,8 @@ public class GameLogic : MonoBehaviour {
                 }
             }
             //Debug.Log(direction);
-            if (secondRock != null && !secondRock.GetComponent<Rock>().sentToFeedback && !secondRock.GetComponent<Rock>().GetMoved()) {
-                Debug.Log("Element:" + secondRock.GetComponent<Rock>().GetElement());
+            if (secondRock != null && !secondRock.GetComponent<Rock>().sentToFeedback && !secondRock.GetComponent<Rock>().GetMoved() && !secondRock.GetComponent<Rock>().isImmovable) {
+                //Debug.Log("Element:" + secondRock.GetComponent<Rock>().GetElement());
                 gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock, newMove: true);
             }
             directionChosen = false;

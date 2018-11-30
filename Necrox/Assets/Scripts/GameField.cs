@@ -14,7 +14,7 @@ public class GameField : MonoBehaviour {
 	public Rock fireRock;
 	public Rock earthRock;
 	public Rock chaosRock;
-	public Rock corruptionRock;
+	public Rock debrisRock;
 	public Templates template;
 	public GameObject column0;
 	public GameObject column1;
@@ -24,6 +24,8 @@ public class GameField : MonoBehaviour {
 	public GameObject column5;
     public AudioClip _movementAudio;
     public PlaySoundClip _audioPlayer;
+	
+    public bool _useStandardTemplates;
 
 	private bool startGame = true;
 	private static int rows;
@@ -51,8 +53,13 @@ public class GameField : MonoBehaviour {
 
 			Children.Add(child.gameObject);
     	}
-		CreateRandomRow(template.GetRandomRowTemplate(0),1);
-		CreateRandomRow(template.GetRandomRowTemplate(0),2);
+		if (_useStandardTemplates) {
+			CreateRandomRow(template.GetRandomRowTemplate(),1);
+			CreateRandomRow(template.GetRandomRowTemplate(),2);
+		} else {
+			CreateRandomRow(template.getRandomRowDebrisTemplate(),1);
+			CreateRandomRow(template.getRandomRowDebrisTemplate(),2);
+		}
 
 		gameField = new GameObject[arrayColumns, arrayRows*2];
 		Time.timeScale = 1;
@@ -80,7 +87,7 @@ public class GameField : MonoBehaviour {
 							}
 						}
 					}
-					CreateRandomRow(template.GetRandomRowTemplate(0),2);
+					CreateRandomRow(template.GetRandomRowTemplate(),2);
 					startGame = true;
 					newExtraTable = true;
 				}
@@ -190,6 +197,13 @@ public class GameField : MonoBehaviour {
 							_extraTiles[count,b] = "chaos";
 						}
 						break;
+					case 'd':
+						if (number == 1) {
+							_firstField[count,b] = "debris";
+						}else if (number == 2) {
+							_extraTiles[count,b] = "debris";
+						}
+						break;
 					default:
 						if (number == 1) {
 							_firstField[count,b] = "fire";
@@ -296,8 +310,8 @@ public class GameField : MonoBehaviour {
 				return earthRock;
 			case "chaos":
 				return chaosRock;
-			case "corruption":
-				return corruptionRock;
+			case "debris":
+				return debrisRock;
 			default:
 				Debug.LogError("Element (string) is not valid in tile");
 				return fireRock;

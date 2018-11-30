@@ -6,6 +6,7 @@ public class MatchChecker : MonoBehaviour {
 
     const int POSITIONCHANGE = 6;
     const int MAXAMOUNT = 6;
+    private const string Debris = "debris";
     public Camera mainCamera;
     public LayerMask touchInputMask;
     private RaycastHit2D hit;
@@ -437,7 +438,7 @@ public class MatchChecker : MonoBehaviour {
                 noMatch = true;
                 Rock tile = GameField.GetGameField()[a,b].GetComponent<Rock>();
 
-                if (tile.GetElement() == _firstRockElement && !tile.sentToFeedback) {
+                if (tile.GetElement() == _firstRockElement && !tile.sentToFeedback && (tile.GetElement() != Debris || _firstRockElement != Debris)) {
 
                     noMatch = false;
                     counter++;
@@ -487,7 +488,7 @@ public class MatchChecker : MonoBehaviour {
                 noMatch = true;
                 Rock tile = GameField.GetGameField()[a,b].GetComponent<Rock>();
 
-                if (tile.GetElement() == _firstRockElement && !tile.sentToFeedback) {
+                if (tile.GetElement() == _firstRockElement && !tile.sentToFeedback && (tile.GetElement() != Debris || _firstRockElement != Debris)) {
 
                     noMatch = false;
                     counter++;

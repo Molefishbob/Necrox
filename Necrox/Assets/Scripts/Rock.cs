@@ -9,11 +9,11 @@ using UnityEngine;
 /// <summary>
 public class Rock : MonoBehaviour
 {
-
+    private const string Debris = "debris";
     public int[] pos = new int[2];
     private bool _fallingToPlace;
     [SerializeField]
-    private bool _moved;    
+    private bool _moved;
     public string _element;
     private int _yPosition;
     private int _xPosition = 0;
@@ -23,9 +23,15 @@ public class Rock : MonoBehaviour
     private GameField _gameField;
     private float speed = 0.25f;
     public GameObject feedback;
-    public bool sentToFeedback {
-        get; 
+    public bool sentToFeedback
+    {
+        get;
         private set;
+    }
+    public bool isImmovable
+    {
+        get;
+        set;
     }
 
 
@@ -53,18 +59,26 @@ public class Rock : MonoBehaviour
         }
         if (_moved && !_fallingToPlace)
         {
+
             TileMovement();
+
         }
-        if (pos[1] < 11 && !_fallingToPlace) {
-            if (GameField.GetGameField()[pos[0],pos[1] + 1] == null && !_gameField.GetFirstTable()) {
-                _gameField.ClearTileFromField(pos[0],pos[1]);
-                pos[1] = pos[1]+ 1;
-                GameField.setObject(pos[0],pos[1],gameObject);
+        if (pos[1] < 11 && !_fallingToPlace)
+        {
+
+            if (GameField.GetGameField()[pos[0], pos[1] + 1] == null && !_gameField.GetFirstTable())
+            {
+
+                _gameField.ClearTileFromField(pos[0], pos[1]);
+                pos[1] = pos[1] + 1;
+                GameField.setObject(pos[0], pos[1], gameObject);
                 _yPosition = ToPosValues(pos[1]);
                 //Debug.Log("I'm moving to: X:" + pos[0] + " Y:" + pos[1] + " Element:" + _element);
                 _yValueChanged = true;
                 _moved = true;
+
             }
+
         }
         IsDestroyable();
     }
@@ -72,10 +86,14 @@ public class Rock : MonoBehaviour
     /// <summary>
     /// Checks if the tile is in the destroyable part of the gamefield.
     /// </summary>
-    private void IsDestroyable() {
-        if (pos[1] < GameField.GetArrayRows()) {
+    private void IsDestroyable()
+    {
+        if (pos[1] < GameField.GetArrayRows())
+        {
             gameObject.GetComponent<Collider2D>().enabled = false;
-        } else {
+        }
+        else
+        {
             gameObject.GetComponent<Collider2D>().enabled = true;
         }
     }
@@ -114,9 +132,12 @@ public class Rock : MonoBehaviour
 
         intX = ToArrayValues(intX);
 
-        pos = new int[] { intX, y };
+        if (element == Debris)
+        {
+            isImmovable = true;
+        }
 
-        //Debug.Log(string.Format("X: {0} Y: {1}",pos[0],pos[1]));
+        pos = new int[] { intX, y };
 
         y = ToPosValues(y);
 
@@ -139,6 +160,7 @@ public class Rock : MonoBehaviour
         //Debug.Log("X:"+ pos[0] + " Y:" + pos[1]);
 
         transform.parent = column.transform;
+
     }
 
     /// <summary>
@@ -287,19 +309,23 @@ public class Rock : MonoBehaviour
     /// Also prepares the instantiation of the feedback
     /// for the tile being destroyed.
     /// </summary>
-    public void DestroyTile() {
-        if (_toBeDestroyed) {
-            
-            if (pos[1] >= 6) {
+    public void DestroyTile()
+    {
+        if (_toBeDestroyed)
+        {
+
+            if (pos[1] >= 6)
+            {
                 // GameObject.Find("GameLogic").GetComponent<GameLogic>().TileWasDestroyed();
             }
-            if (!sentToFeedback) {
+            if (!sentToFeedback)
+            {
                 Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
                 GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos, gameObject);
                 sentToFeedback = true;
             }
             gameObject.GetComponent<Renderer>().enabled = false;
-            Destroy(gameObject,0.75f);
+            Destroy(gameObject, 0.75f);
         }
     }
 
@@ -307,10 +333,13 @@ public class Rock : MonoBehaviour
     /// Destroys the tile if it is set to be destroyed
     /// and above the play area
     /// </summary>
-    public void DestroyExtraTile() {
-        if (_toBeDestroyed) {
+    public void DestroyExtraTile()
+    {
+        if (_toBeDestroyed)
+        {
 
-            if (pos[1] >= 6) {
+            if (pos[1] >= 6)
+            {
                 // GameObject.Find("GameLogic").GetComponent<GameLogic>().TileWasDestroyed();
             }
             Destroy(gameObject, 0.75f);
@@ -341,7 +370,8 @@ public class Rock : MonoBehaviour
     /// Method to set the tile to be destroyed.
     /// </summary>
     /// <param name="destroy">The value the boolean will be set to</param>
-    public void SetToBeDestroyed(bool destroy) {
+    public void SetToBeDestroyed(bool destroy)
+    {
         _toBeDestroyed = destroy;
     }
 
@@ -349,7 +379,8 @@ public class Rock : MonoBehaviour
     /// Method to get if the tile is moving inside the playarea.
     /// </summary>
     /// <returns>The value of the bool</returns>
-    public bool GetMoved() {
+    public bool GetMoved()
+    {
         return _moved;
     }
 
@@ -357,7 +388,8 @@ public class Rock : MonoBehaviour
     /// Is the tile moving outside of the playarea.
     /// </summary>
     /// <returns>Returns the value of the bool</returns>
-    public bool GetFalling() {
+    public bool GetFalling()
+    {
         return _fallingToPlace;
     }
 

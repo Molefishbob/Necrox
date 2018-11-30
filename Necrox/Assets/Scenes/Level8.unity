@@ -662,6 +662,11 @@ Prefab:
       propertyPath: mainChar
       value: 
       objectReference: {fileID: 1751228466}
+    - target: {fileID: 114683548365199306, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
+        type: 2}
+      propertyPath: _useStandardTemplates
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
