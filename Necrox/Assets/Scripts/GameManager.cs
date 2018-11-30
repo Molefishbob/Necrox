@@ -16,6 +16,7 @@ public static class GameManager
     private const string MusicVolume = "MusicVolume";
     private const float DefaultMusicVolume = 0.4f;
     private const float DefaultSoundVolume = 0.6f;
+    private const string LatestKeyLevel = "latestlevel";
 
     public static float _soundVolume {
 		get;
@@ -49,6 +50,18 @@ public static class GameManager
 			}
 			return false;
 		}
+
+	public static void SaveLatestLevel(string levelKey) {
+
+		PlayerPrefs.SetString(LatestKeyLevel, levelKey);
+
+	}
+
+	public static string GetLatestLevel() {
+		
+		return PlayerPrefs.GetString(LatestKeyLevel);
+
+	}
 
     internal static float GetHighScore(string levelKey)
     {
