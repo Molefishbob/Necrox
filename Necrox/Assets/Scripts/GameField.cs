@@ -55,11 +55,10 @@ public class GameField : MonoBehaviour {
     	}
 		if (_useStandardTemplates) {
 			CreateRandomRow(template.GetRandomRowTemplate(),1);
-			CreateRandomRow(template.GetRandomRowTemplate(),2);
 		} else {
 			CreateRandomRow(template.getRandomRowDebrisTemplate(),1);
-			CreateRandomRow(template.getRandomRowDebrisTemplate(),2);
 		}
+		CreateRandomRow(template.GetRandomRowTemplate(),2);
 
 		gameField = new GameObject[arrayColumns, arrayRows*2];
 		Time.timeScale = 1;
