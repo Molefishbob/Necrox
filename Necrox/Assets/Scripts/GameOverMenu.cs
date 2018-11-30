@@ -10,8 +10,14 @@ public class GameOverMenu : MonoBehaviour {
     private const string HighScoreText = "HIGHSCORE:\n{0}";
     private const string ScoreText = "SCORE:\n{0}";
     private const string Defeat = "DEFEAT";
-    private const string RestartText = "Restart";
+    private const string RestartText = "TRY AGAIN";
     private const string MainMenu = "MainMenu";
+    private const float VictoryRed = 0.9411764705882353f;
+    private const float VictoryGreen = 0.7843137254901961f;
+    private const float VictoryBlue = 0.1568627450980392f;
+    private const float DefeatRed = 0.7137254901960784f;
+    private const float DefeatGreen = 0.0274509803921569f;
+    private const float DefeatBlue = 0.0274509803921569f;
     [SerializeField]
     private Button _continueButton;
     [SerializeField]
@@ -42,14 +48,16 @@ public class GameOverMenu : MonoBehaviour {
             if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score) && state != Defeat) {
     
                 newText.gameObject.SetActive(true);
+                StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
                 highScoreText.SetText(HighScoreText, score);
     
             } else if (state == Defeat) {
-                
+                StatusText.color = new Color(DefeatRed, DefeatGreen, DefeatBlue);
                 _continueButton.gameObject.GetComponentInChildren<TMP_Text>().SetText(RestartText); 
 
                 } else {
-                
+                    
+                StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
                 highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
             
             }
