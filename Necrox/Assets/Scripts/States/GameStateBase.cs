@@ -14,6 +14,7 @@ namespace TAMK.SpaceShooter.States
 		Error = -1,
 		None = 0,
 		MainMenu,
+		LevelSelect,
 		Level1,
 		Level2,
 		Level3,
@@ -28,9 +29,7 @@ namespace TAMK.SpaceShooter.States
         Level12,
         Level13,
         Level14,
-        Level15,
-        Victory,
-		GameOver
+        Level15
 	}
 
 	public abstract class GameStateBase

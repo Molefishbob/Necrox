@@ -13,7 +13,7 @@
 
 		public MainMenuState()
 		{
-			AddTargetState( GameStateType.Level1 );
+			AddTargetState( GameStateType.LevelSelect );
 		}
 	}
 }

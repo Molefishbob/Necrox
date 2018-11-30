@@ -51,15 +51,15 @@ public static class GameManager
 			return false;
 		}
 
-	public static void SaveLatestLevel(string levelKey) {
+	public static void SaveLatestLevel(int level) {
 
-		PlayerPrefs.SetString(LatestKeyLevel, levelKey);
+		PlayerPrefs.SetInt(LatestKeyLevel, level);
 
 	}
 
-	public static string GetLatestLevel() {
+	public static int GetLatestLevel() {
 		
-		return PlayerPrefs.GetString(LatestKeyLevel);
+		return PlayerPrefs.GetInt(LatestKeyLevel,0);
 
 	}
 

@@ -19,8 +19,6 @@
 			_scene = sceneName;
 			_type = type;
 
-			AddTargetState( GameStateType.Victory );
-			AddTargetState( GameStateType.GameOver );
 			AddTargetState( GameStateType.MainMenu );
 			if ( nextType != GameStateType.None && nextType != GameStateType.Error )
 			{

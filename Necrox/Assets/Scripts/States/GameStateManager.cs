@@ -70,6 +70,7 @@ namespace TAMK.SpaceShooter.States
 				Debug.LogError( "MainMenu state already added." );
 			}
 
+			_gameStates.Add( new LevelSelectState());
 			_gameStates.Add( new LevelState( GameStateType.Level1, GameStateType.Level2, "Level1" ) );
 			_gameStates.Add( new LevelState( GameStateType.Level2, GameStateType.Level3, "Level2" ) );
 			_gameStates.Add( new LevelState( GameStateType.Level3, GameStateType.Level4, "Level3" ) );
@@ -85,8 +86,6 @@ namespace TAMK.SpaceShooter.States
             _gameStates.Add(new LevelState(GameStateType.Level13, GameStateType.Level14, "Level13"));
             _gameStates.Add(new LevelState(GameStateType.Level14, GameStateType.Level15, "Level14"));
             _gameStates.Add(new LevelState(GameStateType.Level15, GameStateType.MainMenu, "Level15"));
-            _gameStates.Add( new GameOverState() );
-			_gameStates.Add( new VictoryState() );
 		}
 
 		private bool AddStartingState( GameStateBase startingState )

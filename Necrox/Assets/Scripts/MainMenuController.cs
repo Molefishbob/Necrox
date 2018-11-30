@@ -17,7 +17,6 @@ namespace TAMK.SpaceShooter.UI
         private bool _startGame;
 		private float _timer;
 		private float _count = 0;
-        private bool _quitGame;
 
         private void Awake() {
 			if (!PlayerPrefs.HasKey(FirstBootKey)) {
@@ -33,15 +32,10 @@ namespace TAMK.SpaceShooter.UI
 		private void Update() {
 			if (_startGame) {
 				if(_timer <= _count) {
-				GameStateManager.Instance.ChangeState( GameStateType.Level1 );
+				GameStateManager.Instance.ChangeState( GameStateType.LevelSelect );
 				_count = 0;
 				}
 				_count += Time.deltaTime;
-			} else if (_quitGame) {
-				if(_timer <= _count) {
-				GameStateManager.Instance.ChangeState( GameStateType.Level1 );
-				_count = 0;
-				}
 			}
 		}
 		public void StartGame()
@@ -60,9 +54,6 @@ namespace TAMK.SpaceShooter.UI
 		public void QuitGame()
 		{
 			Debug.Log( "Quitting" );
-			_camera.GetComponent<CameraManager>()
-					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);
-			_quitGame = true;
 			Application.Quit();
 		}
 	}
