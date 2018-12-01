@@ -62,7 +62,7 @@ public class Feedback : MonoBehaviour {
         switch (tile.GetComponent<Rock>()._element) {
             case "fire":
                 fireCount++;
-                score += 5;
+                score += 6;
                 break;
             case "water":
                 waterCount++;
@@ -70,14 +70,15 @@ public class Feedback : MonoBehaviour {
                 break;
             case "earth":
                 earthCount++;
-                score += 5;
+                score += 4;
                 break;
             case "chaos":
                 chaosCount++;
-                score += 5;
+                score += 7;
                 break;
         }
         if (fireCount >= 3) {
+            Debug.Log("firecount is: " + fireCount);
             Instantiate(fireball);
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
@@ -110,7 +111,7 @@ public class Feedback : MonoBehaviour {
             CombatUI.GetComponent<CombatUI>().SkeletonAttack();
             chaosCount = 0;
         }
-        scoreText.text ="SCORE:" + score;
+        scoreText.text ="Score:" + score;
     }
 
     public int GetScore() {
