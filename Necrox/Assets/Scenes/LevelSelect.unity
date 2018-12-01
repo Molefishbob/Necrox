@@ -293,9 +293,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98c2c799363485409ea41331baadb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoreText: {fileID: 0}
+  highScoreText: {fileID: 721606335}
   levelDisplay: {fileID: 1558452959}
   enemyDisplayed: {fileID: 1155293292}
+  elder: {fileID: 21300000, guid: bf374170b9f7db0438452cfea125b988, type: 3}
+  villagerMale: {fileID: 21300000, guid: 8df37055c82473649919928aa08c2a08, type: 3}
+  villagerFemale: {fileID: 21300000, guid: 09edc23577f2041bdb592d2a8fe12d36, type: 3}
+  minionRed: {fileID: 21300000, guid: 8df37055c82473649919928aa08c2a08, type: 3}
+  minionGreen: {fileID: 21300000, guid: 8df37055c82473649919928aa08c2a08, type: 3}
+  minionBlue: {fileID: 21300000, guid: 8df37055c82473649919928aa08c2a08, type: 3}
+  elderTree: {fileID: 21300000, guid: bf374170b9f7db0438452cfea125b988, type: 3}
 --- !u!1 &317768315
 GameObject:
   m_ObjectHideFlags: 0
