@@ -93,5 +93,6 @@ public class LevelSelect : MonoBehaviour {
         GameStateManager.Instance.ChangeState(
                         (GameStateType)GameStateType.Parse(typeof(GameStateType)
                         , level));
+        SceneManager.LoadScene(level);
     }
 }
