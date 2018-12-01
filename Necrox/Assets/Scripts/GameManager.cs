@@ -26,17 +26,7 @@ public static class GameManager
 		get;
 		private set;
 	}
-
-	// public static int Score
-	// {
-	// 	get { return _score; }
-	// 	private set
-	// 	{
-	// 		// Mathf.Max palauttaa kahdesta tai useammasta arvosta suurimman. Näin ollen
-	// 		// _score-muuttujan arvoksi ei koskaan voida asettaa negatiivista lukua.
-	// 		_score = Mathf.Max(0, value);
-	// 	}
-	// }
+	
 	public static bool LevelEnd(string levelKey, float score) {
 		float previousScore = PlayerPrefs.GetFloat(levelKey,0);
 			if(previousScore ==  0) {
@@ -65,7 +55,7 @@ public static class GameManager
 
     internal static float GetHighScore(string levelKey)
     {
-        return PlayerPrefs.GetFloat(levelKey,0);
+        return PlayerPrefs.GetFloat(levelKey,1);
     }
 
     internal static void LoadSettings()

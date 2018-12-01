@@ -14,27 +14,40 @@ public class ColumnBehaviour : MonoBehaviour {
 	void Update() {
 		
 		if(tileSwitchDisabled) {
+
 			Transform[] allChildren = GetComponentsInChildren<Transform>();
 			List<Rock> childObjects = new List<Rock>();
-			foreach (Transform child in allChildren)
-			{ 
+
+			foreach (Transform child in allChildren) { 
+
 				childObjects.Add(child.GetComponent<Rock>());
+
 			}
+
 			bool switchNotAllowed = false;
+
 			foreach (Rock tile in childObjects)
 			{
+			
 				if (tile != null) {
+
 					bool moving = tile.GetMoved();
 					bool beingDestroyed = tile.sentToFeedback;
+
 					if (moving || beingDestroyed) {
 						switchNotAllowed = true;
 					}
+
 				}
+
 			}
+			
 			if (!switchNotAllowed) {
-				Debug.Log("tileSwitch allowed again");
+
 				tileSwitchDisabled = false;
+
 			}
+
 		}
 
 	}
