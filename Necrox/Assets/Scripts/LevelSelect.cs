@@ -7,7 +7,7 @@ using TAMK.SpaceShooter.States;
 using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour {
-
+    private const string LevelFormat = "Level";
     public TMP_Text highScoreText;
     public TMP_Text levelDisplay;
     public Image enemyDisplayed;
@@ -19,7 +19,7 @@ public class LevelSelect : MonoBehaviour {
         //select the latest level
         //code for that
         levelInt = 5;
-        level = "level" + levelInt;
+        level = LevelFormat + levelInt;
         //highScoreText.SetText(GameManager.GetHighScore(SceneManager.GetSceneByName(level)));
     }
 	
@@ -32,7 +32,7 @@ public class LevelSelect : MonoBehaviour {
         if (levelInt < 15) {
             levelInt += 1;
         }
-        level = "Level" + levelInt;
+        level = LevelFormat + levelInt;
         Debug.Log(level);
         levelDisplay.text = "Level " + levelInt;
 
