@@ -877,7 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1452110742}
   m_Layer: 2
-  m_Name: BackgroundLockUp
+  m_Name: CastleInteriorFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,6 +901,7 @@ Transform:
   - {fileID: 60630988}
   - {fileID: 1326956578}
   - {fileID: 1497036807}
+  - {fileID: 1665523228}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1125,11 +1126,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1665523226}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 3.718, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.44006374, y: 3.6838565, z: 1.96875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1452110742}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1751228466 stripped
@@ -1205,7 +1206,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 19
   m_Sprite: {fileID: 21300000, guid: 8a144e7221fa044e1a66301b6804270b, type: 3}
-  m_Color: {r: 0.9716981, g: 0.28875935, b: 0.28875935, a: 1}
+  m_Color: {r: 0.9811321, g: 0.17123532, b: 0.17123532, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
