@@ -34,6 +34,8 @@ public class GameOverMenu : MonoBehaviour {
     [Tooltip("Level1,Level2,Level3,etc.")]
     private string _nextScene;
     private string state;
+    private bool _statusFly;
+    private bool _countScore;
     private int _score;
     private int _currentScore;
     private bool _scoreCounted;
@@ -46,8 +48,18 @@ public class GameOverMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (_statusFly) {
+            LeanTween.scale(StatusText.gameObject,Vector2.one,0.5f);
+            LeanTween.moveLocalY(StatusText.gameObject,200f,0.5f);
+            if (StatusText.gameObject.transform.localScale.x > 0.95f) {
+                _statusFly = false;
+                _countScore = true;
+                _scoreText.gameObject.SetActive(true);
+                highScoreText.gameObject.SetActive(true);
+            }
+        }
 
-        if (!_scoreCounted) {
+        if (_countScore) {
 
             _currentScore += (int) (_score * 0.005f);
 
@@ -55,18 +67,19 @@ public class GameOverMenu : MonoBehaviour {
                 _scoreText.SetText(ScoreText, _currentScore);
 
             } else {
-
-                _scoreText.SetText(ScoreText,_score);
+                _currentScore = _score;
+                _scoreText.SetText(ScoreText,_currentScore);
+                _countScore = false;
                 _scoreCounted = true;
-
-                if (_currentScore > _oldHighScore) {
+            }
+            if (_currentScore > _oldHighScore) {
                 
                 Debug.Log("New highscore");
                 newText.gameObject.SetActive(true);
-                highScoreText.SetText(HighScoreText, _score);
+                highScoreText.SetText(HighScoreText, _currentScore);
+                _oldHighScore = _currentScore;
 
                 } 
-            }
 
         }
 
@@ -102,6 +115,7 @@ public class GameOverMenu : MonoBehaviour {
     public void SetState(string result) {
         StatusText.text = result;
         state = result;
+        _statusFly = true;
         
     }
 

@@ -257,55 +257,9 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2070644856}
-    - target: {fileID: 114431074025068610, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114431074025068610, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114783914195502170, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114783914195502170, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114654085879820216, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114654085879820216, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271915223808262, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271915223808262, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114630671623850708, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114630671623850708, guid: 78d8319037c502b4bace58890ccfc51e,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
+    - target: {fileID: 1989627792717346, guid: 78d8319037c502b4bace58890ccfc51e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78d8319037c502b4bace58890ccfc51e, type: 2}
