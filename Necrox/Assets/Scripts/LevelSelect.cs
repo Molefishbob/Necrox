@@ -19,10 +19,12 @@ public class LevelSelect : MonoBehaviour {
     public Sprite elder;
     public Sprite villagerMale;
     public Sprite villagerFemale;
+    public Sprite femaleMinion;
     public Sprite minionRed;
     public Sprite minionGreen;
     public Sprite minionBlue;
     public Sprite elderTree;
+    public Sprite king;
     private bool _unlocked;
 
     void Awake () {
@@ -85,16 +87,16 @@ public class LevelSelect : MonoBehaviour {
             case 3: enemyDisplayed.sprite = minionGreen; break;
             case 4: enemyDisplayed.sprite = villagerFemale; break;
             case 5: enemyDisplayed.sprite = minionBlue; break;
-            case 6: enemyDisplayed.sprite = villagerMale; break;
+            case 6: enemyDisplayed.sprite = villagerFemale; break;
             case 7: enemyDisplayed.sprite = elder; break;
-            case 8: enemyDisplayed.sprite = villagerFemale; break;
+            case 8: enemyDisplayed.sprite = femaleMinion; break;
             case 9: enemyDisplayed.sprite = villagerMale; break;
             case 10: enemyDisplayed.sprite = elder; break;
-            case 11: enemyDisplayed.sprite = minionGreen; break;
+            case 11: enemyDisplayed.sprite = femaleMinion; break;
             case 12: enemyDisplayed.sprite = minionRed; break;
             case 13: enemyDisplayed.sprite = villagerMale; break;
             case 14: enemyDisplayed.sprite = elderTree; break;
-            case 15: enemyDisplayed.sprite = elderTree; break;
+            case 15: enemyDisplayed.sprite = king; break;
         }
     }
 

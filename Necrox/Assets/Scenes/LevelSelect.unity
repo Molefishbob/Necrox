@@ -300,10 +300,12 @@ MonoBehaviour:
   elder: {fileID: 21300000, guid: bf374170b9f7db0438452cfea125b988, type: 3}
   villagerMale: {fileID: 21300000, guid: 8df37055c82473649919928aa08c2a08, type: 3}
   villagerFemale: {fileID: 21300000, guid: ff953cecbd8d9734cbc7359f7646c862, type: 3}
+  femaleMinion: {fileID: 21300000, guid: dc54fcb02a94bd7458f31b5c16a39141, type: 3}
   minionRed: {fileID: 21300000, guid: 56881469d9135d1408424e99d4a14afb, type: 3}
   minionGreen: {fileID: 21300000, guid: 56881469d9135d1408424e99d4a14afb, type: 3}
   minionBlue: {fileID: 21300000, guid: 56881469d9135d1408424e99d4a14afb, type: 3}
   elderTree: {fileID: 21300000, guid: bf374170b9f7db0438452cfea125b988, type: 3}
+  king: {fileID: 21300000, guid: f9021cda56528454790b51e4b2ef5b61, type: 3}
 --- !u!1 &317768315
 GameObject:
   m_ObjectHideFlags: 0
