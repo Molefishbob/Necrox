@@ -24,18 +24,17 @@ public class Tutorial : MonoBehaviour {
     private int tutorialCount = 1;
     private bool skipCheck = false;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Awake() {
+        FindObjectOfType<GameLogic>()._paused = true;
+        FindObjectOfType<CombatUI>()._paused = true;
+    }
 
     public void Forward() {
+        FindObjectOfType<GameLogic>()._paused = true;
+        FindObjectOfType<CombatUI>()._paused = true;
         if (frwrdButton.text == "START") {
+            FindObjectOfType<GameLogic>()._paused = false;
+            FindObjectOfType<CombatUI>()._paused = false;
             gameObject.SetActive(false);
         }
         if (tutorialCount < 7) {
@@ -85,6 +84,8 @@ public class Tutorial : MonoBehaviour {
     }
 
     public void Backwards() {
+        FindObjectOfType<GameLogic>()._paused = true;
+        FindObjectOfType<CombatUI>()._paused = true;
         if (skipCheck) {
             skipMessage.SetActive(false);
             frwrdButton.text = "NEXT";
