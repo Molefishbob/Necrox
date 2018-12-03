@@ -61,7 +61,7 @@ public class GameOverMenu : MonoBehaviour {
         }
 
         if (_countScore) {
-            _currentScore += (int) (_score * ScorePercentage);
+            _currentScore += (int) (_score * ScorePercentage)+1;
 
             if (Input.touchCount == 1) {
                 _currentScore = _score;
@@ -76,7 +76,7 @@ public class GameOverMenu : MonoBehaviour {
                 _countScore = false;
                 _scoreCounted = true;
             }
-            if (_currentScore > _oldHighScore) {
+            if (_currentScore > _oldHighScore && state != Defeat) {
                 
                 Debug.Log("New highscore");
                 newText.gameObject.SetActive(true);
@@ -99,25 +99,23 @@ public class GameOverMenu : MonoBehaviour {
         _oldHighScore = (int) GameManager.GetHighScore(SceneManager.GetActiveScene().name);
         _score = score;
 
-        if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score) && state != Defeat) {
+        if (state != Defeat) {
+            if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score)) {
 
             Debug.Log("VICTORY");
             StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
-            
+        
+            }
+
+            StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
+            highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
 
         } else if (state == Defeat) {
             Debug.Log("DEFEAT");
             StatusText.color = new Color(DefeatRed, DefeatGreen, DefeatBlue);
             _continueButton.gameObject.GetComponentInChildren<TMP_Text>().SetText(RestartText); 
 
-            } 
-            else {
-                
-            StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
-            highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
-        
-        }
-        
+            }
     }
 
     public void SetState(string result) {
@@ -132,7 +130,8 @@ public class GameOverMenu : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
             int val = 0;
-            if (System.Int32.TryParse(_nextScene.Substring(5), out val)) {
+            if (_nextScene != MainMenu) {
+                System.Int32.TryParse(_nextScene.Substring(5), out val);
                 GameManager.SaveLatestLevel(val);
             }
             Debug.Log(GameStateManager.Instance.ChangeState( 
