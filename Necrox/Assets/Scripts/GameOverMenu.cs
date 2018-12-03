@@ -21,6 +21,8 @@ public class GameOverMenu : MonoBehaviour {
     [SerializeField]
     private Button _continueButton;
     [SerializeField]
+    private Button _mainMenuButton;
+    [SerializeField]
     private TMP_Text _scoreText;
     [SerializeField]
     private TMP_Text StatusText;
@@ -34,41 +36,68 @@ public class GameOverMenu : MonoBehaviour {
     private string state;
     private int _score;
     private int _currentScore;
+    private bool _scoreCounted;
+    private int _oldHighScore;
 
     // Use this for initialization
     void Start () {
-        SetScore(0);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		_currentScore += _score/100*15;
-        if (_currentScore >= _score) {
-            _currentScore = _score;
-            _scoreText.SetText(ScoreText, _currentScore);
+
+        if (!_scoreCounted) {
+
+            _currentScore += (int) (_score * 0.005f);
+
+            if (_currentScore < _score) {
+                _scoreText.SetText(ScoreText, _currentScore);
+
+            } else {
+
+                _scoreText.SetText(ScoreText,_score);
+                _scoreCounted = true;
+
+                if (_currentScore > _oldHighScore) {
+                
+                Debug.Log("New highscore");
+                newText.gameObject.SetActive(true);
+                highScoreText.SetText(HighScoreText, _score);
+
+                } 
+            }
+
+        }
+
+        if (_scoreCounted) {
+            _continueButton.gameObject.SetActive(true);
+            _mainMenuButton.gameObject.SetActive(true);
         }
 
 	}
 
     public void SetScore(int score) {
-    
-            if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score) && state != Defeat) {
-    
-                newText.gameObject.SetActive(true);
-                StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
-                highScoreText.SetText(HighScoreText, score);
-    
-            } else if (state == Defeat) {
-                StatusText.color = new Color(DefeatRed, DefeatGreen, DefeatBlue);
-                _continueButton.gameObject.GetComponentInChildren<TMP_Text>().SetText(RestartText); 
-
-                } else {
-                    
-                StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
-                highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
-            
-                }
+        _scoreCounted = false;
+        _oldHighScore = (int) GameManager.GetHighScore(SceneManager.GetActiveScene().name);
         _score = score;
+
+        if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score) && state != Defeat) {
+
+            StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
+            
+
+        } else if (state == Defeat) {
+            StatusText.color = new Color(DefeatRed, DefeatGreen, DefeatBlue);
+            _continueButton.gameObject.GetComponentInChildren<TMP_Text>().SetText(RestartText); 
+
+            } else {
+                
+            StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
+            highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
+        
+        }
+        
     }
     public void SetState(string result) {
         StatusText.text = result;

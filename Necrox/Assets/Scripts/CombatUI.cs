@@ -24,6 +24,12 @@ public class CombatUI : MonoBehaviour {
     private bool _victory;
     private bool firstAttack = true;
     private bool attackComplete = true;
+    private bool _defeat;
+
+    public bool _paused {
+        get;
+        set;
+    }
     
 
     /*
@@ -40,28 +46,30 @@ public class CombatUI : MonoBehaviour {
 	}
 	
 	void Update () {
-        //Debug.Log(EnemyHealth.value);
-		if (EnemyHealth.value <= 0) {
-            if(!_victory) {
+        if (!_paused) {
+            //Debug.Log(EnemyHealth.value);
+            if (EnemyHealth.value <= 0 && !_victory && !_defeat) {
+
                 _camera.GetComponent<CameraManager>()
-				   	    .PlaySound(_victoryMusic,GameManager._soundVolume,usePitchVariance: false);
+                        .PlaySound(_victoryMusic,GameManager._soundVolume,usePitchVariance: false);
+
+                FindObjectOfType<GameLogic>()._paused = true;
+                GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+                GameOverMenu.GetComponent<GameOverMenu>().SetState("VICTORY");
+                GameOverMenu.gameObject.SetActive(true);
                 _victory = true;
             }
-            FindObjectOfType<GameLogic>()._paused = true;
-            GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
-            GameOverMenu.GetComponent<GameOverMenu>().SetState("VICTORY");
-            GameOverMenu.gameObject.SetActive(true);
+            if (MainCharHealth.value <= 0 && !_victory && !_defeat) {
+                FindObjectOfType<GameLogic>()._paused = true;
+                GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+                GameOverMenu.GetComponent<GameOverMenu>().SetState("DEFEAT");
+                GameOverMenu.gameObject.SetActive(true);
+                _defeat = true;
+            }
+            if (MainCharHealth.value > 0 && EnemyHealth.value > 0) {
+                EnemyAttack();
+            }
         }
-        if (MainCharHealth.value <= 0) {
-            FindObjectOfType<GameLogic>()._paused = true;
-            GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
-            GameOverMenu.GetComponent<GameOverMenu>().SetState("DEFEAT");
-            GameOverMenu.gameObject.SetActive(true);
-        }
-        if (MainCharHealth.value > 0 && EnemyHealth.value > 0) {
-            EnemyAttack();
-        }
-            
     }
 
     public void FireAttack() {
