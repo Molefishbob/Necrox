@@ -15,4 +15,9 @@ public class PauseMenu : MonoBehaviour {
                         (GameStateType)GameStateType.Parse(typeof(GameStateType)
                         , MainMenu));
     }
+
+    public void PlayGame() {
+        FindObjectOfType<GameLogic>()._paused = false;
+        FindObjectOfType<CombatUI>()._paused = false;
+    }
 }

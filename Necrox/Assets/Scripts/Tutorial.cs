@@ -141,5 +141,9 @@ public class Tutorial : MonoBehaviour {
         skipCheck = true;
         frwrdButton.text = "START";
         skipMessage.SetActive(true);
+        skeleton.SetActive(false);
+        earthWall.SetActive(false);
+        waterball.SetActive(false);
+        fireball.SetActive(false);
     }
 }

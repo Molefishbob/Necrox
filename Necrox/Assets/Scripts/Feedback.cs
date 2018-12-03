@@ -78,7 +78,7 @@ public class Feedback : MonoBehaviour {
                 break;
         }
         if (fireCount >= 3) {
-            Debug.Log("firecount is: " + fireCount);
+            //Debug.Log("firecount is: " + fireCount);
             Instantiate(fireball);
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()

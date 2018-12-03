@@ -299,10 +299,10 @@ MonoBehaviour:
   _lockSymbol: {fileID: 1182487133}
   elder: {fileID: 21300000, guid: bf374170b9f7db0438452cfea125b988, type: 3}
   villagerMale: {fileID: 21300000, guid: 8df37055c82473649919928aa08c2a08, type: 3}
-  villagerFemale: {fileID: 21300000, guid: 09edc23577f2041bdb592d2a8fe12d36, type: 3}
-  minionRed: {fileID: 21300000, guid: 62c916526df6f4ab7be2d1f11fabf897, type: 3}
-  minionGreen: {fileID: 21300008, guid: 62c916526df6f4ab7be2d1f11fabf897, type: 3}
-  minionBlue: {fileID: 21300012, guid: 62c916526df6f4ab7be2d1f11fabf897, type: 3}
+  villagerFemale: {fileID: 21300000, guid: ff953cecbd8d9734cbc7359f7646c862, type: 3}
+  minionRed: {fileID: 21300000, guid: 56881469d9135d1408424e99d4a14afb, type: 3}
+  minionGreen: {fileID: 21300000, guid: 56881469d9135d1408424e99d4a14afb, type: 3}
+  minionBlue: {fileID: 21300000, guid: 56881469d9135d1408424e99d4a14afb, type: 3}
   elderTree: {fileID: 21300000, guid: bf374170b9f7db0438452cfea125b988, type: 3}
 --- !u!1 &317768315
 GameObject:
@@ -1082,9 +1082,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 8df37055c82473649919928aa08c2a08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff953cecbd8d9734cbc7359f7646c862, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
