@@ -33,7 +33,7 @@ public class LevelSelect : MonoBehaviour {
         levelDisplay.text = LevelFormat + " " + levelInt;
         SetEnemySprite(levelInt);
         string lastLevel = LevelFormat + (levelInt-1);
-        if (GameManager.GetHighScore(lastLevel) != 0 || GameManager.GetHighScore(LevelFormat + levelInt) != 0) {
+        if (levelInt == 1 || GameManager.GetHighScore(lastLevel) != 0 || GameManager.GetHighScore(LevelFormat + levelInt) != 0) {
             _unlocked = true;
         } else {
             _unlocked = false;

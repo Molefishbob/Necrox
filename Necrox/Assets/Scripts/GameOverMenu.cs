@@ -61,8 +61,11 @@ public class GameOverMenu : MonoBehaviour {
         }
 
         if (_countScore) {
-
             _currentScore += (int) (_score * ScorePercentage);
+
+            if (Input.touchCount == 1) {
+                _currentScore = _score;
+            }
 
             if (_currentScore < _score) {
                 _scoreText.SetText(ScoreText, _currentScore);
@@ -116,7 +119,7 @@ public class GameOverMenu : MonoBehaviour {
         }
         
     }
-    
+
     public void SetState(string result) {
         StatusText.text = result;
         state = result;
@@ -128,6 +131,10 @@ public class GameOverMenu : MonoBehaviour {
         if (state == Defeat) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {
+            int val = 0;
+            if (System.Int32.TryParse(_nextScene.Substring(5), out val)) {
+                GameManager.SaveLatestLevel(val);
+            }
             Debug.Log(GameStateManager.Instance.ChangeState( 
                         (GameStateType)GameStateType.Parse(typeof(GameStateType)
                         , _nextScene)));

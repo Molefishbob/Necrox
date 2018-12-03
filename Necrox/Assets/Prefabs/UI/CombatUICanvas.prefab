@@ -251,7 +251,7 @@ MonoBehaviour:
   _victoryMusic: {fileID: 8300000, guid: 4526799172348d54fbd554c9e41fa111, type: 3}
   _camera: {fileID: 0}
   _loserBassAudio: {fileID: 8300000, guid: a0c207db0d5c0534bac201b25c950a79, type: 3}
-  _winnerHarpAudio: {fileID: 8300000, guid: b9141e8e572255e4da39fef4cc01e7b6, type: 3}
+  _winnerBassAudio: {fileID: 8300000, guid: b9141e8e572255e4da39fef4cc01e7b6, type: 3}
 --- !u!114 &114308286153506754
 MonoBehaviour:
   m_ObjectHideFlags: 1
