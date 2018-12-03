@@ -32,6 +32,8 @@ public class GameOverMenu : MonoBehaviour {
     [Tooltip("Level1,Level2,Level3,etc.")]
     private string _nextScene;
     private string state;
+    private int _score;
+    private int _currentScore;
 
     // Use this for initialization
     void Start () {
@@ -40,7 +42,12 @@ public class GameOverMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		_currentScore += _score/100*15;
+        if (_currentScore >= _score) {
+            _currentScore = _score;
+            _scoreText.SetText(ScoreText, _currentScore);
+        }
+
 	}
 
     public void SetScore(int score) {
@@ -60,10 +67,8 @@ public class GameOverMenu : MonoBehaviour {
                 StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
                 highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
             
-            }
-            
-            _scoreText.SetText(ScoreText, score);
-    
+                }
+        _score = score;
     }
     public void SetState(string result) {
         StatusText.text = result;
