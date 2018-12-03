@@ -32,6 +32,7 @@ public class LevelSelect : MonoBehaviour {
         highScoreText.SetText(GameManager.GetHighScore(level).ToString());
         levelDisplay.text = LevelFormat + " " + levelInt;
         SetEnemySprite(levelInt);
+        _unlocked = true;
     }
 	
 	
