@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CombatUI : MonoBehaviour {
-
+    private const string LevelText = "Level {0}";
     public Slider MainCharHealth;
     public Slider EnemyHealth;
     public Canvas GameOverMenu;
@@ -21,6 +23,7 @@ public class CombatUI : MonoBehaviour {
     public float enemyDmg;
     public AudioClip _victoryMusic;
     public Camera _camera;
+    public TMP_Text _currentLevel;
     private bool _victory;
     private bool firstAttack = true;
     private bool attackComplete = true;
@@ -43,8 +46,9 @@ public class CombatUI : MonoBehaviour {
      */
     // Use this for initialization
     void Start () {
-        //MainCharHealth.value = 50;
-        //Debug.Log(MainCharHealth.value + "   " + EnemyHealth.value);
+        int val = 0;
+        System.Int32.TryParse(SceneManager.GetActiveScene().name.Substring(5),out val);
+        _currentLevel.SetText(LevelText, val);
 	}
 	
 	void Update () {

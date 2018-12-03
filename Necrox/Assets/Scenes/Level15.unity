@@ -542,6 +542,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114342835580355832, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1791507347}
+    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: GameOverMenu
+      value: 
+      objectReference: {fileID: 439739680}
+    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: Feedback
+      value: 
+      objectReference: {fileID: 2070644857}
+    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 197230086}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: _camera
@@ -557,71 +577,15 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+    - target: {fileID: 114736190847726450, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: GameOverMenu
-      value: 
-      objectReference: {fileID: 439739680}
-    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: Feedback
-      value: 
-      objectReference: {fileID: 2070644857}
-    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: enemyDmg
-      value: 25
+      propertyPath: m_havePropertiesChanged
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
+    - target: {fileID: 114736190847726450, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: enemyAtkTime
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114510629533051148, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_MaxValue
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 114510629533051148, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_Value
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 224942813705033102, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224984291923084752, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224984291923084752, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 197230086}
-    - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: enemyDmgFeedback
-      value: 
-      objectReference: {fileID: 1024322369780482, guid: eb5d1ed75aefb6a41bc9ac98847aecd0,
-        type: 2}
-    - target: {fileID: 114342835580355832, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1791507347}
-    - target: {fileID: 114342835580355832, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}

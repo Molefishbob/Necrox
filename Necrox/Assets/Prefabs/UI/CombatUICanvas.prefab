@@ -246,10 +246,11 @@ MonoBehaviour:
   waterHeal: 7
   earthBool: 0
   skeleDmg: 15
-  enemyAtkTime: 8
-  enemyDmg: 10
+  enemyAtkTime: 6
+  enemyDmg: 25
   _victoryMusic: {fileID: 8300000, guid: 4526799172348d54fbd554c9e41fa111, type: 3}
   _camera: {fileID: 0}
+  _currentLevel: {fileID: 114736190847726450}
   _loserBassAudio: {fileID: 8300000, guid: a0c207db0d5c0534bac201b25c950a79, type: 3}
   _winnerBassAudio: {fileID: 8300000, guid: b9141e8e572255e4da39fef4cc01e7b6, type: 3}
 --- !u!114 &114308286153506754
@@ -582,9 +583,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 400
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 400
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -620,7 +621,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Level 15
+  m_text: Level XX
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1219f7fe3535ac2428d4ee1c6c950e7c, type: 2}
   m_sharedMaterial: {fileID: 21888025131643918, guid: 1219f7fe3535ac2428d4ee1c6c950e7c,
