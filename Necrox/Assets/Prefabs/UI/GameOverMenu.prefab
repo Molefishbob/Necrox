@@ -871,7 +871,7 @@ MonoBehaviour:
   StatusText: {fileID: 114431074025068610}
   highScoreText: {fileID: 114630671623850708}
   newText: {fileID: 114450365833192430}
-  _nextScene: Level9
+  _nextScene: 
 --- !u!114 &114714367652435930
 MonoBehaviour:
   m_ObjectHideFlags: 1

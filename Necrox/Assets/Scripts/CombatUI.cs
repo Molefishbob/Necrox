@@ -25,6 +25,8 @@ public class CombatUI : MonoBehaviour {
     private bool firstAttack = true;
     private bool attackComplete = true;
     private bool _defeat;
+    public AudioClip _loserBassAudio;
+    public AudioClip _winnerBassAudio;
 
     public bool _paused {
         get;
@@ -50,19 +52,28 @@ public class CombatUI : MonoBehaviour {
             //Debug.Log(EnemyHealth.value);
             if (EnemyHealth.value <= 0 && !_victory && !_defeat) {
 
+                _camera.GetComponent<AudioSource>().Stop();
+                
                 _camera.GetComponent<CameraManager>()
-                        .PlaySound(_victoryMusic,GameManager._soundVolume,usePitchVariance: false);
+				   	.PlaySound(_winnerBassAudio,GameManager._soundVolume,usePitchVariance: true);
 
                 FindObjectOfType<GameLogic>()._paused = true;
-                GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
                 GameOverMenu.GetComponent<GameOverMenu>().SetState("VICTORY");
+                GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
                 GameOverMenu.gameObject.SetActive(true);
                 _victory = true;
             }
             if (MainCharHealth.value <= 0 && !_victory && !_defeat) {
+
                 FindObjectOfType<GameLogic>()._paused = true;
-                GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
+
+                _camera.GetComponent<AudioSource>().Stop();
+
+                _camera.GetComponent<CameraManager>()
+				   	.PlaySound(_loserBassAudio,GameManager._soundVolume,usePitchVariance: true);
+
                 GameOverMenu.GetComponent<GameOverMenu>().SetState("DEFEAT");
+                GameOverMenu.GetComponent<GameOverMenu>().SetScore(Feedback.GetComponent<Feedback>().GetScore());
                 GameOverMenu.gameObject.SetActive(true);
                 _defeat = true;
             }

@@ -18,6 +18,7 @@ public class GameOverMenu : MonoBehaviour {
     private const float DefeatRed = 0.7137254901960784f;
     private const float DefeatGreen = 0.0274509803921569f;
     private const float DefeatBlue = 0.0274509803921569f;
+    private const float ScorePercentage = 0.005f;
     [SerializeField]
     private Button _continueButton;
     [SerializeField]
@@ -61,7 +62,7 @@ public class GameOverMenu : MonoBehaviour {
 
         if (_countScore) {
 
-            _currentScore += (int) (_score * 0.005f);
+            _currentScore += (int) (_score * ScorePercentage);
 
             if (_currentScore < _score) {
                 _scoreText.SetText(ScoreText, _currentScore);
@@ -97,14 +98,17 @@ public class GameOverMenu : MonoBehaviour {
 
         if (GameManager.LevelEnd(SceneManager.GetActiveScene().name,score) && state != Defeat) {
 
+            Debug.Log("VICTORY");
             StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
             
 
         } else if (state == Defeat) {
+            Debug.Log("DEFEAT");
             StatusText.color = new Color(DefeatRed, DefeatGreen, DefeatBlue);
             _continueButton.gameObject.GetComponentInChildren<TMP_Text>().SetText(RestartText); 
 
-            } else {
+            } 
+            else {
                 
             StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
             highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
@@ -112,6 +116,7 @@ public class GameOverMenu : MonoBehaviour {
         }
         
     }
+    
     public void SetState(string result) {
         StatusText.text = result;
         state = result;
