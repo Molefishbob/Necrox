@@ -53,27 +53,27 @@ public class LevelSelect : MonoBehaviour {
         int nextLevelInt = 0;
         if (levelInt < 15)
         {
-            nextLevelInt = levelInt + 1;
-        }
-        string nextlevel = LevelFormat + nextLevelInt;
-        if (GameManager.GetHighScore(level) != 0 || GameManager.GetHighScore(LevelFormat + levelInt) != 0) {
-            _unlocked = true;
-            _lockSymbol.SetActive(false);
-            levelInt = nextLevelInt;
-            level = nextlevel;
-            highScoreText.SetText(GameManager.GetHighScore(level).ToString());
-            SetEnemySprite(levelInt);
-            levelDisplay.text = LevelFormat + " " + levelInt;
-        } else {
-            if (!_lockSymbol.activeSelf) {
-
+                nextLevelInt = levelInt + 1;
+            string nextlevel = LevelFormat + nextLevelInt;
+            if (GameManager.GetHighScore(level) != 0 || GameManager.GetHighScore(LevelFormat + levelInt) != 0) {
+                _unlocked = true;
+                _lockSymbol.SetActive(false);
                 levelInt = nextLevelInt;
                 level = nextlevel;
-                levelDisplay.text = LevelFormat + " " + nextLevelInt;
+                highScoreText.SetText(GameManager.GetHighScore(level).ToString());
+                SetEnemySprite(levelInt);
+                levelDisplay.text = LevelFormat + " " + levelInt;
+            } else {
+                if (!_lockSymbol.activeSelf) {
 
+                    levelInt = nextLevelInt;
+                    level = nextlevel;
+                    levelDisplay.text = LevelFormat + " " + nextLevelInt;
+
+                }
+                _unlocked = false;
+                _lockSymbol.SetActive(true);
             }
-            _unlocked = false;
-            _lockSymbol.SetActive(true);
         }
         //need to change the character
     }
