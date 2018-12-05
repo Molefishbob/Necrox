@@ -41,12 +41,10 @@ namespace TAMK.SpaceShooter.UI
 		public void StartGame()
 		{
 			Debug.Log("startgame");
-			_camera.GetComponent<CameraManager>()
-					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);
 			_startGame = true;
 		}
 
-		public void Settings() {
+		public void PlayClickAudio() {
 			_camera.GetComponent<CameraManager>()
 					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);
 		}
