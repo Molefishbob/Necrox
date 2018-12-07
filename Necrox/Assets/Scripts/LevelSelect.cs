@@ -141,6 +141,9 @@ public class LevelSelect : MonoBehaviour {
 
     public void StartLevel() {
         //Select the level based on the name
+        GameStateManager.Instance.ChangeState(
+                                (GameStateType)GameStateType.Parse(typeof(GameStateType)
+                                , level));
         if (_unlocked) {
 
             _startlevel = true;
