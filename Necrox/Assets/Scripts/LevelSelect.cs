@@ -28,9 +28,6 @@ public class LevelSelect : MonoBehaviour {
     private bool _unlocked;
     public AudioClip _buttonClick;
     public Camera _camera;
-    private bool _startlevel;
-    private float _timer;
-    private float _count = 0;
 
     void Awake () {
         
@@ -39,7 +36,6 @@ public class LevelSelect : MonoBehaviour {
         highScoreText.SetText(GameManager.GetHighScore(level).ToString());
         levelDisplay.text = LevelFormat + " " + levelInt;
         SetEnemySprite(levelInt);
-        _timer = _buttonClick.length;
         string lastLevel = LevelFormat + (levelInt-1);
         if (levelInt == 1 || GameManager.GetHighScore(lastLevel) != 0 || GameManager.GetHighScore(LevelFormat + levelInt) != 0) {
             _unlocked = true;
@@ -51,22 +47,6 @@ public class LevelSelect : MonoBehaviour {
 	
 	
 	void Update () {
-		
-        if (_startlevel) {
-
-				if(_timer <= _count) {
-				
-                    GameStateManager.Instance.ChangeState(
-                                (GameStateType)GameStateType.Parse(typeof(GameStateType)
-                                , level));
-
-                    _count = 0;
-
-				}
-
-				_count += Time.deltaTime;
-
-			}
 
 	}
 
@@ -141,13 +121,14 @@ public class LevelSelect : MonoBehaviour {
 
     public void StartLevel() {
         //Select the level based on the name
-        GameStateManager.Instance.ChangeState(
+
+        if (_unlocked) {
+            
+            GameManager.SaveLatestLevel(levelInt);
+
+            GameStateManager.Instance.ChangeState(
                                 (GameStateType)GameStateType.Parse(typeof(GameStateType)
                                 , level));
-        if (_unlocked) {
-
-            _startlevel = true;
-            GameManager.SaveLatestLevel(levelInt);
 
         }
     }
