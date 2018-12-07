@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class LevelSelect : MonoBehaviour {
     private const string LevelFormat = "Level";
     private const string HighScoreText = "High Score:\n{0}";
+    private const string MainMenu = "MainMenu";
     public TMP_Text highScoreText;
     public TMP_Text levelDisplay;
     public Image enemyDisplayed;
@@ -132,6 +133,15 @@ public class LevelSelect : MonoBehaviour {
 
         }
     }
+
+    public void ToMainMenu() {
+
+        GameStateManager.Instance.ChangeState(
+                                (GameStateType)GameStateType.Parse(typeof(GameStateType)
+                                , MainMenu));
+
+    }
+
     public void PlayClickSound() {
         _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: true);
