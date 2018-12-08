@@ -14,13 +14,13 @@ public class CombatUI : MonoBehaviour {
     public GameObject enemy;
     public GameObject enemyDmgFeedback;
 
-    public float FireDmg = 2;
-    public float waterHeal = 1;
-    public bool earthBool = false;
-    public float earthPercentage = .03f;
-    public float earthStack;
-    public float earthMax = .3f;
-    public float skeleDmg = 3;
+    private float FireDmg = 2;
+    private float waterHeal = 1;
+    private bool earthBool = false;
+    private float earthPercentage = .03f;
+    private float earthStack;
+    private float earthMax = .3f;
+    private float skeleDmg = 3;
 
     public float enemyAtkTime;
     public float enemyDmg;
@@ -97,7 +97,7 @@ public class CombatUI : MonoBehaviour {
         MainCharHealth.value += waterHeal;
     }
     public void EarthProtect() {
-        if (earthStack > earthMax) {
+        if (earthStack >= earthMax) {
             earthStack = earthMax;
         } else {
             earthStack += earthPercentage;
@@ -122,6 +122,7 @@ public class CombatUI : MonoBehaviour {
             enemy.GetComponent<Animator>().SetTrigger("Attack");
             if (earthBool) {
                 earthBool = false;
+                earthStack = 0;
                 MainCharHealth.value -= (float)(enemyDmg * (1 - earthStack));
                 Instantiate(enemyDmgFeedback);
             } else {
