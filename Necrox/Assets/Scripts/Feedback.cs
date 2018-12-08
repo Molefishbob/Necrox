@@ -62,18 +62,22 @@ public class Feedback : MonoBehaviour {
         switch (tile.GetComponent<Rock>()._element) {
             case "fire":
                 fireCount++;
+                CombatUI.GetComponent<CombatUI>().FireAttack();
                 score += 6;
                 break;
             case "water":
                 waterCount++;
+                CombatUI.GetComponent<CombatUI>().WaterHeal();
                 score += 5;
                 break;
             case "earth":
                 earthCount++;
+                CombatUI.GetComponent<CombatUI>().EarthProtect();
                 score += 4;
                 break;
             case "chaos":
                 chaosCount++;
+                CombatUI.GetComponent<CombatUI>().SkeletonAttack();
                 score += 7;
                 break;
         }
@@ -83,7 +87,6 @@ public class Feedback : MonoBehaviour {
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_fireMatch,GameManager._soundVolume,usePitchVariance: true);
-            CombatUI.GetComponent<CombatUI>().FireAttack();
             fireCount = 0;
             //mainChar.GetComponent<Animator>().SetBool("StartSpell", false);
         }
@@ -92,7 +95,6 @@ public class Feedback : MonoBehaviour {
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_waterMatch,GameManager._soundVolume,usePitchVariance: true);
-            CombatUI.GetComponent<CombatUI>().WaterHeal();
             waterCount = 0;
         }
         if (earthCount >= 3) {
@@ -100,7 +102,6 @@ public class Feedback : MonoBehaviour {
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_earthMatch,GameManager._soundVolume,usePitchVariance: true);
-            CombatUI.GetComponent<CombatUI>().EarthProtect();
             earthCount = 0;
         }
         if (chaosCount >= 3) {
@@ -108,7 +109,6 @@ public class Feedback : MonoBehaviour {
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_chaosMatch,GameManager._soundVolume,usePitchVariance: true);
-            CombatUI.GetComponent<CombatUI>().SkeletonAttack();
             chaosCount = 0;
         }
         scoreText.text ="Score:" + score;
