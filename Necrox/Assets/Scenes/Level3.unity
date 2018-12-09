@@ -1548,7 +1548,7 @@ Prefab:
         type: 2}
       propertyPath: GameOverMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1372413608}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: Feedback
@@ -1914,6 +1914,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!223 &1372413608 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 223444817325669518, guid: d181fc4624faab04ca0410c9a8d018ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 953699533}
 --- !u!1 &1375933908 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1569448885243844, guid: 513f2c984a4ec8e449d46d9dbd094190,
