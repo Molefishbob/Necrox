@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 20394338051552618}
   - component: {fileID: 81972554800747988}
   - component: {fileID: 114616424547241506}
+  - component: {fileID: 82950989103554532}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -390,6 +391,101 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1946896914453792}
   m_Enabled: 1
+--- !u!82 &82950989103554532
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946896914453792}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a64eebca2ccbdbb48b54141edb1a8e30, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114315787097539126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,6 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaaa91603149cbc4498d6b56935f26df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _feedback: {fileID: 114315787097539126}
   touchInputMask:
     serializedVersion: 2
     m_Bits: 512
@@ -534,8 +631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 213d476aef838df45b655c8d25397ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  center: {x: 0, y: -2.65}
-  size: {x: 6, y: 6}
   _camera: {fileID: 20394338051552618}
   arrayRows: 6
   arrayColumns: 6
@@ -556,8 +651,6 @@ MonoBehaviour:
   column4: {fileID: 1299605493018598}
   column5: {fileID: 1844402645481672}
   _movementAudio: {fileID: 8300000, guid: 5b459758f81f15148bf9272648356ad6, type: 3}
-  _audioPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
-    type: 2}
   _useStandardTemplates: 1
 --- !u!114 &114737322769587644
 MonoBehaviour:

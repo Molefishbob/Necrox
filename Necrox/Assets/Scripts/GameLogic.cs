@@ -6,6 +6,7 @@ public class GameLogic : MonoBehaviour {
 
     private const int MINDISTANCE = 15;
     private const int Offset = 6;
+    public Feedback _feedback;
     public LayerMask touchInputMask;
     private RaycastHit2D hit;
     private RaycastHit2D directionHit;
@@ -123,6 +124,8 @@ public class GameLogic : MonoBehaviour {
 
                 if (_comboResetCounter >= 20) {
 
+                    _feedback.CombatUI.GetComponentInChildren<ComboFeedback>().comboOver = true;
+                    _feedback.CombatUI.GetComponentInChildren<ComboFeedback>().comboCount = GameManager.comboCount;
                     GameManager.comboCount = 0;
                     _comboResetCounter = 0;
 
