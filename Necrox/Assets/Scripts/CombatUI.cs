@@ -91,10 +91,12 @@ public class CombatUI : MonoBehaviour {
     }
 
     public void FireAttack() {
-        EnemyHealth.value -= FireDmg;
+        EnemyHealth.value -= FireDmg * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+        Debug.Log("FireAttack:" + ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100));
     }
     public void WaterHeal() {
-        MainCharHealth.value += waterHeal;
+        MainCharHealth.value += waterHeal * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+        Debug.Log("WaterHeal:" + ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100));
     }
     public void EarthProtect() {
         if (earthStack >= earthMax) {
@@ -105,7 +107,8 @@ public class CombatUI : MonoBehaviour {
         earthBool = true; 
     }
     public void SkeletonAttack() {
-        EnemyHealth.value -= skeleDmg;
+        EnemyHealth.value -= skeleDmg * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+        Debug.Log("SkeletonAttack:" + ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100));
     }
 
     void EnemyAttack() {

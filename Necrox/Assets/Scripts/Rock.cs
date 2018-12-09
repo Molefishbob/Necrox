@@ -19,7 +19,7 @@ public class Rock : MonoBehaviour
     private int _xPosition = 0;
     private bool _xValueChanged;
     private bool _yValueChanged;
-    private bool _toBeDestroyed;
+    public bool _toBeDestroyed;
     private GameField _gameField;
     private float speed = 0.25f;
     public GameObject feedback;
@@ -311,7 +311,7 @@ public class Rock : MonoBehaviour
     /// </summary>
     public void DestroyTile()
     {
-        if (_toBeDestroyed)
+        if (_toBeDestroyed && !isImmovable)
         {
 
             if (pos[1] >= 6)
@@ -322,7 +322,8 @@ public class Rock : MonoBehaviour
             {
                 Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
                 GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos, gameObject);
-                if (!this.GetComponentInParent<ColumnBehaviour>().tileSwitchDisabled) {
+                if (!this.GetComponentInParent<ColumnBehaviour>().tileSwitchDisabled)
+                {
                     this.GetComponentInParent<ColumnBehaviour>().tileSwitchDisabled = true;
                 }
                 sentToFeedback = true;

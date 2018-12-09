@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class GameField : MonoBehaviour {
 
-	public Vector2 center;
-	public Vector2 size;
 	public Camera _camera;
 
 	public int arrayRows;
@@ -23,14 +21,12 @@ public class GameField : MonoBehaviour {
 	public GameObject column4;
 	public GameObject column5;
     public AudioClip _movementAudio;
-    public PlaySoundClip _audioPlayer;
 	
     public bool _useStandardTemplates;
 
 	private bool startGame = true;
 	private static int rows;
 	private float timer = 0.1f;
-	private static int column;
 	private float count;
 	private int rowsDone;
 	private string[,] _firstField;
@@ -42,10 +38,10 @@ public class GameField : MonoBehaviour {
     private bool firstTable = true;
 
     void Start () {
+		GameManager.defaultMultiplier = 100;
 		_firstField = new string[6,6];
 		_extraTiles = new string[6,6];
 		rows = arrayRows;
-		column = arrayColumns;
 		count = timer;
 		rowsDone = 0;
 		
@@ -262,6 +258,7 @@ public class GameField : MonoBehaviour {
 				return column0;
 		}
 	}
+
 	public bool AreVisibleTilesMoving() {
         
 		for (int a = 0; a < gameField.GetLength(0);a++) {
@@ -286,19 +283,15 @@ public class GameField : MonoBehaviour {
 	public static GameObject[,] GetGameField() {
 		return gameField;
 	}
-	
-	public static int GetArrayColumns() {
-		return column;
-	}
+
 	public static int GetArrayRows() {
 		return rows;
 	}
-	public bool GetStartGame() {
-		return startGame;
-	}
+
 	public bool GetFirstTable() {
 		return firstTable;
 	}
+
 	public Rock GetRockPrefab(string element) {
 		switch(element) {
 			case "water":
@@ -316,14 +309,12 @@ public class GameField : MonoBehaviour {
 				return fireRock;
 		}
 	}
+	
 	public static void setObject(int a, int b, GameObject rock) {
 		gameField[a,b] = rock;
 		// if (rock.GetComponent<Rock>().GetElement().Length > 1) {
 		// 	Debug.Log("X:" + a + " Y:" + b + " Element:" + rock.GetComponent<Rock>().GetElement());
 		// }
 	}
-	void OnDrawGizmosSelected() {
-		Gizmos.color = new Color(1,0,0,0.5f);
-		Gizmos.DrawCube(center,size);
-	}
+
 }

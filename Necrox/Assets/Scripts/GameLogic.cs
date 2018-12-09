@@ -30,9 +30,15 @@ public class GameLogic : MonoBehaviour {
     public GameObject selectBorder;
     private GameObject border;
     private bool _touched;
-    private int _counter = 0;
+    private int _boardCheckCounter = 0;
+    private GameField _gameField;
+    private int _comboResetCounter = 0;
     
     public bool _paused {
+        get;
+        set;
+    }
+    public bool _noMatches {
         get;
         set;
     }
@@ -40,7 +46,7 @@ public class GameLogic : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
-
+        _gameField = gameField.GetComponent<GameField>();
     }
 
     //Movement
@@ -55,42 +61,83 @@ public class GameLogic : MonoBehaviour {
      */
 
     void FixedUpdate() {
+        
         if (!_paused) {
+
             //Debug.Log("can touch is: " + canTouch);
             //Debug.Log("moving is: " + moving);
             //Debug.Log("moveComplete is " + moveComplete);
-            if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+
+            if(!_gameField.AreVisibleTilesMoving()) {
+
                 canTouch = true;
+
             }
 
-            if (gameField.GetComponent<GameField>().AreVisibleTilesMoving() && !moving) {
+            if (_gameField.AreVisibleTilesMoving() && !moving) {
                 
                 canTouch = false;
+
             }
+
             if (moving) {
+
                 CheckMovementComplete();
+
             }
+
             if (Input.GetKeyDown("p") || Input.GetKeyDown(KeyCode.Escape)) {
+
                 CheckBoard();
                 canTouch = false;
+
             }
+
             if (Input.GetKeyDown("l")) {
+
                 canTouch = true;
+
             }
 
 
-            if (canTouch && !gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+            if (canTouch && !_gameField.AreVisibleTilesMoving()) {
+
                 TrackMovement();
+
             }
-            
-            if(!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
-                if (_counter >= 15) {
+
+            if (!_gameField.AreVisibleTilesMoving()) {
+
+                if (_boardCheckCounter >= 15) {
+
                     CheckBoard();
-                    _counter = 0;
+                    _boardCheckCounter = 0;
+
                 }
-                _counter++;
+
+                _boardCheckCounter++;
+
             }
+
+            if (_noMatches) {
+
+                if (_comboResetCounter >= 20) {
+
+                    GameManager.comboCount = 0;
+                    _comboResetCounter = 0;
+
+                }
+
+                _comboResetCounter++;
+
+            } else {
+
+                _comboResetCounter = 0;
+
+            }
+
         }
+
     }
 
     void CheckMovementComplete() {
@@ -98,7 +145,7 @@ public class GameLogic : MonoBehaviour {
         if (!moveComplete) {
             // Debug.Log("Moving");
             // Debug.Log("Tiles moving:" + gameField.GetComponent<GameField>().AreVisibleTilesMoving());
-            if (!gameField.GetComponent<GameField>().AreVisibleTilesMoving()) {
+            if (!_gameField.AreVisibleTilesMoving()) {
                 
                 CheckBoard();
                 
@@ -249,7 +296,7 @@ public class GameLogic : MonoBehaviour {
                 && !secondRock.GetComponentInParent<ColumnBehaviour>().tileSwitchDisabled) {
 
                 //Debug.Log("Element:" + secondRock.GetComponent<Rock>().GetElement());
-                gameField.GetComponent<GameField>().MoveTiles(firstRock, secondRock, newMove: true);
+                _gameField.MoveTiles(firstRock, secondRock, newMove: true);
 
             }
             directionChosen = false;

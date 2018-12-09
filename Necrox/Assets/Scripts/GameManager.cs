@@ -26,8 +26,16 @@ public static class GameManager
 		get;
 		private set;
 	}
-	
-	public static bool LevelEnd(string levelKey, float score) {
+    public static int comboCount { 
+		get;
+		set;
+	}
+    public static int defaultMultiplier { 
+		get;
+		set;
+		}
+
+    public static bool LevelEnd(string levelKey, float score) {
 		float previousScore = PlayerPrefs.GetFloat(levelKey,0);
 			if(previousScore ==  0) {
 				PlayerPrefs.SetFloat(levelKey,score);

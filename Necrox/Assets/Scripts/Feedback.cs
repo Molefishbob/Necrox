@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 public class Feedback : MonoBehaviour {
-
-    
+    private const int MinimumMatch = 3;
     public Camera _camera;
     public GameField gameField;
     public int explosionLayer = 50;
@@ -59,29 +58,45 @@ public class Feedback : MonoBehaviour {
     }
 
     void SpellFeedback (GameObject tile) {
+
+        float temp = 0;
+
         switch (tile.GetComponent<Rock>()._element) {
+
             case "fire":
                 fireCount++;
                 CombatUI.GetComponent<CombatUI>().FireAttack();
-                score += 6;
+                temp = 6 * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+                Debug.Log("score Increase:" + temp);
+                score += (int) temp;
                 break;
             case "water":
                 waterCount++;
                 CombatUI.GetComponent<CombatUI>().WaterHeal();
-                score += 5;
+                temp = 5 * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+                Debug.Log("score Increase:" + temp);
+                score += (int) temp;
                 break;
             case "earth":
                 earthCount++;
                 CombatUI.GetComponent<CombatUI>().EarthProtect();
-                score += 4;
+                temp = 4 * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+                Debug.Log("score Increase:" + temp);
+                score += (int) temp;
                 break;
             case "chaos":
                 chaosCount++;
                 CombatUI.GetComponent<CombatUI>().SkeletonAttack();
-                score += 7;
+                temp = 7 * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+                Debug.Log("score Increase:" + temp);
+                score += (int) temp;
                 break;
+
         }
-        if (fireCount >= 3) {
+
+        if (fireCount >= MinimumMatch) {
+
+            GameManager.comboCount += 1;
             //Debug.Log("firecount is: " + fireCount);
             Instantiate(fireball);
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
@@ -89,29 +104,43 @@ public class Feedback : MonoBehaviour {
 				   	.PlaySound(_fireMatch,GameManager._soundVolume,usePitchVariance: true);
             fireCount = 0;
             //mainChar.GetComponent<Animator>().SetBool("StartSpell", false);
+
         }
-        if (waterCount >= 3) {
+
+        if (waterCount >= MinimumMatch) {
+
+            GameManager.comboCount += 1;
             Instantiate(waterHeal);
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_waterMatch,GameManager._soundVolume,usePitchVariance: true);
             waterCount = 0;
+
         }
-        if (earthCount >= 3) {
+
+        if (earthCount >= MinimumMatch) {
+
+            GameManager.comboCount += 1;
             Instantiate(earthProtect);
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_earthMatch,GameManager._soundVolume,usePitchVariance: true);
             earthCount = 0;
+
         }
-        if (chaosCount >= 3) {
+
+        if (chaosCount >= MinimumMatch) {
+
             Instantiate(skeleton);
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_chaosMatch,GameManager._soundVolume,usePitchVariance: true);
             chaosCount = 0;
+
         }
+
         scoreText.text ="Score:" + score;
+
     }
 
     public int GetScore() {

@@ -325,14 +325,19 @@ public class MatchChecker : MonoBehaviour {
 
     }
 
-    private static void OrderTilesToBeDestroyed() {
+    private static bool OrderTilesToBeDestroyed() {
+        bool destroyed = false;
         for (int a = 0; a < GameField.GetGameField().GetLength(0); a++) {
             for (int b = 6; b < GameField.GetGameField().GetLength(1); b++) {
                 if (GameField.GetGameField()[a, b] != null) {
+                    if (GameField.GetGameField()[a, b].GetComponent<Rock>()._toBeDestroyed) {
+                        destroyed = true;
+                    }
                     GameField.GetGameField()[a, b].GetComponent<Rock>().DestroyTile();
                 }
             }
         }
+        return destroyed;
     }
 
     private void CheckHorizontalMatches() { 
@@ -420,7 +425,11 @@ public class MatchChecker : MonoBehaviour {
 
         RowCheck();
 
-        OrderTilesToBeDestroyed();
+        if (OrderTilesToBeDestroyed()) {
+            gameLogic.GetComponent<GameLogic>()._noMatches = false;
+        } else {
+            gameLogic.GetComponent<GameLogic>()._noMatches = true;
+        }
 
         gameLogic.GetComponent<GameLogic>().SetTouchTrue();
 
