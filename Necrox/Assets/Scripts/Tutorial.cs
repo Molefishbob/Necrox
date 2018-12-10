@@ -18,6 +18,7 @@ public class Tutorial : MonoBehaviour {
     public GameObject earthWall;
     public GameObject waterball;
     public GameObject skeleton;
+    public GameObject gunk;
     public GameObject skipMessage;
     public TMP_Text frwrdButton;
 
@@ -37,7 +38,7 @@ public class Tutorial : MonoBehaviour {
             FindObjectOfType<CombatUI>()._paused = false;
             gameObject.SetActive(false);
         }
-        if (tutorialCount < 7) {
+        if (tutorialCount < 8) {
             tutorialCount++;
         }
         switch (tutorialCount) {
@@ -72,9 +73,14 @@ public class Tutorial : MonoBehaviour {
                 earthWall.SetActive(false);
                 chaos.SetActive(true);
                 skeleton.SetActive(true);
-                frwrdButton.text = "NEXT";
                 break;
             case 7:
+                chaos.SetActive(false);
+                skeleton.SetActive(false);
+                gunk.SetActive(true);
+                frwrdButton.text = "NEXT";
+                break;
+            case 8:
                 chaos.SetActive(false);
                 skeleton.SetActive(false);
                 complete.SetActive(true);
@@ -128,9 +134,14 @@ public class Tutorial : MonoBehaviour {
                 earthWall.SetActive(false);
                 chaos.SetActive(true);
                 skeleton.SetActive(true);
-                frwrdButton.text = "NEXT";
                 break;
             case 7:
+                chaos.SetActive(false);
+                skeleton.SetActive(false);
+                gunk.SetActive(true);
+                frwrdButton.text = "NEXT";
+                break;
+            case 8:
                 chaos.SetActive(false);
                 skeleton.SetActive(false);
                 complete.SetActive(true);
