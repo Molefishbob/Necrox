@@ -39,83 +39,112 @@ public class ComboFeedback : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (comboOver) {
+	void Update ()
+    {
+        if (comboOver)
+        {
+            GetComboText();
+        }
+        CheckForTextMovement();
+    }
 
-			if (comboCount < 4 && comboCount > 0 && !_goodJob.gameObject.activeSelf) {
+    private void CheckForTextMovement()
+    {
+        if (!LeanTween.isTweening(_goodJob.gameObject) && _goodjobTimer.IsCompleted)
+        {
 
-				ResetTimer(_goodjobTimer);
-				_goodJob.gameObject.SetActive(true);
-				LeanTween.scale(_goodJob.gameObject,Vector2.one, Time);
-				LeanTween.moveLocalY(_goodJob.gameObject, EndPosition, MoveTime);
+            _goodJob.gameObject.SetActive(false);
+            _goodJob.rectTransform.localPosition = Vector2.zero;
+			_unbelievable.rectTransform.localScale = Vector2.one;
 
-			} else if (comboCount < 6 && comboCount > 2 && !_amazing.gameObject.activeSelf) {
+        }
 
-				ResetTimer(_amazingTimer);
-				_amazing.gameObject.SetActive(true);
-				LeanTween.scale(_amazing.gameObject,Vector2.one, Time);
-				LeanTween.moveLocalY(_amazing.gameObject, EndPosition, MoveTime);
+        if (!LeanTween.isTweening(_amazing.gameObject) && _amazingTimer.IsCompleted)
+        {
 
-			} else if (comboCount < 8 && comboCount > 4 && !_incredible.gameObject.activeSelf) {
+            _amazing.gameObject.SetActive(false);
+            _amazing.rectTransform.localPosition = Vector2.zero;
+			_unbelievable.rectTransform.localScale = Vector2.one;
 
-				ResetTimer(_incredibleTimer);
-				_incredible.gameObject.SetActive(true);
-				LeanTween.scale(_incredible.gameObject,Vector2.one, Time);
-				LeanTween.moveLocalY(_incredible.gameObject, EndPosition, MoveTime);
+        }
+        if (!LeanTween.isTweening(_incredible.gameObject) && _incredibleTimer.IsCompleted)
+        {
 
-			} else if (comboCount < 10 && comboCount > 6 && !_unbelievable.gameObject.activeSelf) {
+            _incredible.gameObject.SetActive(false);
+            _incredible.rectTransform.localPosition = Vector2.zero;
+			_unbelievable.rectTransform.localScale = Vector2.one;
 
-				ResetTimer(_unbelievableTimer);
-				_unbelievable.gameObject.SetActive(true);
-				LeanTween.scale(_unbelievable.gameObject,Vector2.one, Time);
-				LeanTween.moveLocalY(_unbelievable.gameObject, EndPosition, MoveTime);
+        }
+        if (!LeanTween.isTweening(_unbelievable.gameObject) && _unbelievableTimer.IsCompleted)
+        {
 
-			} else if (comboCount > 10 && !_comboMaster.gameObject.activeSelf) {
+            _unbelievable.gameObject.SetActive(false);
+            _unbelievable.rectTransform.localPosition = Vector2.zero;
+			_unbelievable.rectTransform.localScale = Vector2.one;
 
-				ResetTimer(_combomasterTimer);
-				_comboMaster.gameObject.SetActive(true);
-				LeanTween.scale(_comboMaster.gameObject,Vector2.one, Time);
-				LeanTween.moveLocalY(_comboMaster.gameObject, EndPosition, MoveTime);
+        }
+        if (!LeanTween.isTweening(_comboMaster.gameObject) && _combomasterTimer.IsCompleted)
+        {
 
-			}
+            _comboMaster.gameObject.SetActive(false);
+            _comboMaster.rectTransform.localPosition = Vector2.zero;
+			_unbelievable.rectTransform.localScale = Vector2.one;
 
-			comboOver = false;
+        }
+    }
 
-		}
-		if (!LeanTween.isTweening(_goodJob.gameObject) && _goodjobTimer.IsCompleted) {
+    private void GetComboText()
+    {
+        if (comboCount < 4 && comboCount > 2 && !_goodJob.gameObject.activeSelf)
+        {
 
-			_goodJob.gameObject.SetActive(false);
-			_goodJob.rectTransform.localPosition = Vector2.zero;
+            ResetTimer(_goodjobTimer);
+            _goodJob.gameObject.SetActive(true);
+            LeanTween.scale(_goodJob.gameObject, Vector2.one, Time);
+            LeanTween.moveLocalY(_goodJob.gameObject, EndPosition, MoveTime);
 
-		}
+        }
+        else if (comboCount < 6 && comboCount >= 4 && !_amazing.gameObject.activeSelf)
+        {
 
-		if (!LeanTween.isTweening(_amazing.gameObject) && _amazingTimer.IsCompleted) {
+            ResetTimer(_amazingTimer);
+            _amazing.gameObject.SetActive(true);
+            LeanTween.scale(_amazing.gameObject, Vector2.one, Time);
+            LeanTween.moveLocalY(_amazing.gameObject, EndPosition, MoveTime);
 
-			_amazing.gameObject.SetActive(false);
-			_amazing.rectTransform.localPosition = Vector2.zero;
+        }
+        else if (comboCount < 8 && comboCount >= 6 && !_incredible.gameObject.activeSelf)
+        {
 
-		}
-		if (!LeanTween.isTweening(_incredible.gameObject) && _incredibleTimer.IsCompleted) {
+            ResetTimer(_incredibleTimer);
+            _incredible.gameObject.SetActive(true);
+            LeanTween.scale(_incredible.gameObject, Vector2.one, Time);
+            LeanTween.moveLocalY(_incredible.gameObject, EndPosition, MoveTime);
 
-			_incredible.gameObject.SetActive(false);
-			_incredible.rectTransform.localPosition = Vector2.zero;
+        }
+        else if (comboCount < 10 && comboCount >= 8 && !_unbelievable.gameObject.activeSelf)
+        {
 
-		}
-		if (!LeanTween.isTweening(_unbelievable.gameObject) && _unbelievableTimer.IsCompleted) {
+            ResetTimer(_unbelievableTimer);
+            _unbelievable.gameObject.SetActive(true);
+            LeanTween.scale(_unbelievable.gameObject, Vector2.one, Time);
+            LeanTween.moveLocalY(_unbelievable.gameObject, EndPosition, MoveTime);
 
-			_unbelievable.gameObject.SetActive(false);
-			_unbelievable.rectTransform.localPosition = Vector2.zero;
+        }
+        else if (comboCount >= 10 && !_comboMaster.gameObject.activeSelf)
+        {
 
-		}
-		if (!LeanTween.isTweening(_comboMaster.gameObject) && _combomasterTimer.IsCompleted) {
+            ResetTimer(_combomasterTimer);
+            _comboMaster.gameObject.SetActive(true);
+            LeanTween.scale(_comboMaster.gameObject, Vector2.one, Time);
+            LeanTween.moveLocalY(_comboMaster.gameObject, EndPosition, MoveTime);
 
-			_comboMaster.gameObject.SetActive(false);
-			_comboMaster.rectTransform.localPosition = Vector2.zero;
-			
-		}
-	}
+        }
 
-	private void ResetTimer(Timer timer) {
+        comboOver = false;
+    }
+
+    private void ResetTimer(Timer timer) {
 		timer.Stop();
 		timer.SetTime(_lifeTime);
 		timer.StartTimer();
