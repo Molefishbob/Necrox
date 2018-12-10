@@ -1604,7 +1604,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1347975773}
     - target: {fileID: 114342835580355832, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1914,6 +1914,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1347975773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609236227956748, guid: d181fc4624faab04ca0410c9a8d018ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 953699533}
 --- !u!223 &1372413608 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 223444817325669518, guid: d181fc4624faab04ca0410c9a8d018ab,

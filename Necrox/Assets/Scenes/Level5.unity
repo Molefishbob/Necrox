@@ -959,11 +959,6 @@ Prefab:
         type: 2}
     - target: {fileID: 114342835580355832, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342835580355832, guid: d181fc4624faab04ca0410c9a8d018ab,
-        type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
@@ -987,6 +982,11 @@ Prefab:
       propertyPath: GameOverMenu
       value: 
       objectReference: {fileID: 953699536}
+    - target: {fileID: 114342835580355832, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 953699537}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
   m_IsPrefabAsset: 0
@@ -1004,6 +1004,11 @@ Canvas:
 --- !u!223 &953699536 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 223444817325669518, guid: d181fc4624faab04ca0410c9a8d018ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 953699533}
+--- !u!1 &953699537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609236227956748, guid: d181fc4624faab04ca0410c9a8d018ab,
     type: 2}
   m_PrefabInternal: {fileID: 953699533}
 --- !u!1 &1085782382
