@@ -134,6 +134,7 @@ public class GameOverMenu : MonoBehaviour {
                 System.Int32.TryParse(_nextScene.Substring(5), out val);
                 GameManager.SaveLatestLevel(val);
             }
+            GameManager.comboCount = 0;
             Debug.Log(GameStateManager.Instance.ChangeState( 
                         (GameStateType)GameStateType.Parse(typeof(GameStateType)
                         , _nextScene)));
