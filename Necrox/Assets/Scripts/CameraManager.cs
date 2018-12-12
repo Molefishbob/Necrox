@@ -8,6 +8,12 @@ public class CameraManager : MonoBehaviour {
 	Camera _camera;
 	[SerializeField]
 	private PlaySoundClip _soundPlayer;
+	private float DesignOrthographicSize;
+    private float DesignAspect;
+    private float DesignWidth;
+
+	public float DesignAspectHeight;
+    public float DesignAspectWidth;
 
 	// Use this for initialization
 	void Start () {
@@ -15,24 +21,25 @@ public class CameraManager : MonoBehaviour {
 		_camera = gameObject.GetComponent<Camera>();
 		AudioSource audioSource = GetComponent<AudioSource>();
 		audioSource.volume = GameManager._musicVolume;
+
+		DesignOrthographicSize = _camera.orthographicSize;
+        DesignAspect = DesignAspectHeight / DesignAspectWidth;
+        DesignWidth = DesignOrthographicSize * DesignAspect;
+
+        Resize();
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		if (System.Math.Round(_camera.aspect,2) == (float) 9/18) {
-
-			_camera.orthographicSize  = 6.7f;
-
-		}
-
-		if (System.Math.Round(_camera.aspect,2) == System.Math.Round((float) 9/16,2)) {
-			_camera.orthographicSize  = 6;
-
-		}
-
+		
 	}
+	public void Resize()
+    {       
+        float wantedSize = DesignWidth / _camera.aspect;
+        _camera.orthographicSize = Mathf.Max(wantedSize, 
+            DesignOrthographicSize);
+    }
 
     internal void PlaySound(AudioClip audioClip, float soundVolume, bool usePitchVariance)
     {

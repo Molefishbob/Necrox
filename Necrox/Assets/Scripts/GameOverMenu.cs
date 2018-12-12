@@ -24,6 +24,8 @@ public class GameOverMenu : MonoBehaviour {
     [SerializeField]
     private Button _mainMenuButton;
     [SerializeField]
+    private Image _background;
+    [SerializeField]
     private TMP_Text _scoreText;
     [SerializeField]
     private TMP_Text StatusText;
@@ -61,6 +63,7 @@ public class GameOverMenu : MonoBehaviour {
         }
 
         if (_countScore) {
+            _background.gameObject.SetActive(true);
             _currentScore += (int) (_score * ScorePercentage)+1;
 
             if (Input.touchCount == 1) {

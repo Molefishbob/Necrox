@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// This class is used to bring up different combo related feedback texts.
+/// </summary>
 public class ComboFeedback : MonoBehaviour {
     public bool comboOver { 
 		get;
@@ -48,6 +51,9 @@ public class ComboFeedback : MonoBehaviour {
         CheckForTextMovement();
     }
 
+    /// <summary>
+    /// Checks if any of the texts are currently being animated.
+    /// </summary>
     private void CheckForTextMovement()
     {
         if (!LeanTween.isTweening(_goodJob.gameObject) && _goodjobTimer.IsCompleted)
@@ -93,6 +99,9 @@ public class ComboFeedback : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// After combo ends. This checks which text to showcase if any.
+    /// </summary>
     private void GetComboText()
     {
         if (comboCount < 4 && comboCount > 2 && !_goodJob.gameObject.activeSelf)
@@ -144,6 +153,10 @@ public class ComboFeedback : MonoBehaviour {
         comboOver = false;
     }
 
+    /// <summary>
+    /// Resets the timer for the text resetting.
+    /// </summary>
+    /// <param name="timer">The timer used</param>
     private void ResetTimer(Timer timer) {
 		timer.Stop();
 		timer.SetTime(_lifeTime);

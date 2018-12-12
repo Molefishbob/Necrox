@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class creates the tiles in to the gamefield and holds all related information to these tiles.
+/// </summary>
 public class GameField : MonoBehaviour {
 
 	public Camera _camera;
@@ -107,6 +110,10 @@ public class GameField : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Configures the game at the start of the game.
+	/// Spawns the tiles for every field in the 2D array.
+	/// </summary>
     private void ConfigureGame()
     {
         if (firstTable)
@@ -156,6 +163,12 @@ public class GameField : MonoBehaviour {
         }
     }
 
+	/// <summary>
+	/// Decodes a string to create a row of tiles.
+	///	The number determines the array for the tile.
+	/// </summary>
+	/// <param name="str">The row in a string</param>
+	/// <param name="number">Which array it belongs to</param>
     public void CreateRandomRow(string str,int number) {
 		int count = 0;
 		// It is disgusting, I know.
@@ -212,6 +225,12 @@ public class GameField : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// The method to tell the tiles to switch places when swiped.
+	/// </summary>
+	/// <param name="rock1">The first rock</param>
+	/// <param name="rock2">The second rock</param>
+	/// <param name="newMove">If the tiles are not reverting back to place</param>
 	public void MoveTiles(GameObject rock1, GameObject rock2, bool newMove) {
 
 		Rock rocker1 = rock1.GetComponent<Rock>();
@@ -239,6 +258,12 @@ public class GameField : MonoBehaviour {
 
     }
 	
+	/// <summary>
+	/// Finds the parent of a tile.
+	/// Used to get the reference for a specific column.
+	/// </summary>
+	/// <param name="y">The y value from the tiles array position</param>
+	/// <returns>Returns the reference for the column</returns>
 	public GameObject FindParent(int y) {
 		switch(y) {
 			case 0:
@@ -259,6 +284,10 @@ public class GameField : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Checks if any of the visible tiles are moving.
+	/// </summary>
+	/// <returns>Returns true if they are moving</returns>
 	public bool AreVisibleTilesMoving() {
         
 		for (int a = 0; a < gameField.GetLength(0);a++) {
@@ -276,22 +305,45 @@ public class GameField : MonoBehaviour {
 		return false;
 	}
 
+	/// <summary>
+	/// Removes a tile from the gamefield.
+	/// </summary>
+	/// <param name="a">The x position in array</param>
+	/// <param name="b">The y position in array</param>
 	public void ClearTileFromField(int a, int b) {
 		gameField[a,b] = null;
 	}
 
+	/// <summary>
+	/// Gives a reference of the 2D array with all the tiles gameobjects.
+	/// </summary>
+	/// <returns>a 2D array reference</returns>
 	public static GameObject[,] GetGameField() {
 		return gameField;
 	}
 
+	/// <summary>
+	/// Returns the amount of rows in the gamefield.
+	/// </summary>
+	/// <returns>The amount of rows</returns>
 	public static int GetArrayRows() {
 		return rows;
 	}
 
+	/// <summary>
+	/// Used to register if any sets of tiles have already been created.
+	/// This goes to false after the game has been configured.
+	/// </summary>
+	/// <returns>If there have already been values in the array</returns>
 	public bool GetFirstTable() {
 		return firstTable;
 	}
 
+	/// <summary>
+	/// Used to find the correct prefab for the element in question.
+	/// </summary>
+	/// <param name="element">The element of the tile</param>
+	/// <returns>Reference to the prefab</returns>
 	public Rock GetRockPrefab(string element) {
 		switch(element) {
 			case "water":
@@ -310,6 +362,12 @@ public class GameField : MonoBehaviour {
 		}
 	}
 	
+	/// <summary>
+	/// Sets the given object to the gamefield array into the desired spot.
+	/// </summary>
+	/// <param name="a">The x position</param>
+	/// <param name="b">The y position</param>
+	/// <param name="rock">The gameobject of the tile</param>
 	public static void setObject(int a, int b, GameObject rock) {
 		gameField[a,b] = rock;
 		// if (rock.GetComponent<Rock>().GetElement().Length > 1) {
