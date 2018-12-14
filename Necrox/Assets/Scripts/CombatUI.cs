@@ -14,13 +14,13 @@ public class CombatUI : MonoBehaviour {
     public GameObject enemy;
     public GameObject enemyDmgFeedback;
 
-    private float FireDmg = 2;
-    private float waterHeal = 1;
+    private float FireDmg = 3;
+    private float waterHeal = 2;
     private bool earthBool = false;
-    private float earthPercentage = .03f;
+    private float earthPercentage = .04f;
     private float earthStack;
-    private float earthMax = .3f;
-    private float skeleDmg = 3;
+    private float earthMax = .5f;
+    private float skeleDmg = 4;
 
     public float enemyAtkTime;
     public float enemyDmg;
