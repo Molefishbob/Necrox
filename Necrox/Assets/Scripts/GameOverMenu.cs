@@ -111,7 +111,7 @@ public class GameOverMenu : MonoBehaviour {
             }
 
             StatusText.color = new Color(VictoryRed, VictoryGreen, VictoryBlue);
-            highScoreText.SetText(HighScoreText, GameManager.GetHighScore(SceneManager.GetActiveScene().name));
+            highScoreText.SetText(HighScoreText, _oldHighScore);
 
         } else if (state == Defeat) {
             Debug.Log("DEFEAT");
