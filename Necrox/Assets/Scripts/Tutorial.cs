@@ -101,7 +101,7 @@ public class Tutorial : MonoBehaviour {
                 tutorialCount--;
             }
         }
-        
+        Debug.Log("Tutorial count is: " + tutorialCount);
         switch (tutorialCount) {
             case 1:
                 //show greetings hide match 3
@@ -111,39 +111,50 @@ public class Tutorial : MonoBehaviour {
             case 2:
                 greetings.SetActive(false);
                 matchExample.SetActive(true);
+                fire.SetActive(false);
+                fireball.SetActive(false);
                 break;
             case 3:
-                fire.SetActive(true);
                 matchExample.SetActive(false);
+                water.SetActive(false);
+                waterball.SetActive(false);
+                fire.SetActive(true);
                 fireball.SetActive(true);
                 break;
             case 4:
                 fire.SetActive(false);
                 fireball.SetActive(false);
+                earth.SetActive(false);
+                earthWall.SetActive(false);
                 water.SetActive(true);
                 waterball.SetActive(true);
                 break;
             case 5:
                 water.SetActive(false);
                 waterball.SetActive(false);
+                chaos.SetActive(false);
+                skeleton.SetActive(false);
                 earth.SetActive(true);
                 earthWall.SetActive(true);
                 break;
             case 6:
                 earth.SetActive(false);
                 earthWall.SetActive(false);
+                gunk.SetActive(false);
                 chaos.SetActive(true);
                 skeleton.SetActive(true);
                 break;
             case 7:
                 chaos.SetActive(false);
                 skeleton.SetActive(false);
+                complete.SetActive(false);
                 gunk.SetActive(true);
                 frwrdButton.text = "NEXT";
                 break;
             case 8:
                 chaos.SetActive(false);
                 skeleton.SetActive(false);
+                gunk.SetActive(false);
                 complete.SetActive(true);
                 frwrdButton.text = "START";
                 break;
