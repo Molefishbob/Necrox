@@ -145,6 +145,7 @@ public class GameOverMenu : MonoBehaviour {
         }
     }
     public void ToMainMenu() {
+        GameManager.comboCount = 0;
         GameStateManager.Instance.ChangeState( 
                         (GameStateType)GameStateType.Parse(typeof(GameStateType)
                         , MainMenu));

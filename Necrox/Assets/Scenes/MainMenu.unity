@@ -3899,6 +3899,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundPlayer: {fileID: 114380132386274566, guid: 0afc61386aa99cd4ba806ec798755d64,
     type: 2}
+  DesignAspectHeight: 320
+  DesignAspectWidth: 180
 --- !u!81 &1223803737
 AudioListener:
   m_ObjectHideFlags: 0
