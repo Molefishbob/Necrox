@@ -12,16 +12,17 @@ public class TakeDamage : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown("l")) {
+            Debug.Log("you got here");
             StartCoroutine(DamageFlash());
         }
 	}
 
     IEnumerator DamageFlash() {
-        for (int n = 0; n < 5; n++) {
+        for (int n = 0; n < 3; n++) {
             GetComponent<Renderer>().enabled = true;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.08f);
             GetComponent<Renderer>().enabled = false;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.08f);
         }
         GetComponent<Renderer>().enabled = true;
     }
