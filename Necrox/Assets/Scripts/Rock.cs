@@ -23,6 +23,7 @@ public class Rock : MonoBehaviour
     private GameField _gameField;
     private float speed = 0.25f;
     public GameObject feedback;
+    public GameObject _feedbackTrail;
     public bool sentToFeedback
     {
         get;
@@ -320,6 +321,12 @@ public class Rock : MonoBehaviour
             }
             if (!sentToFeedback)
             {
+                
+                Instantiate(_feedbackTrail,
+                            transform.position,
+                            Quaternion.identity,
+                            transform.parent.parent.parent.GetComponentInChildren<Feedback>().mainChar.transform);
+                
                 Vector3 tilePos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0);
                 GameObject.Find("Feedback").GetComponent<Feedback>().TileFeedback(tilePos, gameObject);
                 if (!this.GetComponentInParent<ColumnBehaviour>().tileSwitchDisabled)

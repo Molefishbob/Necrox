@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4682160129966352}
   - component: {fileID: 212187839145401832}
   - component: {fileID: 95009625124234814}
+  - component: {fileID: 114348698435106018}
   m_Layer: 0
   m_Name: villagerElder
   m_TagString: Untagged
@@ -59,6 +60,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114348698435106018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056905756489922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631c4338638feec4fa7e9c18e5e9864c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSound: {fileID: 8300000, guid: 82f3aa4394d530d4aa045a306265b765, type: 3}
 --- !u!212 &212187839145401832
 SpriteRenderer:
   m_ObjectHideFlags: 1

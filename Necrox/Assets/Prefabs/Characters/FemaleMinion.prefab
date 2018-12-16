@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4477353392705256}
   - component: {fileID: 212127700593386198}
   - component: {fileID: 95745063525889026}
+  - component: {fileID: 114744097712563882}
   m_Layer: 0
   m_Name: FemaleMinion
   m_TagString: Untagged
@@ -59,6 +60,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114744097712563882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1253124958685540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631c4338638feec4fa7e9c18e5e9864c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSound: {fileID: 8300000, guid: 11585a72bfc684141baf0e3c03f0cc54, type: 3}
 --- !u!212 &212127700593386198
 SpriteRenderer:
   m_ObjectHideFlags: 1

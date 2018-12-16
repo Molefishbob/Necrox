@@ -111,7 +111,10 @@ MonoBehaviour:
   pos: 0000000000000000
   _moved: 0
   _element: 
+  _toBeDestroyed: 0
   feedback: {fileID: 0}
+  _feedbackTrail: {fileID: 1353143841151906, guid: b79c91d48175f234b97e70796a8e60ab,
+    type: 2}
 --- !u!212 &212001025471069870
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4172790609319040}
   - component: {fileID: 212086986516487462}
   - component: {fileID: 95651853606572682}
+  - component: {fileID: 114106641532656066}
   m_Layer: 2
   m_Name: Necromancer
   m_TagString: Untagged
@@ -59,6 +60,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114106641532656066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569448885243844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631c4338638feec4fa7e9c18e5e9864c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSound: {fileID: 0}
 --- !u!212 &212086986516487462
 SpriteRenderer:
   m_ObjectHideFlags: 1
