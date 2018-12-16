@@ -24,7 +24,7 @@ public class MoveParticles : MonoBehaviour {
 
         // Change only the particles that are alive
         for (int i = 0; 0 < numParticlesAlive; i++) {
-            Debug.Log(TheParticles[i].position);
+            //Debug.Log(TheParticles[i].position);
             /*if (TheParticles[i].position != null) {
                 TheParticles[i].position = MainCharPos;
             }*/
