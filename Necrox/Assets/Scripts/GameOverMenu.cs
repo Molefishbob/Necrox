@@ -18,7 +18,7 @@ public class GameOverMenu : MonoBehaviour {
     private const float DefeatRed = 0.7137254901960784f;
     private const float DefeatGreen = 0.0274509803921569f;
     private const float DefeatBlue = 0.0274509803921569f;
-    private const float ScorePercentage = 0.005f;
+    private const float ScorePercentage = 0.008f;
     [SerializeField]
     private Button _continueButton;
     [SerializeField]

@@ -1820,7 +1820,8 @@ Prefab:
       propertyPath: _useStandardTemplates
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82258109823566838, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61, type: 2}
   m_IsPrefabAsset: 0
 --- !u!20 &2070644856 stripped
