@@ -16,27 +16,28 @@ public class MoveParticles : MonoBehaviour {
     void Start () {
         _xSpeed = transform.localPosition.x / 2;
         _ySpeed = transform.localPosition.y / 2;
-        Debug.Log(string.Format("XSpeed: {0} YSpeed: {1}",_xSpeed,_ySpeed));
-        Debug.Log(string.Format("XPosition: {0} YPosition: {1}",transform.localPosition.x,transform.localPosition.y));
-        // int numParticlesAlive = _parSystem.GetParticles(_theParticles);
-        // _parSystem = GetComponent<ParticleSystem>();
-        // _theParticles = new ParticleSystem.Particle[_parSystem.main.maxParticles];
 	}
 
     // Update is called once per frame
     private void LateUpdate()
     {
+        
         Movement();
 
     }
 
     private void Movement()
     {
+
         XMovement();
         YMovement();
+
         if (_yMovementDone && _xMovementDone) {
+
             Destroy(gameObject);
+
         }
+
     }
 
     private void XMovement()
@@ -48,7 +49,7 @@ public class MoveParticles : MonoBehaviour {
 
             if (transform.localPosition.x <= 0)
             {
-                Debug.Log("XDONE");
+
                 transform.localPosition = new Vector2(0, transform.localPosition.y);
                 _xMovementDone = true;
 
@@ -62,7 +63,6 @@ public class MoveParticles : MonoBehaviour {
 
             if (transform.localPosition.x >= 0)
             {
-                Debug.Log("XDONE");
                 transform.localPosition = new Vector2(0, transform.localPosition.y);
                 _xMovementDone = true;
 
@@ -80,7 +80,6 @@ public class MoveParticles : MonoBehaviour {
             if (transform.localPosition.y <= 0)
             {
 
-                Debug.Log("Y DONE");
                 transform.localPosition = new Vector2(transform.localPosition.x, 0);
                 _yMovementDone = true;
 
@@ -95,7 +94,6 @@ public class MoveParticles : MonoBehaviour {
             if (transform.localPosition.y >= 0)
             {
 
-                Debug.Log("Y DONE");
                 transform.localPosition = new Vector2(transform.localPosition.x, 0);
                 _yMovementDone = true;
 

@@ -118,6 +118,10 @@ public class CombatUI : MonoBehaviour {
             gameObject.GetComponent<Timer>().StartTimer();
         }
         if(gameObject.GetComponent<Timer>().IsCompleted) {
+
+            _camera.GetComponent<CameraManager>()
+				   	.PlaySound(enemy.GetComponent<WeaponSound>()._weaponSound,GameManager._soundVolume,usePitchVariance: true);
+
             attackComplete = true;
             enemy.GetComponent<Animator>().SetTrigger("Attack");
             if (earthBool) {

@@ -195,7 +195,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 70
+  m_SortingOrder: 46
   m_Sprite: {fileID: 21300000, guid: 11e0928b6801d41e4966fb19778f243a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -391,7 +391,7 @@ Prefab:
         type: 2}
       propertyPath: _audioSource
       value: 
-      objectReference: {fileID: 2070644858}
+      objectReference: {fileID: 0}
     - target: {fileID: 114262143829068272, guid: d181fc4624faab04ca0410c9a8d018ab,
         type: 2}
       propertyPath: Feedback
@@ -435,6 +435,10 @@ Prefab:
     - target: {fileID: 1008694154393208, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609236227956748, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
@@ -547,7 +551,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 80
+  m_SortingOrder: 47
   m_Sprite: {fileID: 21300000, guid: 18231387388b74c3289d6ee335949f92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1347,11 +1351,6 @@ Prefab:
 --- !u!20 &2070644856 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20394338051552618, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
-    type: 2}
-  m_PrefabInternal: {fileID: 2070644855}
---- !u!82 &2070644858 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 82950989103554532, guid: 1ebbe23cc1f9dec4383d8b7ff3c7ca61,
     type: 2}
   m_PrefabInternal: {fileID: 2070644855}
 --- !u!1 &2084362855
