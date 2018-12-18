@@ -113,7 +113,7 @@ MonoBehaviour:
   _element: 
   _toBeDestroyed: 0
   feedback: {fileID: 0}
-  _feedbackTrail: {fileID: 1867283481721658, guid: 3f24bd99a2b5c02428c8f0a5959911f6,
+  _feedbackTrail: {fileID: 1545790008649558, guid: 584cc193bddea83419d7cca90203503a,
     type: 2}
 --- !u!212 &212432327825829310
 SpriteRenderer:
