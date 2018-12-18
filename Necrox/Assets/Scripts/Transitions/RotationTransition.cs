@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveTransition : MonoBehaviour {
+public class RotationTransition : MonoBehaviour {
 
 	[SerializeField]
 	private float _time;
 	[SerializeField]
-	private float _endPosition;
+	private float _endRotation;
 	[SerializeField]
-	private float _startPosition;
+	private float _startRotation;
 	[SerializeField, Tooltip("Not required")]
-	private float _secondPosition;
+	private float _secondRotation;
     private bool _timeToStop;
     private bool _movingAgain;
 
     // Use this for initialization
     void Awake() {
 
-		transform.localPosition = new Vector2(_startPosition,transform.localPosition.y);
+		transform.eulerAngles = new Vector3(_startRotation,0,0);
 		
 	}
 	
@@ -27,23 +27,23 @@ public class MoveTransition : MonoBehaviour {
 
 		if (!_timeToStop) {
 
-			LeanTween.moveLocalX(gameObject,_endPosition,_time);
+			LeanTween.rotateLocal(gameObject,new Vector3(_endRotation,0,0),_time);
 			_timeToStop = true;
 
 		}
 		if (_movingAgain) {
-			if (!LeanTween.isTweening(gameObject) && transform.position.x != 0) {
+			if (!LeanTween.isTweening(gameObject)) {
 				transform.parent.gameObject.SetActive(false);
 			}
 		}
 	}
 
 	public void MoveXAgain() {
-		LeanTween.moveLocalX(gameObject,_secondPosition,_time);
+		LeanTween.rotateLocal(gameObject,new Vector3(_secondRotation,0,0),_time);
 		_movingAgain = true;
 	}
 	public void MoveXNegativeAgain() {
-		LeanTween.moveLocalX(gameObject,-_secondPosition,_time);
+		LeanTween.rotateLocal(gameObject,new Vector3(-_secondRotation,0,0),_time);
 		_movingAgain = true;
 	}
 
@@ -53,6 +53,7 @@ public class MoveTransition : MonoBehaviour {
 	void OnDisable()
 	{
 		_movingAgain = false;
+		transform.localRotation = new Quaternion(_startRotation,0,0,0);
 		_timeToStop = false;
 	}
 }
