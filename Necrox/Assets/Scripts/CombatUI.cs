@@ -52,6 +52,7 @@ public class CombatUI : MonoBehaviour {
         int val = 0;
         System.Int32.TryParse(SceneManager.GetActiveScene().name.Substring(5),out val);
         _currentLevel.SetText(LevelText, val);
+        LevelSettings(val);
 	}
 	
 	void Update () {
@@ -135,5 +136,100 @@ public class CombatUI : MonoBehaviour {
             }
             
         }
+    }
+    public void LevelSettings(int CurrentLvl) {
+        switch (CurrentLvl) {
+            case 1:
+                EnemyHealth.maxValue = 100;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 8.0f;
+                enemyDmg = 10;
+                break;
+            case 2:
+                EnemyHealth.maxValue = 125;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 6;
+                enemyDmg = 9;
+                break;
+            case 3:
+                EnemyHealth.maxValue = 150;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 5;
+                enemyDmg = 8;
+                break;
+            case 4:
+                EnemyHealth.maxValue = 200;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 12;
+                enemyDmg = 20;
+                break;
+            case 5:
+                EnemyHealth.maxValue = 175;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 4;
+                enemyDmg = 8;
+                break;
+            case 6:
+                EnemyHealth.maxValue = 200;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 7;
+                enemyDmg = 15;
+                break;
+            case 7:
+                EnemyHealth.maxValue = 300;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 15;
+                enemyDmg = 30;
+                break;
+            case 8:
+                EnemyHealth.maxValue = 225;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 10;
+                enemyDmg = 20;
+                break;
+            case 9:
+                EnemyHealth.maxValue = 250;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 7;
+                enemyDmg = 15;
+                break;
+            case 10:
+                EnemyHealth.maxValue = 275;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 8;
+                enemyDmg = 20;
+                break;
+            case 11:
+                EnemyHealth.maxValue = 200;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 3;
+                enemyDmg = 7;
+                break;
+            case 12:
+                EnemyHealth.maxValue = 80;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 2;
+                enemyDmg = 10;
+                break;
+            case 13:
+                EnemyHealth.maxValue = 325;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 7;
+                enemyDmg = 20;
+                break;
+            case 14:
+                EnemyHealth.maxValue = 300;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 11;
+                enemyDmg = 35;
+                break;
+            case 15:
+                EnemyHealth.maxValue = 400;
+                EnemyHealth.value = EnemyHealth.maxValue;
+                enemyAtkTime = 6;
+                enemyDmg = 30;
+                break;
+        }
+
     }
 }
