@@ -91,10 +91,14 @@ public class Rock : MonoBehaviour
     {
         if (pos[1] < GameField.GetArrayRows())
         {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<Collider2D>().enabled = false;
         }
         else
         {
+            if (!sentToFeedback) {
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            }
             gameObject.GetComponent<Collider2D>().enabled = true;
         }
     }
