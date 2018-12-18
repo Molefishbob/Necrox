@@ -20,6 +20,8 @@ public class CombatUI : MonoBehaviour {
     private float earthPercentage = .04f;
     private float earthStack;
     private float earthMax = .5f;
+    public GameObject EarthShieldPrefab;
+    private GameObject EarthShield;
     private float skeleDmg = 4;
 
     public float enemyAtkTime;
@@ -98,6 +100,9 @@ public class CombatUI : MonoBehaviour {
         MainCharHealth.value += waterHeal * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
     }
     public void EarthProtect() {
+        if (!earthBool) {
+            EarthShield = Instantiate(EarthShieldPrefab);
+        }
         if (earthStack >= earthMax) {
             earthStack = earthMax;
         } else {
@@ -126,6 +131,7 @@ public class CombatUI : MonoBehaviour {
             attackComplete = true;
             enemy.GetComponent<Animator>().SetTrigger("Attack");
             if (earthBool) {
+                Destroy(EarthShield);
                 earthBool = false;
                 earthStack = 0;
                 MainCharHealth.value -= (float)(enemyDmg * (1 - earthStack));

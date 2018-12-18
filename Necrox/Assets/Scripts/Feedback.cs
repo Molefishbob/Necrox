@@ -117,7 +117,7 @@ public class Feedback : MonoBehaviour {
         if (earthCount >= MinimumMatch) {
 
             GameManager.comboCount += 1;
-            Instantiate(earthProtect);
+            //Instantiate(earthProtect);
             mainChar.GetComponent<Animator>().SetTrigger("CastSpell");
             _camera.GetComponent<CameraManager>()
 				   	.PlaySound(_earthMatch,GameManager._soundVolume,usePitchVariance: true);

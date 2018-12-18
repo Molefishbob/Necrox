@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4892939746707636}
   - component: {fileID: 212278611756834618}
   - component: {fileID: 95568619828341978}
-  - component: {fileID: 114557484732320242}
   m_Layer: 0
   m_Name: EarthShiled
   m_TagString: Untagged
@@ -60,18 +59,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114557484732320242
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1113787102889104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 796a1b5ffed201e48b08186af9f93bb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
 --- !u!212 &212278611756834618
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -7028,6 +7028,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   enemyDmgFeedback: {fileID: 1024322369780482, guid: eb5d1ed75aefb6a41bc9ac98847aecd0,
     type: 2}
+  EarthShieldPrefab: {fileID: 1113787102889104, guid: 95747d96c9940bf47a527248ec6fe911,
+    type: 2}
   enemyAtkTime: 8
   enemyDmg: 20
   _victoryMusic: {fileID: 8300000, guid: 4526799172348d54fbd554c9e41fa111, type: 3}
