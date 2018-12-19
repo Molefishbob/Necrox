@@ -35,6 +35,8 @@ public class CombatUI : MonoBehaviour {
     private bool _defeat;
     public AudioClip _loserBassAudio;
     public AudioClip _winnerBassAudio;
+    [SerializeField]
+    private AudioClip _buttonClick;
 
     public bool _paused {
         get;
@@ -92,6 +94,10 @@ public class CombatUI : MonoBehaviour {
             }
         }
     }
+    public void PlayClickAudio() {
+			_camera.GetComponent<CameraManager>()
+					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);
+		}
 
     public void FireAttack() {
         EnemyHealth.value -= FireDmg * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
