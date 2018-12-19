@@ -16,6 +16,9 @@ public class TakeDamage : MonoBehaviour {
             StartCoroutine(DamageFlash());
         }
 	}
+    public void StartFlash() {
+        StartCoroutine(DamageFlash());
+    }
 
     IEnumerator DamageFlash() {
         for (int n = 0; n < 3; n++) {

@@ -142,9 +142,11 @@ public class CombatUI : MonoBehaviour {
                 earthStack = 0;
                 MainCharHealth.value -= (float)(enemyDmg * (1 - earthStack));
                 Instantiate(enemyDmgFeedback);
+                FindObjectOfType<TakeDamage>().StartFlash();
             } else {
                 MainCharHealth.value -= enemyDmg;
                 Instantiate(enemyDmgFeedback);
+                FindObjectOfType<TakeDamage>().StartFlash();
             }
             
         }
