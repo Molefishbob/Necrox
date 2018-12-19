@@ -14,8 +14,8 @@ public class MoveParticles : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        _xSpeed = transform.localPosition.x / 2;
-        _ySpeed = transform.localPosition.y / 2;
+        _xSpeed = transform.localPosition.x / 1;
+        _ySpeed = transform.localPosition.y / 1;
 	}
 
     // Update is called once per frame
@@ -33,11 +33,16 @@ public class MoveParticles : MonoBehaviour {
         YMovement();
 
         if (_yMovementDone && _xMovementDone) {
-
-            Destroy(gameObject);
+            StartCoroutine(DestroyParticle());
+            
 
         }
 
+    }
+
+    IEnumerator DestroyParticle() {
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
     }
 
     private void XMovement()
