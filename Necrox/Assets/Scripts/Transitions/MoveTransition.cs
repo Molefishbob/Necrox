@@ -54,5 +54,8 @@ public class MoveTransition : MonoBehaviour {
 	{
 		_movingAgain = false;
 		_timeToStop = false;
+		if (_secondPosition == _endPosition) {
+				transform.localPosition = new Vector2(_startPosition,transform.localPosition.y);
+			}
 	}
 }
