@@ -16,7 +16,6 @@ public class Tutorial : MonoBehaviour {
         _camera = transform.parent.GetComponent<CombatUI>()._camera;
         FindObjectOfType<GameLogic>()._paused = true;
         FindObjectOfType<CombatUI>()._paused = true;
-        Debug.Log("firstPage:" + _firstPage);
     }
     
     public void PlayClickAudio() {
