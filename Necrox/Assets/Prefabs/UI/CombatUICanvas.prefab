@@ -3718,7 +3718,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -6260,7 +6260,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279547110
-  m_fontColor: {r: 0.9056604, g: 0.7075985, b: 0.08116765, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -8477,7 +8477,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279547110
-  m_fontColor: {r: 0.9056604, g: 0.7075985, b: 0.08116765, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -12651,7 +12651,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279547110
-  m_fontColor: {r: 0.9056604, g: 0.7075985, b: 0.08116765, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -14868,7 +14868,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279547110
-  m_fontColor: {r: 0.9056604, g: 0.7075985, b: 0.08116765, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -15236,7 +15236,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279547110
-  m_fontColor: {r: 0.9056604, g: 0.7075985, b: 0.08116765, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -16202,7 +16202,7 @@ MonoBehaviour:
   StatusText: {fileID: 114015333012637392}
   highScoreText: {fileID: 114275807433631702}
   newText: {fileID: 114258002224135344}
-  _nextScene: Level1
+  _nextScene: Level3
 --- !u!114 &114936394777880532
 MonoBehaviour:
   m_ObjectHideFlags: 1

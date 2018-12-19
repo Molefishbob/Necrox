@@ -17,7 +17,7 @@ public class ComboFeedback : MonoBehaviour {
 		set;
 		}
 
-    private const float EndPosition = 100f;
+    private const float EndPosition = 130f;
 	private const float MoveTime = 1f;
     private const float Time = 1f;
     public TMP_Text _goodJob;
