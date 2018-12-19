@@ -3763,6 +3763,7 @@ MonoBehaviour:
   _time: 0.2
   _endPosition: 0
   _startPosition: 800
+  _secondPosition: 0
 --- !u!114 &933242205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5428,7 +5429,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _time: 0.2
   _endPosition: 0
-  _startPosition: 600
+  _startPosition: 700
+  _secondPosition: 0
 --- !u!114 &1557800255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6421,6 +6423,7 @@ MonoBehaviour:
   _time: 0.2
   _endPosition: 0
   _startPosition: 800
+  _secondPosition: 0
 --- !u!114 &1936527142
 MonoBehaviour:
   m_ObjectHideFlags: 0
