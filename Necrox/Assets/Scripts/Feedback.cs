@@ -65,26 +65,30 @@ public class Feedback : MonoBehaviour {
 
             case "fire":
                 fireCount++;
+                Debug.Log("fire");
                 CombatUI.GetComponent<CombatUI>().FireAttack();
-                temp = 6 * GameManager.comboCount;
+                temp = 6 * (GameManager.comboCount + 1);
                 score += (int) temp;
                 break;
             case "water":
                 waterCount++;
+                Debug.Log("water");
                 CombatUI.GetComponent<CombatUI>().WaterHeal();
-                temp = 5 * GameManager.comboCount;
+                temp = 5 * (GameManager.comboCount + 1);
                 score += (int) temp;
                 break;
             case "earth":
                 earthCount++;
+                Debug.Log("earth");
                 CombatUI.GetComponent<CombatUI>().EarthProtect();
-                temp = 4 * GameManager.comboCount;
+                temp = 4 * (GameManager.comboCount + 1);
                 score += (int) temp;
                 break;
             case "chaos":
                 chaosCount++;
+                Debug.Log("chaos");
                 CombatUI.GetComponent<CombatUI>().SkeletonAttack();
-                temp = 7 * ((float)(GameManager.defaultMultiplier + GameManager.comboCount*10)/100);
+                temp = 7 * (GameManager.comboCount + 1);
                 score += (int) temp;
                 break;
 
