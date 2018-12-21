@@ -3592,7 +3592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0.2
-  _endPosition: 0
+  _endPosition: 58
   _startPosition: 285
   _secondPosition: -285
 --- !u!114 &114003780077277044
@@ -6798,7 +6798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0.2
-  _endPosition: 0
+  _endPosition: 51
   _startPosition: 285
   _secondPosition: -285
 --- !u!114 &114257232438863386
@@ -7076,11 +7076,12 @@ MonoBehaviour:
     type: 2}
   EarthShieldPrefab: {fileID: 1113787102889104, guid: 95747d96c9940bf47a527248ec6fe911,
     type: 2}
-  enemyAtkTime: 8
-  enemyDmg: 20
+  enemyAtkTime: 15
+  enemyDmg: 30
   _victoryMusic: {fileID: 8300000, guid: 4526799172348d54fbd554c9e41fa111, type: 3}
   _camera: {fileID: 0}
   _currentLevel: {fileID: 114736190847726450}
+  nextLevel: 
   _loserBassAudio: {fileID: 8300000, guid: a0c207db0d5c0534bac201b25c950a79, type: 3}
   _winnerBassAudio: {fileID: 8300000, guid: b9141e8e572255e4da39fef4cc01e7b6, type: 3}
   _buttonClick: {fileID: 8300000, guid: bebcf0500f6059d40bf12c7f78d9d643, type: 3}
@@ -10468,9 +10469,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 275
+  m_MaxValue: 300
   m_WholeNumbers: 0
-  m_Value: 275
+  m_Value: 300
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -12618,7 +12619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0.2
-  _endPosition: 0
+  _endPosition: 55
   _startPosition: 285
   _secondPosition: -285
 --- !u!114 &114724462462183024
@@ -16025,7 +16026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0.2
-  _endPosition: 0
+  _endPosition: 73
   _startPosition: 285
   _secondPosition: -285
 --- !u!114 &114920233828589558
@@ -16202,7 +16203,7 @@ MonoBehaviour:
   StatusText: {fileID: 114015333012637392}
   highScoreText: {fileID: 114275807433631702}
   newText: {fileID: 114258002224135344}
-  _nextScene: Level3
+  _nextScene: Level8
 --- !u!114 &114936394777880532
 MonoBehaviour:
   m_ObjectHideFlags: 1

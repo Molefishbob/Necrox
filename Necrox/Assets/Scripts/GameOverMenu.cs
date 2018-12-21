@@ -46,8 +46,7 @@ public class GameOverMenu : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -97,6 +96,10 @@ public class GameOverMenu : MonoBehaviour {
 
 	}
 
+    public void GetNextLevel() {
+        _nextScene = FindObjectOfType<CombatUI>().nextLevel;
+    }
+
     public void SetScore(int score) {
         _scoreCounted = false;
         _oldHighScore = (int) GameManager.GetHighScore(SceneManager.GetActiveScene().name);
@@ -129,6 +132,7 @@ public class GameOverMenu : MonoBehaviour {
     }
 
     public void Continue() {
+        GetNextLevel();
         if (state == Defeat) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else {

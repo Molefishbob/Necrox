@@ -33,6 +33,7 @@ public class CombatUI : MonoBehaviour {
     private bool firstAttack = true;
     private bool attackComplete = true;
     private bool _defeat;
+    public string nextLevel;
     public AudioClip _loserBassAudio;
     public AudioClip _winnerBassAudio;
     [SerializeField]
@@ -51,7 +52,6 @@ public class CombatUI : MonoBehaviour {
      * if Char health = 0 lose
      * show the score scene after and set the game to be unplayable
      */
-    // Use this for initialization
     void Start () {
         int val = 0;
         System.Int32.TryParse(SceneManager.GetActiveScene().name.Substring(5),out val);
@@ -151,6 +151,7 @@ public class CombatUI : MonoBehaviour {
             
         }
     }
+
     public void LevelSettings(int CurrentLvl) {
         switch (CurrentLvl) {
             case 1:
@@ -158,90 +159,105 @@ public class CombatUI : MonoBehaviour {
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 8.0f;
                 enemyDmg = 10;
+                nextLevel = "Level2";
                 break;
             case 2:
                 EnemyHealth.maxValue = 125;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 6;
                 enemyDmg = 9;
+                nextLevel = "Level3";
                 break;
             case 3:
                 EnemyHealth.maxValue = 150;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 5;
                 enemyDmg = 8;
+                nextLevel = "Level4";
                 break;
             case 4:
                 EnemyHealth.maxValue = 200;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 12;
                 enemyDmg = 20;
+                nextLevel = "Level5";
                 break;
             case 5:
                 EnemyHealth.maxValue = 175;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 4;
                 enemyDmg = 8;
+                nextLevel = "Level6";
                 break;
             case 6:
                 EnemyHealth.maxValue = 200;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 7;
                 enemyDmg = 15;
+                nextLevel = "Level7";
                 break;
             case 7:
                 EnemyHealth.maxValue = 300;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 15;
                 enemyDmg = 30;
+                nextLevel = "Level8";
                 break;
             case 8:
                 EnemyHealth.maxValue = 225;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 10;
                 enemyDmg = 20;
+                nextLevel = "Level9";
                 break;
             case 9:
                 EnemyHealth.maxValue = 250;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 7;
                 enemyDmg = 15;
+                nextLevel = "Level10";
                 break;
             case 10:
                 EnemyHealth.maxValue = 275;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 8;
                 enemyDmg = 20;
+                nextLevel = "Level11";
                 break;
             case 11:
                 EnemyHealth.maxValue = 200;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 3;
                 enemyDmg = 7;
+                nextLevel = "Level12";
                 break;
             case 12:
                 EnemyHealth.maxValue = 80;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 2;
                 enemyDmg = 10;
+                nextLevel = "Level13";
                 break;
             case 13:
                 EnemyHealth.maxValue = 325;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 7;
                 enemyDmg = 20;
+                nextLevel = "Level14";
                 break;
             case 14:
                 EnemyHealth.maxValue = 300;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 11;
                 enemyDmg = 35;
+                nextLevel = "Level15";
                 break;
             case 15:
                 EnemyHealth.maxValue = 400;
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 6;
                 enemyDmg = 30;
+                nextLevel = "MainMenu";
                 break;
         }
 
