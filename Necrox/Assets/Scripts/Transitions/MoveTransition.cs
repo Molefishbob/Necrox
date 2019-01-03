@@ -33,6 +33,7 @@ public class MoveTransition : MonoBehaviour {
 		}
 		if (_movingAgain) {
 			if (!LeanTween.isTweening(gameObject) && transform.position.x != 0) {
+				Debug.Log(gameObject.name);
 				transform.parent.gameObject.SetActive(false);
 			}
 		}
@@ -57,5 +58,8 @@ public class MoveTransition : MonoBehaviour {
 		if (_secondPosition == _endPosition) {
 				transform.localPosition = new Vector2(_startPosition,transform.localPosition.y);
 			}
+		if (transform.position.x == _secondPosition) {
+			transform.position = new Vector2(_startPosition,transform.position.y);
+		}
 	}
 }
