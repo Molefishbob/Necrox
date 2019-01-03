@@ -33,7 +33,6 @@ public class MoveTransition : MonoBehaviour {
 		}
 		if (_movingAgain) {
 			if (!LeanTween.isTweening(gameObject) && transform.position.x != 0) {
-				Debug.Log(gameObject.name);
 				transform.parent.gameObject.SetActive(false);
 			}
 		}
