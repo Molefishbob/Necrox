@@ -257,7 +257,7 @@ public class CombatUI : MonoBehaviour {
                 EnemyHealth.value = EnemyHealth.maxValue;
                 enemyAtkTime = 6;
                 enemyDmg = 30;
-                nextLevel = "MainMenu";
+                nextLevel = "Victory";
                 break;
         }
 

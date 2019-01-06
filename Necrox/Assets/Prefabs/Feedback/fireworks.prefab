@@ -211,7 +211,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1.75
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1417,8 +1417,8 @@ ParticleSystem:
         ctime6: 65535
         ctime7: 0
         atime0: 0
-        atime1: 1928
-        atime2: 61680
+        atime1: 5590
+        atime2: 52814
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -1446,8 +1446,8 @@ ParticleSystem:
         ctime6: 65535
         ctime7: 65535
         atime0: 0
-        atime1: 1928
-        atime2: 61680
+        atime1: 4241
+        atime2: 53585
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -4801,7 +4801,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1.75
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6007,8 +6007,8 @@ ParticleSystem:
         ctime6: 65535
         ctime7: 0
         atime0: 0
-        atime1: 1928
-        atime2: 61680
+        atime1: 4626
+        atime2: 53970
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -6036,8 +6036,8 @@ ParticleSystem:
         ctime6: 65535
         ctime7: 0
         atime0: 0
-        atime1: 1928
-        atime2: 61680
+        atime1: 5204
+        atime2: 56476
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -9391,7 +9391,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1.75
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -10597,8 +10597,8 @@ ParticleSystem:
         ctime6: 65535
         ctime7: 0
         atime0: 0
-        atime1: 1928
-        atime2: 61680
+        atime1: 4241
+        atime2: 57632
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -10626,8 +10626,8 @@ ParticleSystem:
         ctime6: 65535
         ctime7: 0
         atime0: 0
-        atime1: 1928
-        atime2: 61680
+        atime1: 4048
+        atime2: 56861
         atime3: 65535
         atime4: 0
         atime5: 0

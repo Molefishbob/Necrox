@@ -29,7 +29,8 @@ namespace TAMK.SpaceShooter.States
         Level12,
         Level13,
         Level14,
-        Level15
+        Level15,
+        Victory
 	}
 
 	public abstract class GameStateBase

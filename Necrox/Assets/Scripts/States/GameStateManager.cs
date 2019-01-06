@@ -85,8 +85,9 @@ namespace TAMK.SpaceShooter.States
             _gameStates.Add(new LevelState(GameStateType.Level12, GameStateType.Level13, "Level12"));
             _gameStates.Add(new LevelState(GameStateType.Level13, GameStateType.Level14, "Level13"));
             _gameStates.Add(new LevelState(GameStateType.Level14, GameStateType.Level15, "Level14"));
-            _gameStates.Add(new LevelState(GameStateType.Level15, GameStateType.MainMenu, "Level15"));
-		}
+            _gameStates.Add(new LevelState(GameStateType.Level15, GameStateType.Victory, "Level15"));
+            _gameStates.Add(new LevelState(GameStateType.Victory, GameStateType.MainMenu, "Victory"));
+        }
 
 		private bool AddStartingState( GameStateBase startingState )
 		{

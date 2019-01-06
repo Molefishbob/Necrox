@@ -29,6 +29,7 @@
 			AddTargetState( GameStateType.Level13 );
 			AddTargetState( GameStateType.Level14 );
 			AddTargetState( GameStateType.Level15 );
-		}
+            AddTargetState( GameStateType.Victory );
+        }
 	}
 }
