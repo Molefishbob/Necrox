@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// This class creates the tiles in to the gamefield and holds all related information to these tiles.
@@ -24,6 +26,7 @@ public class GameField : MonoBehaviour {
 	public GameObject column4;
 	public GameObject column5;
     public AudioClip _movementAudio;
+    public GameLogic _gameLogic;
 	
     public bool _useStandardTemplates;
 
@@ -39,6 +42,8 @@ public class GameField : MonoBehaviour {
 	private List<GameObject> Children = new List<GameObject>();
     private bool emptyAreas;
     private bool firstTable = true;
+
+    public bool _creatingNewTiles { get; internal set; }
 
     void Start () {
 		GameManager.defaultMultiplier = 100;
@@ -94,19 +99,19 @@ public class GameField : MonoBehaviour {
 
 
         if (Input.GetKeyDown("space")) {
-			System.Random random = new System.Random();
-			int a = random.Next(0,6);
-			int b = random.Next(6,12);
-			if(gameField[a,b] != null) {
-				Destroy(gameField[a,b]);
-			}
+			//System.Random random = new System.Random();
+			//int a = random.Next(0,6);
+			//int b = random.Next(6,12);
+			//if(gameField[a,b] != null) {
+			//	Destroy(gameField[a,b]);
+			//}
 
-			/* for (int a = 0; a < gameField.GetLength(0);a++) {
+			for (int a = 0; a < gameField.GetLength(0);a++) {
 				Debug.Log("Column:" + a);
 				for (int b = 0; b < gameField.GetLength(1);b++) {
 					Debug.Log(gameField[a,b].GetComponent<Rock>().GetElement());
 				}
-			} */
+			}
 		}
 	}
 
@@ -155,6 +160,8 @@ public class GameField : MonoBehaviour {
                 {
                     startGame = false;
 					newExtraTable = false;
+                    _gameLogic._paused = false;
+                    _creatingNewTiles = false;
 					rowsDone = 0;
                 }
                 count = 0;
@@ -375,4 +382,32 @@ public class GameField : MonoBehaviour {
 		// }
 	}
 
+    internal void CreateNewArrays(bool destroyOldOnes)
+    {
+        if (destroyOldOnes)
+        {
+            for (int a = 0; a < gameField.GetLength(0); a++)
+            {
+                for (int b = 0; b < gameField.GetLength(1); b++)
+                {
+                    Destroy(gameField[a, b]);
+                }
+            }
+        }
+        if (_useStandardTemplates)
+        {
+            CreateRandomRow(template.GetRandomRowTemplate(), 1);
+        }
+        else
+        {
+            CreateRandomRow(template.getRandomRowDebrisTemplate(), 1);
+        }
+        CreateRandomRow(template.GetRandomRowTemplate(), 2);
+
+        startGame = true;
+        firstTable = true;
+        _creatingNewTiles = true;
+        FindObjectOfType<GameLogic>()._paused = false;
+        FindObjectOfType<CombatUI>()._paused = false;
+    }
 }

@@ -61,7 +61,6 @@ public class CombatUI : MonoBehaviour {
 	
 	void Update () {
         if (!_paused) {
-            gameObject.GetComponent<Timer>().StartTimer();
             //Debug.Log(EnemyHealth.value);
             if (EnemyHealth.value <= 0 && !_victory && !_defeat) {
 
@@ -95,7 +94,6 @@ public class CombatUI : MonoBehaviour {
             }
         } else
         {
-            gameObject.GetComponent<Timer>().Stop();
         }
     }
     public void PlayClickAudio() {
