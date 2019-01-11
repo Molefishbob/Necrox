@@ -38,7 +38,7 @@ public class Templates : MonoBehaviour {
 	}
 	public string getRandomRowDebrisTemplate() {
 
-		switch (50) {
+		switch ((int)Random.Range(1, 7)) {
 				case 1:
 					return _debrisTemplate1;
 				case 2:
