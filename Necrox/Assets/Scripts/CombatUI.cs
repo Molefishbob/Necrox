@@ -96,6 +96,19 @@ public class CombatUI : MonoBehaviour {
         {
         }
     }
+
+    public void PauseGame(bool value)
+    {
+        if (value)
+        {
+            GetComponent<Timer>().Stop();
+            Debug.Log("CurrentTime:" + GetComponent<Timer>().CurrentTime);
+        } else
+        {
+            Debug.Log("CurrentTime:" + GetComponent<Timer>().CurrentTime);
+            GetComponent<Timer>().StartTimer();
+        }
+    }
     public void PlayClickAudio() {
 			_camera.GetComponent<CameraManager>()
 					.PlaySound(_buttonClick,GameManager._soundVolume,usePitchVariance: false);

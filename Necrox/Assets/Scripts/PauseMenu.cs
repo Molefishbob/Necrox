@@ -17,7 +17,9 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void PlayGame() {
+        CombatUI cUI = FindObjectOfType<CombatUI>();
         FindObjectOfType<GameLogic>()._paused = false;
-        FindObjectOfType<CombatUI>()._paused = false;
+        cUI._paused = false;
+        cUI.PauseGame(false);
     }
 }

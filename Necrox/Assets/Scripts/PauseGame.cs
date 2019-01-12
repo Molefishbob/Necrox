@@ -6,7 +6,10 @@ public class PauseGame : MonoBehaviour {
 
     
     public void Pause() {
+        CombatUI cUI = FindObjectOfType<CombatUI>();
+
         FindObjectOfType<GameLogic>()._paused = true;
-        FindObjectOfType<CombatUI>()._paused = true;
+        cUI._paused = true;
+        cUI.PauseGame(true);
     }
 }
