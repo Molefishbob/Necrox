@@ -857,12 +857,12 @@ MonoBehaviour:
   _standardTemplate4: wfcefffefwewewwcfeffecefwefwwfffwfew
   _standardTemplate5: cffefwwewcfewfwfecfeefwfefwwceefewef
   _standardTemplate6: efefweweefwfwffweffceecwwfecwfewceff
-  _debrisTemplate1: fcwewfwewfceeffdfwefcdfefwfcewdcefwf
-  _debrisTemplate2: fecefdfedfwdefewffwfwwewwcfcfefcwfef
-  _debrisTemplate3: "ceffeffwwcefcedwfwwedwewfdcewffeewfc\t"
-  _debrisTemplate4: wfcefffefwewewwcdedfecefwefwwfffwfdw
+  _debrisTemplate1: fcwewfwewfcfeffdfwefcdeefwfcewdcefwf
+  _debrisTemplate2: cefefdfedfwdefewffwfwwewwcfcfefcwfef
+  _debrisTemplate3: ceffeffwwcefcedwfwwedwewfdcewffeewfc
+  _debrisTemplate4: wfcefffefwfwewwcdedfecefwefwwfffwedw
   _debrisTemplate5: cffefwwewcfewfwfdcfeefwfeddwceefewef
-  _debrisTemplate6: efefweweefwfwfdddffceecwwfecwfewceff
+  _debrisTemplate6: effwweweefefwfdddffceecwwfecwfewceff
 --- !u!114 &114892419356301488
 MonoBehaviour:
   m_ObjectHideFlags: 1
