@@ -438,7 +438,7 @@ public class MatchChecker : MonoBehaviour {
 
     //do the same check but iterate through the array
     public void BoardCheck() {
-        if (CheckForPotentialMatches())
+        if (!CheckForPotentialMatches())
         {
             ColumnCheck();
 

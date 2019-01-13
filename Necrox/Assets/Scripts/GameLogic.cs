@@ -108,11 +108,10 @@ public class GameLogic : MonoBehaviour {
 
             }
 
-            if (!_gameField.AreVisibleTilesMoving() && !_gameField._creatingNewTiles) {
+            if (!_gameField.AreVisibleTilesMoving()) {
                 
                 if (_boardCheckCounter >= 15)
                 {
-
                     CheckBoard();
                     _boardCheckCounter = 0;
 
