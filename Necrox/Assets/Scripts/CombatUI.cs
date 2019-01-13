@@ -38,6 +38,7 @@ public class CombatUI : MonoBehaviour {
     public AudioClip _winnerBassAudio;
     [SerializeField]
     private AudioClip _buttonClick;
+    private TakeDamage _necromancer;
 
     public bool _paused {
         get;
@@ -57,6 +58,7 @@ public class CombatUI : MonoBehaviour {
         System.Int32.TryParse(SceneManager.GetActiveScene().name.Substring(5),out val);
         _currentLevel.SetText(LevelText, val);
         LevelSettings(val);
+        _necromancer = FindObjectOfType<TakeDamage>();
 	}
 	
 	void Update () {
@@ -136,9 +138,7 @@ public class CombatUI : MonoBehaviour {
     }
 
     void EnemyAttack() {
-        if (firstAttack) {
-            firstAttack = false;
-        }
+
         if (attackComplete) {
             attackComplete = false;
             gameObject.GetComponent<Timer>().SetTime(enemyAtkTime);
@@ -155,11 +155,15 @@ public class CombatUI : MonoBehaviour {
                 Destroy(EarthShield);
                 earthBool = false;
                 earthStack = 0;
-                MainCharHealth.value -= (float)(enemyDmg * (1 - earthStack));
+                float temp = (float)(enemyDmg * (1 - earthStack));
+                _necromancer.ShowDamageText(temp);
+                MainCharHealth.value -= temp;
                 Instantiate(enemyDmgFeedback);
                 FindObjectOfType<TakeDamage>().StartFlash();
             } else {
-                MainCharHealth.value -= enemyDmg;
+                float temp = enemyDmg;
+                _necromancer.ShowDamageText(temp);
+                MainCharHealth.value -= temp;
                 Instantiate(enemyDmgFeedback);
                 FindObjectOfType<TakeDamage>().StartFlash();
             }
