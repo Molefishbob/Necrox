@@ -30,7 +30,6 @@ public class CombatUI : MonoBehaviour {
     public Camera _camera;
     public TMP_Text _currentLevel;
     private bool _victory;
-    private bool firstAttack = true;
     private bool attackComplete = true;
     private bool _defeat;
     public string nextLevel;

@@ -33,7 +33,6 @@ public class FadeOutTransition : MonoBehaviour {
         }
         if (_timer.IsCompleted && _fadingOut)
         {
-            Debug.Log("im not feeling so good");
             gameObject.SetActive(false);
         }
 	}
