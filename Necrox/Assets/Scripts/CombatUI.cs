@@ -17,7 +17,7 @@ public class CombatUI : MonoBehaviour {
     private float FireDmg = 3;
     private float waterHeal = 2;
     private bool earthBool = false;
-    private float earthPercentage = .04f;
+    private float earthPercentage = .03f;
     private float earthStack;
     private float earthMax = .5f;
     public GameObject EarthShieldPrefab;
@@ -152,13 +152,13 @@ public class CombatUI : MonoBehaviour {
             enemy.GetComponent<Animator>().SetTrigger("Attack");
             if (earthBool) {
                 Destroy(EarthShield);
-                earthBool = false;
-                earthStack = 0;
                 float temp = (float)(enemyDmg * (1 - earthStack));
                 _necromancer.ShowDamageText(temp);
                 MainCharHealth.value -= temp;
                 Instantiate(enemyDmgFeedback);
                 FindObjectOfType<TakeDamage>().StartFlash();
+                earthBool = false;
+                earthStack = 0;
             } else {
                 float temp = enemyDmg;
                 _necromancer.ShowDamageText(temp);
