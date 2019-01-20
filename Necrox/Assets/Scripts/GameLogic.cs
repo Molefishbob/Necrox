@@ -34,7 +34,6 @@ public class GameLogic : MonoBehaviour {
     private int _boardCheckCounter = 0;
     private GameField _gameField;
     private int _comboResetCounter = 0;
-    private bool _checkingForMatches;
 
     public bool _paused {
         get;
@@ -123,12 +122,6 @@ public class GameLogic : MonoBehaviour {
             if (_noMatches) {
 
                 if (_comboResetCounter >= 20) {
-
-                    if (!_checkingForMatches)
-                    {
-                        _checkingForMatches = true;
-                        _checkingForMatches = gameField.GetComponent<MatchChecker>().CheckForPotentialMatches();
-                    }
 
                     _feedback.CombatUI.GetComponentInChildren<ComboFeedback>().comboOver = true;
                     _feedback.CombatUI.GetComponentInChildren<ComboFeedback>().comboCount = GameManager.comboCount;

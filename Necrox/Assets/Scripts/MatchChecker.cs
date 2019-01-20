@@ -988,14 +988,12 @@ public class MatchChecker : MonoBehaviour {
                 {
                     if (b - 1 >= 6)
                     {
-                        Debug.Log("3 1");
                         Rock temp = GameField.GetGameField()[a, b - 1].GetComponent<Rock>();
                         if (temp.GetElement() == tile.GetElement()
                             && GameField.GetGameField()[a + 1, b].GetComponent<Rock>().GetElement() != Debris
                             && temp.GetElement() != Debris
                             && tile.GetElement() != Debris)
                         {
-                            Debug.Log("3");
                             return true;
 
                         }
@@ -1008,8 +1006,6 @@ public class MatchChecker : MonoBehaviour {
                             && temp.GetElement() != Debris
                             && tile.GetElement() != Debris)
                         {
-                            Debug.Log("4 1");
-                            Debug.Log("4");
                             return true;
 
                         }
@@ -1024,7 +1020,7 @@ public class MatchChecker : MonoBehaviour {
     private void ResetTimer()
     {
         _timer.Stop();
-        _timer.SetTime(0.6f);
+        _timer.SetTime(2f);
         _timer.StartTimer();
     }
 }

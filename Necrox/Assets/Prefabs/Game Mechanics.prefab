@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88486dee5f432784796192b3cb0effe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 0.5
+  _time: 0.6
 --- !u!114 &114200816232816698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -801,7 +801,7 @@ MonoBehaviour:
   column5: {fileID: 1844402645481672}
   _movementAudio: {fileID: 8300000, guid: 5b459758f81f15148bf9272648356ad6, type: 3}
   _gameLogic: {fileID: 114531370456334196}
-  _useStandardTemplates: 0
+  _useStandardTemplates: 1
 --- !u!114 &114737322769587644
 MonoBehaviour:
   m_ObjectHideFlags: 1
