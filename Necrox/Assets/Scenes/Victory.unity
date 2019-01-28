@@ -483,8 +483,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Main Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1219f7fe3535ac2428d4ee1c6c950e7c, type: 2}
-  m_sharedMaterial: {fileID: 21888025131643918, guid: 1219f7fe3535ac2428d4ee1c6c950e7c,
+  m_fontAsset: {fileID: 11400000, guid: 51a9cab53734a454cb5448c59b026295, type: 2}
+  m_sharedMaterial: {fileID: 21707653037011492, guid: 51a9cab53734a454cb5448c59b026295,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -762,8 +762,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: You have taken over \n the kingdom!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1219f7fe3535ac2428d4ee1c6c950e7c, type: 2}
-  m_sharedMaterial: {fileID: 21888025131643918, guid: 1219f7fe3535ac2428d4ee1c6c950e7c,
+  m_fontAsset: {fileID: 11400000, guid: 51a9cab53734a454cb5448c59b026295, type: 2}
+  m_sharedMaterial: {fileID: 21707653037011492, guid: 51a9cab53734a454cb5448c59b026295,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
@@ -1026,8 +1026,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Congratulations!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1219f7fe3535ac2428d4ee1c6c950e7c, type: 2}
-  m_sharedMaterial: {fileID: 21888025131643918, guid: 1219f7fe3535ac2428d4ee1c6c950e7c,
+  m_fontAsset: {fileID: 11400000, guid: 51a9cab53734a454cb5448c59b026295, type: 2}
+  m_sharedMaterial: {fileID: 21707653037011492, guid: 51a9cab53734a454cb5448c59b026295,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1058,7 +1058,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0

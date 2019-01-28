@@ -2313,6 +2313,32 @@ Prefab:
       propertyPath: m_fontStyle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114850611110779270, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114147152675008798, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114850611110779270, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 51a9cab53734a454cb5448c59b026295,
+        type: 2}
+    - target: {fileID: 114850611110779270, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114531945493561564, guid: d181fc4624faab04ca0410c9a8d018ab,
+        type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d181fc4624faab04ca0410c9a8d018ab, type: 2}
   m_IsPrefabAsset: 0
