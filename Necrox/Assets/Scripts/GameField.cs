@@ -44,11 +44,13 @@ public class GameField : MonoBehaviour {
     private bool firstTable = true;
 
     public bool _creatingNewTiles { get; internal set; }
+    protected Tutorial _tutorial;
 
     void Start () {
 		GameManager.defaultMultiplier = 100;
 		_firstField = new string[6,6];
 		_extraTiles = new string[6,6];
+        _tutorial = FindObjectOfType<Tutorial>();
 		rows = arrayRows;
 		count = timer;
 		rowsDone = 0;
@@ -69,6 +71,9 @@ public class GameField : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
+
+        if (_tutorial != null && _tutorial.gameObject.activeSelf) return;
+
 		if (startGame)
         {
             ConfigureGame();
